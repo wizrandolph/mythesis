@@ -1,0 +1,117 @@
+% !TEX root = thesis.tex  % 将 "main.tex" 替换为你的主文件名
+%%
+%% This is file `thesis.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% scnuthesis.dtx  (with options: `thesis')
+%% 
+%% !Mode:: "TeX:UTF-8"
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2013 by Joseph 2024 Pan <cs.wzpan@gmail.com>
+%% 
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3a
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in:
+%% 
+%% http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3a or later is part of all distributions of LaTeX
+%% version 2004/10/01 or later.
+%% 
+%% To produce the documentation run the original source files ending with `.dtx'
+%% through LaTeX.
+%% 
+%% Any Suggestions : Joseph Pan <cs.wzpan@gmail.com>
+%% Thanks LiuBenYuan <liubenyuan@gmail.com> for the nudtpapre class!
+%% Thanks Xue Ruini <xueruini@gmail.com> for the thuthesis class!
+%% Thanks sofoot for the original NUDT paper class!
+%% 
+%1. 如果是研究生论文，常用的选项是：
+% \documentclass[master,twoside]{scnuthesis}
+%2. 如果是博士生论文，常用的选项是：
+% \documentclass[doctor,twoside]{scnuthesis}
+%3. 如果想生成盲评，传递anon即可，仍需修改个人成果部分
+% \documentclass[master,anon]{scnuthesis}
+%4. 让章节标题作为页眉，可以使用chapterhead选项。如果和twoside一起使用，则奇数页页眉为章节标题，偶数页为文章标题。
+% \documentclass[master,twoside]{scnuthesis}
+
+% 隐藏正文 [hidetext]
+% 隐藏隐私信息 [private]
+
+
+\documentclass[master,twoside,title]{scnuthesis}
+\usepackage{myscnu}
+\usepackage{xeCJK}  % 中文支持
+\usepackage{CJKnumb}
+
+\begin{document}
+\graphicspath{{figures/}}
+\input{data/info}
+
+% 插入摘要，制作封面
+\ifisanon{}\else{\maketitle}\fi
+\frontmatter
+\input{data/abstract}
+
+% 生成目录
+\tableofcontents
+% \newpage
+% \thispagestyle{plain}
+% \mbox{}
+\listoftables           % 如果要生成表目录
+% \newpage
+% \thispagestyle{plain}
+% \mbox{}
+\listoffigures          % 如果要生成图目录
+% \newpage
+% \thispagestyle{plain}
+% \mbox{}
+\renewcommand{\chapterlabel}{\denotationname} %设置页眉
+
+% \input{data/denotation} % 如果要生成符号列表
+
+% 书写正文，可以根据需要增添章节。
+\mainmatter
+\input{data/chap01}
+\input{data/chap02}
+\input{data/chap03}
+\input{data/chap04}
+\input{data/chap05}
+\input{data/chap06}
+% \input{data/chap教程}
+
+% \input{华师硕士毕业论文/data/chap教程}
+
+% 参考文献
+\cleardoublepage
+\renewcommand{\chapterlabel}{\bibname} % 设置参考文献的页眉
+\bibliographystyle{bstutf8}
+\bibliography{ref/refs}
+\newpage
+% \thispagestyle{plain}
+% \mbox{}
+% 附录
+\appendix
+\backmatter
+% \input{data/appendix01}
+% \input{data/appendix02}
+
+% 致谢
+% \cleardoublepage
+% \renewcommand{\chapterlabel}{\ackname} % 设置参考文献的页眉
+% \input{data/ack}
+% \newpage
+% \thispagestyle{plain}
+% \mbox{}
+% % 作者攻读学位期间发表的学术论文目录
+% \cleardoublepage
+% \renewcommand{\chapterlabel}{\resumename} % 设置作者个人成果的页眉
+% \input{data/resume}
+
+\end{document}
+%%
