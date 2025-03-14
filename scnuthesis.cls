@@ -718,6 +718,8 @@
 
 
 
+
+
 \endinput
 %%
 %% End of file `scnuthesis.cls'.

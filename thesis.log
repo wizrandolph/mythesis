@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.10)  10 MAR 2025 00:23
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.10)  14 MAR 2025 16:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1326,6 +1326,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [11]) (./data/chap02.tex
+Underfull \vbox (badness 4940) has occurred while \output is active []
+
+
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1339,12 +1342,34 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[13
+[13]
+
+[14
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[15
 
 
 ]
 File: figures/../figures/2/2_FRET双杂交分析数据处理流程.png Graphic file (type bmp)
 <figures/../figures/2/2_FRET双杂交分析数据处理流程.png>
+
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[16]
 File: figures/../figures/2/2_Fretha软件架构图.png Graphic file (type bmp)
 <figures/../figures/2/2_Fretha软件架构图.png>
 
@@ -1354,7 +1379,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[14]
+[17]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1364,7 +1389,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[15]
+[18]
 File: figures/../figures/2/2_Fretha数据层对应关系.png Graphic file (type bmp)
 <figures/../figures/2/2_Fretha数据层对应关系.png>
 
@@ -1374,45 +1399,13 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[16]
-LaTeX Font Info:    Calculating math sizes for size <10.53937> on input line 111.
-
-Underfull \hbox (badness 10000) in alignment at lines 111--126
-[][][][] 
- []
-
-
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[17]
-File: figures/../figures/2/2_成像参数设置模块业务流程.drawio.png Graphic file (type bmp)
-<figures/../figures/2/2_成像参数设置模块业务流程.drawio.png>
-File: figures/../figures/2/2_FRETscopeII数据格式.drawio.png Graphic file (type bmp)
-<figures/../figures/2/2_FRETscopeII数据格式.drawio.png>
-
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[18]
-File: figures/../figures/2/2_数据完备性检验业务.drawio.png Graphic file (type bmp)
-<figures/../figures/2/2_数据完备性检验业务.drawio.png>
-File: figures/../figures/2/2_图像处理模块界面.png Graphic file (type bmp)
-<figures/../figures/2/2_图像处理模块界面.png>
-
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
 [19]
+File: figures/../figures/2/2_FRET定量计算器流程.png Graphic file (type bmp)
+<figures/../figures/2/2_FRET定量计算器流程.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1420,6 +1413,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [20]
+Underfull \vbox (badness 1910) has occurred while \output is active []
+
+
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1427,7 +1423,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [21]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Font Info:    Calculating math sizes for size <10.53937> on input line 144.
+
+Overfull \hbox (35.99997pt too wide) in alignment at lines 144--226
+[][][] 
+ []
 
 
 
@@ -1437,36 +1437,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [22]
-File: figures/../figures/2/2_自动ROI圈点模块业务流程.drawio.png Graphic file (type bmp)
-<figures/../figures/2/2_自动ROI圈点模块业务流程.drawio.png>
-
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[23]
-Underfull \vbox (badness 7704) has occurred while \output is active []
-
-
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[24]
-Underfull \vbox (badness 1400) has occurred while \output is active []
-
-
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[25]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1476,24 +1446,13 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[26]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[27] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+[23] (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 378.
 
 Package fontspec Info: 
 (fontspec)             Font family 'AdobeKai.otf(0)' created for font
@@ -1514,8 +1473,28 @@ Package fontspec Info:
 
 
 
-[28]
-Missing character: There is no ， ("FF0C) in font txr!
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[24]
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[25]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[26]
+Underfull \hbox (badness 10000) in alignment at lines 367--382
+[][][][] 
+ []
+
 
 
 
@@ -1523,10 +1502,33 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[29]) (./data/chap03.tex
-Underfull \vbox (badness 2088) has occurred while \output is active []
+[27]
+File: figures/../figures/2/2_成像参数设置模块业务流程.drawio.png Graphic file (type bmp)
+<figures/../figures/2/2_成像参数设置模块业务流程.drawio.png>
+File: figures/../figures/2/2_FRETscopeII数据格式.drawio.png Graphic file (type bmp)
+<figures/../figures/2/2_FRETscopeII数据格式.drawio.png>
+File: figures/../figures/2/2_数据完备性检验业务.drawio.png Graphic file (type bmp)
+<figures/../figures/2/2_数据完备性检验业务.drawio.png>
+File: figures/../figures/2/2_图像处理模块界面.png Graphic file (type bmp)
+<figures/../figures/2/2_图像处理模块界面.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[28]
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[29]
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1541,10 +1543,50 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [31]
+File: figures/../figures/2/2_自动ROI圈点模块业务流程.png Graphic file (type bmp)
+<figures/../figures/2/2_自动ROI圈点模块业务流程.png>
 
-[32
 
-]
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[32]
+Underfull \vbox (badness 1502) has occurred while \output is active []
+
+
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[33]
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[34]
+Underfull \vbox (badness 1715) has occurred while \output is active []
+
+
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[35]) (./data/chap03.tex
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[36]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1554,44 +1596,13 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[33
+[37
 
 
 ]
 Underfull \vbox (badness 3088) has occurred while \output is active []
 
 
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[34]
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[35]
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[36]
-File: figures/../figures/3/3_LURS流程图.png Graphic file (type bmp)
-<figures/../figures/3/3_LURS流程图.png>
-
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[37]
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1606,9 +1617,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [39]
-File: figures/../figures/3/3_模型质粒实验结果.png Graphic file (type bmp)
-<figures/../figures/3/3_模型质粒实验结果.png>
-) (./data/chap04.tex
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1616,6 +1624,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [40]
+File: figures/../figures/3/3_LURS流程图.png Graphic file (type bmp)
+<figures/../figures/3/3_LURS流程图.png>
+
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1624,22 +1635,22 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [41]
 
-[42
 
-]
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[42]
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[43
-
-
-]
-Underfull \vbox (badness 3049) has occurred while \output is active []
-
-
+[43]
+File: figures/../figures/3/3_模型质粒实验结果.png Graphic file (type bmp)
+<figures/../figures/3/3_模型质粒实验结果.png>
+) (./data/chap04.tex
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1655,19 +1666,22 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [45]
 
+[46
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[46]
+[47
 
 
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[47]) (./data/chap05.tex
+]
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1683,21 +1697,49 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [49]
 
-[50
 
-]) (./data/chap06.tex)
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[50]
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[51
+[51]
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[52]) (./data/chap05.tex
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[53]
+
+[54
+
+])
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[55
 
 
 ]
 
-[52
+[56
 
 ] (./thesis.bbl
 
@@ -1706,7 +1748,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[53
+[57
 
 
 ])
@@ -1716,7 +1758,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
 
-[54]
+[58]
 \tf@thm=\write8
 \openout8 = `thesis.thm'.
 
@@ -1730,15 +1772,15 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: D759E5736EF46C99E0F26E370AEFC8AD;7684.
+(rerunfilecheck)             Checksum: B8C1251AC2BDF6759C232EEE6E1EA03A;8034.
  ) 
 Here is how much of TeX's memory you used:
- 23043 strings out of 475796
- 467819 string characters out of 5773188
- 1211122 words of memory out of 5000000
- 45516 multiletter control sequences out of 15000+600000
+ 23001 strings out of 475796
+ 465975 string characters out of 5773188
+ 1232676 words of memory out of 5000000
+ 45476 multiletter control sequences out of 15000+600000
  622636 words of font info for 228 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 89i,20n,107p,1516b,1830s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,20n,107p,1516b,2015s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on thesis.xdv (68 pages, 1020240 bytes).
+Output written on thesis.xdv (72 pages, 1082504 bytes).
