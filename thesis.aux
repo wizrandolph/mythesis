@@ -62,7 +62,7 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {2{}.3}{\ignorespaces Fretha数据层实体关联关系图}}{19}{figure.caption.10}\protected@file@percent }
 \newlabel{fig:fretha_data_relations}{{2{}.3}{19}{Fretha数据层实体关联关系图}{figure.caption.10}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}开发技术选型}{19}{subsection.2.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}后台计算功能接口}{20}{section.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}FRET算法和后台接口}{20}{section.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}FRET定量计算器}{20}{subsection.2.3.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2{}.4}{\ignorespaces FretCalculator计算步骤}}{21}{figure.caption.11}\protected@file@percent }
 \newlabel{fig:fretha_calculator}{{2{}.4}{21}{FretCalculator计算步骤}{figure.caption.11}{}}
@@ -71,98 +71,118 @@
 \newlabel{tab:算法接口}{{2{}.1}{22}{FRET图像处理库算法接口}{table.caption.12}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}FRET双杂交求解器}{22}{subsection.2.3.3}\protected@file@percent }
 \newlabel{eq:linear_fit_quick}{{2{}.7}{24}{FRET双杂交求解器}{equation.2.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Qt开发的接口设计}{27}{subsection.2.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}功能模块的实现}{27}{section.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}成像参数设置模块}{27}{subsection.2.4.1}\protected@file@percent }
+\newlabel{code:data_type}{{2.1}{24}{数据类型}{lstlisting.2.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2.1}{\ignorespaces 数据类型}}{24}{lstlisting.2.1}\protected@file@percent }
+\newlabel{code:error_calculate}{{2.2}{24}{误差计算函数}{lstlisting.2.2}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2.2}{\ignorespaces 误差计算函数}}{24}{lstlisting.2.2}\protected@file@percent }
+\newlabel{code:two_hybrid_solver}{{2.3}{25}{双杂交求解器}{lstlisting.2.3}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2.3}{\ignorespaces 双杂交求解器}}{25}{lstlisting.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}功能模块的实现}{26}{section.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}成像参数设置模块}{26}{subsection.2.4.1}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {2{}.2}{\ignorespaces FRET成像参数}}{27}{table.caption.13}\protected@file@percent }
 \newlabel{tab:fretha_param_list}{{2{}.2}{27}{FRET成像参数}{table.caption.13}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}数据完备性检验模块}{28}{subsection.2.4.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2{}.5}{\ignorespaces 参数设置模块业务流程图}}{29}{figure.caption.14}\protected@file@percent }
-\newlabel{fig:fretha_param_module_flow}{{2{}.5}{29}{参数设置模块业务流程图}{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}数据完备性检验模块}{27}{subsection.2.4.2}\protected@file@percent }
+\newlabel{sec:数据完备性检验模块}{{2.4.2}{27}{数据完备性检验模块}{subsection.2.4.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2{}.5}{\ignorespaces 参数设置模块业务流程}}{28}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:fretha_param_module_flow}{{2{}.5}{28}{参数设置模块业务流程}{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2{}.6}{\ignorespaces FRETscopeII数据文件结构}}{29}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:fretscope_data_struct}{{2{}.6}{29}{FRETscopeII数据文件结构}{figure.caption.15}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}FRET图像处理模块}{29}{subsection.2.4.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2{}.6}{\ignorespaces FRETscopeII数据文件结构}}{30}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:fretscope_data_struct}{{2{}.6}{30}{FRETscopeII数据文件结构}{figure.caption.15}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2{}.7}{\ignorespaces Fretha数据完备性检验业务主流程图}}{30}{figure.caption.16}\protected@file@percent }
 \newlabel{fig:fretha_data_check_flow}{{2{}.7}{30}{Fretha数据完备性检验业务主流程图}{figure.caption.16}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2{}.8}{\ignorespaces Fretha图像处理模块界面}}{31}{figure.caption.17}\protected@file@percent }
 \newlabel{fig:fretha_imageprocess_ui}{{2{}.8}{31}{Fretha图像处理模块界面}{figure.caption.17}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2{}.3}{\ignorespaces FRET图像视图类型}}{32}{table.caption.18}\protected@file@percent }
-\newlabel{tab:fretha_viewtype_list}{{2{}.3}{32}{FRET图像视图类型}{table.caption.18}{}}
-\newlabel{eq:normalize}{{2{}.9}{32}{FRET图像处理模块}{equation.2.9}{}}
-\newlabel{eq:normalize_255}{{2{}.10}{32}{FRET图像处理模块}{equation.2.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2{}.3}{\ignorespaces FRET图像视图类型}}{31}{table.caption.18}\protected@file@percent }
+\newlabel{tab:fretha_viewtype_list}{{2{}.3}{31}{FRET图像视图类型}{table.caption.18}{}}
+\newlabel{eq:normalize}{{2{}.8}{32}{FRET图像处理模块}{equation.2.8}{}}
+\newlabel{eq:normalize_255}{{2{}.9}{32}{FRET图像处理模块}{equation.2.9}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {2{}.4}{\ignorespaces FRET圈点状态栏显示内容}}{33}{table.caption.19}\protected@file@percent }
 \newlabel{tab:fret_statusbar_list}{{2{}.4}{33}{FRET圈点状态栏显示内容}{table.caption.19}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.4}数据控制模块}{33}{subsection.2.4.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2{}.9}{\ignorespaces Fretha自动圈点模块流程}}{34}{figure.caption.20}\protected@file@percent }
-\newlabel{fig:fret_auto_roi_flow}{{2{}.9}{34}{Fretha自动圈点模块流程}{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2{}.9}{\ignorespaces Fretha自动圈点模块流程}}{33}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:fret_auto_roi_flow}{{2{}.9}{33}{Fretha自动圈点模块流程}{figure.caption.20}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.4}数据管理模块}{34}{subsection.2.4.4}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {2{}.5}{\ignorespaces FretDataPiece数据类型}}{34}{table.caption.21}\protected@file@percent }
 \newlabel{tab:数据项内容定义}{{2{}.5}{34}{FretDataPiece数据类型}{table.caption.21}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.5}结果可视化模块}{36}{subsection.2.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}本章小结}{36}{section.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.5}结果可视化模块}{35}{subsection.2.4.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2{}.10}{\ignorespaces Fretha结果可视化模块界面}}{36}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:fretha_result_ui}{{2{}.10}{36}{Fretha结果可视化模块界面}{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2{}.11}{\ignorespaces Fretha结果保存}}{37}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:结果保存}{{2{}.11}{37}{Fretha结果保存}{figure.caption.23}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}本章小结}{37}{section.2.5}\protected@file@percent }
 \citation{sun2022automated}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}自动FRET双杂交分析}{37}{chapter.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}引言}{37}{section.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}材料与方法}{37}{section.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}细胞培养和转染}{37}{subsection.3.2.1}\protected@file@percent }
-\newlabel{sec:细胞转染}{{3.2.1}{37}{细胞培养和转染}{subsection.3.2.1}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}自动FRET双杂交分析数据处理算法}{39}{chapter.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}引言}{39}{section.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}材料与方法}{39}{section.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}细胞培养和转染}{39}{subsection.3.2.1}\protected@file@percent }
+\newlabel{sec:细胞转染}{{3.2.1}{39}{细胞培养和转染}{subsection.3.2.1}{}}
 \citation{jagadeeswari2022integral}
 \citation{gedraite2011investigation}
 \citation{sun2019}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}FRET成像系统}{38}{subsection.3.2.2}\protected@file@percent }
-\newlabel{sec:成像条件}{{3.2.2}{38}{FRET成像系统}{subsection.3.2.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3{}.1}{\ignorespaces FRET成像系统参数}}{38}{table.caption.23}\protected@file@percent }
-\newlabel{tab:lurs_imaging_params}{{3{}.1}{38}{FRET成像系统参数}{table.caption.23}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}基于明度和均匀度的自动ROI选取算法（LURS）}{38}{subsection.3.2.3}\protected@file@percent }
-\newlabel{eq:bg}{{3{}.1}{39}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.1}{}}
-\newlabel{eq1}{{3{}.2}{39}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.2}{}}
-\newlabel{eq2}{{3{}.3}{39}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.3}{}}
-\newlabel{eq3}{{3{}.4}{40}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.4}{}}
-\newlabel{eq4}{{3{}.5}{40}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.5}{}}
-\newlabel{eq5}{{3{}.6}{40}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.6}{}}
-\newlabel{eq6}{{3{}.7}{40}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.7}{}}
-\newlabel{eq7}{{3{}.8}{40}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.8}{}}
-\newlabel{eq8}{{3{}.10}{41}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.10}{}}
-\newlabel{eq9}{{3{}.11}{41}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.11}{}}
-\newlabel{eq_merge_u}{{3{}.12}{41}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.12}{}}
-\newlabel{eq10}{{3{}.13}{41}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3{}.1}{\ignorespaces LURS算法流程图}}{42}{figure.caption.24}\protected@file@percent }
-\newlabel{fig1}{{3{}.1}{42}{LURS算法流程图}{figure.caption.24}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}DC-FRET方法的数据范围选取}{42}{subsection.3.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}实验结果}{43}{section.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}标准质粒验证实验}{43}{subsection.3.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3{}.2}{\ignorespaces  对标准质粒进行$3^3$-FRET和E-FRET测量的结果}}{43}{table.caption.25}\protected@file@percent }
-\newlabel{tab:results_standard_plasmids}{{3{}.2}{43}{对标准质粒进行$3^3$-FRET和E-FRET测量的结果}{table.caption.25}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}FRET成像系统}{40}{subsection.3.2.2}\protected@file@percent }
+\newlabel{sec:成像条件}{{3.2.2}{40}{FRET成像系统}{subsection.3.2.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3{}.1}{\ignorespaces FRET成像系统参数}}{40}{table.caption.25}\protected@file@percent }
+\newlabel{tab:lurs_imaging_params}{{3{}.1}{40}{FRET成像系统参数}{table.caption.25}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}基于明度和均匀度的自动ROI选取算法（LURS）}{40}{subsection.3.2.3}\protected@file@percent }
+\newlabel{eq:bg}{{3{}.1}{41}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.1}{}}
+\newlabel{eq1}{{3{}.2}{41}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.2}{}}
+\newlabel{eq2}{{3{}.3}{41}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.3}{}}
+\newlabel{eq3}{{3{}.4}{42}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.4}{}}
+\newlabel{eq4}{{3{}.5}{42}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.5}{}}
+\newlabel{eq5}{{3{}.6}{42}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.6}{}}
+\newlabel{eq6}{{3{}.7}{42}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.7}{}}
+\newlabel{eq7}{{3{}.8}{42}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.8}{}}
+\newlabel{eq8}{{3{}.10}{43}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.10}{}}
+\newlabel{eq9}{{3{}.11}{43}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.11}{}}
+\newlabel{eq_merge_u}{{3{}.12}{43}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.12}{}}
+\newlabel{eq10}{{3{}.13}{43}{基于明度和均匀度的自动ROI选取算法（LURS）}{equation.3.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3{}.1}{\ignorespaces LURS算法流程图}}{44}{figure.caption.26}\protected@file@percent }
+\newlabel{fig1}{{3{}.1}{44}{LURS算法流程图}{figure.caption.26}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}DC-FRET方法的数据范围选取}{44}{subsection.3.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}实验结果}{45}{section.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}标准质粒验证实验}{45}{subsection.3.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3{}.2}{\ignorespaces  对标准质粒进行$3^3$-FRET和E-FRET测量的结果}}{45}{table.caption.27}\protected@file@percent }
+\newlabel{tab:results_standard_plasmids}{{3{}.2}{45}{对标准质粒进行$3^3$-FRET和E-FRET测量的结果}{table.caption.27}{}}
 \citation{koushik2006cerulean}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}模型质粒验证实验}{44}{subsection.3.3.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3{}.2}{\ignorespaces 模型质粒验证实验结果}}{44}{figure.caption.26}\protected@file@percent }
-\newlabel{fig:results_model_plasmids}{{3{}.2}{44}{模型质粒验证实验结果}{figure.caption.26}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3{}.3}{\ignorespaces 模型质粒的FRET双杂交分析结果}}{45}{table.caption.27}\protected@file@percent }
-\newlabel{tab:results_model_plasmids}{{3{}.3}{45}{模型质粒的FRET双杂交分析结果}{table.caption.27}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}本章小结}{45}{section.3.4}\protected@file@percent }
-\citation{Adams1998The}
-\citation{2006Mitochondrial}
-\citation{2006Mitochondrial,2017New}
+\citation{wang2020discovery}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}模型质粒验证实验}{46}{subsection.3.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3{}.2}{\ignorespaces 模型质粒验证实验结果}}{46}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:results_model_plasmids}{{3{}.2}{46}{模型质粒验证实验结果}{figure.caption.28}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3{}.3}{\ignorespaces 模型质粒的FRET双杂交分析结果}}{47}{table.caption.29}\protected@file@percent }
+\newlabel{tab:results_model_plasmids}{{3{}.3}{47}{模型质粒的FRET双杂交分析结果}{table.caption.29}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}活细胞中 Bcl-xL-Bak 化学计量学的自动分析}{47}{subsection.3.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3{}.3}{\ignorespaces 手动、ilastik、SAM - Med2D及本方法计算的，A1331852处理前（a，b）和处理后（c，d）Bcl - xL - CFP与Bak - YFP结合的最大$3^3$-FRET（黑色）和E - FRET（红色）效率以及化学计量比（黄色）。}}{48}{figure.caption.30}\protected@file@percent }
+\newlabel{fig3}{{3{}.3}{48}{手动、ilastik、SAM - Med2D及本方法计算的，A1331852处理前（a，b）和处理后（c，d）Bcl - xL - CFP与Bak - YFP结合的最大$3^3$-FRET（黑色）和E - FRET（红色）效率以及化学计量比（黄色）。}{figure.caption.30}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}本章小结}{48}{section.3.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3{}.4}{\ignorespaces 手动、基于ilastik、基于SAM-Med2D 及Fretha自动方法测量 A1331852 处理前后 Bcl-xL-CFP 与 Bak-YFP 结合的 DC-FRET 双杂交分析结果}}{49}{table.caption.31}\protected@file@percent }
+\newlabel{tab:comparison}{{3{}.4}{49}{手动、基于ilastik、基于SAM-Med2D 及Fretha自动方法测量 A1331852 处理前后 Bcl-xL-CFP 与 Bak-YFP 结合的 DC-FRET 双杂交分析结果}{table.caption.31}{}}
 \citation{2020Stoichiometry}
-\citation{warren2019bcl,sun2023regorafenib}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}软件的应用和测试}{47}{chapter.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}引言}{47}{section.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}材料与方法}{47}{section.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}细胞培养和转染}{47}{subsection.4.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}数据处理操作}{48}{subsection.4.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}结果}{49}{section.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}应用FRET双杂交技术分析Bcl-XL和Bak互作}{49}{subsection.4.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}软件的测试}{49}{section.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}成像参数设置测试}{49}{subsection.4.4.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4{}.1}{\ignorespaces  切换参数对C32V质粒和C4Y质粒的E-FRET分析结果}}{50}{table.caption.29}\protected@file@percent }
-\newlabel{表：测试参数更新}{{4{}.1}{50}{切换参数对C32V质粒和C4Y质粒的E-FRET分析结果}{table.caption.29}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}数据导入导出测试}{50}{subsection.4.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}结果保存测试}{51}{subsection.4.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.4}软件的性能测试}{52}{subsection.4.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.5}软件的稳定性测试}{52}{subsection.4.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}本章小结}{53}{section.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}总结与展望}{55}{chapter.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}本文的主要内容和总结}{55}{section.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}未来发展展望}{55}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Fretha的测试}{51}{chapter.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}引言}{51}{section.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Fretha功能测试}{51}{section.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}成像参数设置模块测试}{51}{subsection.4.2.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4{}.1}{\ignorespaces  切换参数对C32V质粒和C4Y质粒的E-FRET分析结果}}{52}{table.caption.33}\protected@file@percent }
+\newlabel{表：测试参数更新}{{4{}.1}{52}{切换参数对C32V质粒和C4Y质粒的E-FRET分析结果}{table.caption.33}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}数据完备性模块测试}{52}{subsection.4.2.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4{}.2}{\ignorespaces Fretha数据完备性检验模块测试结果 }}{53}{table.caption.34}\protected@file@percent }
+\newlabel{tab:测试数据完备性}{{4{}.2}{53}{Fretha数据完备性检验模块测试结果}{table.caption.34}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}FRET图像处理模块测试}{53}{subsection.4.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4{}.1}{\ignorespaces Fretha图像处理视图切换测试结果}}{54}{figure.caption.35}\protected@file@percent }
+\newlabel{fig:视图测试}{{4{}.1}{54}{Fretha图像处理视图切换测试结果}{figure.caption.35}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}数据管理模块测试}{54}{subsection.4.2.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4{}.3}{\ignorespaces ROI绘制功能测试结果}}{55}{table.caption.36}\protected@file@percent }
+\newlabel{tab:ROI鼠标样式}{{4{}.3}{55}{ROI绘制功能测试结果}{table.caption.36}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4{}.4}{\ignorespaces 重绘ROI测试状态栏数据更新}}{55}{table.caption.37}\protected@file@percent }
+\newlabel{tab:ROI状态栏}{{4{}.4}{55}{重绘ROI测试状态栏数据更新}{table.caption.37}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}结果可视化和保存测试}{56}{subsection.4.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Fretha性能分析}{56}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}自动算法性能测试}{56}{subsection.4.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4{}.5}{\ignorespaces 不同算法的性能对比}}{57}{table.caption.38}\protected@file@percent }
+\newlabel{tab5}{{4{}.5}{57}{不同算法的性能对比}{table.caption.38}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Fretha稳定性测试}{57}{section.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}本章小结}{57}{section.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}总结与展望}{59}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}本文的主要内容和总结}{59}{section.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}未来发展展望}{59}{section.5.2}\protected@file@percent }
 \bibstyle{bstutf8}
 \bibdata{ref/refs}
 \bibcite{2014The}{{1}{}{{}}{{}}}
@@ -174,14 +194,10 @@
 \bibcite{sun2022automated}{{7}{}{{}}{{}}}
 \bibcite{jagadeeswari2022integral}{{8}{}{{}}{{}}}
 \bibcite{gedraite2011investigation}{{9}{}{{}}{{}}}
-\@writefile{toc}{\contentsline {chapter}{参考文献}{57}{chapter*.31}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{参考文献}{61}{chapter*.40}\protected@file@percent }
 \bibcite{koushik2006cerulean}{{10}{}{{}}{{}}}
-\bibcite{Adams1998The}{{11}{}{{}}{{}}}
-\bibcite{2006Mitochondrial}{{12}{}{{}}{{}}}
-\bibcite{2017New}{{13}{}{{}}{{}}}
-\bibcite{2020Stoichiometry}{{14}{}{{}}{{}}}
-\bibcite{warren2019bcl}{{15}{}{{}}{{}}}
-\bibcite{sun2023regorafenib}{{16}{}{{}}{{}}}
+\bibcite{wang2020discovery}{{11}{}{{}}{{}}}
+\bibcite{2020Stoichiometry}{{12}{}{{}}{{}}}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
 \ttl@finishall
-\gdef \@abspage@last{72}
+\gdef \@abspage@last{76}

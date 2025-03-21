@@ -57,6 +57,7 @@
 \else
   \LoadClass[a4paper,12pt,openany]{book}
 \fi
+\RequirePackage{pifont} % wzq 勾和叉
 \RequirePackage{lmodern} % wzq 解决字体报错：Font shape `OT1/cmr/bx/n' in size <10.53937> not available
 \RequirePackage[includeheadfoot]{geometry}
 \RequirePackage[center,pagestyles]{titlesec}
@@ -512,8 +513,10 @@
 \let\old@tabular\@tabular
 \def\thu@tabular{\wuhao[1.25]\old@tabular}
 \DeclareCaptionLabelFormat{thu}{{\xiaosi[1.25]\heiti #1~\rmfamily #2}}
+\DeclareCaptionLabelFormat{codeformat}{代码 #2}
 \DeclareCaptionLabelSeparator{thu}{\hspace{1em}}
 \DeclareCaptionFont{thu}{\xiaosi[1.25]\heiti}
+\captionsetup[lstlisting]{labelformat=codeformat, aboveskip=6bp}
 \captionsetup{labelformat=thu,labelsep=thu,font=thu}
 \captionsetup[table]{position=top,belowskip={12bp-\intextsep},aboveskip=6bp}
 \captionsetup[figure]{position=bottom,belowskip={9bp-\intextsep},aboveskip=6bp}
@@ -714,7 +717,10 @@
 
 %% wzq 自定义列举项的序号格式
 \RequirePackage{enumitem}
-\setenumerate[1]{label=(\arabic*)}
+\setenumerate[1]{
+  label=(\arabic*),
+  itemsep=0pt,
+}
 
 
 

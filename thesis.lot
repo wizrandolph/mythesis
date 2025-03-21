@@ -1,10 +1,15 @@
 \contentsline {table}{\numberline {2{}.1}{\ignorespaces FRET图像处理库算法接口}}{22}{table.caption.12}%
 \contentsline {table}{\numberline {2{}.2}{\ignorespaces FRET成像参数}}{27}{table.caption.13}%
-\contentsline {table}{\numberline {2{}.3}{\ignorespaces FRET图像视图类型}}{32}{table.caption.18}%
+\contentsline {table}{\numberline {2{}.3}{\ignorespaces FRET图像视图类型}}{31}{table.caption.18}%
 \contentsline {table}{\numberline {2{}.4}{\ignorespaces FRET圈点状态栏显示内容}}{33}{table.caption.19}%
 \contentsline {table}{\numberline {2{}.5}{\ignorespaces FretDataPiece数据类型}}{34}{table.caption.21}%
-\contentsline {table}{\numberline {3{}.1}{\ignorespaces FRET成像系统参数}}{38}{table.caption.23}%
-\contentsline {table}{\numberline {3{}.2}{\ignorespaces 对标准质粒进行$3^3$-FRET和E-FRET测量的结果}}{43}{table.caption.25}%
-\contentsline {table}{\numberline {3{}.3}{\ignorespaces 模型质粒的FRET双杂交分析结果}}{45}{table.caption.27}%
-\contentsline {table}{\numberline {4{}.1}{\ignorespaces 切换参数对C32V质粒和C4Y质粒的E-FRET分析结果}}{50}{table.caption.29}%
+\contentsline {table}{\numberline {3{}.1}{\ignorespaces FRET成像系统参数}}{40}{table.caption.25}%
+\contentsline {table}{\numberline {3{}.2}{\ignorespaces 对标准质粒进行$3^3$-FRET和E-FRET测量的结果}}{45}{table.caption.27}%
+\contentsline {table}{\numberline {3{}.3}{\ignorespaces 模型质粒的FRET双杂交分析结果}}{47}{table.caption.29}%
+\contentsline {table}{\numberline {3{}.4}{\ignorespaces 手动、基于ilastik、基于SAM-Med2D 及Fretha自动方法测量 A1331852 处理前后 Bcl-xL-CFP 与 Bak-YFP 结合的 DC-FRET 双杂交分析结果}}{49}{table.caption.31}%
+\contentsline {table}{\numberline {4{}.1}{\ignorespaces 切换参数对C32V质粒和C4Y质粒的E-FRET分析结果}}{52}{table.caption.33}%
+\contentsline {table}{\numberline {4{}.2}{\ignorespaces Fretha数据完备性检验模块测试结果 }}{53}{table.caption.34}%
+\contentsline {table}{\numberline {4{}.3}{\ignorespaces ROI绘制功能测试结果}}{55}{table.caption.36}%
+\contentsline {table}{\numberline {4{}.4}{\ignorespaces 重绘ROI测试状态栏数据更新}}{55}{table.caption.37}%
+\contentsline {table}{\numberline {4{}.5}{\ignorespaces 不同算法的性能对比}}{57}{table.caption.38}%
 \contentsfinish 

@@ -4,11 +4,15 @@
 \contentsline {figure}{\numberline {2{}.2}{\ignorespaces Fretha软件总体架构}}{18}{figure.caption.9}%
 \contentsline {figure}{\numberline {2{}.3}{\ignorespaces Fretha数据层实体关联关系图}}{19}{figure.caption.10}%
 \contentsline {figure}{\numberline {2{}.4}{\ignorespaces FretCalculator计算步骤}}{21}{figure.caption.11}%
-\contentsline {figure}{\numberline {2{}.5}{\ignorespaces 参数设置模块业务流程图}}{29}{figure.caption.14}%
-\contentsline {figure}{\numberline {2{}.6}{\ignorespaces FRETscopeII数据文件结构}}{30}{figure.caption.15}%
+\contentsline {figure}{\numberline {2{}.5}{\ignorespaces 参数设置模块业务流程}}{28}{figure.caption.14}%
+\contentsline {figure}{\numberline {2{}.6}{\ignorespaces FRETscopeII数据文件结构}}{29}{figure.caption.15}%
 \contentsline {figure}{\numberline {2{}.7}{\ignorespaces Fretha数据完备性检验业务主流程图}}{30}{figure.caption.16}%
 \contentsline {figure}{\numberline {2{}.8}{\ignorespaces Fretha图像处理模块界面}}{31}{figure.caption.17}%
-\contentsline {figure}{\numberline {2{}.9}{\ignorespaces Fretha自动圈点模块流程}}{34}{figure.caption.20}%
-\contentsline {figure}{\numberline {3{}.1}{\ignorespaces LURS算法流程图}}{42}{figure.caption.24}%
-\contentsline {figure}{\numberline {3{}.2}{\ignorespaces 模型质粒验证实验结果}}{44}{figure.caption.26}%
+\contentsline {figure}{\numberline {2{}.9}{\ignorespaces Fretha自动圈点模块流程}}{33}{figure.caption.20}%
+\contentsline {figure}{\numberline {2{}.10}{\ignorespaces Fretha结果可视化模块界面}}{36}{figure.caption.22}%
+\contentsline {figure}{\numberline {2{}.11}{\ignorespaces Fretha结果保存}}{37}{figure.caption.23}%
+\contentsline {figure}{\numberline {3{}.1}{\ignorespaces LURS算法流程图}}{44}{figure.caption.26}%
+\contentsline {figure}{\numberline {3{}.2}{\ignorespaces 模型质粒验证实验结果}}{46}{figure.caption.28}%
+\contentsline {figure}{\numberline {3{}.3}{\ignorespaces 手动、ilastik、SAM - Med2D及本方法计算的，A1331852处理前（a，b）和处理后（c，d）Bcl - xL - CFP与Bak - YFP结合的最大$3^3$-FRET（黑色）和E - FRET（红色）效率以及化学计量比（黄色）。}}{48}{figure.caption.30}%
+\contentsline {figure}{\numberline {4{}.1}{\ignorespaces Fretha图像处理视图切换测试结果}}{54}{figure.caption.35}%
 \contentsfinish 
