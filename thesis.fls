@@ -454,6 +454,8 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
+INPUT ./figures/../figures/2/2_参数设置界面.png
+INPUT ./figures/../figures/2/2_参数设置界面.png
 INPUT ./figures/../figures/2/2_成像参数设置模块业务流程.png
 INPUT ./figures/../figures/2/2_成像参数设置模块业务流程.png
 INPUT ./figures/../figures/2/2_FRETscopeII数据格式.drawio.png
@@ -466,8 +468,8 @@ INPUT ./figures/../figures/2/2_自动ROI圈点模块业务流程.png
 INPUT ./figures/../figures/2/2_自动ROI圈点模块业务流程.png
 INPUT ./figures/../figures/2/2_结果可视化.png
 INPUT ./figures/../figures/2/2_结果可视化.png
-INPUT ./figures/../figures/2/2_保存数据.png
-INPUT ./figures/../figures/2/2_保存数据.png
+INPUT ./figures/../figures/2/2_DC-FRET结果界面.png
+INPUT ./figures/../figures/2/2_DC-FRET结果界面.png
 INPUT ./data/chap03.tex
 INPUT ./data/chap03.tex
 INPUT ./data/chap03.tex
@@ -487,6 +489,10 @@ INPUT data/chap04.tex
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm
 INPUT ./figures/../figures/4/4_视图类型.png
 INPUT ./figures/../figures/4/4_视图类型.png
+INPUT ./figures/../figures/4/4_DC-FRET参数测试.png
+INPUT ./figures/../figures/4/4_DC-FRET参数测试.png
+INPUT ./figures/../figures/2/2_保存数据.png
+INPUT ./figures/../figures/2/2_保存数据.png
 INPUT ./data/chap05.tex
 INPUT ./data/chap05.tex
 INPUT ./data/chap05.tex

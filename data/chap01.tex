@@ -5,9 +5,12 @@
 \subsection{FRET原理概述}
 
 \ifshowtext
-1948年，Förster首次阐述了福斯特共振能量转移（Förster Resonance Energy Transfer，FRET）理论。FRET是指处于激发态的供体分子（Donor）通过偶极子间相互作用将一部分能量以非辐射的形式转移给邻近处于基态的受体（Acceptor）分子（供受体之间的距离R在0~10 nm）。FRET 的发生会使得供体的荧光淬灭和受体的荧光增强，其中由于发生FRET而增强受体荧光称为敏化发射荧光。FRET技术突破传统观测局限，精准解析分子间相互作用与距离。在细胞生物学微观环境里，FRET技术如同精密“分子尺”，捕捉纳米尺度生物分子动态，助力剖析分子结构与功能。因而，FRET技术在细胞生物学多领域，如细胞信号转导、蛋白质相互作用探测等广泛应用。
-
-FRET双杂交分析是目前唯一能够在活细胞内实现生物大分子“滴定”实验的技术。蛋白质之间相互作用的化学计量比是阐明蛋白质间相互作用机制的重要参数，FRET双杂交分析通过结合受体中心的33-FRET和供体中心的E-FRET方法，能简单稳健地得到活细胞中生物复合物化学计量比和相对亲和力常数。
+1948年，Förster首次阐述了福斯特共振能量转移（Förster Resonance Energy Transfer，FRET）理论 \upcite{forster1948zwischenmolekulare}。
+FRET是指处于激发态的供体分子（Donor）通过偶极子间相互作用将一部分能量以非辐射的形式转移给邻近处于基态的受体（Acceptor）分子（供受体之间的距离$R$在0至10 nm） \upcite{lakowicz2006principles}。
+FRET 的发生会使得供体的荧光淬灭和受体的荧光增强，其中由于发生FRET而增强受体荧光称为敏化发射荧光。
+FRET技术突破传统观测局限，精准解析分子间相互作用与距离。
+在细胞生物学微观环境里，FRET技术如同精密“分子尺”，捕捉纳米尺度生物分子动态，助力剖析分子结构与功能。
+因而，FRET技术在细胞生物学多领域，如细胞信号转导、蛋白质相互作用探测等广泛应用。
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\linewidth]{../figures/1/1_FRET过程示意图.png}
@@ -79,6 +82,7 @@ E-FRET还需要测量得到荧光强度由DD通道转换为DA通道的转换因�
     E_D=\frac{F_C}{F_C+G \cdot I_{DD}}.
     \label{eq:ed}
 \end{equation}
+% \vspace{-2.5em} % 减少与后续文字的垂直间距
 
 为了确定待测样本中受体与供体的浓度比例，需要首先通过测量受体与供体比例为1:1的FRET固定质粒样本来确定发生FRET时相等浓度的供体荧光和受体荧光的比例：
 \begin{equation}

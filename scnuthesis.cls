@@ -463,14 +463,17 @@
 \titlespacing{\subsubsection}{0em}{1ex}{0ex}
 \renewcommand\normalsize{%
   \xiaosi%
-  \renewcommand{\baselinestretch}{1.4}%
+  \renewcommand{\baselinestretch}{1.5}%
+% \setlength\abovedisplayskip{10bp \@plus 0.5bp \@minus 0.5bp}%
+% \setlength\abovedisplayshortskip{10bp \@plus 0.5bp \@minus 0.5bp}%
 \setlength\abovedisplayskip{10bp \@plus 2bp \@minus 2bp}%
 \setlength\abovedisplayshortskip{10bp \@plus 2bp \@minus 2bp}%
 \setlength\belowdisplayskip{\abovedisplayskip}%
 \setlength\belowdisplayshortskip{\abovedisplayshortskip}%
 }
 \setlength{\parindent}{2em}
-\setlength{\parskip}{0bp \@plus .5bp \@minus .5bp}
+% \setlength{\parskip}{0bp \@plus 0.5bp \@minus 0.5bp} % 原本
+\setlength{\parskip}{0bp} % 或其他固定长度，如 6pt、1em 等
 \newcommand*{\ziju}[1]{\renewcommand{\CJKglue}{\hskip #1}}
 \renewenvironment{thebibliography}[1]{%
 
@@ -720,11 +723,10 @@
 \setenumerate[1]{
   label=(\arabic*),
   itemsep=0pt,
+  topsep=0pt,     % 列表与上文的间距
+  parsep=0pt,      % 列表项内段落之间的间距
+  leftmargin=2em  % 添加此行，设置左缩进为2个汉字宽度
 }
-
-
-
-
 
 \endinput
 %%

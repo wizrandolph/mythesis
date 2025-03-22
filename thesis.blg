@@ -8,6 +8,7 @@ Database file #1: ref/refs.bib
 -- BUPTThesis.bst version 1.0 Beta 1 (2009/05/31) by Yu Zhang.
 -- http://code.google.com/p/buptthesis/
 -- See the "userguide.pdf" manual for usage information.
+Warning--there's a publisher but no address in lakowicz2006principles
 Warning--The editor in ronneberger2015u is missing.
 Warning--empty editor in ronneberger2015u
 Warning--The editor in jagadeeswari2022integral is missing.
@@ -16,45 +17,45 @@ Warning--The editor in gedraite2011investigation is missing.
 Warning--empty editor in gedraite2011investigation
 
 Done.
-You've used 12 entries,
+You've used 13 entries,
             4554 wiz_defined-function locations,
-            1085 strings with 10409 characters,
-and the built_in function-call counts, 8856 in all, are:
-= -- 1026
-> -- 141
+            1090 strings with 10359 characters,
+and the built_in function-call counts, 8951 in all, are:
+= -- 1038
+> -- 136
 < -- 12
-+ -- 86
-- -- 46
-* -- 682
-:= -- 967
-add.period$ -- 48
-call.type$ -- 12
++ -- 82
+- -- 44
+* -- 690
+:= -- 972
+add.period$ -- 51
+call.type$ -- 13
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 18
-duplicate$ -- 603
-empty$ -- 901
-format.name$ -- 43
-if$ -- 2184
+cite$ -- 20
+duplicate$ -- 613
+empty$ -- 920
+format.name$ -- 41
+if$ -- 2205
 int.to.chr$ -- 0
-int.to.str$ -- 12
+int.to.str$ -- 13
 missing$ -- 0
-newline$ -- 76
-num.names$ -- 12
-pop$ -- 57
+newline$ -- 81
+num.names$ -- 13
+pop$ -- 63
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 308
+skip$ -- 305
 stack$ -- 0
-substring$ -- 1038
+substring$ -- 1040
 swap$ -- 209
 text.length$ -- 16
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 138
-warning$ -- 6
+type$ -- 144
+warning$ -- 7
 while$ -- 82
-width$ -- 14
-write$ -- 111
-(There were 6 warnings)
+width$ -- 15
+write$ -- 118
+(There were 7 warnings)
