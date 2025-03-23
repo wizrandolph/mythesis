@@ -391,8 +391,6 @@ INPUT ./data/chap01.tex
 INPUT data/chap01.tex
 INPUT ./figures/../figures/1/1_FRET过程示意图.png
 INPUT ./figures/../figures/1/1_FRET过程示意图.png
-INPUT ./figures/../figures/1/1_MATLAB双杂交.jpg
-INPUT ./figures/../figures/1/1_MATLAB双杂交.jpg
 INPUT ./data/chap02.tex
 INPUT ./data/chap02.tex
 INPUT ./data/chap02.tex
@@ -400,8 +398,16 @@ INPUT ./data/chap02.tex
 INPUT data/chap02.tex
 INPUT ./figures/../figures/2/2_FRET双杂交分析数据处理流程.png
 INPUT ./figures/../figures/2/2_FRET双杂交分析数据处理流程.png
-INPUT ./figures/../figures/2/2_Fretha软件架构图.png
-INPUT ./figures/../figures/2/2_Fretha软件架构图.png
+INPUT ./figures/../figures/2/2_开始页界面.png
+INPUT ./figures/../figures/2/2_开始页界面.png
+INPUT ./figures/../figures/2/2_参数设置界面.png
+INPUT ./figures/../figures/2/2_参数设置界面.png
+INPUT ./figures/../figures/2/2_模块界面.png
+INPUT ./figures/../figures/2/2_模块界面.png
+INPUT ./figures/../figures/2/2_结果可视化.png
+INPUT ./figures/../figures/2/2_结果可视化.png
+INPUT ./figures/../figures/2/2_Fretha架构.png
+INPUT ./figures/../figures/2/2_Fretha架构.png
 INPUT ./figures/../figures/2/2_Fretha数据层对应关系.png
 INPUT ./figures/../figures/2/2_Fretha数据层对应关系.png
 INPUT ./figures/../figures/2/2_FRET定量计算器流程.png
@@ -454,8 +460,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
-INPUT ./figures/../figures/2/2_参数设置界面.png
-INPUT ./figures/../figures/2/2_参数设置界面.png
 INPUT ./figures/../figures/2/2_成像参数设置模块业务流程.png
 INPUT ./figures/../figures/2/2_成像参数设置模块业务流程.png
 INPUT ./figures/../figures/2/2_FRETscopeII数据格式.drawio.png
@@ -466,8 +470,6 @@ INPUT ./figures/../figures/2/2_图像处理模块界面.png
 INPUT ./figures/../figures/2/2_图像处理模块界面.png
 INPUT ./figures/../figures/2/2_自动ROI圈点模块业务流程.png
 INPUT ./figures/../figures/2/2_自动ROI圈点模块业务流程.png
-INPUT ./figures/../figures/2/2_结果可视化.png
-INPUT ./figures/../figures/2/2_结果可视化.png
 INPUT ./figures/../figures/2/2_DC-FRET结果界面.png
 INPUT ./figures/../figures/2/2_DC-FRET结果界面.png
 INPUT ./data/chap03.tex
@@ -489,6 +491,8 @@ INPUT data/chap04.tex
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm
 INPUT ./figures/../figures/4/4_视图类型.png
 INPUT ./figures/../figures/4/4_视图类型.png
+INPUT ./figures/../figures/4/4_L-FRET视图测试.png
+INPUT ./figures/../figures/4/4_L-FRET视图测试.png
 INPUT ./figures/../figures/4/4_DC-FRET参数测试.png
 INPUT ./figures/../figures/4/4_DC-FRET参数测试.png
 INPUT ./figures/../figures/2/2_保存数据.png

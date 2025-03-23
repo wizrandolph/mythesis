@@ -12,23 +12,60 @@ Lakowicz~J~R.
 Principles of fluorescence spectroscopy~[M].
 Springer, 2006.
 
+\bibitem{2020Single}
+Son~H, Mo~W, Park~J, et~al.
+Single-Molecule FRET Detection of Sub-Nanometer Distance Changes in the Range below a 3-Nanometer Scale~[J].
+Biosensors.
+2020, 10~(11):  168.
+
+\bibitem{wu2018translocation}
+Wu~B, Zhang~H, Sun~R, et~al.
+Translocation kinetics and structural dynamics of ribosomes are modulated by the conformational plasticity of downstream pseudoknots~[J].
+Nucleic acids research.
+2018, 46~(18):  9736--9748.
+
+\bibitem{shrestha2015understanding}
+Shrestha~D, Jenei~A, Nagy~P, et~al.
+Understanding FRET as a research tool for cellular studies~[J].
+International journal of molecular sciences.
+2015, 16~(4):  6718--6756.
+
+\bibitem{ben-johny2016}
+Ben-Johny~M, Yue~D T D~N, Yue~D T D~N.
+Detecting stoichiometry of macromolecular complexes in live cells using {FRET}~[J/OL].
+Nature Communications.
+2016, 7~(1):  13709--13709.
+\url{http://dx.doi.org/10.1038/ncomms13709}.
+
 \bibitem{2014The}
 Bozza~W~P, Xu~D, Kazuyo~T, et~al.
 The Use of a Stably Expressed FRET Biosensor for Determining the Potency of Cancer Drugs~[J].
 Plos One.
 2014, 9~(9):  e107010.
 
+\bibitem{chudakov2010fluorescent}
+Chudakov~D~M, Matz~M~V, Lukyanov~S, et~al.
+Fluorescent proteins and their applications in imaging living cells and tissues~[J].
+Physiological reviews.
+2010, 90~(3):  1103--1163.
+
+\bibitem{shimomura2009discovery}
+Shimomura~O.
+Discovery of green fluorescent protein (GFP)(Nobel Lecture)~[J].
+Angewandte Chemie International Edition.
+2009, 48~(31):  5590--5602.
+
+\bibitem{sekar2003fluorescence}
+Sekar~R~B, Periasamy~A.
+Fluorescence resonance energy transfer (FRET) microscopy imaging of live cell protein localizations~[J].
+The Journal of cell biology.
+2003, 160~(5):  629.
+
 \bibitem{butz2016}
 Butz~E~S, Ben-Johny~M, Shen~M, et~al.
 Quantifying macromolecular interactions in living cells using {FRET} two-hybrid assays~[J].
 Nature Protocols.
 2016, 11~(12):  2470--2498.
-
-\bibitem{sun2019}
-Sun~H，Zhang~C，Ma~Y，等．
-Controlling and online measurement of automatic dual-channel {E}-{FRET} microscope~[J].
-Biomedical Signal Processing and Control．
-2019，53： 101585．
 
 \bibitem{ronneberger2015u}
 Ronneberger~O, Fischer~P, Brox~T.
@@ -65,6 +102,12 @@ Gedraite~E~S, Hadad~M.
 Investigation on the effect of a Gaussian Blur in image filtering and segmentation~[C].
 In Proceedings ELMAR-2011.
 2011:  393--396.
+
+\bibitem{sun2019}
+Sun~H，Zhang~C，Ma~Y，等．
+Controlling and online measurement of automatic dual-channel {E}-{FRET} microscope~[J].
+Biomedical Signal Processing and Control．
+2019，53： 101585．
 
 \bibitem{koushik2006cerulean}
 Koushik~S~V, Chen~H, Thaler~C, et~al.
