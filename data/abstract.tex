@@ -1,54 +1,71 @@
 \begin{cabstract}
 
 \ifshowtext
-福斯特共振能量转移（Förster Resonance Energy Transfer, FRET）技术被广泛用于探究活细胞中生物大分子的动态相互作用过程，如生物大分子的构象变化、蛋白质相互作用、信号通路中蛋白质间的调节机制等，在研究生命科学基础问题、 疾病的发生发展和药物研发等方面具有广阔的应用前景。
-FRET双杂交分析不仅可以在活细胞内原位实时测量蛋白质间真实的相互作用，还能给出蛋白质结合的相对亲和力及化学计量比。
-目前主流的活细胞FRET双杂交分析方法是基于以供体/受体为中心的FRET效率（$E_D$或$E_A$）与自由受体/供体浓度（$A_{free}$或$D_{free}$）之间关系，即$E_D$-$A_{free}$或$E_A$-$D_{free}$进行朗缪尔拟合的方法（L-FRET），但是其鲁棒性较差，对细胞样本制备和数据分析的要求极为苛刻。
-为此，有团队发展了基于FRET效率与受供体浓度比（$R_C$），即$E_D$-$R_c$或$E_A$-$1/R_C$线性分离的方法（DC-FRET）。
+福斯特共振能量转移（Förster Resonance Energy Transfer, FRET）技术被广泛用于探究活细胞中生物大分子的动态相互作用过程，在研究生命科学基础问题、疾病的发生发展和药物研发等方面具有广阔的应用前景。
+FRET双杂交分析是目前唯一可以在活细胞内进行生物大分子“滴定实验”的技术，能够定量获得供受体结合的化学计量比和相对亲和力。
 
-然而，FRET双杂交分析技术的数据处理仍然是一个繁琐且耗时的过程。
-数据处理过程需要借助Zeiss ZEN、HCImage、MATLAB或Excel等多种专业软件，频繁切换软件界面和数据导入导出，操作繁琐，易出错。
-ROI标注依赖人工手动标注，数据处理过程中存在较大的主观性和不确定性，且数据处理过程中的数据量大、操作复杂，容易出现错误。
-为了解决现有FRET双杂交分析数据处理流程繁琐、人工操作依赖性强等问题，需要设计一款规定化、自动化的数据处理软件，并开发对应的FRET图像处理算法，以实现FRET双杂交分析数据处理的规范化、自动化。
+FRET双杂交分析的数据处理过程繁琐费时，限制了其推广和应用。
+数据处理过程需要借助Zeiss ZEN、HCImage、ImageJ、Excel和MATLAB等多个专业软件进行处理，数据需要在不同软件间进行导入和导出。
+数据处理过程包括专家标注ROI（Region of Interest）、背景扣除、异常数据过滤、FRET效率计算、双杂交拟合计算等过程，共28个步骤，单次实验过程需要3.5至7小时。
+FRET图像处理过程依赖人工手动标注ROI，无法满足大规模数据处理的需求，限制了FRET双杂交分析技术在高通量等大规模数据场景的应用。
+为了解决现有FRET双杂交分析数据处理流程繁琐、人工操作依赖性强等问题，需要设计一款专门研发的数据处理软件，并开发对应的FRET图像处理算法，以实现FRET双杂交分析数据处理的规范化和自动化。
 
-针对活细胞 FRET 双杂交分析数据处理流程繁琐、人工操作依赖性强等问题，本文设计并开发了一款全自动数据处理软件 Fretha，实现了从原始图像到化学计量比结果的全流程自动化处理。
+针对活细胞 FRET 双杂交分析数据处理的需求和问题，本文设计并开发了一款FRET双杂交分析数据处理软件 Fretha，支持从原始图像到化学计量比结果的规范化数据处理，并研发了基于明度和均匀度的自动ROI选取算法（LURS），实现了数据处理过程的自动化。
 本文的主要工作和创新点如下：
-\begin{enumerate}
-  \item 首次设计并实现了FRET双杂交分析数据处理软件Fretha，该软件基于分层架构（表现层、业务层、数据访问层和数据层）构建，支持E-FRET、$3^3$-FRET、L-FRET和DC-FRET等多模态分析方法，集成了成像参数设置、数据校验、自动ROI选取、FRET定量计算及双杂交拟合等核心功能。通过封装FRET计算器、图像分析库和双杂交求解器，实现了从原始图像到化学计量比结果的全流程自动化处理，显著减少了人工干预步骤，提升了数据处理效率。软件采用Qt 5.15.2开发，支持跨平台部署，并通过OpenCV和Dlib库实现图像处理与优化计算，确保了算法的高效性和可扩展性。
-  \item 首次研发了基于明度和均匀度的自动ROI选取算法（LURS），该算法通过多通道自适应阈值分割、变异系数均匀性评估和连通区域分析，实现了荧光图像中高信噪比区域的精准识别。算法创新性地结合亮度（Luminance）和均匀度（Uniformity）双指标筛选ROI，通过高斯平滑预处理和三通道掩码合并，有效排除低亮度背景和灰度突变区域。实验表明，LURS在标准质粒C4Y/C10Y/C40Y/C80Y的E-FRET测量中，$E_{A}$与$E_{D}$值与文献报道误差小于5\%，$R_{C}$偏差不超过0.05，且处理速度较人工操作提升80\%以上。结合DC-FRET方法的自动数据范围选取策略，成功实现了FRET双杂交分析的全流程自动化。
-  \item 对Fretha软件进行了系统性测试与评估，功能测试表明，软件支持多参数动态更新、异常数据隔离和结果可视化，数据处理精度与文献值高度吻合。算法性能对比显示，LURS在1.4GB数据集上单ROI处理时间仅6.6ms，内存占用800MB，显著优于ilastik（35.2ms/1.8GB）和SAM-Med2D（50.7ms/14GB）。稳定性测试显示，软件在48小时连续运行和高频操作下保持稳定，资源占用无显著波动，适用于高通量药物筛选等场景。
-\end{enumerate}
+
+（1）首次设计并实现了FRET双杂交分析数据处理软件Fretha。
+该软件基于分层架构（表现层、业务层、数据访问层和数据层）构建，集成了成像参数设置、数据校验、自动ROI选取、FRET定量计算及双杂交拟合等核心功能。
+通过封装FRET计算器、图像分析库和双杂交求解器，实现了E-FRET、$3^3$-FRET、L-FRET和DC-FRET等多模态分析算法。
+软件采用Qt 5.15.2开发，并通过OpenCV和Dlib库实现图像处理与优化计算。
+Fretha的设计体现了针对FRET双杂交分析数据处理的专业性和实用性，实现了从原始图像到化学计量比结果的全流程自动化处理，提高了数据处理的规范化和自动化水平。
+
+（2）对Fretha软件进行了系统性测试与评估。
+应用Fretha软件对标准质粒C4Y/C10Y/C40Y/C80Y进行手动$3^3$-FRET分析和E-FRET分析，测量得到的$E_{A}$值分别为$0.291\pm0.020$、$0.243\pm0.031$、$0.159\pm0.018$和$0.118\pm0.019$，$E_{D}$值分别为$0.307\pm0.040$、$0.230\pm0.022$、$0.155\pm0.011$和$0.117\pm0.012$，与文献报道的结果一致，误差小于5\%，$R_{C}$偏差不超过0.01。
+手动处理的C32V和CVC质粒的模型质粒，通过Fretha测量得到的C32V中C与V的结合化学计量比为1.071，在CVC中则为2.023，均与文献值一致。
+模块测试表明，软件支持多参数动态更新、异常数据隔离和结果可视化，数据处理精度与文献值高度吻合。
+稳定性测试显示，软件在48小时连续运行和高频操作下保持稳定，资源占用无显著波动，适用于高通量药物筛选等场景。
+
+（3）首次研发了基于明度和均匀度的自动ROI选取算法（LURS），实现了数据处理过程的自动化。
+LURS算法通过多通道自适应阈值分割、变异系数均匀性评估和连通区域分析，能够识别荧光图像中高信噪比且低变异性的区域。
+在标准质粒验证实验中，LURS方法测量的$E_{A}$与$E_{D}$值与文献报道值误差小于5\%，$R_{C}$偏差不超过0.05。
+模型质粒C32V和CVC的FRET双杂交验证实验中，LURS测量得到的C32V中C与V的结合计量比为1.063，在CVC中则为1.900，与文献值误差不超过6\%。
+应用LURS算法检测活MCF-7细胞中Bcl-xL-Bak相互作用的化学计量比，发现加药A1331852处理后，Bcl-xL-Bak之间结合的化学计量比由1.87降为1.12，与手动分析高度一致。
+对比基于SAM-Med2D和ilastik，LURS表现出良好的稳定性和鲁棒性，适用于高通量药物筛选等大数据量场景。
+LURS在1.4GB数据集上单ROI处理时间仅6.6 ms，内存占用800 MB，显著优于ilastik（35.2 ms / 1.8 GB）和SAM-Med2D（50.7 ms / 14 GB）。
 
 Fretha 的推出为活细胞 FRET 双杂交分析提供了标准化、自动化的解决方案，有望推动该技术在精准医疗和药物研发中的大规模应用。
 \fi
 \end{cabstract}
 
-\ckeywords{\ifshowtext FRET；FRET定量分析；荧光图像；FRET双杂交分析；自动数据处理 \fi}
+\ckeywords{ \ifshowtext FRET；FRET定量分析；荧光图像；FRET双杂交分析；自动数据处理 \fi}
 
 \begin{eabstract}
 
-\ifshowtext
-Förster Resonance Energy Transfer (FRET) technology is widely used to study the dynamic interactions of biomolecules in living cells, such as conformational changes of biomolecules, protein-protein interactions, and regulatory mechanisms between proteins in signaling pathways. It has broad application prospects in the study of basic issues in life sciences, the occurrence and development of diseases, and drug development.
-FRET two-hybrid analysis can not only measure the real interaction between proteins in living cells in situ in real time, but also provide the relative affinity and stoichiometry of protein binding.
-The mainstream method for analyzing FRET two-hybrid analysis in living cells is based on the relationship between FRET efficiency ($E_D$ or $E_A$) and the free acceptor/donor concentration ($A_{free}$ or $D_{free}$), i.e., $E_D$-$A_{free}$ or $E_A$-$D_{free}$, which is fitted by Langmuir fitting method (L-FRET). However, its robustness is poor, and it has extremely strict requirements for cell sample preparation and data analysis.
-To this end, some teams have developed a method based on the linear separation of FRET efficiency and the acceptor/donor concentration ratio ($R_C$), i.e., $E_D$-$R_c$ or $E_A$-$1/R_C$ (DC-FRET).
+Förster resonance energy transfer (FRET) technology is widely used to explore the dynamic interactions of biomacromolecules in living cells, and has broad application prospects in basic life science research, disease development, and drug development.
+FRET two-hybrid assay is currently the only method that can quantitatively obtain the stoichiometry and relative affinity of donor-acceptor binding through "titration experiments" in living cells.
+However, the data processing process relies on multiple professional software and manual processing, which is difficult to meet the needs of large-scale data processing and limits the application of FRET two-hybrid assay technology.
+To solve the problems of cumbersome existing FRET two-hybrid assay data processing process and strong dependence on manual operation, it is necessary to design a specially developed data processing software and develop corresponding FRET image processing algorithms to achieve standardized and automated FRET two-hybrid assay data processing.
+To address the needs and problems of live cell FRET two-hybrid assay data processing, this thesis designs and develops a fully automated FRET two-hybrid assay data processing software Fretha, which achieves automated processing from raw images to stoichiometry results.
+The main work and innovations of this thesis are as follows:
 
-However, the data processing of FRET two-hybrid analysis technology is still a cumbersome and time-consuming process.
-The data processing process requires the use of a variety of professional software such as Zeiss ZEN, HCImage, MATLAB, or Excel, frequent switching of software interfaces and data import and export, cumbersome operation, and easy errors.
-ROI labeling depends on manual labeling, and there is a large subjectivity and uncertainty in the data processing process, and the data volume is large and the operation is complex, which is prone to errors.
-In order to solve the problems of the cumbersome data processing flow and strong dependence on manual operation in the existing FRET two-hybrid analysis data processing flow, it is necessary to design a standardized and automated data processing software and develop corresponding FRET image processing algorithms to achieve FRET two-hybrid analysis data processing Standardization and automation.
+(1) The FRET two-hybrid assay data processing software Fretha is designed and implemented for the first time.
+This software is built based on a layered architecture (presentation layer, business layer, data access layer, and data layer), integrating core functions such as imaging parameter setting, data verification, automatic ROI selection, FRET quantitative calculation, and two-hybrid fitting.
+By encapsulating the FRET calculator, image analysis library, and two-hybrid solver, multi-modal analysis algorithms such as E-FRET, $3^3$-FRET, L-FRET, and DC-FRET are realized.
+The software is developed using Qt 5.15.2 and implements image processing and optimization calculations through the OpenCV and Dlib libraries.
+The design of Fretha reflects the professionalism and practicality of FRET two-hybrid assay data processing, achieving full-process automated processing from raw images to stoichiometry results, and improving the standardization and automation level of data processing.
 
-Aiming at the problems of cumbersome data processing flow and strong dependence on manual operation in living cell FRET two-hybrid analysis, this paper designs and develops a fully automatic data processing software Fretha, which realizes the full-process automation processing from original image to stoichiometry results.
-The main work and innovations of this paper are as follows:
-\begin{enumerate}
-  \item For the first time, the FRET two-hybrid analysis data processing software Fretha was designed and implemented. The software is built based on a layered architecture (presentation layer, business layer, data access layer, and data layer), supports multiple analysis methods such as E-FRET, $3^3$-FRET, L-FRET, and DC-FRET, and integrates imaging parameter setting, data verification, automatic ROI selection, FRET quantitative calculation, and two-hybrid fitting. Core functions such as. By encapsulating the FRET calculator, image analysis library, and two-hybrid solver, the full-process automation processing from the original image to the stoichiometry result is realized, significantly reducing manual intervention steps and improving data processing efficiency. The software is developed using Qt 5.15.2, supports cross-platform deployment, and uses OpenCV and Dlib libraries to implement image processing and optimization calculations, ensuring the high efficiency and scalability of the algorithm.
-  \item For the first time, an automatic ROI selection algorithm (LURS) based on luminance and uniformity was developed. The algorithm accurately identifies high signal-to-noise ratio regions in fluorescence images through multi-channel adaptive threshold segmentation, coefficient of variation uniformity evaluation, and connected region analysis. The algorithm innovatively combines luminance and uniformity double indicators to screen ROIs, effectively eliminates low-luminance backgrounds and grayscale abrupt regions through Gaussian smoothing preprocessing and three-channel mask merging. Experiments show that in the E-FRET measurement of standard plasmids C4Y/C10Y/C40Y/C80Y, the $E_{A}$ and $E_{D}$ values are less than 5\% of the reported errors, and the $R_{C}$ deviation does not exceed 0.05, and the processing speed is more than 80\% higher than manual operation. Combined with the automatic data range selection strategy of the DC-FRET method, the full-process automation of FRET two-hybrid analysis was successfully realized.
-  \item Systematic testing and evaluation of the Fretha software were carried out. Functional tests show that the software supports dynamic updates of multiple parameters, isolation of abnormal data, and result visualization, and the data processing accuracy is highly consistent with the literature values. Algorithm performance comparison shows that LURS processes a single ROI in 6.6ms on a 1.4GB dataset, with a memory footprint of 800MB, significantly better than ilastik (35.2ms/1.8GB) and SAM-Med2D (50.7ms/14GB). Stability tests show that the software remains stable under continuous operation for 48 hours and high-frequency operation, with no significant fluctuations in resource usage, suitable for high-throughput drug screening and other scenarios.
-\end{enumerate}
+(2) The automatic ROI selection algorithm (LURS) based on brightness and uniformity is developed for the first time, achieving the automation of the data processing process.
+LURS algorithm can identify high signal-to-noise ratio and low variability regions in fluorescence images through multi-channel adaptive threshold segmentation, coefficient of variation uniformity evaluation, and connected region analysis.
+In the E-FRET measurement of standard plasmids C4Y/C10Y/C40Y/C80Y, the $E_{A}$ and $E_{D}$ values have less than 5\% error compared to the literature, and the $R_{C}$ deviation does not exceed 0.05, consistent with the literature values.
+In the FRET two-hybrid verification experiments of model plasmids C32V and CVC, the stoichiometry of C and V in C32V measured by LURS is 1.06, and in CVC it is 1.90, with an error of less than 6\% compared to the literature value.
+LURS algorithm successfully detected that the stoichiometry of Bcl-xL-Bak binding in A1331852-treated MCF-7 cells decreased from 1.87 to 1.12, which is highly consistent with manual analysis.
+Compared with algorithms based on SAM-Med2D and ilastik, LURS shows good stability and robustness, making it suitable for large data volume scenarios such as high-throughput drug screening.
 
-The launch of Fretha provides a standardized and automated solution for living cell FRET two-hybrid analysis, which is expected to promote the large-scale application of this technology in precision medicine and drug development.
+(3) A systematic test and evaluation of the Fretha software is conducted, and functional testing shows that the software supports multi-parameter dynamic updates, abnormal data isolation, and result visualization, with high consistency in data processing accuracy with literature values. Performance comparison of algorithms shows that LURS has a single ROI processing time of only 6.6 ms and a memory usage of 800 MB on a 1.4GB dataset, significantly better than ilastik (35.2 ms / 1.8 GB) and SAM-Med2D (50.7 ms / 14 GB). Stability testing shows that the software remains stable under continuous operation for 48 hours and high-frequency operations, with no significant fluctuations in resource usage, making it suitable for high-throughput drug screening scenarios.
+The launch of Fretha provides a standardized and automated solution for live cell FRET two-hybrid assay, which is expected to promote the large-scale application of this technology in precision medicine and drug development.
 
-\fi
+The launch of Fretha provides a standardized and automated solution for live cell FRET two-hybrid assay, which is expected to promote the large-scale application of this technology in precision medicine and drug development.
+
 \end{eabstract}
 
 \ekeywords{ \ifshowtext FRET, FRET quantitative analysis, FRET two-hybrid assay, Automated data processing \fi}

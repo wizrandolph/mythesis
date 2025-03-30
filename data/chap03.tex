@@ -1,23 +1,19 @@
-\chapter{自动FRET双杂交分析数据处理算法}
+\chapter{Fretha的测试}
 
 \section{引言}
-
-\ifshowtext
-FRET双杂交分析数据处理面临两大难题。
-一是数据处理复杂又耗时，涵盖选 ROIs、定荧光强度与背景、估算 FRET 效率和拟合曲线等约 50 个关键步骤，每次实验处理需 5 - 6 小时。
-二是对数据质量要求很高，要尽量减少异常值，否则会影响朗缪尔模型拟合，导致结果偏差。
-当前 FRET 技术提取荧光强度主要靠有监督的机器学习方法，像 U - Net 模型和 ilastik 工具。
-但这些算法依赖人工标注数据集，效果受其大小和质量影响，且可解释性差，神经网络模型难以提供清晰数学框架解释分析模式。
-针对这些问题，本文提出基于亮度均匀性的 ROI 选择（LURS）算法用于荧光数据提取。该算法受到人工处理数据时重要的明度（Luminance）和均匀度（Uniformity）启发，利用局部标准差排除灰度突变区域，提升数据提取质量。
-在 C32V 和 CVC 质粒上验证了精度。本方法准确性与人工处理相当，速度更快，提升了 FRET 双杂交分析在高通量筛选中的实用性。
-\fi
+软件测试是确保软件质量和性能的重要环节。
+结合Fretha的应用实验，我们对软件的功能模块进行了测试，包括成像参数设置模块、数据检验模块、FRET图像处理模块、数据管理模块、结果可视化模块等。
+我们对集成在Fretha中的自动圈点算法LURS进行了性能测试，并对比了SAM-Med2D、ilastik等其他自动荧光信号提取的算法。
+针对系统的稳定性，测试了软件在长时间运行和高频操作下的表现。
+综合测试结果表明，Fretha在功能丰富度、性能表现和稳定性方面均达到了预期目标，能够满足复杂科研和高通量应用需求。
 
 \section{材料与方法}
-\subsection{细胞培养和转染}
-\label{sec:细胞转染}
-\ifshowtext
-用于标准质粒实验的MCF-7细胞系购自中国科学院细胞库，培养于含有10\%胎牛血清（FBS）、100 U/ml青霉素和100 μg/ml链霉素的DMEM培养基中。对于药物作用实验，将MCF-7细胞以每孔4000细胞的密度接种于96孔板（LABSELECT，中国）中，加入DMEM和10\% FBS，置于37$^\circ \text{C}$、5\% CO2的孵箱中培养12小时。每孔转染400 ng的质粒，使用3:1或1:3比例的转染复合物进行转染。
-\fi
+\subsection{细胞培养与转染}
+\label{sec:细胞质粒}
+标准质粒实验中，中国科学院细胞库提供的MCF-7细胞株在含有10\%胎牛血清、100 U/mL青霉素和100 $\mu$g/mL链霉素的DMEM培养基中培养。
+在Bcl-xL-Bak药效检测实验中，将MCF-7细胞（4000个细胞/孔）接种于含DMEM培养基和10\%胎牛血清的96孔板（中国LABSELECT公司），置于37$^\circ \text{C}$、5\% $\text{CO}_2$培养箱中孵育12小时。每孔转染400 ng质粒，并以3:1或1:3的比例形成转染复合物。
+
+Turbofect\texttrademark{}转染试剂购自美国赛默飞世尔科技公司。所有质粒均由Steven Vogel赠送：C17V（Addgene质粒\# 26395）、C32V（Addgene质粒\# 26396）、mVenus N1（Addgene质粒\# 27793）、mCerulean C1（Addgene质粒\# 27796）、CVC（Addgene质粒\# 27809）\upcite{koushik2006cerulean,thaler2005quantitative}。CFP（青色荧光蛋白）-YFP（黄色荧光蛋白）二聚体质粒包括YFP-G4-CFP（C4Y）、YFP-G10-CFP（C10Y）、YFP-G40-CFP（C40Y）和YFP-G80-CFP（C80Y），由Christian Wahl-Schott赠送 \upcite{butz2016}。CFP-Bcl-xL质粒由A. P. Gilmore提供 \upcite{warren2019bcl}，YFP-Bak质粒的构建方法已先前报道过 \upcite{sun2023regorafenib}。药物A1331852购自美国新泽西州MCE公司。
 
 \subsection{FRET成像系统}
 \label{sec:成像条件}
@@ -27,16 +23,16 @@ FRET双杂交分析数据处理面临两大难题。
 模型质粒实验，选用了20倍的0.45NA物镜（Olympus，日本）和50\%光照强度。
 实验过程中，在AA通道寻找视野，然后依次捕获AA、DA和DD通道的荧光图像。
 
-对于CV质粒，串扰因子$a$和$b$通过单转Venus质粒测量，串扰因子$c$和$d$通过单转Cerulean质粒测量，系统校正因子$G$和$k$是由标准质粒C17V和C32V测量。
+对于CV质粒，串扰因子$a$和$b$通过单转Venus质粒测量，串扰因子$c$和$d$通过单转Cerulean质粒测量，系统校正因子$G$和$k$和$\varepsilon_{YFP}(\lambda)/\varepsilon_{CFP}(\lambda)$是由标准质粒C17V和C32V测量。
 
-对于CY质粒，串扰因子$a$和$b$通过单转YFP质粒测量，串扰因子$c$和$d$CFP质粒测量，系统校正因子$G$和$k$是由标准质粒C4Y、C10Y、C40Y和C80Y质粒测量。
-所有的FRET成像参数如表\ref{tab:lurs_imaging_params}所示。
+对于CY质粒，串扰因子$a$和$b$通过单转YFP质粒测量，串扰因子$c$和$d$通过单转CFP质粒测量，系统校正因子$G$和$k$和$\varepsilon_{YFP}(\lambda)/\varepsilon_{CFP}(\lambda)$是由标准质粒C4Y、C10Y、C40Y和C80Y质粒测量。
+所有的FRET成像参数如表 \ref{tab:lurs_imaging_params} 所示。
 
 \begin{table}[htbp]
     \centering
     \caption{FRET成像系统参数}
-    \begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
-        \toprule
+    \begin{tabular}{ccc}
+        \toprule[1.5pt]
         参数名 & CV质粒成像参数 & CY质粒成像参数 \\
         \midrule
         a & 0.206 & 0.160\\
@@ -46,264 +42,410 @@ FRET双杂交分析数据处理面临两大难题。
         G & 4.224 & 6.430\\
         k & 0.635 & 0.406\\
         $\varepsilon_{YFP}(\lambda)/\varepsilon_{CFP}(\lambda)$ & 0.077 & 0.064\\
-        \bottomrule
-    \end{tabularx}
+        \bottomrule[1.5pt]
+    \end{tabular}
     \label{tab:lurs_imaging_params}
 \end{table}
 \fi
 
-\subsection{基于明度和均匀度的自动ROI选取算法（LURS）}
-不失一般性，我们将ROI定义为$n \times n$的正方形区域，这种设计简化了标注过程并增强了基于积分的图像优化方法的适用性，从而显著提升计算效率\upcite{jagadeeswari2022integral}。参数$n$与细胞的像素面积相关，本文实验中在20倍放大条件下设定为5。
-
-LURS算法包含以下步骤：
-
+\subsection{使用Fretha手动处理数据}
+\label{sec:Fretha手动处理数据}
+使用Fretha手动处理数据的步骤如下：
 \begin{enumerate}
-\item \textbf{图像预处理。}  
-对FRET三通道图像的预处理主要包括原始图像的平滑处理和背景灰度值的扣除。从三个通道采集的原始图像分别记为$I_{Raw,DD}$、$I_{Raw,DA}$和$I_{Raw,AA}$。为了获得更精确的定量分析结果，我们采用高斯模糊对图像进行平滑处理，利用钟形曲线为像素分配权重影响\upcite{gedraite2011investigation}。  
-背景强度（$I_{BG}$）通过识别直方图中出现频率最高的像素值确定，因为图像中大部分像素属于背景且灰度值集中\upcite{sun2019}。背景强度的计算公式为：
-\begin{equation}
-    I_{BG} = \underset{p}{\arg\max} H(p), 
-    \label{eq:bg}
-\end{equation}
-其中$p$遍历所有可能的像素值，$\underset{p}{\arg\max} H(p)$表示使$H(p)$达到最大值的像素值$p$，该值即为计算得到的背景强度$I_{BG}$。处理后的图像重新命名为$I_{DD}$、$I_{DA}$和$I_{AA}$，准备进行后续处理。
-
-\item \textbf{基于亮度的自适应阈值分割。}  
-在荧光成像中，避免低亮度区域（如细胞空腔）对于获取高质量荧光信号至关重要。传统单阈值方法可能错误滤去低亮度细胞，或者错误保留不应参与荧光分析的明亮空腔。我们采用局部自适应阈值方法对平滑后的图像（$I_{DD}$、$I_{DA}$和$I_{AA}$）进行二值化分割。像素$(x, y)$的阈值$T_L(x,y)$和二值化结果${Mask}_L(x,y)$计算如下：
-\begin{equation}
-    T_L(x,y)=\frac{1}{w \times w} \sum_{i=x-\frac{w-1}{2}}^{x+\frac{w-1}{2}} \sum_{j=y-\frac{w-1}{2}}^{y+\frac{w-1}{2}} I(i,j)+b_L,
-    \label{eq1}
-\end{equation}
-\begin{equation}
-    {Mask}_L(x,y)=\begin{cases}
-        1,&I(x,y) \geq T_L(x,y) \\
-        0,&I(x,y) < T_L(x,y)
-    \end{cases},
-    \label{eq2}
-\end{equation}
-其中$I(x,y)$为输入图像的灰度值，$w$为大于等于$4n+1$但不超过细胞长宽四分之一的奇数，$b_L$为偏置项（值被设置为各通道通过公式 \ref{eq:bg} 计算的背景灰度值），确保完全去除背景区域。
-
-\item \textbf{三通道掩码合并生成${Mask}_{L, M}$。}  
-三通道图像的掩码通过逻辑与操作合并生成最终掩码：
-\begin{equation}
-    \begin{split}
-    {Mask}_{L, M}(x,y)={Mask}_{L, DD}(x,y) \land {Mask}_{L, DA}(x,y) \land {Mask}_{L, AA}(x,y),
-    \end{split}
-    \label{eq3}
-\end{equation}
-其中${Mask}_{L, DD}$、${Mask}_{L, DA}$和${Mask}_{L, AA}$是基于式 \ref{eq2} 生成的各通道掩码，${Mask}_{L, M}$为合并结果。
-
-\item \textbf{计算ROI的CV矩阵。}  
-均匀性反映特定区域内荧光信号的一致性，对保证实验数据的可靠性和可重复性具有重要意义。我们采用变异系数（CV）评估ROI内的灰度均匀性：
-\begin{equation}
-   {CV}_{ROI}={StdDev}_{ROI} / {Mean}_{ROI},
-    \label{eq4}
-\end{equation}
-其中${Mean}_{ROI}$为ROI内像素的平均灰度值，${StdDev}_{ROI}$为标准差。我们计算每个ROI的CV值并存储为$CV$矩阵（${Mat}_{CV}$）。  
-同时生成均值矩阵${Mat}_{Mean}$存储各ROI的均值，像素$(x,y)$的值计算为：
-\begin{equation}    
-    {Mat}_{Mean}(x,y)=\frac{1}{n \times n} \sum_{i=x- \frac{n-1}{2}}^{x+\frac{n-1}{2}} \sum_{j=y-\frac{n-1}{2}}^{y+\frac{n-1}{2}} I(i,j),
-    \label{eq5}
-\end{equation}
-其中$n$为ROI宽度。基于均值矩阵，标准差矩阵计算为：
-\begin{equation}
-    \begin{split}
-    {Mat}_{Std}(x,y)=
-    \sqrt{\frac{1}{n \times n} \sum_{i=x-\frac{n-1}{2}}^{x+\frac{n-1}{2}} \sum_{j=y-\frac{n-1}{2}}^{y+\frac{n-1}{2}}{I(i,j)}^2-{{Mat}_{Mean}(x,y)}^2},
-    \end{split}
-    \label{eq6}
-\end{equation}
-将各ROI的CV值存入${Mat}_{CV}$：
-\begin{equation}
-    {Mat}_{CV}={Mat}_{Std}(x,y)/{Mat}_{Mean}(x,y),
-    \label{eq7}
-\end{equation}
-并通过线性变换将浮点型CV值转换为16位整数：
-\begin{equation}
-    {I}_{CV}(x,y)=\left\lfloor\frac{{Mat}_{Std}(x,y)-{Std}_{min}} {{Std}_{max}-{Std}_{min}}\times65535 + 0.5\right\rfloor,
-\end{equation}
-其中${Std}_{min}$和${Std}_{max}$为${Mat}_{CV}$的最小和最大CV值，$I_{CV}$为转换后的0-65535范围的整数值。
-
-\item \textbf{基于均匀性的自适应阈值分割CV矩阵。}  
-三通道CV矩阵记为$I_{CV,DD}$、$I_{CV,DA}$和$I_{CV,AA}$。采用与生成${Mask}_{L}$相同的方法生成基于均匀性的掩码（注意低CV值区域更优）。像素$(x,y)$的阈值计算为：
-\begin{equation}
-    T_U(x,y)=\frac{1}{w \times w} \sum_{i=x-\frac{w-1}{2}}^{x+\frac{w-1}{2}} \sum_{j=y-\frac{w-1}{2}}^{y+\frac{w-1}{2}} {I}_{CV}(i,j)+b_U,
-    \label{eq8}
-\end{equation}
-\begin{equation}
-    {Mask}_U(x,y)=\begin{cases}1,&I(x,y) < T_U(x,y)\\ 0,&I(x,y) \ge T_U(x,y)\end{cases},
-    \label{eq9}
-\end{equation}
-其中$b_U$通过式(\ref{eq:bg})对$I_{CV}(x,y)$计算得到。
-
-\item \textbf{三通道均匀性掩码合并生成${Mask}_{U,M}$。}  
-其中${Mask}_{U,DD}$、${Mask}_{U,DA}$和${Mask}_{U,AA}$是基于公式 \ref{eq9} 生成的各通道均匀性掩码，${Mask}_{U,M}$为合并结果。
-\begin{equation}
-    \begin{split}
-    {Mask}_{U,M}(x,y)={Mask}_{U,DD}(x,y) \land {Mask}_{U,DA}(x,y) \land {Mask}_{U,AA}(x,y),
-    \end{split}
-    \label{eq_merge_u}
-\end{equation}
-\item \textbf{合并亮度掩码与均匀性掩码生成${Mask}_{LU}$。}  
-通过逻辑与操作合并亮度掩码和均匀性掩码：
-\begin{equation}
-    {Mask}_{LU}(x,y)={Mask}_{L,M}(x,y) \land {Mask}_{U,M}(x,y)
-    \label{eq10}
-\end{equation}
-\item \textbf{从${Mask}_{LU}$中选择ROI。}  
-对掩码进行连通区域分析，移除面积小于$n \times n$的碎片区域。选择高信噪比像素作为ROI中心，通过${Mat}_{Mean}$获取对应位置的信号值。
+  \item 打开Fretha软件，点击“FRET参数”按钮，按照表 \ref{tab:lurs_imaging_params} 中的参数设置成像参数；
+  \item 返回开始界面，点击“浏览”按钮，选择数据文件夹，点击“开始”按钮，进入数据处理界面；
+  \item 进入FRET图像处理模块，选择三通道信号背景比大于3且区域均匀的ROI，记录到数据区；
+  \item 点击“筛选数据”，排除异常的数据和离群值；
+  \item 点击“开始计算”，进入结果展示页界面，点击“保存结果”按钮，保存数据处理结果。
 \end{enumerate}
 
-LURS算法流程如图 \ref{fig1} 所示：
-\begin{figure*}[!htbp]
-\centering
-\includegraphics[width=1\linewidth]{../figures/3/3_LURS流程图.png}
-\caption{LURS算法流程图}\label{fig1}
-\end{figure*}
+\section{结果}
 
-\subsection{DC-FRET方法的数据范围选取}
-\ifshowtext
-在自动FRET双杂交分析数据处理中，我们更倾向于使用DC-FRET方法而L-FRET方法，因为DC-FRET方法具有以下优势：
-\begin{enumerate}
-    \item 简化实验过程：与L-FRET方法相比，DC-FRET方法无需在中间分布状态下准备大量样本。相反，仅需准备相对较大$R_C$值和相对较小$R_C$值的样本，这减少了样本的制备和处理时间。
-    \item 得出更稳定可靠的结果：DC-FRET中用于线性拟合的供体荧光能量转移效率$E_D$和受供体浓度比$R_C$数据是通过E-FRET和$3^3$-FRET方法进行定量测量的，该方法具有较高的准确性和稳定性，能够提供可靠的数据，使得线性拟合的结果更加稳定可靠。
-\end{enumerate}
+\subsection{E-FRET和$3^3$-FRET处理结果}
+Fretha手动处理数据时选取100个ROI，然后统计Fretha数据区自动计算的E-FRET和$3^3$-FRET结果。
+通过ZEN在每个质粒中同样选取了100个ROI，并对应标注了每个ROI的背景值，使用Excel扣除每个背景后编写公式进行E-FRET和$3^3$-FRET定量计算，然后统计结果。
 
-然而，DC-FRET方法在选择$R_C$或$1/R_C$的范围时需要一定经验。如果所选范围过小，将会导致数据点不足，从而使结果的稳定性变差。
-当拟合范围过大时，结果可能会不正确，因为所选数据不满足尽可能选择受体饱和结合或者供体饱和结合情况。
-为了避免使用数据中的不稳定部分，本文中所有自动算法中进行的DC-FRET分析均遵循如下原则：
-\begin{enumerate}
-    \item 如果样本仅包含供体饱和的情况或仅包含受体饱和的情况，应选择$R_C$（$1/R_C$）值相对较小的50\%的数据。
-    \item 当受体饱和和供体饱和同时存在时，则应选择$R_C$（$1/R_C$）值较小的25\%的数据。
-\end{enumerate}
-
-\fi
-
-\section{实验结果}
-\subsection{标准质粒验证实验}
-准确获取正确且可靠的$3^3$-FRET和 E-FRET的计算结果，是成功进行FRET双杂交分析的必要前提。
-因此，我们运用我们的方法对青色荧光蛋白（CFP）和黄色荧光蛋白（YFP）构建体的单质粒进行了测量，具体包括 C4Y、C10Y、C40Y 和 C80Y。
-这些质粒中的受体和供体的比例均为1:1，但是拥有不同的$E_D$值。
-测量的结果列于表\ref{tab:results_standard_plasmids}中。
+如表 \ref{tab:Fretha手动E-FRET结果} 所示，Fretha手动处理的标准质粒C4Y的效率为$E_A=0.291\pm0.020$，$E_D=0.307\pm0.040$，受体与供体的浓度比为$R_C=0.994\pm0.096$。对比C4Y的文献值$E_A=0.296\pm0.001$，$E_D=0.299\pm0.004$，$R_C=1$，发现使用Fretha手动数据处理方法的结果均与文献值一致。
+C10Y、C40Y和C80Y的效率和浓度比也与文献值一致，说明Fretha软件的手动数据处理功能达到了预期目标。
+Fretha测量的C4Y、C10Y、C40Y和C80Y的$R_C$的误差分别为0.006、0.008、0.009和0.010，均小于0.01，说明Fretha手动数据处理的精度较高。
 \begin{table*}[hbtp]
-    \centering
-    \caption{ 对标准质粒进行$3^3$-FRET和E-FRET测量的结果}
-    \begin{tabularx}{\linewidth}{
+  \centering
+  \caption{手动定量$3^3$-FRET和E-FRET分析标准质粒结果}
+  \begin{tabularx}{\linewidth}{
+    >{\centering\arraybackslash}p{1cm}
     >{\centering\arraybackslash}X
     >{\centering\arraybackslash}X
     >{\centering\arraybackslash}X
     >{\centering\arraybackslash}X
     >{\centering\arraybackslash}X
     >{\centering\arraybackslash}X
-    >{\centering\arraybackslash}X}
-    \toprule
-    \multirow{2}{*}{样本} & \multicolumn{3}{c}{测量结果} & \multicolumn{3}{c}{文献结果} \\
-     & $E_{A}$ & $E_{D}$ & ${R_C}$ & $E_A$ & $E_{D}$ & $R_C$ \\
-    \midrule
-    C4Y  & $0.31\pm0.04$ & $0.29\pm0.02$ & $0.98\pm0.11$ & $0.30$ & $0.30$ & $1$ \\
-    C10Y & $0.24\pm0.02$ & $0.21\pm0.02$ & $0.94\pm0.10$ & $0.22$ & $0.23$ & $1$ \\
-    C40Y & $0.17\pm0.03$ & $0.15\pm0.01$ & $0.98\pm0.17$ & $0.16$ & $0.16$ & $1$ \\
-    C80Y & $0.11\pm0.03$ & $0.11\pm0.02$ & $1.03\pm0.20$ & $0.12$ & $0.12$ & $1$ \\
-    \bottomrule
-    \end{tabularx}
-    \label{tab:results_standard_plasmids}
+  }
+  \toprule[1.5pt]
+  \multirow{2}{*}{样本} & \multicolumn{3}{c}{Fretha手动处理结果} & \multicolumn{3}{c}{文献结果} \\
+   & $E_{A}$ & $E_{D}$ & ${R_C}$ & $E_A$ & $E_{D}$ & $R_C$ \\
+  \midrule
+  C4Y  & $0.291\pm0.020$ & $0.307\pm0.040$ & $0.994\pm0.096$ & $0.296\pm0.001$ & $0.299\pm0.004$ & $1$ \\
+  C10Y & $0.243\pm0.031$ & $0.230\pm0.022$ & $0.992\pm0.083$ & $0.228\pm0.002$ & $0.223\pm0.003$ & $1$ \\
+  C40Y & $0.159\pm0.018$ & $0.155\pm0.011$ & $0.991\pm0.078$ & $0.156\pm0.002$ & $0.158\pm0.002$ & $1$ \\
+  C80Y & $0.118\pm0.019$ & $0.117\pm0.012$ & $1.041\pm0.109$ & $0.112\pm0.001$ & $0.116\pm0.002$ & $1$ \\
+  \bottomrule[1.5pt]
+  \end{tabularx}
+  \label{tab:Fretha手动E-FRET结果}
 \end{table*}
-通过对LURS 提取的ROI的FRET信号进行计算和统计分析，结果表明：C4Y 的$E_D$值为 0.31，C10Y 的$E_D$为 0.23，C40Y 的$E_D$为 0.2，C80Y 的$E_D$为 0.11。
-与此同时，C4Y、C10Y、C40Y 和 C80Y 的$R_C$值分别为 0.98、0.94、0.98 和 1.03，与标准值1接近。
-所有质粒的$E_D$和$R_C$值都与已报道的值接近，这表明 LURS 算法能够成功提取出正确且有效的ROI，为FRET双杂交分析提供了从供体和受体角度的准确FRET效率数据。
 
-\subsection{模型质粒验证实验}
+\subsection{模型质粒FRET双杂交验证实验}
+\label{sec:模型质粒FRET双杂交验证实验}
 
-我们使用我们的方法来自动测量各种Cerulean（C，CFP的突变体）和Venus（V，YFP的突变体）构建体的化学计量比，其中包括 C32V 和 CVC。图\ref{fig:results_model_plasmids}展示了共表达 C32V / CVC 且含有游离的 C（C32V + C，CVC + C）（上半部分）或游离的 V（C32V + V，CVC + V）（下半部分）的活 MCF7 细胞的三张荧光图像（DD、AA 和 DA）（左侧），以及由 LURS 生成的ROI（中间），还有图和图（右侧）。
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=1\linewidth]{../figures/3/3_模型质粒实验结果.png}
-    \caption[模型质粒验证实验结果]{在存在游离供体或受体的情况下，分别通过DC-FRET和L-FRET方法对MCF7活细胞中标准质粒（C32V和CVC）的$E_{A, max}$、$E_{D, max}$和$n_D/n_A$进行自动FRET双杂交分析测量结果。}
-    \label{fig:results_model_plasmids}
+为了模拟FRET双杂交实验，本节使用Fretha手动测量了活的MCF-7细胞中存在自由供体（Cerulean，C）和自由受体（Venus，V）时固定质粒C32V和CVC的$E_{A,max}$、$E_{D,max}$和$n_D/n_A$值。图\ref{fig:Fretha手动双杂交}展示了共表达 C32V / CVC 且含有游离的 C（C32V + C，CVC + C）（上半部分）或游离的 V（C32V + V，CVC + V）（下半部分）的活 MCF7 细胞的三张荧光图像（DD、AA 和 DA）（左侧），使用Fretha手动标注的ROI（中间），以及DC-FRET和L-FRET的结果图（右侧）。
+\begin{figure}
+  \centering
+  \includegraphics[width=1\linewidth]{../figures/3/Fretha手动双杂交数据处理.png}
+  \caption{Fretha手动处理的C32V和CVC的FRET双杂交分析结果}
+  \label{fig:Fretha手动双杂交}
 \end{figure}
 
-测量了 C32V 和 CVC 质粒中Cerulean与Venus之间的结合化学计量比结果见表\ref{tab:results_model_plasmids}。
-对于 C32V 质粒，我们得到的$E_{A,max}$为 0.32，$E_{D,max}$为 0.30，化学计量比（$n_D/n_A$）为 1.06。
-这个数值与 C32V 预期的供体-受体比例 1:1非常接近。
-对于 CVC 质粒，$E_{A,max}$、$E_{D,max}$和$n_D/n_A$的值分别为 0.76、0.40 和 1.90，所获得的结果与先前文献中报道的结果一致\upcite{koushik2006cerulean}。
-对于这两种化学计量比不同的质粒，我们的方法成功识别到了它们的化学计量比的差别，且计算出的化学计量比的相对误差不超过 6\%，进一步证明了我们方法的准确性。
+DC-FRET数据处理过程中的具体参数设置如下：
+C32V，选取$R_C$在0-0.7之间的数据用于斜率拟合$E_{A,max}$，选取$1/R_C$在0-0.8之间的数据用于斜率拟合$E_{D,max}$，
+测定的$E_{A,max}$为0.318，$E_{D,max}$为0.297，$n_D/n_A$为1.071；
+对CVC，选取$R_C$在0-0.2之间的数据用于斜率拟合$E_{A,max}$，选取$1/R_C$在0-1.2之间的数据用于斜率拟合$E_{D,max}$，
+测定的$E_{A,max}$为0.795，$E_{D,max}$为0.393，$n_D/n_A$为2.023。
+L-FRET测量得到C32V的$E_{A,max}$为0.347，$E_{D,max}$为0.344，$n_D/n_A$为1.033，CVC的$E_{A,max}$为0.827，$E_{D,max}$为0.419，$n_D/n_A$为2.046。
+文献报道的C32V的$E_{D,max}$为0.311，$n_D/n_A$为1，CVC的$E_{D,max}$为0.414，$n_D/n_A$为2。
 
+所有的测试结果如表 \ref{tab:Fretha手动双杂交} 所示。
+使用Fretha进行DC-FRET和L-FRET的测量结果均与文献值一致，说明Fretha手动数据处理在准确度上满足预期。
 \begin{table*}[htbp]
-    \centering
-    \caption{模型质粒的FRET双杂交分析结果}
-    \begin{tabularx}{\linewidth}{
+  \centering
+  \caption{手动处理C32V、CVC的FRET双杂交分析结果}
+  \begin{tabularx}{\linewidth}{
     >{\centering\arraybackslash}X
+    >{\centering\arraybackslash}p{2.2cm}
+    >{\centering\arraybackslash}p{2.2cm}
+    >{\centering\arraybackslash}p{2.2cm}
     >{\centering\arraybackslash}X
     >{\centering\arraybackslash}X
     >{\centering\arraybackslash}X
     >{\centering\arraybackslash}X
     >{\centering\arraybackslash}X}
-    \toprule
-    \multirow{2}{*}{样本} & \multicolumn{3}{c}{测量结果} & \multicolumn{2}{c}{文献结果} \\
-     & $E_{A,max}$ & $E_{D,max}$ & ${n_D/n_A}$ & $E_{D,max}$ & $n_D/n_A$\\
+    \toprule[1.5pt]
+    \multirow{2}{*}{样本} & \multicolumn{3}{c}{DC-FRET结果} & \multicolumn{3}{c}{L-FRET结果} & \multicolumn{2}{c}{文献结果} \\
+     & $E_{A,max}$ & $E_{D,max}$ & ${n_D/n_A}$ & $E_{D,max}$ & $E_{D,max}$ & ${n_D/n_A}$ & $E_{D,max}$ & $n_D/n_A$\\
     \midrule
-    C32V & $0.32\pm0.04$ & $0.30\pm0.01$ & $1.06\pm0.14$ & 0.31 & 1\\
-    CVC & $0.76\pm0.02$ & $0.40\pm0.02$ & $1.90\pm0.11$ & 0.41 & 2\\
-    \bottomrule
+    C32V & $0.318\pm0.036$ & $0.297\pm0.018$ & $1.071\pm0.144$ & $0.347$ & $0.344$ & $1.033$ & 0.311 & 1\\
+    CVC & $0.795\pm0.018$ & $0.393\pm0.023$ & $2.023\pm0.113$ & $0.827$ & $0.419$ & $2.046$ & 0.414 & 2\\
+    \bottomrule[1.5pt]
     \end{tabularx}
-    \label{tab:results_model_plasmids}
+  \label{tab:Fretha手动双杂交}
 \end{table*}
 
-\subsection{活细胞中 Bcl-xL-Bak 化学计量比的自动分析}
+\section{Fretha软件测试}
+\subsection{成像参数设置模块测试}
+成像参数设置是软件的核心功能之一，直接影响到数据处理结果的准确性。
+本测试旨在验证软件成像参数设置功能的正确性和灵活性，确保软件能够及时准确响应参数的更新设置。
 
-接下来，为了研究选择性 Bcl-xL 抑制剂 A1331852 存在下的 Bcl-xL-Bak 相互作用，我们将方法应用于测量两者化学计量比变化的活细胞实验 \upcite{wang2020discovery}。
+测试时，通过界面操作更新参数，分别用表 \ref{tab:lurs_imaging_params} CV成像参数和CY参数处理单转CV体系标准质粒C32V和CY体系标准质粒C4Y样本的FRET图像数据，进行E-FRET分析计算结果$E_D$和$R_C$。将参数和数据匹配的实验组记为正面组，将参数不匹配数据的组别记为反面组，测试结果如表 \ref{表：测试参数更新} 所示。
 
-为了对比LURS自动ROI提取算法和深度学习方法的效果，我们分别测试了应用ilastik的方法、应用SAM-Med2D的方法进行了自动数据处理，然后对比了不同方法的精确度和对药物敏感度的测试。
-在图像处理和ROI上，基于ilastik的方法通过手动对图像进行交互式标注，我们对输入的10个视野30张荧光细胞图像进行标注，将图像的像素分类为好细胞、坏细胞和背景区域，然后应用训练后的ilastik的模型进行自动分割，完成了对ROI的选取。
-基于SAM-Med2D的方法通过手动对图像进行标注，我们标注了好细胞和背景区域，然后分别作为大模型输入的提示词（prompt）进行提示，然后输入实验数据完成自动分割。
-在FRET双杂交分析方法上，由于DC-FRET的优越性，我们选取DC-FRET作为分析模型和方法。
+\begin{table}[htbp]
+  \centering
+  \caption{更改参数C4Y和C32V质粒E-FRET测量结果}
+  \begin{tabular}{ccccc}
+  \toprule[1.5pt]
+  实验组 & 参数 & 样本 & $E_D$ & $R_C$ \\
+  \midrule
+  \multirow{2}{*}{正面} & CV & C32V & $0.299\pm0.022$ & $0.981\pm0.113$ \\
+  & CY & C4Y & $0.307\pm0.040$ & $0.994\pm0.096$ \\
+  \multirow{2}{*}{反面} & CY & C32V & $0.382\pm0.054$ & $0.821\pm0.093$ \\
+  & CV & C4Y & $0.221\pm0.037$ & $1.313\pm0.135$ \\
+  \bottomrule[1.5pt]
+  \end{tabular}
+  \label{表：测试参数更新}
+\end{table}
 
-首先，如图 \ref {fig3} 所示，所有方法均能高精度测量 FRET 效率及化学计量比，并有效检测药物处理前后的参数显著变化。
-这些结果表明，A1331852可破坏 Bcl-xL/Bak 相互作用，导致 受体中心的FRET 效率、供体中心的FRET效率和化学计量比均显著降低，且与手动分析结果趋势一致，验证了不同方法的测量一致性。
+正面组的测量结果中，C32V的$E_D$为$0.299\pm0.022$，$R_C$为$0.981\pm0.113$，C4Y的$E_D$为$0.307\pm0.040$，$R_C$为$0.994\pm0.096$，均与文献值一致。
+反面组的测量结果中，C32V的$E_D$为$0.382\pm0.054$，$R_C$为$0.821\pm0.093$，C4Y的$E_D$为$0.221\pm0.037$，$R_C$为$1.313\pm0.135$，与文献值存在较大偏差。
+说明参数Fretha后台能够及时使用更新后的参数进行计算。
+
+经过对界面和计算结果的检查和测试，成像参数设置模块的界面和功能均符合预期，软件界面和后台内存中的参数均能准备设置更新。
+
+\subsection{数据检验模块测试}
+如 \ref{sec:数据检验模块} 节所述，数据检验模块用于检查数据的完整性和安全性，防止非法数据对软件运行造成不可预测的影响。
+本测试旨在验证软件数据检验模块的有效性，并检查软件对于异常数据的识别能力和隔离能力。
+
+测试时，使用Fretha分别尝试打开FRET标准数据、FRET缺失数据、非FRET数据、空数据、异常数据，检查软件的数据检验模块的反应。
+具体测试内容和结果如表 \ref{tab:测试数据完备性} 所示。
+
+\begin{table*}[htbp]
+  \centering
+  \caption{Fretha数据检验模块测试结果 }
+  \begin{tabular}{cccccc}
+  \toprule[1.5pt]
+  测试数据 & 视野文件夹内容 & 可打开 & 可计算 & 识别类别 & 是否符合预期\\
+  \midrule
+
+  \multirow{3}{*}{FRET标准数据} &
+  \begin{tabular}[t]{@{}l@{}}
+    DD.tif \\
+    DA.tif \\
+    AA.tif \\
+  \end{tabular} &
+  \multirow{3}{*}{\ding{51}} &
+  \multirow{3}{*}{\ding{51}} &
+  \multirow{3}{*}{FRET} &
+  \multirow{3}{*}{\ding{51}}\\
+
+  \multirow{2}{*}{FRET缺失数据} &
+  \begin{tabular}[t]{@{}l@{}}
+    DD.tif \\
+    DA.tif \\
+  \end{tabular} &
+  \multirow{2}{*}{\ding{51}} & 
+  \multirow{2}{*}{\ding{55}} &
+  \multirow{2}{*}{Unknown} &
+  \multirow{2}{*}{\ding{51}} \\
+
+  \multirow{2}{*}{非FRET数据} &
+  \begin{tabular}[t]{@{}l@{}}
+    D.tif \\
+    A.tif \\
+  \end{tabular} &
+  \multirow{2}{*}{\ding{51}} &
+  \multirow{2}{*}{\ding{55}} &
+  \multirow{2}{*}{Unknown} &
+  \multirow{2}{*}{\ding{51}} \\
+
+  空数据 &
+  空 &
+  \ding{55} &
+  \ding{55} &
+  Unknown &
+  \ding{51} \\
+
+  \multirow{3}{*}{损坏数据} &
+  \begin{tabular}[t]{@{}c@{}}
+    DD.tif（损坏） \\
+    DA.tif \\
+    AA.tif \\
+  \end{tabular} &
+  \multirow{3}{*}{\ding{51}} &
+  \multirow{3}{*}{\ding{55}} &
+  \multirow{3}{*}{Unknown} &
+  \multirow{3}{*}{\ding{51}} \\
+  
+  \bottomrule[1.5pt]
+  \end{tabular}
+  \label{tab:测试数据完备性}
+\end{table*}
+
+结果表明，对于正常数据（FRET标准数据），数据检验模块能够正确识别数据类型，并且能够成功打开和计算数据，符合预期。
+对于视野子文件夹中存在缺失数据、非FRET数据、空数据和损坏数据等情况，Fretha能够打开并显示在视野区，但无法打开或者参与自动计算，并且会被正常识别为“Unknown”类别以提醒用户该视野处于不可计算的状态。
+点击“自动圈点”后，发现自动算法也能够成功忽略被识别为“Unknown”类别的视野，不会对其进行计算。
+这些结果均符合预期，说明软件数据检验模块的功能正常，能够有效识别和阻止异常数据的计算。
+
+\subsection{FRET图像处理模块测试}
+
+FRET图像处理模块能够帮助用户进行FRET双杂交分析数据处理，其功能如 \ref{sec:FRET图像处理模块} 节所述。
+在测试时，我们主要测试FRET图像处理的视图增强、ROI编辑和ROI状态栏更新功能，以验证软件的功能是否符合预期。
+
+首先测试FRET视图增强功能。
+分别切换表 \ref{tab:fretha_viewtype_list} 中的视图类型，查看视图增强的效果，过程中的软件界面和增强视图的截图如图 \ref{fig:视图测试} 所示。
+结果表明，软件能够正确显示不同类型的视图，并且视图增强的效果明显，提高了用户在圈选ROI时的针对性和准确性。
 
 \begin{figure*}[!htb]
   \centering
-  \includegraphics[width=1\linewidth]{../figures/4/4_方法对比.png}
-  \caption[活细胞中 Bcl-xL-Bak 化学计量比的自动分析方法对比]{手动、ilastik、SAM-Med2D及本方法计算的，A1331852处理前（a，b）和处理后（c，d）Bcl - xL - CFP与Bak - YFP结合的最大$3^3$-FRET（黑色）和E - FRET（红色）效率以及化学计量比（黄色）。}\label{fig3}
+  \includegraphics[width=0.9\linewidth]{../figures/4/4_视图类型.png}
+  \caption{Fretha图像处理视图切换测试结果}
+  \label{fig:视图测试}
 \end{figure*}
 
-其次，本方法在FRET参数测量中表现出优于SAM-Med2D和ilastik的整体准确性（表 \ref{tab:comparison}）。
-对照组中，本方法测得$E_{A,\text{max}}=0.27\pm0.03$、$E_{D,\text{max}}=0.15\pm0.03$。尽管SAM-Med2D的$E_{A,\text{max}}$（$0.29\pm0.04$）更接近手动值（$0.34\pm0.04$），但本方法在$E_{D,\text{max}}$（$0.15\pm0.03$ vs 手动$0.17\pm0.03$）和化学计量比（$n_D/n_A=1.87\pm0.22$）上偏差最小（手动$2.01\pm0.14$），而SAM-Med2D（$1.79\pm0.33$）和ilastik（$1.74\pm0.19$）的化学计量比偏离更显著。
-在A1331852处理组中，本方法的所有参数均最贴近手动结果：$E_{A,\text{max}}=0.11\pm0.02$、$E_{D,\text{max}}=0.10\pm0.03$（手动$0.15\pm0.02$、$0.13\pm0.04$），显著优于SAM-Med2D（$0.09\pm0.02$）和ilastik（$0.05\pm0.01$）。特别值得注意的是，本方法的化学计量比$n_D/n_A=1.12\pm0.33$与手动结果（$1.12\pm0.30$）完全一致，而SAM-Med2D（$1.02\pm0.30$）和ilastik（$1.03\pm0.48$）表现出更大离散性。这些结果突显了本方法在扰动条件下定量FRET效率与化学计量比的稳健性。
+然后测试ROI绘制功能。
+ROI编辑功能根据鼠标与ROI边框的位置关系，显示不同的鼠标样式。
+分别移动鼠标位置到ROI内部、边框和外部的，观察鼠标的样式和按下时对应的功能。
+测试结果如表 \ref{tab:ROI鼠标样式} 所示，表明软件能够正确显示不同的鼠标样式，且在不同位置对应的功能正确，响应迅速，保证了ROI绘制的操作体验。
 
-\begin{table*}[htbp]
+\begin{table}
   \centering
-  \caption[活细胞中 Bcl-xL-Bak 化学计量比的自动分析方法对比]{手动、基于ilastik、基于SAM-Med2D 及Fretha自动方法测量 A1331852 处理前后 Bcl-xL-CFP 与 Bak-YFP 结合的 DC-FRET 双杂交分析结果}
-  \begin{tabularx}{\linewidth}{
-  >{\centering\arraybackslash}X
-  >{\centering\arraybackslash}X
-  >{\centering\arraybackslash}X
-  >{\centering\arraybackslash}X
-  >{\centering\arraybackslash}X
-  >{\centering\arraybackslash}X
-  >{\centering\arraybackslash}X}
-  \toprule
-  \multirow{2}{*}{方法} & \multicolumn{3}{c}{对照组} & \multicolumn{3}{c}{加药组}  \\
-   & $E_{A,max}$ & $E_{D,max}$ & ${n_D/n_A}$ & $E_{D,max}$ & $E_{D,max}$ & ${n_D/n_A}$ \\
-  \midrule
-  Manual & $0.34\pm0.04$ & $0.17\pm0.03$ & $2.01\pm0.14$ & $0.15\pm0.02$ & $0.13\pm0.04$ & $1.12\pm0.30$ \\
-  ilastik & $0.24\pm0.03$ & $0.14\pm0.02$ & $1.74\pm0.19$ & $0.05\pm0.01$ & $0.05\pm0.02$ & $1.03\pm0.48$ \\
-  SAM-Med2D & $0.29\pm0.04$ & $0.17\pm0.05$ & $1.79\pm0.33$ & $0.09\pm0.02$ & $0.09\pm0.02$ & $1.02\pm0.30$ \\
-  Ours & $0.27\pm0.03$ & $0.15\pm0.03$ & $1.87\pm0.22$ & $0.11\pm0.02$ & $0.10\pm0.03$ & $1.12\pm0.33$ \\
-  \bottomrule
-  \hline %
-  \end{tabularx}
-  \label{tab:comparison}
-\end{table*}
+  \caption{ROI绘制功能测试结果}
+  \begin{tabular}{cccc}
+    \toprule[1.5pt]
+    鼠标位置 & 鼠标样式 & 按下效果 & 是否符合预期\\
+    \midrule
+    ROI内部 & 手型 & 移动ROI & \ding{51}\\
+    ROI左边框 & 水平箭头 & 调整ROI宽度 & \ding{51} \\
+    ROI右边框 & 水平箭头 & 调整ROI宽度 & \ding{51} \\
+    ROI上边框 & 垂直箭头 & 调整ROI高度 & \ding{51} \\
+    ROI下边框 & 垂直箭头 & 调整ROI高度 & \ding{51} \\
+    ROI外部 & 十字形 & 新建ROI & \ding{51} \\
+    \bottomrule[1.5pt]
+  \end{tabular}
+  \label{tab:ROI鼠标样式}
+\end{table}
+
+最后测试ROI状态栏的更新。
+ROI状态栏上的数据更新发生在ROI被绘制更新以及视野切换时，因此通过编辑ROI和切换视野两种操作来测试ROI状态栏的更新，然后检查ROI状态栏的信息是否能够实时更新，结果如表 \ref{tab:ROI状态栏测试} 所示。
+\begin{table}
+  \centering
+  \caption{ROI状态栏功能测试结果}
+  \begin{tabular}{cccc}
+    \toprule[1.5pt]
+    \multirow{2}{*}{测试目标} & \multicolumn{2}{c}{ 测试结果} & \multirow{2}{*}{ 是否符合预期} \\
+    & 更新ROI结果 & 切换视野结果 & \\
+    \midrule
+    DD通道信号 & 数据更新 & 重置为0 & \ding{51} \\
+    DA通道信号 & 数据更新 & 重置为0 & \ding{51} \\
+    AA通道信号 & 数据更新 & 重置为0 & \ding{51} \\
+    DD通道SBR & 数据更新 & 重置为0 & \ding{51} \\
+    DA通道SBR & 数据更新 & 重置为0 & \ding{51} \\
+    AA通道SBR & 数据更新 & 重置为0 & \ding{51} \\
+    DD通道背景 & 保持不变 & 数据更新 & \ding{51} \\
+    DA通道背景 & 保持不变 & 数据更新 & \ding{51} \\
+    AA通道背景 & 保持不变 & 数据更新 & \ding{51} \\
+    $F_C$ & 数据更新 & 重置为0 & \ding{51} \\
+    $E_D$ & 数据更新 & 重置为0 & \ding{51} \\
+    $R_C$ & 数据更新 & 重置为0 & \ding{51} \\
+    \bottomrule[1.5pt]
+  \end{tabular}
+  \label{tab:ROI状态栏测试}
+\end{table}
+
+上述测试结果表明，FRET图像处理的视图增强、ROI绘制和ROI状态栏更新功能均符合预期，软件能够正确显示不同类型的视图，辅助用户更好完成FRET双杂交分析图像处理工作。
+
+\subsection{数据管理模块测试}
+
+数据管理模块能够管理和组织数据区记录的数据，包括数据导入、数据导出、数据保存、数据计算等功能，如 \ref{sec:数据管理模块} 节所述。本节重点关注验证数据导入、数据导出和功能。
+
+测试时的具体步骤如下：
+\begin{enumerate}
+  \item 使用导出数据功能导出圈点信息，检查文件生成和内容是否正确；
+  \item 清空数据区，然后使用导入数据功能导入Fretha圈点数据（CSV），检查数据是否正确导入；
+  \item 将导出文件另存为其他格式（XLSX），尝试导入XLSX文件，检查数据是否正确导入；
+  \item 将另一组数据集生成的CSV文件导入，检查数据是否正确导入；
+\end{enumerate}
+
+测试结果如表 \ref{tab:数据管理模块测试结果} 所示。
+当导入Fretha圈点数据（CSV），软件能够成功导入数据，数据准确无误。
+导入XLSX格式的数据时，软件无法导入。
+当导入不匹配Fretha数据（CSV）时，软件能够检测到数据不匹配，终止导入。
+导出功能能够成功导出Fretha圈点数据（CSV），数据准确无误。
+添加数据和删除数据功能均工作正常，且通过鼠标和快捷键均可以快速添加和删除数据。
+
+\begin{table}[hbtp]
+  \centering
+  \caption{数据管理模块测试结果}
+  \begin{tabular}{p{1.5cm} l l c} % 自定义各列宽度
+    \toprule[1.5pt]
+    {测试目标} & {测试内容} & {测试结果} & {是否符合预期} \\
+    \midrule
+    \multirow{2}{*}{清空数据} & 清空数据区 & 成功清空 & \ding{51} \\
+     & 快捷键“C” & 成功清空 & \ding{51} \\
+    筛选数据 & 筛选数据 & 成功筛选 & \ding{51} \\
+    \multirow{3}{*}{导入数据} & 导入Fretha圈点数据（CSV） & 成功导入 & \ding{51} \\
+     & 导入其他表格类型数据（XLSX） & 无法导入 & \ding{51} \\
+     & 导入不匹配Fretha数据（CSV） & 无法导入 & \ding{51} \\
+    导出数据 & 导出Fretha圈点数据（CSV） & 成功导出 & \ding{51} \\
+    \multirow{2}{*}{添加数据} & 添加新数据 & 成功添加 & \ding{51} \\
+     & 快捷键“A” & 成功添加 & \ding{51} \\
+    \multirow{2}{*}{删除数据} & 删除数据 & 成功删除 & \ding{51} \\
+     & 快捷键“D” & 成功删除 & \ding{51} \\
+    开始计算 & 开始计算数据 & 成功跳转，计算准确 & \ding{51} \\
+
+    \bottomrule[1.5pt]
+  \end{tabular}
+  \label{tab:数据管理模块测试结果}
+\end{table}
+
+\subsection{结果可视化模块测试}
+
+结果可视化和保存模块能够帮助用户查看和保存数据处理结果，包括视图选择、图表结果、结果保存等，如 \ref{sec:结果可视化模块} 节所述。
+本节对上述功能进行测试和验证，重点关注两种视图的显示和参数的更新，以及结果的保存功能。
+
+测试L-FRET视图和BIN数据分箱功能，测试结果如图 \ref{fig:L-FRET视图测试} 所示。
+L-FRET显示出良好的拟合效果，散点与趋势线符合预期。
+测试所用的BIN参数为对$R_C$在$(0,5)$之间的数据按照0.01的步长进行分组并计算平均值，结果显示BIN参数更新后的L-FRET视图散点数明显减少，且趋势线有所变化。
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{../figures/4/4_L-FRET视图测试.png}
+  \caption[Fretha L-FRET视图测试结果]{Fretha L-FRET视图测试结果。图a为标准L-FRET视图，图b为应用BIN数据分箱后的L-FRET视图。}
+  \label{fig:L-FRET视图测试}
+\end{figure}
+
+测试DC-FRET视图中调整线性拟合的数据范围参数设置功能时，首先设置线性拟合的$R_C$数据范围为$(0,0.5)$，均值拟合的$R_C$范围为$(2,10)$，然后设置线性拟合的$1/R_C$数据范围为$(0,1)$，均值拟合的$1/R_C$范围为$(1,10)$，观察图表中的趋势线和散点图更新。
+测试结果如图 \ref{fig:DC-FRET视图测试} 所示，当扩大拟合数据的范围后，可以观察到趋势线的更新，斜率拟合段和均值拟合段均延伸至$R_C$为1的位置。
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{../figures/4/4_DC-FRET参数测试.png}
+  \caption[Fretha DC-FRET视图测试结果]{DC-FRET视图测试结果。图a为设置线性拟合的$R_C$数据范围为$(0,0.5)$，均值拟合的$R_C$范围为$(2,10)$时Fretha生成的趋势线和散点图；
+  图b则设置线性拟合的$1/R_C$数据范围为$(0,1)$，均值拟合的$1/R_C$范围为$(1,10)$。}
+  \label{fig:DC-FRET视图测试}
+\end{figure}
+
+测试保存的数据和报告是否能够正确保存，结果如图 \ref{fig:结果保存测试} 所示，软件能够正确生成结果文件，且数据和报告的内容准确无误，符合预期。
+\begin{figure}[hbtp]
+  \centering
+  \includegraphics[width=0.6\linewidth]{../figures/2/2_保存数据.png}
+  \caption{Fretha结果保存测试结果}
+  \label{fig:结果保存测试}
+\end{figure}
+
+综合测试结果表明，Fretha结果可视化模块的功能正常，能够正确显示和保存数据处理结果，为用户提供了直观的数据分析和保存功能。
+
+\section{Fretha稳定性测试}
+稳定性测试旨在评估 Fretha 软件在长时间运行、高负载或异常操作下的可靠性。测试从：
+\begin{enumerate}
+  \item 压力测试：同时加载 10 个大型 FRET 数据集（每个数据集包含 50 个视野），连续执行参数设置、图像处理和结果计算操作，监测软件是否出现崩溃或内存泄漏。
+  \item 长时间运行测试：保持软件连续运行 48 小时，期间每隔8小时进行数据导入、数据计算和保存，然后清空数据。记录软件内存占用情况，检测软件是否存在内存泄露
+  \item 异常操作测试：快速重复进行参数切换、数据导入导出、ROI 编辑等操作，模拟用户高频使用场景，观察软件的响应稳定性。
+\end{enumerate}
+
+测试结果如表 \ref{tab:稳定性测试} 所示，Fretha 在压力测试下仍能稳定处理数据，未出现崩溃或内存溢出；长时间运行中的内存占用监测如图 \ref{fig:48小时内存变化} 所示，功能模块保持正常，资源占用无显著异常；高频操作下软件响应迅速，未出现卡顿或错误。这些结果证明 Fretha 具有良好的稳定性，能够满足科研和工业场景的长时间、高负载使用需求。
+\begin{figure}[hbtp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{../figures/4/4_48小时内存占用变化.png}
+  \caption{Fretha软件48小时运行内存占用监测}
+  \label{fig:48小时内存变化}
+\end{figure}
+
+\begin{table}[hbtp]
+  \centering
+  \caption{Fretha 软件稳定性测试结果}
+  \label{tab:稳定性测试}
+  \begin{tabular}{lp{5cm}p{5cm}}
+  \toprule[1.5pt]
+  {测试类型}         & {测试方法}                                                                 & {测试结果}                                                                 \\
+  \midrule 
+  \multirow{5}{*}{压力测试} 
+    & \multirow{5}{5cm}{同时加载 10 个大型 FRET 数据集（每个数据集包含 50 个视野），连续执行参数设置、图像处理和结果计算操作，监测软件是否出现崩溃或内存泄漏。} 
+    & - 处理 10 个数据集总耗时：42.5 分钟 \\
+    &                                                                                
+    & - 内存峰值占用：1.4 GB（稳定无泄漏） \\
+    &                                                                                
+    & - 操作成功率：100\% \\
+  \midrule % 测试类型分隔线
+  \multirow{5}{*}{长时间运行测试} 
+    & \multirow{5}{5cm}{保持软件连续运行 48 小时，期间定期检查各功能模块（如图像处理、数据导出）是否正常工作，记录 CPU 和内存占用情况。} 
+    & - CPU 平均使用率：22-25\%（波动＜3\%） \\
+    &                                                                                
+    & - 内存平均占用：550-600 MB（无持续增长） \\
+    &                                                                                
+    & - 数据导出成功率：100\% \\
+  \midrule % 测试类型分隔线
+  \multirow{4}{*}{异常操作测试} 
+    & \multirow{4}{5cm}{快速重复进行参数切换、数据导入导出、ROI 编辑等操作，模拟用户高频使用场景，观察软件的响应稳定性。} 
+    & - 每秒操作次数：15-20 次/秒 \\
+    &                                                                                
+    & - 平均响应时间：0.3-0.5 秒 \\
+    &                                                                                
+    & - 未出现卡顿或界面冻结 \\
+    \\
+  \bottomrule[1.5pt]
+  \end{tabular}
+\end{table}
 
 \section{本章小结}
 
-\ifshowtext
-本章针对传统 FRET 双杂交分析中数据处理效率低、质量依赖人工标注等问题，提出基于亮度均匀性的 ROI 选择算法（LURS）。
-该算法通过高斯平滑预处理、多通道自适应阈值分割和变异系数均匀性评估，实现了荧光信号的高效提取。
-结合 DC-FRET 方法的自动数据范围选取策略，该系统成功实现了 FRET 双杂交分析的全流程自动化，为高通量药物筛选和蛋白质互作研究提供了可靠的技术支撑，丰富了数据处理软件Fretha的功能。
-实验结果表明，LURS 算法在标准质粒 C4Y/C10Y/C40Y/C80Y 的 E-FRET 测量中，$E_A$ 与 $E_D$ 值与文献报道误差小于 5\%，RC 值偏差不超过 0.05，验证了算法的准确性。
-在模型质粒 C32V 和 CVC 的化学计量比分析中，测量的 $n_D/n_A$ 值分别为 1.06 ± 0.14 和 1.90 ± 0.11，与理论值 1:1 和 2:1 高度吻合，且计算效率较人工处理提升 80\% 以上。
-应用自动算法分析活细胞中Bcl-xL-Bak之间的相互作用表明，我们的方法准备快速地检测到Bcl-xL和Bak之间的作用计量从1.87下降到1.12，在ilastik、SAM-Med2D等方法中最接近人工手动处理的标准结果。
-这些结果表明，LURS算法在FRET双杂交分析中具有较高的准确性和稳定性，为高通量药物筛选和蛋白质互作研究提供了可靠的技术支撑。
-\fi
+本章对Fretha软件的各功能模块进行了全面的测试与验证，包括成像参数设置模块、数据检验模块、FRET图像处理模块、数据管理模块、结果可视化模块以及自动算法性能和软件稳定性测试。
+测试结果表明，Fretha软件在功能实现、性能表现和稳定性方面均达到了预期目标。
+成像参数设置模块、数据检验模块、FRET图像处理模块、数据管理模块、结果可视化模块等主要模块的正常运行支持了FRET双杂交分析数据处理的所有步骤的用户需求，保证了数据处理过程的安全和高效。
+
+此外，LURS算法在处理速度、内存效率和硬件适应性方面展现出显著优势，为高通量实时分析提供了高效的解决方案。
+稳定性测试进一步验证了Fretha在长时间运行、高负载和高频操作下的可靠性，未出现崩溃或性能下降的情况。
+综合测试结果表明，Fretha软件功能完善、性能优越、稳定性良好，能够满足复杂科研和实际应用的需求。

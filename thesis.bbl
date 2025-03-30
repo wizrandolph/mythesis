@@ -12,6 +12,18 @@ Lakowicz~J~R.
 Principles of fluorescence spectroscopy~[M].
 Springer, 2006.
 
+\bibitem{yung1973relationship}
+Yung-Chi~C, Prusoff~W~H.
+Relationship between the inhibition constant (KI) and the concentration of inhibitor which causes 50 per cent inhibition (I50) of an enzymatic reaction~[J].
+Biochemical pharmacology.
+1973, 22~(23):  3099--3108.
+
+\bibitem{yekta1995dipole}
+Yekta~A, Duhamel~J, Winnik~M~A.
+Dipole-dipole electronic energy transfer. Fluorescence decay functions for arbitrary distributions of donors and acceptors: systems with planar geometry~[J].
+Chemical physics letters.
+1995, 235~(1-2):  119--125.
+
 \bibitem{2020Single}
 Son~H, Mo~W, Park~J, et~al.
 Single-Molecule FRET Detection of Sub-Nanometer Distance Changes in the Range below a 3-Nanometer Scale~[J].
@@ -29,19 +41,6 @@ Shrestha~D, Jenei~A, Nagy~P, et~al.
 Understanding FRET as a research tool for cellular studies~[J].
 International journal of molecular sciences.
 2015, 16~(4):  6718--6756.
-
-\bibitem{ben-johny2016}
-Ben-Johny~M, Yue~D T D~N, Yue~D T D~N.
-Detecting stoichiometry of macromolecular complexes in live cells using {FRET}~[J/OL].
-Nature Communications.
-2016, 7~(1):  13709--13709.
-\url{http://dx.doi.org/10.1038/ncomms13709}.
-
-\bibitem{2014The}
-Bozza~W~P, Xu~D, Kazuyo~T, et~al.
-The Use of a Stably Expressed FRET Biosensor for Determining the Potency of Cancer Drugs~[J].
-Plos One.
-2014, 9~(9):  e107010.
 
 \bibitem{chudakov2010fluorescent}
 Chudakov~D~M, Matz~M~V, Lukyanov~S, et~al.
@@ -61,17 +60,161 @@ Fluorescence resonance energy transfer (FRET) microscopy imaging of live cell pr
 The Journal of cell biology.
 2003, 160~(5):  629.
 
+\bibitem{cornea2009fret}
+Cornea~R~L, Nitu~F, Gruber~S, et~al.
+FRET-based mapping of calmodulin bound to the RyR1 Ca2+ release channel~[J].
+Proceedings of the National Academy of Sciences.
+2009, 106~(15):  6128--6133.
+
+\bibitem{yoon2020fret}
+Yoon~S, Pan~Y, Shung~K, et~al.
+FRET-based Ca2+ biosensor single cell imaging interrogated by high-frequency ultrasound~[J].
+Sensors.
+2020, 20~(17):  4998.
+
+\bibitem{han2023bright}
+Han~Y, Yang~J, Li~Y, et~al.
+Bright and sensitive red voltage indicators for imaging action potentials in brain slices and pancreatic islets~[J].
+Science Advances.
+2023, 9~(47):  eadi4208.
+
+\bibitem{carmona2009use}
+Carmona~A~K, Juliano~M~A, Juliano~L.
+The use of Fluorescence Resonance Energy Transfer (FRET) peptidesfor measurement of clinically important proteolytic enzymes~[J].
+Anais da Academia Brasileira de Ci{\^e}ncias.
+2009, 81:  381--392.
+
+\bibitem{walter2021coumarin}
+Walter~E~R, Ge~Y, Mason~J~C, et~al.
+A coumarin--porphyrin FRET break-apart probe for heme Oxygenase-1~[J].
+Journal of the American Chemical Society.
+2021, 143~(17):  6460--6469.
+
+\bibitem{cheppali2025single}
+Cheppali~S~K, Li~C, Xing~W, et~al.
+Single-molecule two-and three-colour FRET studies reveal a transition state in SNARE disassembly by NSF~[J].
+Nature Communications.
+2025, 16~(1):  250.
+
+\bibitem{fan2025mechanical}
+Fan~L, Tang~Y, Liu~J, et~al.
+Mechanical Activation of cPLA2 Impedes Fatty Acid $\beta$-Oxidation in Vein Grafts~[J].
+Advanced Science.
+2025, 12~(3):  2411559.
+
+\bibitem{song2011development}
+Song~Y, Madahar~V, Liao~J.
+Development of FRET assay into quantitative and high-throughput screening technology platforms for protein--protein interactions~[J].
+Annals of biomedical engineering.
+2011, 39:  1224--1234.
+
+\bibitem{sun2021recent}
+Sun~P, Zhang~H, Sun~Y, et~al.
+The recent development of fluorescent probes for the detection of NADH and NADPH in living cells and in vivo~[J].
+Spectrochimica Acta Part A: Molecular and Biomolecular Spectroscopy.
+2021, 245:  118919.
+
+\bibitem{bozza2014use}
+Bozza~W~P, Di~X, Takeda~K, et~al.
+The use of a stably expressed FRET biosensor for determining the potency of cancer drugs~[J].
+PLoS One.
+2014, 9~(9):  e107010.
+
+\bibitem{ben-johny2016}
+Ben-Johny~M, Yue~D T D~N, Yue~D T D~N.
+Detecting stoichiometry of macromolecular complexes in live cells using {FRET}~[J].
+Nature Communications.
+2016, 7~(1):  13709--13709.
+
+\bibitem{yang2020interaction}
+Yang~F, Du~M, Wang~X, et~al.
+Interaction between Bax and Bcl-XL proteins confirmed by partial acceptor photobleaching-based FRET imaging~[J].
+Journal of Innovative Optical Health Sciences.
+2020, 13~(03):  2050011.
+
+\bibitem{yang2022cytosolic}
+Yang~Y, Yu~Z, Geng~J, et~al.
+Cytosolic peptides encoding CaV1 C-termini downregulate the calcium channel activity-neuritogenesis coupling~[J].
+Communications biology.
+2022, 5~(1):  484.
+
+\bibitem{awais2004A}
+Awais~M, Sato~M, Sasaki~K, et~al.
+A genetically encoded fluorescent indicator capable of discriminating estrogen agonists from antagonists in living cells.~[J].
+Analytical Chemistry.
+2004, 76~(8):  2181.
+
+\bibitem{Aye2009Fluorescent}
+Aye-Han~N~N, Ni~Q, Zhang~J.
+Fluorescent biosensors for real-time tracking of post-translational modification dynamics~[J].
+Current Opinion in Chemical Biology.
+2009, 13~(4):  392--397.
+
+\bibitem{liu2018influence}
+Liu~B, Mavrova~S~N, van~den Berg~J, et~al.
+Influence of fluorescent protein maturation on FRET measurements in living cells~[J].
+ACS sensors.
+2018, 3~(9):  1735--1742.
+
+\bibitem{erickson2001preassociation}
+Erickson~M~G, Alseikhan~B~A, Peterson~B~Z, et~al.
+Preassociation of calmodulin with voltage-gated Ca2+ channels revealed by FRET in single living cells~[J].
+Neuron.
+2001, 31~(6):  973--985.
+
+\bibitem{chen2006measurement}
+Chen~H, Puhl~H~L, Koushik~S~V, et~al.
+Measurement of FRET efficiency and ratio of donor to acceptor concentration in living cells~[J].
+Biophysical journal.
+2006, 91~(5):  L39--L41.
+
+\bibitem{zhao2020quantitative}
+Zhao~H, Li~W, Chu~W, et~al.
+Quantitative Analysis of Protein Self-Association by Sedimentation Velocity~[J].
+Current protocols in protein science.
+2020, 101~(1):  e109.
+
+\bibitem{clark2023single}
+Clark~S, Mitra~J, Elferich~J, et~al.
+Single molecule studies of the native hair cell mechanosensory transduction complex~[J].
+bioRxiv.
+2023.
+
+\bibitem{cui2019techniques}
+Cui~Y, Zhang~X, Yu~M, et~al.
+Techniques for detecting protein-protein interactions in living cells: principles, limitations, and recent progress~[J].
+Science China Life Sciences.
+2019, 62:  619--632.
+
 \bibitem{butz2016}
 Butz~E~S, Ben-Johny~M, Shen~M, et~al.
 Quantifying macromolecular interactions in living cells using {FRET} two-hybrid assays~[J].
 Nature Protocols.
 2016, 11~(12):  2470--2498.
 
-\bibitem{ronneberger2015u}
-Ronneberger~O, Fischer~P, Brox~T.
-U-net: Convolutional networks for biomedical image segmentation~[C].
-In Medical image computing and computer-assisted intervention--MICCAI 2015: 18th international conference, Munich, Germany, October 5-9, 2015, proceedings, part III 18.
-2015:  234--241.
+\bibitem{Du2018}
+Du~M, Yang~F, Mai~Z, et~al.
+{FRET} two-hybrid assay by linearly fitting {FRET} efficiency to concentration ratio between acceptor and donor~[J].
+Applied Physics Letters.
+2018, 112~(15):  153702.
+
+\bibitem{zhou2024deep}
+Zhou~S, Miao~Y, Qiu~H, et~al.
+Deep learning based local feature classification to automatically identify single molecule fluorescence events~[J].
+Communications Biology.
+2024, 7~(1):  1404.
+
+\bibitem{li2020automatic}
+Li~J, Zhang~L, Johnson-Buck~A, et~al.
+Automatic classification and segmentation of single-molecule fluorescence time traces with deep learning~[J].
+Nature Communications.
+2020, 11~(1):  5833.
+
+\bibitem{zhang2025pretrained}
+Zhang~L, Li~J, Walter~N~G.
+Pretrained Deep Neural Network Kin-SiM for Single-Molecule FRET Trace Idealization~[J].
+The Journal of Physical Chemistry B.
+2025.
 
 \bibitem{ge2020}
 Ge~L, Liu~F, Luo~J.
@@ -79,11 +222,81 @@ Highly-efficient quantitative fluorescence resonance energy transfer measurement
 Journal of Innovative Optical Health Sciences.
 2020, 13~(06):  2050021.
 
+\bibitem{ronneberger2015u}
+Ronneberger~O, Fischer~P, Brox~T.
+U-net: Convolutional networks for biomedical image segmentation~[C].
+In Medical image computing and computer-assisted intervention--MICCAI 2015: 18th international conference, Munich, Germany, October 5-9, 2015, proceedings, part III 18.
+2015:  234--241.
+
+\bibitem{thomsen2020deepfret}
+Thomsen~J, Sletfjerding~M~B, Jensen~S~B, et~al.
+DeepFRET, a software for rapid and automated single-molecule FRET data classification using deep learning~[J].
+Elife.
+2020, 9:  e60404.
+
 \bibitem{feldmann2023}
 Feldmann~C, Schänzler~M, Ben-Johny~M, et~al.
 Protocol for deriving proximity, affinity, and stoichiometry of protein interactions using image-based quantitative two-hybrid {FRET}~[J].
 STAR Protocols.
 2023, 4~(3):  102459.
+
+\bibitem{kromp2020annotated}
+Kromp~F, Bozsaky~E, Rifatbegovic~F, et~al.
+An annotated fluorescence image dataset for training nuclear segmentation methods~[J].
+Scientific Data.
+2020, 7~(1):  262.
+
+\bibitem{zhang2021survey}
+Zhang~Y, Ti{\v{n}}o~P, Leonardis~A, et~al.
+A survey on neural network interpretability~[J].
+IEEE Transactions on Emerging Topics in Computational Intelligence.
+2021, 5~(5):  726--742.
+
+\bibitem{fan2021interpretability}
+Fan~F-L, Xiong~J, Li~M, et~al.
+On interpretability of artificial neural networks: A survey~[J].
+IEEE Transactions on Radiation and Plasma Medical Sciences.
+2021, 5~(6):  741--760.
+
+\bibitem{陆文周2015Qt5}
+陆文周.
+Qt5开发及实例.第2版~[M].
+Qt5开发及实例.第2版, 2015.
+
+\bibitem{bradski2000opencv}
+Bradski~G.
+The opencv library.~[J].
+Dr. Dobb's Journal: Software Tools for the Professional Programmer.
+2000, 25~(11):  120--123.
+
+\bibitem{bradski2008learning}
+Bradski~G, Kaehler~A.
+Learning OpenCV: Computer vision with the OpenCV library~[M].
+" O'Reilly Media, Inc.", 2008.
+
+\bibitem{koushik2006cerulean}
+Koushik~S~V, Chen~H, Thaler~C, et~al.
+Cerulean, Venus, and VenusY67C FRET reference standards~[J].
+Biophysical journal.
+2006, 91~(12):  L99--L101.
+
+\bibitem{thaler2005quantitative}
+Thaler~C, Koushik~S~V, Blank~P~S, et~al.
+Quantitative multiphoton spectral imaging and its use for measuring resonance energy transfer~[J].
+Biophysical journal.
+2005, 89~(4):  2736--2749.
+
+\bibitem{warren2019bcl}
+Warren~C~F, Wong-Brown~M~W, Bowden~N~A.
+BCL-2 family isoforms in apoptosis and cancer~[J].
+Cell death \& disease.
+2019, 10~(3):  177.
+
+\bibitem{sun2023regorafenib}
+Sun~B, Chen~H, Wang~X, et~al.
+Regorafenib induces Bim-mediated intrinsic apoptosis by blocking AKT-mediated FOXO3a nuclear export~[J].
+Cell Death Discovery.
+2023, 9~(1): ~37.
 
 \bibitem{sun2022automated}
 Sun~H, Zhang~C, Yuan~Y, et~al.
@@ -97,6 +310,12 @@ Integral Images: Efficient Algorithms for Their Computation Systems of Speeded-U
 In Pervasive Computing and Social Networking: Proceedings of ICPCSN 2021.
 2022:  663--672.
 
+\bibitem{qu2019Gaussian}
+Qu~W, Du~M, Yang~F, et~al.
+Gaussian FRET two-hybrid assays for determining the stoichiometry of hetero-oligomeric complexes in single living cells~[J].
+Biochemical and Biophysical Research Communications.
+2019.
+
 \bibitem{gedraite2011investigation}
 Gedraite~E~S, Hadad~M.
 Investigation on the effect of a Gaussian Blur in image filtering and segmentation~[C].
@@ -104,16 +323,10 @@ In Proceedings ELMAR-2011.
 2011:  393--396.
 
 \bibitem{sun2019}
-Sun~H，Zhang~C，Ma~Y，等．
-Controlling and online measurement of automatic dual-channel {E}-{FRET} microscope~[J].
-Biomedical Signal Processing and Control．
-2019，53： 101585．
-
-\bibitem{koushik2006cerulean}
-Koushik~S~V, Chen~H, Thaler~C, et~al.
-Cerulean, Venus, and VenusY67C FRET reference standards~[J].
-Biophysical journal.
-2006, 91~(12):  L99--L101.
+Sun~H, Zhang~C, Ma~Y, et~al.
+Controlling and online measurement of automatic dual-channel E-FRET microscope~[J].
+Biomedical signal processing and control.
+2019, 53~(Aug.):  101585.1--101585.9.
 
 \bibitem{wang2020discovery}
 Wang~L, Doherty~G~A, Judd~A~S, et~al.

@@ -44,7 +44,7 @@
 % 隐藏隐私信息 [private]
 
 
-\documentclass[master,twoside,title]{scnuthesis}
+\documentclass[master,title,twoprof]{scnuthesis}
 \usepackage{myscnu}
 \usepackage{xeCJK}  % 中文支持
 \usepackage{CJKnumb} 
@@ -63,11 +63,11 @@
 % \newpage
 % \thispagestyle{plain}
 % \mbox{}
-\listoftables           % 如果要生成表目录
+% \listoftables           % 如果要生成表目录
 % \newpage
 % \thispagestyle{plain}
 % \mbox{}
-\listoffigures          % 如果要生成图目录
+% \listoffigures          % 如果要生成图目录
 % \newpage
 % \thispagestyle{plain}
 % \mbox{}
@@ -108,10 +108,11 @@
 % \newpage
 % \thispagestyle{plain}
 % \mbox{}
-% % 作者攻读学位期间发表的学术论文目录
-% \cleardoublepage
-% \renewcommand{\chapterlabel}{\resumename} % 设置作者个人成果的页眉
-% \input{data/resume}
+
+% 作者攻读学位期间发表的学术论文目录
+\cleardoublepage
+\renewcommand{\chapterlabel}{\resumename} % 设置作者个人成果的页眉
+\input{data/resume}
 
 \end{document}
 %%

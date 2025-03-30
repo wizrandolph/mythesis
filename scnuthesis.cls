@@ -83,6 +83,7 @@
 \RequirePackage{indentfirst}
 \RequirePackage[numbers,sort&compress,square]{natbib}
 \RequirePackage[CJKbookmarks=true,pdfborder=0 0 1]{hyperref}
+% \RequirePackage{mathptmx}
 \defaultfontfeatures{Mapping=tex-text}
 \xeCJKsetcharclass{"0}{"2E7F}{0}
 \xeCJKsetcharclass{"2E80}{"FFFF}{1}
@@ -178,14 +179,14 @@
 \def\CJK@today{\the\year 年 \the\month 月 \the\day 日}
 \newcommand\zhtoday{\CJK@today}
 \newcommand\entoday{\today{}}
-\geometry{top=21mm,bottom=25.5mm,left=30mm,right=30mm}
+\geometry{top=15mm,bottom=15mm,left=25mm,right=25mm}
 \geometry{headheight=9mm,headsep=1mm,footskip=10mm}
  \renewcommand\setheadrule[1]{%
     \ifdim#1=\z@
        \let\makeheadrule\@empty
     \else
        \def\makeheadrule{%
-       \makebox[0pt][l]{\rule[.2\baselineskip]{\linewidth}{1.5pt}}%
+       \makebox[0pt][l]{\rule[.2\baselineskip]{\linewidth}{1pt}}%
        }%
     \fi
   }
@@ -216,6 +217,11 @@
 \setfootrule{1bp}
 }
 
+\newpagestyle{frontpage}{
+  \sethead{}{}{}
+  \setfoot{}{{\songti \wuhao \thepage}}{}%
+}
+
 \newpagestyle{mpage}{
   \sethead{}{\raisebox{.65\baselineskip}
     {
@@ -240,10 +246,11 @@
         }\fi
     }
   }{}
-  \headrule%
+  \headrule
+  \setheadrule{2bp}
   \setfoot{}{{\songti \wuhao 第~\thepage~页}}{}%
-  \footrule%
-  \setfootrule{1bp}
+  % \footrule%
+  % \setfootrule{1bp}
 }
 
 \newpagestyle{appendixpage}{
@@ -290,15 +297,15 @@
 }{}
 \headrule%
 \setfoot{}{{\songti \wuhao 第~\thepage~页}}{}%
-\footrule%
-\setfootrule{1bp}
+% \footrule%
+% \setfootrule{1bp}
 }
 
 \renewcommand\frontmatter{%
     \if@openright\cleardoublepage\else\clearpage\fi
     \@mainmatterfalse
     \pagenumbering{Roman}
-    \pagestyle{plain}
+    \pagestyle{frontpage}
 }
 
 \renewcommand\mainmatter{%
@@ -332,40 +339,25 @@
 }
 %%
 \newcommand\cabstractname{摘\hspace{1em}要}
-\newcommand\ckeywordsname{\hspace{-2em}{\heiti \sihao 关键词：}}
-\newcommand\ckeywords[1]{{\xiaosi \songti \ckeywordsname #1}}
+\newcommand\ckeywordsname{\hspace{-2em}{\heiti \xiaosi 关键词：}}
+\newcommand\ckeywords[1]{{\xiaosi \songti 
+\begin{spacing}{1.5}\ckeywordsname #1\end{spacing}}}
 
 \newcommand\eabstractname{ABSTRACT}
-\newcommand\ekeywordsname{\hspace{-2em}{\textsf{KEY WORDS:}}}
-\newcommand\ekeywords[1]{{\xiaosi \ekeywordsname~#1}}
+\newcommand\ekeywordsname{\hspace{-2em}{\xiaosi{KEY WORDS:}}}
+% \newcommand\ekeywords[1]{{\xiaosi \ekeywordsname~#1}}
+\newcommand\ekeywords[1]{{\xiaosi %
+\begin{spacing}{1.5}\ekeywordsname #1\end{spacing}}}
+
 \newenvironment{cabstract}{%
   {\if@openright\cleardoublepage\else\clearpage\fi}%
   \addcontentsline{toc}{chapter}{\cabstractname}%
   ~
   \begin{spacing}{2.0}
-    \begin{center}{\sanhao \hei \@displaytitle}\end{center}%
+    \begin{center}{\xiaoer \hei \cabstractname}\end{center}%
   \end{spacing}
   \xiaosi \vspace{1.4pt}%
-  \ifisanon{}\else{
-  \begin{center}%
-    \begin{tabular}[c]{ll}%
-      专业名称： & \@subject \\%
-      申请者：& \@author \\%
-      \ifistwoprof
-         导师一： & \@supervisor~\@protitle \\%
-         导师二： & \@secondsupervisor~\@secondprotitle \\%
-      \else
-          导师： & \@supervisor~\@protitle \\%
-      \fi
-    \end{tabular}%    
-  \end{center}%
-  }\fi
-  ~\\%
-  ~\\%
-  ~\\%
-  {\heiti\xiaosan \cabstractname} %
-
-  % \@afterheading
+  \ifisanon{}\else{}\fi
 }
 {\par\vspace{2em}\par}
 
@@ -374,29 +366,12 @@
   \addcontentsline{toc}{chapter}{\eabstractname}%
   ~
   \begin{spacing}{2.0}
-    \begin{center}{\sanhao \textsf{\@entitle}}\end{center}%
+    \begin{center}{\xiaoer \textbf{\eabstractname}}\end{center}%
   \end{spacing}
   \xiaosi \vspace{1.4pt}
-  \ifisanon{}\else{
-  \begin{center}%
-    \begin{tabular}[c]{ll}%
-      Major： & \@ensubject \\%
-      Name：& \@enauthor \\%
-      \ifistwoprof
-          Supervisor 1： & \@ensupervisor \\%
-          Supervisor 2： & \@secondensupervisor \\% 
-      \else
-          Supervisor： & \@ensupervisor \\%
-      \fi
-    \end{tabular}%
-  \end{center}%
-  }\fi
-  ~\\%
-  ~\\%
-  ~\\%
-  {\sihao \textsf \eabstractname} %
+  \ifisanon{}\else{}\fi
 
-  % \@afterheading
+  % {\sihao \textsf \eabstractname} %
 }
 {\par\vspace{2em}\par}
 % \titlecontents{chapter}[0pt]{\vspace{0.25\baselineskip} \heiti \xiaosi[1.25]}
@@ -449,10 +424,8 @@
 }
 \setlength{\topskip}{0pt}
 \setcounter{secnumdepth}{3}
-% \bfseries 用来设置粗体
-% \titleformat{\chapter}{\filcenter \heiti  \xiaoer [1.25]}{第\CJKnumber{\thechapter}章\,}{1em}{}
 
-\titleformat{\chapter}{\filcenter \heiti  \xiaoer [1.25]}{\thechapter\hspace{0.5em}}{0em}{} % 正文标题，华师理工科建议样式，
+\titleformat{\chapter}{\filcenter \heiti  \xiaoer [1.25]}{\thechapter\hspace{1em}}{0em}{} % 正文标题，华师理工科建议样式，
 
 \titleformat{\section}{\heiti \xiaosan[1.25]}{\thesection}{1em}{}
 \titleformat{\subsection}{\heiti \sihao[1.25]}{\thesubsection}{1em}{}
@@ -488,7 +461,8 @@
     \setlength{\labelsep}{0.4em}
     \setlength{\itemindent}{0pt}
     \setlength{\leftmargin}{\labelwidth+\labelsep}
-    \addtolength{\itemsep}{-0.7em}
+    \setlength{\itemsep}{0pt} % wzq新增，设置条目间距为0
+    \addtolength{\itemsep}{-0.7em} % 让条目之间更接近
     \usecounter{enumiv}%
     \let\p@enumiv\@empty
     \renewcommand\theenumiv{\@arabic\c@enumiv}}%
@@ -646,6 +620,8 @@
   \optionpaperclassen{Doctor}
   \optionas{Supervisor}
 \fi
+
+% 封面
 \def\maketitle{%
   \renewcommand{\baselinestretch}{1.3}%
   \def\entry##1##2##3{%
@@ -672,42 +648,48 @@
     \end{tabular}
   }
   \par
-  \vspace*{1.5cm} %插入空白
-  \includegraphics[width=11cm]{title.pdf}\\
+  \vspace*{3.5cm} %插入空白
+  \includegraphics[width=9.3cm]{title.pdf}\\
   %\vspace{-1.5cm} %文字上移
   \sanhao\textbf{\textit{South China Normal University}}\\
   \vspace{0.1cm} %插入空白
   {\songti \bfseries \yihao \ziju{12pt} \@optionpaperclass{}学位论文\\}
   \ifismaster
   \vspace{0.2cm} %插入空白
-  {\songti \xiaosan (\@mastertype 学位)\\}
+  {\songti \bfseries \xiaoer \ziju{0.5em} （\kern0.5em\@mastertype 学位\kern0.5em）\\}
   \fi
-  \vspace{1cm} %插入空白
+  \vspace{1.5cm} %插入空白
   \uline{\heiti \erhao \@title}\\
   \ifistwoprof
-    \vspace{0bp}
+    \vspace{1cm}
   \else
     \vspace{45bp}
   \fi
  {\songti \sihao
     \begin{tabular}{lp{5cm}c}
 
-      \raisebox{-3.7ex}[0pt]{学\,\,\,位\,\,\,申\,\,\,请\,\,\,人 :} &
-        {\fs \hfil\raisebox{-3.7ex}[0pt]{\@author}\hfil{}} & \\[3.2ex]
+      \raisebox{-3.7ex}[0pt]{学\kern0.5em位\kern0.5em申\kern0.5em请\kern0.5em人：} &
+        {\hfil\raisebox{-3.7ex}[0pt]{\@author}\hfil{}} & \\[3.2ex]
         \cline{2-2}
-      \raisebox{-3.7ex}[0pt]{专\,\,\,\,\,\,业\,\,\,\,\,\,名\,\,\,\,\,\,称 ：} &
-        {\fs \hfil\raisebox{-3.7ex}[0pt]{\@subject}\hfil{}} & \\[3.2ex]
+      \raisebox{-3.7ex}[0pt]{学\kern1em科\kern1em专\kern1em业：} &
+        {\hfil\raisebox{-3.7ex}[0pt]{\@subject}\hfil{}} & \\[3.2ex]
         \cline{2-2}
-      \raisebox{-3.7ex}[0pt]{研\,\,\,\,\,\,究\,\,\,\,\,\,方\,\,\,\,\,\,向 ：} &
-        {\fs \hfil\raisebox{-3.7ex}[0pt]{\@researchfield}\hfil{}} & \\[3.2ex]
+      \raisebox{-3.7ex}[0pt]{论\kern0.2em文\kern0.2em研\kern0.2em究\kern0.2em方\kern0.2em向：} &
+        {\hfil\raisebox{-3.7ex}[0pt]{\@researchfield}\hfil{}} & \\[3.2ex]
         \cline{2-2}
-      \raisebox{-3.7ex}[0pt]{所\,\,\,\,\,\,在\,\,\,\,\,\,院\,\,\,\,\,\,系 ：} &
-        {\fs \hfil\raisebox{-3.7ex}[0pt]{\@school}\hfil{}} & \\[3.2ex]
+      \raisebox{-3.7ex}[0pt]{所\kern1em在\kern1em学\kern1em院：} &
+        {\hfil\raisebox{-3.7ex}[0pt]{\@school}\hfil{}} & \\[3.2ex]
         \cline{2-2}
 
       \raisebox{-3.7ex}[0pt]{导师姓名及职称：} &
-        {\fs\hfil\raisebox{-3.7ex}[0pt]{\ifisprivate *隐去*\else\@supervisor~\@protitle~\fi}\hfil{}} & \\[3.2ex]
-        \cline{2-2}
+      {\hfil\raisebox{-3.7ex}[0pt]{\ifisprivate *隐去* \else \@supervisor~\@protitle~ \fi}\hfil{}} & \\[3.2ex]
+      \cline{2-2}
+      \ifistwoprof
+      \raisebox{-3.7ex}[0pt]{} &
+      {\hfil\raisebox{-3.7ex}[0pt]{\ifisprivate *隐去* \else \@secondsupervisor~\@secondprotitle~ \fi}\hfil{}} & \\[3.2ex]
+      \cline{2-2}
+      \fi
+
     \end{tabular}
   }\\
   \vspace{1.5cm}
