@@ -83,22 +83,48 @@
 \RequirePackage{indentfirst}
 \RequirePackage[numbers,sort&compress,square]{natbib}
 \RequirePackage[CJKbookmarks=true,pdfborder=0 0 1]{hyperref}
-% \RequirePackage{mathptmx}
+\renewcommand{\UrlFont}{\rmfamily} % wzq
+\RequirePackage{mathabx}
 \defaultfontfeatures{Mapping=tex-text}
 \xeCJKsetcharclass{"0}{"2E7F}{0}
 \xeCJKsetcharclass{"2E80}{"FFFF}{1}
-\setmainfont[ExternalLocation=fonts/, BoldFont={timesbd.ttf},ItalicFont={timesi.ttf}]{times.ttf}
+
+\setmainfont[ExternalLocation=fonts/, BoldFont={timesbd.ttf},ItalicFont={timesi.ttf},BoldItalicFont={timesbi.ttf}]{times.ttf}
 \setsansfont[ExternalLocation=fonts/, BoldFont={arialbd.ttf},ItalicFont={ariali.ttf}]{arial.ttf}
 \setmonofont[ExternalLocation=fonts/, BoldFont={courbd.ttf},ItalicFont={couri.ttf}]{cour.ttf}
-\setCJKfamilyfont{song}[ExternalLocation=fonts/]{AdobeSong.otf}
-\setCJKfamilyfont{hei}[ExternalLocation=fonts/]{AdobeHei.otf}
-\setCJKfamilyfont{fs}[ExternalLocation=fonts/]{AdobeFangsong.otf}
-\setCJKfamilyfont{kai}[ExternalLocation=fonts/]{AdobeKai.otf}
-\setCJKfamilyfont{li}[ExternalLocation=fonts/]{AdobeKai.otf}
-\setCJKfamilyfont{you}[ExternalLocation=fonts/]{AdobeKai.otf}
-\setCJKmainfont[ExternalLocation=fonts/, BoldFont={AdobeHei.otf},ItalicFont={AdobeKai.otf}]{AdobeSong.otf}
-\setCJKsansfont[ExternalLocation=fonts/]{AdobeHei.otf}
-\setCJKmonofont[ExternalLocation=fonts/]{AdobeKai.otf}
+
+% 原模版
+% \setCJKfamilyfont{song}[ExternalLocation=fonts/]{AdobeSong.otf}
+% \setCJKfamilyfont{hei}[ExternalLocation=fonts/]{AdobeHei.otf}
+% \setCJKfamilyfont{fs}[ExternalLocation=fonts/]{AdobeFangsong.otf}
+% \setCJKfamilyfont{kai}[ExternalLocation=fonts/]{AdobeKai.otf}
+% \setCJKfamilyfont{li}[ExternalLocation=fonts/]{AdobeKai.otf}
+% \setCJKfamilyfont{you}[ExternalLocation=fonts/]{AdobeKai.otf}
+% \setCJKmainfont[ExternalLocation=fonts/, BoldFont={AdobeHei.otf},ItalicFont={AdobeKai.otf}]{AdobeSong.otf}
+% \setCJKsansfont[ExternalLocation=fonts/]{AdobeHei.otf}
+% \setCJKmonofont[ExternalLocation=fonts/]{AdobeKai.otf}
+
+% 替换本地字体为windows字体集方法
+\setCJKfamilyfont{song}[ExternalLocation=fonts/]{simsun.ttc}
+\setCJKfamilyfont{hei}[ExternalLocation=fonts/]{simhei.ttf}
+\setCJKfamilyfont{fs}[ExternalLocation=fonts/]{simfang.ttf}
+\setCJKfamilyfont{kai}[ExternalLocation=fonts/]{simkai.ttf}
+\setCJKfamilyfont{li}[ExternalLocation=fonts/]{simkai.ttf}
+\setCJKfamilyfont{you}[ExternalLocation=fonts/]{simkai.ttf}
+\setCJKmainfont[ExternalLocation=fonts/, BoldFont={simhei.ttf},ItalicFont={simkai.ttf}]{simsun.ttc}
+\setCJKsansfont[ExternalLocation=fonts/]{simhei.ttf}
+\setCJKmonofont[ExternalLocation=fonts/]{simkai.ttf}
+
+% % wzq 替换 Adobe字体为windows字体（知网查重）
+% \setCJKmainfont{SimSun}[BoldFont={SimHei}, ItalicFont={KaiTi}]
+% \setCJKsansfont{SimHei}
+% \setCJKmonofont{FangSong}
+% \setCJKfamilyfont{song}{SimSun}    % 宋体
+% \setCJKfamilyfont{hei}{SimHei}     % 黑体
+% \setCJKfamilyfont{fs}{FangSong}   % 仿宋体
+% \setCJKfamilyfont{kai}{KaiTi}      % 楷体
+% \setCJKfamilyfont{li}{KaiTi}       % 隶书（可用楷体代替）
+% \setCJKfamilyfont{you}{KaiTi}      % 幼圆（可用楷体代替）
 
 \newcommand{\song}{\CJKfamily{song}}    % 宋体
 \newcommand{\fs}{\CJKfamily{fs}}        % 仿宋体
@@ -106,7 +132,7 @@
 \newcommand{\hei}{\CJKfamily{hei}}      % 黑体
 \newcommand{\li}{\CJKfamily{li}}        % 隶书
 \newcommand{\you}{\CJKfamily{you}}      % 幼圆
-% \newCJKfontfamily{\cusong}[AutoFakeBold={2.17}]{SimSun}
+\newCJKfontfamily{\cusong}[AutoFakeBold={2.17}]{SimSun}
 \xeCJKsetup{EmboldenFactor=1}
 \setCJKfamilyfont{zhsong}{SimSun}[AutoFakeBold]
 
@@ -179,8 +205,13 @@
 \def\CJK@today{\the\year 年 \the\month 月 \the\day 日}
 \newcommand\zhtoday{\CJK@today}
 \newcommand\entoday{\today{}}
+
 \geometry{top=15mm,bottom=15mm,left=25mm,right=25mm}
 \geometry{headheight=9mm,headsep=1mm,footskip=10mm}
+
+% \geometry{top=21mm,bottom=25.5mm,left=30mm,right=30mm}
+% \geometry{headheight=9mm,headsep=1mm,footskip=10mm}
+
  \renewcommand\setheadrule[1]{%
     \ifdim#1=\z@
        \let\makeheadrule\@empty
@@ -218,7 +249,23 @@
 }
 
 \newpagestyle{frontpage}{
-  \sethead{}{}{}
+  % \sethead{}{\raisebox{.65\baselineskip}
+  % {
+  %   \songti \wuhao
+  %   \ifischapter % 标题作为页眉
+  %     \ifistwoside
+  %     {
+  %       \ifodd \value{page} % 奇数页
+  %       {\chaptertitle}
+  %       \else % 偶数页
+  %       {\@displaytitle}\fi
+  %     }
+  %     \else
+  %     {\chaptertitle}\fi
+  %     \else %标题不作为页眉
+  %     {\@displaytitle}\fi
+  % }}{}
+  % \headrule%
   \setfoot{}{{\songti \wuhao \thepage}}{}%
 }
 
@@ -247,7 +294,7 @@
     }
   }{}
   \headrule
-  \setheadrule{2bp}
+  \setheadrule{1bp}
   \setfoot{}{{\songti \wuhao 第~\thepage~页}}{}%
   % \footrule%
   % \setfootrule{1bp}
@@ -344,34 +391,62 @@
 \begin{spacing}{1.5}\ckeywordsname #1\end{spacing}}}
 
 \newcommand\eabstractname{ABSTRACT}
-\newcommand\ekeywordsname{\hspace{-2em}{\xiaosi{KEY WORDS:}}}
+\newcommand\ekeywordsname{\hspace{-2em}{\xiaosi \textsf{KEY WORDS:}}}
 % \newcommand\ekeywords[1]{{\xiaosi \ekeywordsname~#1}}
 \newcommand\ekeywords[1]{{\xiaosi %
-\begin{spacing}{1.5}\ekeywordsname #1\end{spacing}}}
+\begin{spacing}{1.5}\ekeywordsname~#1\end{spacing}}}
 
 \newenvironment{cabstract}{%
   {\if@openright\cleardoublepage\else\clearpage\fi}%
-  \addcontentsline{toc}{chapter}{\cabstractname}%
+  \chaptermark{摘要}
+  % \addcontentsline{toc}{chapter}{\cabstractname}%
   ~
   \begin{spacing}{2.0}
-    \begin{center}{\xiaoer \hei \cabstractname}\end{center}%
+    \begin{center}{\sanhao \hei \@displaytitle}\end{center}%
   \end{spacing}
   \xiaosi \vspace{1.4pt}%
-  \ifisanon{}\else{}\fi
+  \ifisanon{}\else{
+  \begin{center}%
+    \begin{tabular}[c]{ll}%
+      专业名称： & \@subject \\%
+      申请者：& \@author \\%
+      导师： & \@supervisor \\%
+    \end{tabular}%
+  \end{center}%
+  }\fi
+  ~\\%
+  ~\\%
+  ~\\%
+  {\heiti\xiaosan \cabstractname} %
+
+  % \@afterheading
 }
 {\par\vspace{2em}\par}
 
 \newenvironment{eabstract}{%
   \if@openright\cleardoublepage\else\clearpage\fi%
-  \addcontentsline{toc}{chapter}{\eabstractname}%
+  \chaptermark{ABSTRACT}
+  % \addcontentsline{toc}{chapter}{\eabstractname}%
   ~
   \begin{spacing}{2.0}
-    \begin{center}{\xiaoer \textbf{\eabstractname}}\end{center}%
+    \begin{center}{\sanhao \textsf{\@entitle}}\end{center}%
   \end{spacing}
   \xiaosi \vspace{1.4pt}
-  \ifisanon{}\else{}\fi
+  \ifisanon{}\else{
+  \begin{center}%
+    \begin{tabular}[c]{ll}%
+      Major： & \@ensubject \\%
+      Name：& \@enauthor \\%
+      Supervisor： & \@ensupervisor \\%
+    \end{tabular}%
+  \end{center}%
+  }\fi
+  ~\\%
+  ~\\%
+  ~\\%
+  {\sihao \textsf \eabstractname} %
 
-  % {\sihao \textsf \eabstractname} %
+  % \@afterheading
 }
 {\par\vspace{2em}\par}
 % \titlecontents{chapter}[0pt]{\vspace{0.25\baselineskip} \heiti \xiaosi[1.25]}
@@ -425,6 +500,7 @@
 \setlength{\topskip}{0pt}
 \setcounter{secnumdepth}{3}
 
+% \titleformat{\chapter}{\filcenter \heiti  \xiaoer[1.25]}{第\CJKnumber{\thechapter}章\,}{1em}{}
 \titleformat{\chapter}{\filcenter \heiti  \xiaoer [1.25]}{\thechapter\hspace{1em}}{0em}{} % 正文标题，华师理工科建议样式，
 
 \titleformat{\section}{\heiti \xiaosan[1.25]}{\thesection}{1em}{}
@@ -437,10 +513,10 @@
 \renewcommand\normalsize{%
   \xiaosi%
   \renewcommand{\baselinestretch}{1.5}%
-% \setlength\abovedisplayskip{10bp \@plus 0.5bp \@minus 0.5bp}%
-% \setlength\abovedisplayshortskip{10bp \@plus 0.5bp \@minus 0.5bp}%
-\setlength\abovedisplayskip{10bp \@plus 2bp \@minus 2bp}%
-\setlength\abovedisplayshortskip{10bp \@plus 2bp \@minus 2bp}%
+\setlength\abovedisplayskip{8bp \@plus 0.5bp \@minus 0.5bp}%
+\setlength\abovedisplayshortskip{8bp \@plus 0.5bp \@minus 0.5bp}%
+% \setlength\abovedisplayskip{10bp \@plus 2bp \@minus 2bp}%
+% \setlength\abovedisplayshortskip{10bp \@plus 2bp \@minus 2bp}%
 \setlength\belowdisplayskip{\abovedisplayskip}%
 \setlength\belowdisplayshortskip{\abovedisplayshortskip}%
 }
@@ -461,8 +537,8 @@
     \setlength{\labelsep}{0.4em}
     \setlength{\itemindent}{0pt}
     \setlength{\leftmargin}{\labelwidth+\labelsep}
-    \setlength{\itemsep}{0pt} % wzq新增，设置条目间距为0
-    \addtolength{\itemsep}{-0.7em} % 让条目之间更接近
+    \setlength{\itemsep}{0pt} % wzq 新增 设置条目间距为0
+    \addtolength{\itemsep}{-0.7em} % wzq 新增 让条目之间更接近
     \usecounter{enumiv}%
     \let\p@enumiv\@empty
     \renewcommand\theenumiv{\@arabic\c@enumiv}}%
@@ -493,8 +569,14 @@
 \DeclareCaptionLabelFormat{codeformat}{代码 #2}
 \DeclareCaptionLabelSeparator{thu}{\hspace{1em}}
 \DeclareCaptionFont{thu}{\xiaosi[1.25]\heiti}
+% wzq 新增 
+% \captionsetup{
+%   font={thu,stretch=1.5}, % 设置行距为1.5倍
+%   labelfont=thu,          % 保持原有的字体样式
+%   labelsep=thu            % 保持原有的分隔符样式
+% }
+\captionsetup{labelformat=thu,labelsep=thu,font={thu,stretch=1.5}}
 \captionsetup[lstlisting]{labelformat=codeformat, aboveskip=6bp}
-\captionsetup{labelformat=thu,labelsep=thu,font=thu}
 \captionsetup[table]{position=top,belowskip={12bp-\intextsep},aboveskip=6bp}
 \captionsetup[figure]{position=bottom,belowskip={9bp-\intextsep},aboveskip=6bp}
 \captionsetup[subfloat]
@@ -541,6 +623,17 @@
   \@mainmatterfalse
   \@afterheading
 }
+{\par\vspace{2em}\par}% wzq 新增 论文创新性说明
+\newcommand\innoname{本文创新性说明}
+\newenvironment{inno}{%
+  \thispagestyle{emptypage}
+  \chapter*{\innoname}
+  \addcontentsline{toc}{chapter}{\normalfont\innoname}
+  \ifisanon\color{white}\else\relax\fi%
+  \xiaosi
+  \@mainmatterfalse
+  \@afterheading
+} % wzq 结束新增
 {\par\vspace{2em}\par}
 \renewtheoremstyle{nonumberplain}%
 {\item[\hspace*{2em} \theorem@headerfont ##1\ \theorem@separator]}%
@@ -700,7 +793,7 @@
   \cleardoublepage%
 }
 
-%% wzq 自定义列举项的序号格式
+%% wzq 新增 自定义列举项的序号格式
 \RequirePackage{enumitem}
 \setenumerate[1]{
   label=(\arabic*),
@@ -708,7 +801,7 @@
   topsep=0pt,     % 列表与上文的间距
   parsep=0pt,      % 列表项内段落之间的间距
   leftmargin=2em  % 添加此行，设置左缩进为2个汉字宽度
-}
+} % wzq 结束新增
 
 \endinput
 %%

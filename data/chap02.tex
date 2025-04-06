@@ -1,31 +1,31 @@
 \chapter{Fretha的设计和开发}
 
 \section{引言}
+传统的 FRET 双杂交分析数据处理过程繁琐，不同处理阶段需要使用各种数据处理软件，在频繁转移数据的同时，还带来了更高的使用门槛。
+开发专门针对 FRET 双杂交分析数据处理的配套软件，能够实现数据的采集、标准化处理以及高效的分析统计，对于提升实验规范性具有重要意义。
 
-\ifshowtext
-在现代生物医学研究中，FRET双杂交分析作为一种关键技术，用于检测生物分子间的相互作用，为揭示生物过程的分子机制提供了重要手段。
-然而，传统的 FRET 双杂交分析数据处理过程繁琐且效率低下，严重依赖人工操作，容易引入误差。
-开发专门针对 FRET 双杂交分析数据处理的配套软件，能够实现数据的自动化采集、标准化处理以及高效的分析统计，对于提升研究效率和准确性具有重要意义。
-本章节首先根据自研的用于高通量药物筛选的 FRET 显微成像系统（FRETScope2）的硬件参数和 FRET 数据处理及 FRET 双杂交分析数据处理功能进行深入的需求分析。基于此需求分析，对软件按照功能进行科学合理的模块划分和总体框架设计。
-接着，详细介绍软件的开发技术选型以及每个模块的具体实现方式，旨在全面展示 Fretha 软件从设计构思到开发实现的全过程。
-\fi
+本章节介绍了FRET双杂交分析数据处理软件 Fretha 的设计和开发过程。
+首先，根据课题组自研的 FRET 显微成像系统（FRETScope）的数据特征和 FRET 双杂交分析数据处理功能进行需求分析，确定了主要的数据处理流程。
+对应数据处理的阶段和流程，软件被划分了相应的功能模块，减少了功能的耦合。
+其次，对软件进行了分层架构设计，预留好了对应的接口，方便了软件的后续开发和扩展。
+然后，基于Dlib和OpenCV等，设计了FRET定量计算器、FRET图像处理器和FRET双杂交求解器等后台接口，封装了E-FRET、$3^3$-FRET、L-FRET和DC-FRET等多模态分析算法，完成核心计算功能的实现。
+最后，结合功能需求、业务逻辑、后台结构接口，完成了对各个功能模块的实现和开发。
 
 \section{需求分析和总体设计}
 
 \subsection{需求分析}
 
 \ifshowtext
-FRETScope2是本课题组自研的适用于$3^3$-FRET、E-FRET、Pb-FRET等多种定量FRET分析方法的电动FRET多模态显微成像系统。
+FRETScope是本课题组自研的适用于$3^3$-FRET、E-FRET、Pb-FRET（Photobleaching-FRET）等多种定量FRET分析方法的FRET多模态显微成像系统。
 该系统具备高分辨率成像、多通道同步采集等先进特性，能够获取高质量的 FRET 三通道图像数据。
 \begin{figure}[hbtp]
   \centering
   \includegraphics[width=0.9\linewidth]{../figures/2/2_FRETScope2示意图.jpg}
-  \caption{FRETScope2硬件外观示意图}
+  \caption{FRETScope硬件外观示意图}
   \label{fig:fretscope2硬件示意图}
 \end{figure}
 
-% FRET双杂交分析数据处理流程。
-使用FRETScope2对制备好的样本进行图像采集得到若干视野的FRET三通道图像后，通过FRET双杂交分析方法定量计算细胞中的生物大分子结合作用的FRET饱和效率、化学计量比、相对亲和力等信息。FRET双杂交分析的数据处理需要如下步骤：首先需要对FRET数据进行数据完整性校验，确保每个视野下存在完整的三通道图像和文件完整可读，然后对每个视野进行荧光信号提取，通过在图像上绘制ROI并计算其灰度均值作为FRET分析计算重要的荧光信号；根据E-FRET和$3^3$-FRET方法将上述荧光信号代入对应的计算公式求取$E_A$、$E_D$、$R_C$等FRET数据；对这些数据进一步依据物理含义或者数据分析进行异常值去除等数据预处理；最后是通过优化算法拟合Langmiur模型或者线性模型计算相关的参数。具体流程如图 \ref{fig:tha_data_process} 所示。
+使用FRETScope对制备好的样本进行图像采集得到若干视野的FRET三通道图像后，通过FRET双杂交分析方法定量计算细胞中的生物大分子结合作用的FRET饱和效率、化学计量比、相对亲和力等信息。FRET双杂交分析的数据处理需要如下步骤：首先需要对FRET数据进行数据完整性校验，确保每个视野下存在完整的三通道图像和文件完整可读，然后对每个视野进行荧光信号提取，通过在图像上绘制ROI并计算其灰度均值作为FRET分析计算重要的荧光信号；根据E-FRET和$3^3$-FRET方法将上述荧光信号代入对应的计算公式 \ref{eq:ed}、\ref{eq:rc} 和 \ref{eq:ea} 求取$E_A$、$E_D$、$R_C$等FRET数据；对这些数据进一步依据物理含义或者数据分析进行异常值去除等数据预处理；最后是通过优化算法拟合Langmiur模型或者线性模型计算相关的参数。具体流程如图 \ref{fig:tha_data_process} 所示。
 
 \begin{figure}[hbtp]
     \centering
@@ -39,24 +39,26 @@ FRETScope2是本课题组自研的适用于$3^3$-FRET、E-FRET、Pb-FRET等多�
 \subsection{模块划分和界面设计}
 
 结合 FRET 双杂交分析的数据处理流程与功能逻辑，Fretha 软件主要划分为以下核心模块：
-
 \begin{enumerate}
-  \item \textbf{成像参数设置模块：}负责设置 FRET 成像过程中的关键参数，确保成像数据的准确性和一致性。
-  该模块允许用户输入和保存成像参数，如曝光时间、光学参数等，并提供参数校验功能，确保输入的参数在合理范围内，避免因参数设置错误导致的数据分析问题。
-  成像参数一般比较稳定，通常2到3个月才需要重新测量，因此需要持久化到本地，以供多次处理数据时使用。
-  \item \textbf{数据检验模块：}对输入数据进行严格的完整性和合法性检验，避免异常数据导致的分析错误。
-  该模块会检查每个视野的三通道图像文件是否完整，并对文件格式和内容进行验证，确保数据的可靠性。
-  通过数据完备性检验，可以避免异常数据导致的分析错误，提高数据处理的准确性。
-  \item \textbf{FRET 图像处理模块：}支持手动图像处理和 ROI 选取，满足用户对数据的精细化处理需求。
-  用户可以在图像上手动圈选感兴趣区域（ROI），并进行图像增强、滤波等处理操作。
-  该模块提供多种图像处理工具，帮助用户提高图像质量和分析精度。
+  \item {成像参数设置模块：}
+  负责设置 FRET 成像过程中的成像参数，在不同实验数据处理前，需要更新对应地参数。
+  该模块允许用户输入和保存成像参数，如曝光时间、串扰系数和校正因子等，并提供参数校验功能，确保参数在合理范围内，避免因参数设置错误导致数据分析处理异常。
+  此外，该模块还支持将参数持久化到本地，以供多次处理数据时使用。
+  \item {数据检验模块：}
+  对输入数据进行命名规范和完整性等合法性检验，防止用户输入异常数据导致软件错误。
+  该模块按照FRETScope系统的数据结构特征，检查每个子视野的三通道图像文件是否完整，并对文件格式和内容进行验证，确保数据的可靠性。
+  \item {FRET 图像处理模块：}
+  支持手动图像处理和 ROI 选取，满足用户对数据的精细化处理需求。
   手动选取感兴趣区域ROI是一个基础且关键的操作，它能帮助分析人员聚焦于细胞中荧光质量较高的区域，进行更精确的数据处理与分析。
-  结合LURS（Luminance-Uniformity-based ROI Selection）算法实现自动 ROI 选取，减少人工操作，提高处理速度和一致性。
-  \item \textbf{数据管理模块：}
-  数据处理模块用于增删数据、筛选数据、导入导出、开始计算等功能，还可以根据记录表中的数据项在FRET图像处理模块定位所选数据的ROI。
-  \item \textbf{结果可视化模块：}将分析结果以直观的图表形式展示，并提供数据保存功能，方便用户进一步分析和应用。
-  该模块支持多种图表类型，如趋势线图、散点图等，用户可以根据需要选择合适的图表进行数据展示和分析。
-  通过结果可视化，用户可以更直观地理解分析结果，比如分析FRET双杂交分析结果的相关性、拟合程度等，从而确保数据处理的准确性和可靠性。
+  用户可以选择启用图像增强功能，比如归一化增强视图、生成FRET效率伪彩图等，从而提高ROI标注时的参考信息。
+  该模块还提供ROI状态栏，实时计算ROI的荧光信号、视野背景、敏化发射荧光和E-FRET计算结果等，可以为ROI的质量判定提供参考。
+  \item {数据管理模块：}
+  数据处理模块用于增删数据、筛选数据、导入导出、开始计算等功能，还可以数据项反向定位追踪FRET图像中的ROI详情，以便检查数据和再处理。
+  该模块作为FRET图像处理模块和结果可视化模块的桥梁，负责数据的统一管理和高效传递。
+  \item {结果可视化模块：}
+  将分析结果以直观的图表形式展示，并提供数据保存功能，方便用户进一步分析和应用。
+  用户可以根据需要选择L-FRET或者DC-FRET方法的对应视图，以切换FRET双杂交分析方法。
+  该模块通过在同一坐标系下绘制趋势线图和散点图，用户可以更直观地评估FRET双杂交分析计算拟合程度等。
   结果可视化模块还可以将分析结果保存为图片或数据文件，方便用户进行后续数据处理和报告撰写。
   
 \end{enumerate}
@@ -102,24 +104,25 @@ Fretha架构采用分层设计，由顶层向下依次分别为：表现层、�
     \label{fig:fretha_arch}
 \end{figure}
 
-表现层（Presentation Layer）处于整个架构的最外层，直接面向用户，是用户与系统进行交互的主要界面。
-它负责接收用户输入的各种指令和数据，并以直观、友好的方式展示系统的处理结果。
-Fretha的表现层主要包括开始界面、参数设置界面、FRET图像处理界面、结果可视化界面等，用户能够通过表现层的软件界面与系统进行交互，完成FRET双杂交分析的数据处理操作。
+表现层（Presentation Layer）处于整个架构的最上层，是用户与系统进行交互的主要界面。
+表现层通过QtCreator静态构建结合QML动态创建，负责接收用户输入的操作和数据，并以直观、友好的方式展示系统的处理结果。
+表现层主要包括开始界面、参数设置界面、FRET图像处理界面、结果可视化界面等。
+Fretha通过表现层的设计约束了用户的操作流程和操作规范，标准化和规范化了FRET双杂交分析数据处理的过程。
 
-业务层（Business Logic Layer）是整个架构的核心逻辑处理部分，承担着对系统业务规则和流程的实现。
-它接收来自表现层的请求，根据预设的业务逻辑对数据进行处理和转换。
+业务层（Business Logic Layer）是整个架构的核心逻辑处理部分，承担着具体模块功能和其对应的业务逻辑的实现。
+业务层接收来自表现层的请求，根据预设的业务逻辑对数据进行处理和转换。
 Fretha的业务层封装了包括参数读/写业务、数据检验业务、自动ROI选取业务、数据导入/导出业务、FRET双杂交分析业务、可视化绘图业务等。
 
-数据访问层（Data Access Layer）实现对数据的访问和操作，它将业务层与数据层进行隔离。
-数据访问层提供了统一的数据访问接口，业务层通过调用这些接口来获取和存储数据，而无需关心数据的具体存储方式和位置。
+数据访问层（Data Access Layer）实现对数据的访问和操作，将业务层与数据层进行隔离。
+业务层通过调用数据访问层提供的接口来获取和操作数据，无需关心数据的具体存储方式和位置。
 通过设置数据访问层，能够使得在复杂的业务处理时避免对数据的直接操作和影响，从而提高了数据存储的安全性。
-Fretha的数据访问包括FRET图像数据访问、FRET数值数据访问和FRET双杂交数据访问的接口。
+Fretha的数据访问层包括FRET图像数据访问、FRET数值数据访问和FRET双杂交数据访问的接口。
 特别地，在数据访问层还包括FRET定量计算器和FRET图像处理器、FRET双杂交求解器等，它们除了可以作为数据访问层的接口，还可以完成FRET计算分析作为业务层的业务逻辑处理单元，这样的设计减少了业务层设计的复杂度，提高了系统的可维护性和可扩展性。
 
 最后是数据层（Data Layer），作为架构的最底层，数据层负责存储系统的所有数据。
-Fretha数据层包括系统静态数据、FretImage类、FretDataPiece类和FretRecord类。
+Fretha数据层包括系统静态数据、FretImage模型、FretDataPiece模型和FretRecord模型。
 系统静态数据是在软件运行时的环境参数，只需要在指定步骤运行前提前设置好即可，如成像参数、文件目录等。
-FretImage类、FretDataPiece类和FretRecord类用来表示数据处理时的各种动态数据。
+FretImage、FretDataPiece和FretRecord用来存储和计算各种动态数据。
 在FRET双杂交分析数据处理中，一组FRET三通道图像中可以提取并计算出若干条FRET数据，由若干条FRET数据作为一个批次只能解析出一条FRET双杂交分析结果。
 因此，在设计上三种数据实体类型存在关联关系，FretImage和FretDataPiece之间存在一对多的关系，FretDataPiece和FretRecord之间存在一对多关系，如图 \ref{fig:fretha_data_relations} 所示。
 \begin{figure}[hbtp]
@@ -131,44 +134,66 @@ FretImage类、FretDataPiece类和FretRecord类用来表示数据处理时的各
 
 \subsection{开发技术选型}
 \ifshowtext
-Qt 5.15.2是Qt官方发布的长期支持（LTS）版本，具有卓越的跨平台性能。该版本能够在Windows、Linux、macOS以及嵌入式系统等多种平台上稳定运行。
-开发者只需对一套代码进行简单配置，即可实现不同平台的适配，这种特性大幅降低了软件开发与维护的成本。FRETscopeII的控制软件系统选择了Qt 5.15.2版本作为技术选型。
-为了确保Fretha和FRETscopeII在开发过程中的一致性和可融合性，Fretha同样选用该版本作为软件开发的基础技术。
-这一选择不仅有利于代码的共享、复用和维护，还能显著降低二次开发以及未来合并开发过程中的成本和风险。
+Qt是目前最流行的跨平台应用程序和 UI 开发框架之一，广泛应用于桌面、嵌入式和移动设备等领域。
+Qt提供了可靠的C++类库，提供了良好的跨桌面和嵌入式操作系统的移植性，包括：
+\begin{enumerate}
+  \item 图形用户界面（Graphics User Interface, GUI）：提供了按钮、文本框、对话框等完整的控件，以及支持控件的自定义；
+  \item 多线程：方便开发者管理线程，数据和对象，且基于信号和槽机制实现了线程间的安全通信；
+  \item OpenGL支持：可以在构建支持硬件加速的高性能可视化应用程序，提高对系统资源的利用。
+\end{enumerate}
+Qt 5.15.2是Qt官方发布的长期支持（Long Term Support, LTS）版本，本文选择Qt 5.15.2作为Fretha的开发框架。
 
-在计算机视觉处理方面，Fretha选用了OpenCV（Open Source Computer Vision Library）。
-OpenCV是一个开源的计算机视觉与机器学习软件库，具备强大的跨平台能力，可在Windows、Linux、macOS、Android、iOS等多种操作系统上运行。
-其功能丰富多样，广泛涵盖了图像和视频处理的各个方面，例如图像的读取、滤波、边缘检测等。
-在性能上，OpenCV经过SIMD指令集优化以及多线程并行计算等技术的优化，处理效率得到了显著提升，能够充分满足实时性的需求。
-此外，OpenCV拥有一个活跃的社区，汇聚了大量的开发者。
-社区中提供了丰富的算法、示例代码和实际案例，为开发者提供了有力的技术支持和学习借鉴的资源。
-基于以上诸多优势，OpenCV完全契合本项目中计算机视觉任务的需求，因此被选定为本项目的重要技术工具。
+OpenCV（Open source computer vision library）是一个跨平台开源计算机视觉库。
+它轻量级且高效，C++版本由一系列C函数和C++类构成，同时提供了Python、MATLAB等语言的接口。
+OpenCV 提供了大量的计算机视觉算法和图像处理工具，广泛应用于图像和视频的处理、分析以及机器学习领域，主要提供的功能库包括：
+\begin{enumerate}
+  \item 图像处理：提供了经典的图像滤波、边缘检测、颜色空间转换、形态学操作、特征提取等算法;
+  \item 视频分析： 视频捕捉、运动分析、物体检测与追踪等；
+  \item 机器学习与人工智能： OpenCV 正在不断完善对深度学习和人工智能技术的支持，如人脸识别、目标检测、图像分类等方法。
+\end{enumerate}
+OpenCV 的很多方法都经过高度优化，支持硬件级别的加速，因此在处理复杂计算功能时具备高性能。
+鉴于这些优势，OpenCV 被选为 Fretha 图像处理模块的核心技术方案。
 
-在最优化计算方面，Fretha选择了C++库Dlib。
-Dlib库集成了基于梯度的优化算法，并采用了自适应学习率机制，能够实现快速且稳定的收敛，有效降低了陷入局部最优解的概率。
-该库还采用了牛顿法与拟牛顿法，在保证计算精度的同时兼顾了计算效率。
-此外，Dlib在处理约束优化问题方面表现出色，例如可以运用内点法来解决资源分配中的约束难题，为研究工作提供了可靠的支持。  
+Dlib提供了和机器学习、数值计算、图模型算法、图像处理等领域相关的一系列功能，广泛应用于工业界和学术界，包括机器人，嵌入式设备等高性能计算环境。
+L-FRET方法的参数拟合计算是一个非线性约束优化问题，Dlib能够高效地完成求解计算。
+Dlib整合了梯度优化算法与自适应学习率策略，在保证收敛速度的同时减少了陷入局部最优的风险。
+算法实现上，Dlib 结合了牛顿法和类牛顿方法，这种组合既保留了牛顿法的高精度特性，又通过拟牛顿近似提升了计算效率。
+在约束优化问题上，还支持通过内点法解决资源分配中的约束问题。
+一次，本文选择Dlib作为Fretha的FRET双杂交求解器的计算支持工具。
 \fi
 
 \section{FRET算法和后台接口}
 
 \subsection{FRET定量计算器}
-FRET定量计算器（FretCalculator）用于处理E-FRET和$3^3$-FRET定量计算。FRET定量计算器定义了参数设置、数据加载、数据校正、数据计算和结果获取等计算步骤，每个步骤需要按照顺序执行，并且在执行时记录运行状态，在获取结果数据之前进行检查来保证数据安全。
+FRET定量计算器（FretCalculator）用于处理E-FRET和$3^3$-FRET定量计算，用于将输入的三通道荧光信号转换为定量FRET信息如$E_A$、$E_D$和$R_C$等。
+如图 \ref{fig:fretha_calculator} 所示，FRET定量计算器在实例化后需要经过成像参数设置、加载荧光数据、数据校正、数据计算和结果获取等计算步骤，每个步骤需要按照顺序执行，并且在执行时记录运行状态，在获取结果数据之前进行检查来保证数据安全。
 \begin{figure}[hbtp]
   \centering
-  \includegraphics[width=0.2\linewidth]{../figures/2/2_FRET定量计算器流程.png}
+  \includegraphics[width=0.25\linewidth]{../figures/2/FRET计算器计算步骤.drawio.png}
   \caption{FretCalculator计算步骤}
   \label{fig:fretha_calculator}
 \end{figure}
 
-\subsection{FRET图像处理器}
-FRET图像处理器（FretImageProcesser）封装了对FRET图像进行计算分析的计算器类，还静态方法的形式提供了图像处理算法的一系列接口。
-首先按照FRET计算器的计算步骤对FRET图像数据进行处理，然后根据FRET图像数据的特点进行分析，完成逐像素的FRET计算，最后将计算结果保存到数据层中。
-与FRET定量计算器不同，FRET图像分析时需要对每个像素点的荧光强度进行计算，因此需要对图像数据进行遍历处理。
-FRET图像处理器采用OpenCV的Mat数据结构来存储图像数据。OpenCV提供的数据结构Mat是一个多维数组，可以方便地存储和处理图像数据，很适合存储逐像素的FRET图像数据。
-FRET图像处理器的计算类FretImageProcesser的计算步骤和FRET定量计算器类似，如图 \ref{fig:fretha_calculator} 所示。
+参数设置中，FretCalculator读取系统静态数据中的成像参数，用于在计算中使用。
+通过接口函数加载$I_{DD}$、$I_{DA}$、$I_{AA}$数据到FretCalculator实例的数据成员中，然后
+数据校正中，FretCalculator对FRET图像数据进行背景值估计和荧光强度校正，并按照曝光时间进行归一化。
+校正后的数据根据E-FRET和$3^3$-FRET方法对荧光强度进行计算，得到FRET定量计算结果$E_D$和$R_C$等。
+最后FretCalculator可以返回指定计算结果给调用者。
 
-FRET图像处理器以静态方法的形式提供了FRET图像处理时涉及的一系列算法接口，包括图像预处理、图像分割、特征提取、图像增强等。
+特别地，除了支持E-FRET和$3^3$-FRET定量计算外，FretCalculator还可以计算L-FRET方法中需要的供体分子数估值$D_{est}$和受体分子数估值$A_{est}$。计算公式如下：
+\begin{align}
+  M_A/M_D &= G \cdot \frac{\varepsilon_D/\varepsilon_A}{d}, \\
+  D_{est} &= d \cdot I_{DD} / (1 - E_D), \\ 
+  A_{est} &= \frac{a \cdot (I_{AA} - c\cdot I_{DD})} {M_A/M_D},
+\end{align}
+其中，$M_A/M_D$是单个供体分子的亮度和单个受体分子亮度之比。
+
+\subsection{FRET图像处理器}
+FRET图像处理器（FretImageProcesser）封装了对FRET图像进行定量FRET计算的相关功能，其计算步骤和FretCalculator类似，如图 \ref{fig:fretha_calculator} 所示。
+FretImageProcesser接收和返回的数据类型是OpenCV的Mat数据结构，可以方便地存储和处理图像数据和逐像素的FRET图像数据。
+FRET图像分析时需要对每个像素点的荧光强度进行计算，对图像数据进行遍历处理。
+
+此外，FRET图像处理器以静态方法的形式提供了FRET图像处理时涉及的一系列算法接口，包括图像预处理、图像分割、特征提取、图像增强等。
 所有的算法接口如表 \ref{tab:算法接口} 所示。
 运用这些算法，FRET图像处理器支持了对16位原始数据的计算处理能力，以及可视化输出为伪彩图等功能。
 
@@ -181,41 +206,41 @@ FRET图像处理器以静态方法的形式提供了FRET图像处理时涉及的
       { 接口} & { 参数} & { 说明} \\
       \midrule
 
-      morphologyClose & 
+      \multirow{2}{*}{morphologyClose} & 
       \begin{tabular}[t]{@{}l@{}}
         Mat: 二值化图像 \\ 
         int: 迭代次数
       \end{tabular} & 
-      形态学闭运算 \\
+      \multirow{2}{*}{形态学闭运算} \\
 
-      morphologyOpen & 
+      \multirow{2}{*}{morphologyOpen} & 
       \begin{tabular}[t]{@{}l@{}}
         Mat: 二值化图像 \\ 
         int: 迭代次数
       \end{tabular} & 
-      形态学开运算 \\
+      \multirow{2}{*}{形态学开运算} \\
       
-      medianFilter & 
+      \multirow{2}{*}{medianFilter} & 
       \begin{tabular}[t]{@{}l@{}}
         Mat: 单通道图像 \\ 
         int: 核大小
       \end{tabular} & 
-      图像中值滤波 \\
+      \multirow{2}{*}{图像中值滤波} \\
 
-      meanFilter & 
+      \multirow{2}{*}{meanFilter} & 
       \begin{tabular}[t]{@{}l@{}}
         Mat: 单通道图像 \\ 
         int: 核大小
       \end{tabular} & 
-      图像均值滤波 \\
+      \multirow{2}{*}{图像均值滤波} \\
       
-      gaussianFilter & 
+      \multirow{3}{*}{gaussianFilter} & 
       \begin{tabular}[t]{@{}l@{}}
         Mat: 单通道图像 \\ 
         int: 核大小 \\
         double: 高斯标准差
       \end{tabular} & 
-      图像高斯平滑 \\
+      \multirow{3}{*}{图像高斯平滑} \\
       
       getBackgroundValue & 
       Mat: 单通道图像 & 
@@ -227,135 +252,127 @@ FRET图像处理器以静态方法的形式提供了FRET图像处理时涉及的
       \end{tabular} & 
       Otsu自动阈值分割 \\
       
-      adaptiveThreshold & 
+      \multirow{3}{*}{adaptiveThreshold} & 
       \begin{tabular}[t]{@{}l@{}}
         Mat: 输入图像 \\ 
         int: 邻域大小（奇数） \\ 
         double: 阈值偏移量
       \end{tabular} & 
-      自适应局部阈值分割 \\
+      \multirow{3}{*}{自适应局部阈值分割} \\
       
       applyPseduoColor & 
       Mat: 单通道图像（8位） & 
       伪彩色映射（Jet颜色表） \\
       
-      applyMask & 
+      \multirow{2}{*}{applyMask} & 
       \begin{tabular}[t]{@{}l@{}}
         Mat: 输入图像 \\ 
         Mat: 掩膜（二值/同尺寸）
       \end{tabular} & 
-      图像掩膜操作 \\
+      \multirow{2}{*}{图像掩膜操作} \\
       
       minMaxNormalization & 
       Mat: 输入图像 & 
       全局线性归一化 \\
       
-      mergeChannels & 
+      \multirow{3}{*}{mergeChannels} & 
       \begin{tabular}[t]{@{}l@{}}
         Mat: R通道（8位） \\ 
         Mat: G通道（8位） \\ 
         Mat: B通道（8位）
       \end{tabular} & 
-      多通道图像合并 \\
+      \multirow{3}{*}{多通道图像合并} \\
       \bottomrule[1.5pt]
     \end{tabular*}
 \end{table}
 
 \subsection{FRET双杂交求解器}
 FRET 双杂交求解器对采集到的 FRET 批数据 $E_D$、$E_A$、$R_C$、$A_{est}$ 和 $D_{est}$ 进行最优化计算，以获取使预测结果与测量结果之间误差最小的$E_{A,max}$、$E_{D,max}$、$n_D / n_A$、$K_{d,EFF}$等参数。求解器从数据模型 FretRecord 中获取批量数据作为数据集，然后分别按照 DC-FRET 方法或 L-FRET 方法进行 FRET 双杂交分析求解。
-具体算法如下：
-\begin{enumerate}
-  \item \textbf{DC-FRET线性拟合算法的封装}。根据公式\ref{eq:ea_appro}和\ref{eq:ed_appro}，DC-FRET拟合斜率时截距项为0。以参数$E_{A,max}$的拟合过程为例，其线性方程形式为
-  \begin{equation}
-      E_D = E_{A,max}\cdot R_C,
-  \end{equation}
-  其中，$E_D$是自变量，$R_C$是自变量，$E_{A,max}$是斜率。线性拟合的目标是找到合适的参数$E_{A,max}$，使得方程预测的$E_D$值与实际观测到的$E_D$值之间的误差尽可能小。
-  通常使用最小二乘法，其原理是最小化观测值与预测值之间的误差平方和，即
-  \begin{equation}
-      S=\sum^{n}_{i=1}(E_{D_i}-(E_{A,max}R_{C_i}))^2
-  \end{equation}
-  其中，$n$是数据点的数量，$R_{C_i}$和$E_{D_i}$分别是第i个数据点的自变量和因变量的值。
-  为了找到$S$最小的$E_{A,max}$值，对$S$关于$E_{A,max}$求偏导，并令其等于0。
-  首先，展开误差$S$：
-  \begin{align}
-       S=\sum_{i = 1}^{n}(E_{D_i}^{2}-2E_{A,max}R_{C_i}E_{D_i} + E_{A,max}^{2}R_{C_i}^{2}), \\
-       \frac{\partial S}{\partial E_{A,max}}=\sum_{i = 1}^{n}(-2R_{C_i}E_{D_i} + 2E_{A,max}R_{C_i}^{2}),
-  \end{align}
-  令 \(\frac{\partial S}{\partial E_{A,max}}=0\)：
-  \begin{align}
-       \sum_{i = 1}^{n}(-2R_{C_i}E_{D_i} + 2E_{A,max}R_{C_i}^{2}) = 0, \\
-      -2\sum_{i = 1}^{n}R_{C_i}E_{D_i}+2E_{A,max}\sum_{i = 1}^{n}R_{C_i}^{2}=0,
-  \end{align}
-  最后求解$E_{A,max}$：
-  \begin{equation}
-         E_{A,max}=\frac{\sum_{i = 1}^{n}R_{C_i}E_{D_i}}{\sum_{i = 1}^{n}R_{C_i}^{2}}. \label{eq:linear_fit_quick}
-  \end{equation}
-  公式 \ref{eq:linear_fit_quick} 给出了线性拟合求解$E_{A,max}$的解析公式，应用类似方法可直接计算斜率$E_{A,max}$和$E_{D,max}$，从而避免了基于迭代的线性拟合求解算法的消耗。
+DC-FRET和L-FRET的双杂交求解算法如下。
 
-  \item \textbf{L-FRET Langmiur模型拟合算法的封装。}Langmiur模型具有模型的非线性和参数的复杂性，无法通过简单的解析式解析其求解公式。因此，本文引入dlib计算库进行复杂的参数拟合。
+求解器首先封装了DC-FRET线性拟合算法。根据公式 \ref{eq:ea_appro} 和 \ref{eq:ed_appro}，DC-FRET拟合斜率时截距项为0。以参数$E_{A,max}$的拟合过程为例，其线性方程形式为
+\begin{equation}
+    E_D = E_{A,max}\cdot R_C ,
+\end{equation}
+其中，$E_D$是自变量，$R_C$是自变量，$E_{A,max}$是斜率。线性拟合的目标是找到合适的参数$E_{A,max}$，使得方程预测的$E_D$值与实际观测到的$E_D$值之间的误差尽可能小。
+通常使用最小二乘法，其原理是最小化观测值与预测值之间的误差平方和$S$，即
+\begin{equation}
+    S=\sum^{n}_{i=1}(E_{D_i}-(E_{A,max}R_{C_i}))^2 ,
+\end{equation}
+其中，$n$是数据点的数量，$R_{C_i}$和$E_{D_i}$分别是第i个数据点的自变量和因变量的值。
+首先，对$S$关于$E_{A,max}$求偏导：
+\begin{align}
+      S=\sum_{i = 1}^{n}(E_{D_i}^{2}-2E_{A,max}R_{C_i}E_{D_i} + E_{A,max}^{2}R_{C_i}^{2}), \\
+      \frac{\partial S}{\partial E_{A,max}}=\sum_{i = 1}^{n}(-2R_{C_i}E_{D_i} + 2E_{A,max}R_{C_i}^{2}),
+\end{align}
+为了找到$S$最小的$E_{A,max}$值，令$\frac{\partial S}{\partial E_{A,max}}=0$：
+\begin{align}
+      \sum_{i = 1}^{n}(-2R_{C_i}E_{D_i} + 2E_{A,max}R_{C_i}^{2}) = 0, \\
+    -2\sum_{i = 1}^{n}R_{C_i}E_{D_i}+2E_{A,max}\sum_{i = 1}^{n}R_{C_i}^{2}=0,
+\end{align}
+最后求解$E_{A,max}$：
+\begin{equation}
+        E_{A,max}=\frac{\sum_{i = 1}^{n}R_{C_i}E_{D_i}}{\sum_{i = 1}^{n}R_{C_i}^{2}}. \label{eq:linear_fit_quick}
+\end{equation}
+公式 \ref{eq:linear_fit_quick} 给出了线性拟合求解$E_{A,max}$的解析公式，应用类似方法可直接计算斜率$E_{A,max}$和$E_{D,max}$，从而避免了基于迭代的线性拟合求解算法的消耗。
 
-  为完成拟合计算，需要设计专门的数据类型ColumnVector和ExperimentalData，如代码 \ref{code:data_type}所示。
-  ColumnVector类型用于存储双精度浮点数的列向量，在后续的计算和优化过程中承载参数向量和中间计算结果。
-  ExperimentalData结构体用于存储来自实验采集到的数据集，该结构体包含四个std::vector<double>类型的成员变量：aest存储$A_{est}$相关的数据数组，dest存储$D_{est}$相关的数据数组，ea\_corr存储$E_A$预测值（$E_{A,p}$）与测量值（$E_{A,o}$）之间的误差，ed\_corr存储$E_D$预测值（$E_{D,p}$）与测量值（$E_{D,o}$）之间的误差。
-  \begin{lstlisting}[language=C++, caption={数据类型}, label={code:data_type}]  
-  // 定义列向量类型
-  typedef dlib::matrix<double, 0, 1> ColumnVector;
-  
-  // 定义数据结构体，用于存储实验数据
-  struct ExperimentalData {
-      std::vector<double> aest;
-      std::vector<double> dest;
-      std::vector<double> ea_corr;
-      std::vector<double> ed_corr;
-  };
-  \end{lstlisting}
-  如代码 \ref{code:error_calculate} 所示，CalculateLoss函数负责计算模型在整个数据集上的整体损失。
-  对于给定的ExperimentalData实例data和参数向量parameters，CalculateLoss函数首先遍历数据集中的每个数据点，计算出$E_A$或$E_D$预测值和与实际值之间的误差，最后将误差累加到total\_error中。
-  \begin{lstlisting}[language=C++, caption={误差计算函数}, label={code:error_calculate}]
-  // 计算整体损失
-  double CalculateLoss(const ExperimentalData& data, const ColumnVector& parameters) {
-      double total_error = 0.0;
-      for (size_t i = 0; i < data.aest.size(); ++i) {
-          double d_free = ((data.dest[i] - parameters(0) - data.aest[i] * parameters(1)) + std::sqrt(std::pow(data.dest[i] - parameters(0) - data.aest[i] * parameters(1), 2) + 4 * parameters(0) * data.dest[i])) / 2;
-          double a_free = data.aest[i] - (data.dest[i] - d_free) / parameters(1);
-          double ea_pred = parameters(2) * d_free / (d_free + parameters(0));
-          double ed_pred = parameters(3) * a_free / (a_free + parameters(0) / parameters(1));
-  
-          total_error += CalculateError(data.ea_corr[i], ea_pred) + CalculateError(data.ed_corr[i], ed_pred);
-      }
-      return total_error;
-  }
-  \end{lstlisting}
-  TwoHybridSolver是用来调用整个拟合过程的函数，并向外提供调用接口，如代码 \ref{code:two_hybrid_solver} 所示。
-  {TwoHybridSolver} 函数接受四个 std::vector<double> 类型的参数，分别为 {aest\_data}、{dest\_data}、{ea\_corr\_data} 和 {ed\_corr\_data}，返回一个 {ColumnVector} 类型的对象，其中存储了经过拟合的结果参数。整个拟合过程如下：
-  首先设置$K_{d,EFF}$、$n_D/n_A$、$E_{A,max}$和$E_{D,max}$的拟合初值为 1、1、0.5 和 0.5， 存储到{ColumnVector} 对象 {starting\_point}，作为参数拟合的起始点。
-  创建一个 {ExperimentalData} 类型的对象 {data}，将传入的四个实验数据向量存储在该结构体中，以便后续目标函数使用。
-  使用 {dlib} 库中的 {find\_min\_using\_approximate\_derivatives} 函数进行优化。
-  在搜索策略算法上，求解器采用一种拟牛顿法 {dlib::bfgs\_search\_strategy()} ，用于在参数空间中寻找目标函数的最小值，并使用 {dlib::objective\_delta\_stop\_strategy(1e - 7)} 作为停止策略，当两次拟合后参数的变化小于 $10^{-7}$ 时，认为此时的结果已收敛，停止优化过程。
-  最后，函数返回 {starting\_point}，此时 {starting\_point} 存储的是经过优化后得到的拟合参数。
-  \begin{lstlisting}[language=C++, caption={双杂交求解器}, label={code:two_hybrid_solver}]
-    
-    // 双杂交求解器，进行参数拟合
-    ColumnVector TwoHybridSolver(const std::vector<double>& aest_data, const std::vector<double>& dest_data, const std::vector<double>& ea_corr_data,const std::vector<double>& ed_corr_data) {
-        // 初始化起始点
-        ColumnVector starting_point(4);
-        starting_point = 1, 1, 0.5, 0.5;
-    
-        // 创建数据结构体
-        ExperimentalData data = {aest_data, dest_data, ea_corr_data, ed_corr_data};
-    
-        // 定义目标函数包装器
-        auto objective_wrapper = [&data](const ColumnVector& parameters) {
-            return ObjectiveFunction(parameters, &data);
-        };
-    
-        // 使用 dlib 进行优化
-        dlib::find_min_using_approximate_derivatives(dlib::bfgs_search_strategy(), dlib::objective_delta_stop_strategy(1e-7), objective_wrapper, starting_point, -1, 0.01);
-  
-        return starting_point;
+Langmiur模型具有非线性和参数复杂性，无法通过解析式求解其中的参数。因此，求解器通过引入Dlib计算库进行复杂的参数拟合。
+如代码 \ref{code:data_type} 所示，求解器设计了拟合计算中涉及到的数据类型：
+（1）ColumnVector类型用于存储双精度浮点数的列向量，在后续的计算和优化过程中承载参数向量和中间计算结果；
+（2）ExperimentalData结构体存储实验采集到的数据集，包含四个std::vector<double>类型的成员变量：aest存储受体分子数估值$A_{est}$，dest存储供体分子数估值$D_{est}$，ea\_measure存储$E_A$的测量值，ed\_measure存储$E_D$测量值。
+\begin{lstlisting}[language=C++, caption={数据类型}, label={code:data_type}]  
+// 定义列向量类型
+typedef Dlib::matrix<double, 0, 1> ColumnVector;
+
+// 定义数据结构体，用于存储实验数据
+struct ExperimentalData {
+    std::vector<double> aest;
+    std::vector<double> dest;
+    std::vector<double> ea_measure;
+    std::vector<double> ed_measure;
+};
+\end{lstlisting}
+CalculateLoss函数计算模型在整个数据集上的整体损失，作为优化的目标函数。
+在函数内，首先对于ExperimentalData实例中的每个向量中的每个数据，计算出$E_A$或$E_D$预测值，然后求得与实际值之间的误差的平方，最后将误差累加并返回，其实现代码如下：
+\begin{lstlisting}[language=C++, caption={误差计算函数}, label={code:error_calculate}]
+// 计算整体损失
+double CalculateLoss(const ExperimentalData& data, const ColumnVector& parameters) {
+    double total_error = 0.0;
+    for (size_t i = 0; i < data.aest.size(); ++i) {
+        double d_free = ((data.dest[i] - parameters(0) - data.aest[i] * parameters(1)) + std::sqrt(std::pow(data.dest[i] - parameters(0) - data.aest[i] * parameters(1), 2) + 4 * parameters(0) * data.dest[i])) / 2;
+        double a_free = data.aest[i] - (data.dest[i] - d_free) / parameters(1);
+        double ea_pred = parameters(2) * d_free / (d_free + parameters(0));
+        double ed_pred = parameters(3) * a_free / (a_free + parameters(0) / parameters(1));
+
+        total_error += CalculateError(data.ea_measure[i], ea_pred) + CalculateError(data.ed_measure[i], ed_pred);
     }
-    \end{lstlisting}  
-\end{enumerate}
+    return total_error;
+}
+\end{lstlisting}
+TwoHybridSolver函数实现了整个拟合过程，并向外提供调用接口，如代码 \ref{code:two_hybrid_solver} 所示。
+拟合过程中，首先设置$K_{d,EFF}$、$n_D/n_A$、$E_{A,max}$和$E_{D,max}$的拟合初值为 1、1、0.5 和 0.5， 存储到 {starting\_point}中。
+使用 {Dlib} 库中的 {find\_min\_using\_approximate\_derivatives} 函数进行优化，采用一种拟牛顿法 {dlib::bfgs\_search\_strategy()}搜索策略算法，在参数空间中寻找目标函数的最小值，并使用 {dlib::objective\_delta\_stop\_strategy(1e - 7)} 作为停止策略，当两次拟合后参数的变化小于 $10^{-7}$ 时，认为此时的结果已收敛，停止优化过程。
+最后，函数返回 {starting\_point} 存储的优化后的参数。
+\begin{lstlisting}[language=C++, caption={双杂交求解器}, label={code:two_hybrid_solver}]
+  
+  // 双杂交求解器，进行参数拟合
+  ColumnVector TwoHybridSolver(const std::vector<double>& aest_data, const std::vector<double>& dest_data, const std::vector<double>& ea_measure_data,const std::vector<double>& ed_measure_data) {
+      // 初始化参数起始点和数据
+      ColumnVector starting_point(4);
+      starting_point = 1, 1, 0.5, 0.5;
+      ExperimentalData data = {aest_data, dest_data, ea_measure_data, ed_measure_data};
+
+      // 定义目标函数包装器
+      auto objective_wrapper = [&data](const ColumnVector& parameters) {
+          return ObjectiveFunction(parameters, &data);
+      };
+  
+      // 使用 Dlib 进行优化
+      Dlib::find_min_using_approximate_derivatives(Dlib::bfgs_search_strategy(), Dlib::objective_delta_stop_strategy(1e-7), objective_wrapper, starting_point, -1, 0.01);
+
+      return starting_point;
+  }
+\end{lstlisting}  
 
 \section{功能模块的实现}
 
@@ -364,7 +381,7 @@ FRET 双杂交求解器对采集到的 FRET 批数据 $E_D$、$E_A$、$R_C$、$A
 FRET定量分析中，在数据处理前需要设置好FRET定量计算过程中必须的参数，设置成像过程时的成像参数至关重要。
 成像参数设置模块的界面如图 \ref{fig:参数设置页界面} 所示，包括了FRET成像参数的设置和保存功能。
 
-FRET成像参数在Fretha中以静态参数保存在软件内存中，是数据处理时的环境参数。其中，a、b、c、d、G、k和Y是FRET成像系统的光学参数，在前文中已介绍；ExpTimeAA、ExpTimeDD和ExpTimeDA是成像时三个探测通道的曝光时间，在FRET定量计算时需要根据曝光时间参数在各个通道归一化，然后才能进行计算。
+FRET成像参数在Fretha中以静态参数保存在软件内存中，是数据处理时的环境参数。其中，$a$、$b$、$c$、$d$、$G$、$k$和$\varepsilon_{A}/\varepsilon_{D}$是FRET成像系统的光学参数，在前文中已介绍；ExpTimeAA、ExpTimeDD和ExpTimeDA是成像时三个探测通道的曝光时间，在FRET定量计算时需要根据曝光时间参数在各个通道归一化，然后才能进行计算。
 Fretha中包括的所有成像参数如表 \ref{tab:fretha_param_list} 所示。
 
 \begin{table}[htb]
@@ -375,37 +392,33 @@ Fretha中包括的所有成像参数如表 \ref{tab:fretha_param_list} 所示。
       \toprule[1.5pt]
       { 参数} & { 说明} & { 意义范围} & {单位} \\
       \midrule
-      \text{a} & 供体激发时在DA通道的串扰系数 & $(0,1)$ & 无\\
-      \text{b} & 所有的一切都在这里面。 & $(0,1)$ & 无\\
-      \text{c} & 模板类文件。 & $(0,1)$ & 无\\
-      \text{d} & 受体激发时在DA通道的串扰系数 & $(0,1)$ & 无\\
-      \text{G} & 供体猝灭和受体荧光增强的比值         & $(0,+\infty)$ & 无\\
-      \text{k} & 受体浓度和供体浓度相同时的荧光比值 & $(0,+\infty)$ & 无\\
-      \text{Y} & 供受体在激发光条件下的消光系数之比，也记作$\varepsilon_{YFP}(\lambda)/\varepsilon_{CFP}(\lambda)$   & $(0,+\infty)$ & 无\\
+      $a$ & 受体激发的串扰系数 & $(0,1)$ & 无\\
+      $b$ & 受体发射的串扰系数 & $(0,1)$ & 无\\
+      $c$ & 供体发射的串扰系数 & $(0,1)$ & 无\\
+      $d$ & 供体激发的串扰系数 & $(0,1)$ & 无\\
+      $G$ & 供体猝灭和受体荧光增强的比值         & $(0,+\infty)$ & 无\\
+      $k$ & 受体浓度和供体浓度相同时的荧光比值 & $(0,+\infty)$ & 无\\
+      {$\varepsilon_{A}/\varepsilon_{D}$} & 供受体在激发光条件下的消光系数之比 & {$(0,+\infty)$} & {无}\\
       \text{ExpTimeDD} & DD通道下的成像曝光时间 & $(0,+\infty)$ & 毫秒（ms）\\
       \text{ExpTimeDA} & DA通道下的成像曝光时间 & $(0,+\infty)$ & 毫秒（ms）\\
       \text{ExpTimeAA} & AA通道下的成像曝光时间 & $(0,+\infty)$ & 毫秒（ms）\\
       \bottomrule[1.5pt]
     \end{tabular*}
 \end{table}
-
-参数设置业务设计上遵循一定的原则。首先，设置时所有参数应一同更新，避免因参数不匹配导致的数据处理错误。其次，每个参数需要在其有意义的范围内，避免无意义的值。
-因此，在点击“更新参数”按钮时，若无法从界面中的每个参数输入框都解析到合法的数字，那么本次更新参数就会失败。
-FRET成像参数是一批参数，参数间存在依赖关系，如测量参数$G$、$k$、$Y$就依赖参数$a$、$b$、$c$、$d$，这是因为测定参数$G$、$k$、$Y$时需要计算敏化发射荧光$F_C$，根据公式 \ref{eq:fc} 所示，$F_C$的确定与$a$、$b$、$c$、$d$密切相关。
+\begin{figure}[hbtp]
+  \centering
+  \includegraphics[height=0.9\linewidth]{../figures/2/2_成像参数设置模块业务流程.png}
+  \caption{参数设置模块业务流程}
+  \label{fig:fretha_param_module_flow}
+\end{figure}
+参数设置的主要业务流程如图 \ref{fig:fretha_param_module_flow} 所示，遵循如下原则：（1）所有参数一同更新，避免因参数不匹配导致的数据处理错误；（2）每个参数需要在其有意义的范围内，避免无意义的值。
+FRET成像参数是一批参数，参数间存在依赖关系，比如测定参数$G$、$k$、$\varepsilon_{A}/\varepsilon_{D}$时需要计算敏化发射荧光$F_C$，根据公式 \ref{eq:fc} 所示，$F_C$的确定与$a$、$b$、$c$、$d$密切相关，因此依赖参数$a$、$b$、$c$、$d$。
 强制所有参数一同更新可以避免用户单独设置某一参数而导致参数之间不匹配等问题。
+因此，在点击“更新参数”按钮时，若无法从界面中的每个参数输入框都解析到合法的数字，那么本次更新参数就会失败。
 
 FRET成像参数一般比较稳定，一般2到3个月才需要重新测量，因此需要持久化到本地，以供多次处理数据时使用。
 Fretha的本地参数文件保存为可执行程序同级目录下的“config.ini”中。在软件初始化阶段，会自动检测并应用本地配置文件中的参数。
 用户可通过保存多套配置文件，在使用时替换目标配置文件，快速进行参数配置的切换。
-
-参数设置的主要业务流程如图 \ref{fig:fretha_param_module_flow} 所示。
-
-\begin{figure}[hbtp]
-    \centering
-    \includegraphics[height=1\linewidth]{../figures/2/2_成像参数设置模块业务流程.png}
-    \caption{参数设置模块业务流程}
-    \label{fig:fretha_param_module_flow}
-\end{figure}
 \fi
 
 \subsection{数据检验模块}
@@ -415,8 +428,8 @@ FRET双杂交分析需要处理一批FRET图像文件，因此需要对输入数
 该模块的作用有以下两个方面：一方面通过模式识别FRET合法数据，避免了异常输入导致的运行错误；
 另一方面，在这一模块会将FRET批数据的视野子文件夹进行解析和类型识别，为后续数据处理提供对子文件夹的不同操作。
 
-Fretha的数据识别检验模块匹配识别FRETscopeII的数据格式，从而保证数据处理能够正常开始。
-如图 \ref{fig:fretscope_data_struct} 所示，FRETscopeII的数据结构由上层到下层依次为：
+Fretha的数据识别检验模块匹配识别FRETScope的数据格式，从而保证数据处理能够正常开始。
+如图 \ref{fig:fretscope_data_struct} 所示，FRETScope的数据结构由上层到下层依次为：
 \begin{enumerate}
   \item 批数据根目录：存放所有视野子目录和数据文件；
   \item 视野子目录：存放一个视野的三通道图片和参数文件；
@@ -425,8 +438,8 @@ Fretha的数据识别检验模块匹配识别FRETscopeII的数据格式，从而
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[height=0.5\linewidth]{../figures/2/2_FRETscopeII数据格式.drawio.png}
-    \caption{FRETscopeII数据文件结构}
+    \includegraphics[height=0.5\linewidth]{../figures/2/2_FRETScopeII数据格式.drawio.png}
+    \caption{FRETScope数据文件结构}
     \label{fig:fretscope_data_struct}
 \end{figure}
 
@@ -436,13 +449,14 @@ Fretha的数据识别检验模块匹配识别FRETscopeII的数据格式，从而
 这种检查还会对图像数据是否可读进行检查。
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\linewidth]{../figures/2/2_数据完备性检验业务.drawio.png}
+    \includegraphics[width=0.65\linewidth]{../figures/2/2_数据完备性检验业务.drawio.png}
     \caption{Fretha数据检验业务主流程图}
     \label{fig:fretha_data_check_flow}
 \end{figure}
+
 \subsection{FRET图像处理模块}
 \label{sec:FRET图像处理模块}
-FRET图像处理模块是对FRET三通道图像进行ROI提取等图像处理分析的模块，包括手动ROI圈点和自动ROI圈点等。其界面如图 \ref{fig:fretha_imageprocess_ui} 所示：
+FRET图像处理模块是对FRET三通道图像进行ROI标注等图像处理分析的模块，其界面如图 \ref{fig:fretha_imageprocess_ui} 所示：
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.75\linewidth]{../figures/2/2_图像处理模块界面.png}
@@ -454,23 +468,17 @@ FRET图像处理模块是对FRET三通道图像进行ROI提取等图像处理分
 QGraphicsView 是 Qt 用于可视化和交互处理二维图形场景的重要类，具备丰富的功能和良好的可扩展性，为 FretGraphicsView 的实现提供了有力支撑。
 
 FretGraphicsView 类中设计了一个基于QRectItem的ROI 成员，它能够在视图中直观呈现 ROI 的大小和位置，方便用户确认所选区域。
-设定ROI的绘制模式为“Crop Mode”截取模式时，此时会根据鼠标和ROI边框的位置，变换ROI交互的功能，包括ROI的创建、移动、缩放等操作。
-切换绘制模式为“Stamp”邮戳模式，此时可以固定ROI的大小，从而快速圈选多个大小一致的ROI。
+设定ROI的绘制模式为“Crop Mode”截取模式时，此时会根据鼠标和ROI边框的位置决定鼠标的编辑功能，包括ROI的创建、移动、缩放等操作。
+切换绘制模式为“Stamp”邮戳模式，ROI的大小将会被固定，从而快速圈选多个大小一致的ROI。
 
-Fretha的状态栏中提供了视图类型切换选项，在数据处理中可以辅助圈点，支持的视图类型如表\ref{tab:fretha_viewtype_list}所示。
+Fretha的状态栏中提供了视图类型切换选项，在数据处理中可以辅助圈点，支持的视图类型如表 \ref{tab:fretha_viewtype_list} 所示。
 \begin{table}[htbp]
   \centering
-  \caption[FRET图像视图类型]{FRET图像视图类型表}
+  \caption[FRET图像视图类型]{FRET图像视图类型}
   \label{tab:fretha_viewtype_list}
-    \begin{tabularx}{\linewidth}{
-    >{\centering\arraybackslash}X
-    >{\centering\arraybackslash}X
-    >{\centering\arraybackslash}X
-    >{\centering\arraybackslash}X
-    >{\centering\arraybackslash}X
-    >{\centering\arraybackslash}X} % 修改第二列格式为p{6cm}，可根据实际情况调整宽度
+    \begin{tabular}{cc}
       \toprule[1.5pt]
-      {信息} & {说明} \\
+      {视图名} & {说明} \\
       \midrule
       Channel Merged & 三通道归一合成图 \\
       DD Normalized & DD通道的归一化增强图 \\
@@ -479,19 +487,19 @@ Fretha的状态栏中提供了视图类型切换选项，在数据处理中可�
       $R_C$ Pseudo & $R_C$逐像素数值伪彩图 \\
       $E_D$ Pseudo & $E_D$逐像素数值伪彩图 \\
       \bottomrule[1.5pt]
-    \end{tabularx}
+    \end{tabular}
 \end{table}
 归一化增强图包括DD、DA、AA通道分别归一化的增强视图以及三通道归一化合成图。
-由于FRET成像系统的相机的量程为$[0,65535]$，计算机显示渲染机制里显示会将65535的灰度值设为白色，而0的灰度值设为黑色，这样会导致图像的对比度不高，不利于观察。
+由于FRET成像系统的相机的量程为$[0,65535]$，计算机显示渲染机制里显示会将65535的灰度值设为白色，而0的灰度值设为黑色，这样会导致图像的对比度低而不利于观察。
 通过表 \ref{tab:算法接口} 中的 minMaxNormalization 算法，可以对图像进行全局线性归一化，从而增强图像的对比度。
-三通道归一化合并图则是将三个通道的归一化增强图分别作为RGB色彩通道，合并成一幅彩色图像，以便于用户直观地观察三通道的信号分布情况。
-增强视图的算法首先通过FretImageProcessor进行逐像素FRET计算得到$E_D$和$R_C$的逐像素矩阵，然后归一化后赋予伪彩图。
+三通道归一化合并图则是将三个通道的归一化增强图分别作为RGB色彩通道合并成一幅彩色图像，以便于用户直观地观察三通道的信号分布，无需切换通道。
+通过FretImageProcessor进行逐像素FRET计算得到$E_D$和$R_C$逐像素矩阵，然后归一化后赋予伪彩，得到用于显示FRET信息的逐像素伪彩图。
 
-Fretha状态栏能够清晰展示当前视野及ROI的状态信息，如当前视野的三通道背景灰度值、ROI信号的三通道信号背景比等，还可以显示使用当前ROI提供的扣除背景灰度值后的$I_{DD}$、$I_{DA}$和$I_{DD}$，其中所有显示内容如表\ref{tab:fret_statusbar_list}所示。
+Fretha状态栏能够清晰展示当前视野及ROI的状态信息，如当前视野的三通道背景灰度值、ROI信号的三通道信号背景比等，还可以显示使用当前ROI提供的扣除背景灰度值后的$I_{DD}$、$I_{DA}$和$I_{DD}$，其中所有显示内容如表 \ref{tab:fret_statusbar_list} 所示。
 FretGraphicsView 通过自定义鼠标释放事件的信号，实现了与数据访问层的数据交互。
 当用户完成 ROI 选取并释放鼠标时，FretGraphicsView 会将 ROI 的坐标和大小信息传递给数据访问层。
 数据访问层依据当前视野索引，从数据模型中读取相应的三通道图像文件，并且从ROI信息提取FRET信号。
-在获得了$I_{DD}$、$I_{DA}$和$I_{DD}$后，Fretha后台会自动扣除每个通道的背景灰度，然后根据公式\ref{eq:fc}，调用后台的FretCalculator计算出敏化发射的荧光强度$F_C$、$E_D$，$R_C$，并显示在状态栏中，方便用户获取处理结果，为ROI的保留和移除提供判断依据。
+在获得了$I_{DD}$、$I_{DA}$和$I_{DD}$后，Fretha后台会自动扣除每个通道的背景灰度，然后根据公式 \ref{eq:fc}，调用后台的FretCalculator计算出敏化发射的荧光强度$F_C$、$E_D$，$R_C$，并显示在状态栏中，方便用户获取处理结果，为ROI的保留和移除提供判断依据。
 这种基于 QGraphicsView 扩展的设计，有效提升了 ROI 选取的灵活性和准确性。 
 
 \begin{table}[htbp]
@@ -517,19 +525,6 @@ FretGraphicsView 通过自定义鼠标释放事件的信号，实现了与数据
       \bottomrule[1.5pt]
     \end{tabular}
 \end{table}
-点击左侧“自动圈点”按钮，可以使用LURS算法进行自动ROI圈点生成，并记录到右侧的数据区中。
-计算过程中，Fretha界面通过进度条显示计算进度，方便用户查看。
-自动圈点功能通过FRET双杂交求解器中封装的多线程服务，在不影响Fretha前台界面显示和操作的前提下，实现了一键式线程分离的自动数据处理。
-自动ROI圈点模块的业务流程及架构如图\ref{fig:fret_auto_roi_flow}所示。
-架构层内的流程流转以实线表示，不同架构层之间的流程流转以虚线表示。
-在实现自动圈点功能的流程转移中，发生在架构不同层之间的转移占更多数，而层内的流程转移相对较少，分层架构设计使得每个层内实现较好的封装，因此能够在实现复杂业务功能时，只需要专注于层和层之间的数据和流程切换即可。
-LURS算法将会在第三章具体说明。
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=1\linewidth]{../figures/2/2_自动ROI圈点模块业务流程.png}
-    \caption{Fretha自动圈点模块流程}
-    \label{fig:fret_auto_roi_flow}
-\end{figure}
 
 \subsection{数据管理模块}
 \label{sec:数据管理模块}
@@ -555,8 +550,8 @@ LURS算法将会在第三章具体说明。
       $R_C$ & 根据$I_{DD}$、$I_{DA}$、$I_{AA}$计算的$R_C$ \\
       $E_A$ & 根据$I_{DD}$、$I_{DA}$、$I_{AA}$计算的$E_A$ \\
       $1/R_C$ & $R_C$的倒数 \\
-      $A_{est}$ & 供体相对分子数的估计值 \\
-      $D_{est}$ & 受体相对分子数的估计值 \\
+      $A_{est}$ & 供体分子数的估计值 \\
+      $D_{est}$ & 受体分子数的估计值 \\
       $x$ & ROI的横坐标 \\
       $y$ & ROI的纵坐标 \\
       $w$ & ROI的宽度 \\
@@ -571,43 +566,42 @@ LURS算法将会在第三章具体说明。
 具体数据筛选流程实施如下：
 \begin{enumerate}
   \item 对$I_{DD}$、$I_{DA}$、$I_{AA}$基于物理约束的初步数据清洗：
-    针对各数值型变量 \( X_i \)，依据其预设的物理合理区间 \( [L_i, U_i] \) 执行有效性校验。构建如下二元判别函数：
+    针对各数值型变量 \( x_i \)，依据其预设的物理合理区间 \( [L_i, U_i] \) 执行有效性校验。构建如下二元判别函数：
     \begin{equation}
       \delta(x_i) = 
       \begin{cases} 
-        1, & x_i \notin [L_i, U_i] \\
+        1, & x_i \notin [L_i, U_i]  \\
         0, & x_i \in [L_i, U_i]
-      \end{cases}
+      \end{cases} ,
     \end{equation}
     当 \( \delta(x_i) = 1 \) 时，判定该数据点为物理意义上的异常值并予以剔除。
   \item 对中间变量$E_D$、$E_A$、$R_C$统计离群点检测：
     对经初步清洗后的数据子集 \( E_D \)、\( E_A \)和$R_C$，分别计算变量的样本均值 \( \mu \) 和样本标准差 \( \sigma \)，计算公式如下：
     \begin{equation}
-      \mu = \frac{1}{n}\sum_{i=1}^n x_i, \quad \sigma = \sqrt{\frac{1}{n - 1}\sum_{i=1}^n (x_i - \mu)^2}
+      \mu = \frac{1}{n}\sum_{i=1}^n x_i, \quad \sigma = \sqrt{\frac{1}{n - 1}\sum_{i=1}^n (x_i - \mu)^2}.
     \end{equation}
     采用3σ准则设定离群阈值，即构建判别区间 \( [\mu - 3\sigma, \mu + 3\sigma] \)。超出该区间的观测值均判定为统计离群点并剔除。
 \end{enumerate}
 
 数据导出用于保存数据处理时的ROI信息。
 在完成FRET图像处理和ROI绘制选取后，需要保存ROI的结果，以便后续分析或者修改编辑。
-在数据管理模块点击“导出数据”按钮，Fretha将会导出数据区记录的所有数据，每一条数据都会按照FretDataPiece定义进行逐列导出，如表 \ref{tab:数据项内容定义} 所示，文件格式为CSV文件。
-数据导入功能可以选择CSV文件，然后解析其中的数据按照FretDataPiece的格式。
+在数据管理模块点击“导出数据”按钮，Fretha将会导出数据区记录的所有数据，每一条数据都会按照FretDataPiece定义进行逐列导出，文件格式为CSV文件。
+数据导入功能则可以读取Fretha导出的CSV文件，然后解析其中的数据按照FretDataPiece的格式。
 
 点击“添加数据”按钮或者使用快捷键“A”，可以添加当前状态栏中的数据到数据表格中；
 点击“删除数据”按钮或者使用快捷键“D”，可以删除数据表格中选中的数据；
 点击“清空数据”按钮或者使用快捷键“C”，可以清空数据表格中的所有数据；
 点击“开始计算”按钮，软件将调用FretTwoHybridSolver等算法对数据表格中的数据进行FRET双杂交分析求解计算，并将结果显示在结果可视化模块中，然后切换软件界面到结果可视化模块。
 
-在数据表格中点击某一条数据，软件会根据这条数据的位置和形状信息，在图像显示上显示该条数据对应的ROI位置，以方便识别数据中潜在的错误。
+在数据表格中点击某一条数据，软件会根据这条数据的位置和形状信息，在图像显示上显示该条数据对应的ROI位置，以方便检查数据处理中标注ROI的错误。
 实现这一功能，主要基于Qt提供的信号与槽机制。
-将数据中的数据模型被点击的事件信号与FretGraphicsView控件中的回调槽函数绑定后，FretGraphicView模型可以接收到来自所选数据的信息，并将当前活动的ROI按照所选数据项中的信息$x$、$y$、$w$和$h$绘制到FretGraphicsView控件上。
-接下来，FretGraphicsView会将窗口的视角移动到所选数据的ROI位置，以便用户更加直观地查看数据的位置和形状。
+将数据中的数据模型被点击的事件信号与 FretGraphicsView 控件中的回调槽函数绑定后，FretGraphicView 模型可以接收到来自所选数据的信息，按照所选数据项中ROI的$x$、$y$、$w$和$h$绘制ROI到FretGraphicsView控件上，并将FretGraphicsView的视角中心移动到所选数据的ROI中心，以便用户更加直观地查看数据的位置和形状。
 
 \subsection{结果可视化模块}
 \label{sec:结果可视化模块}
 \ifshowtext
 FRET双杂交分析的输出结果包含双杂交计算的参数结果与拟合曲线图。
-其中，$E_{A,max}$、$E_{D,max}$、$n_D/n_A$、$K_{d,EFF}$等参数作为表征生物大分子相互作用的核心量化指标，为生物学研究提供关键数据支撑。
+其中，$E_{A,max}$、$E_{D,max}$、$n_D/n_A$、$K_{d,EFF}$等参数以数据框形式展示；
 拟合曲线图通过将双杂交理论拟合曲线与实验散点数据同图可视化，实现对拟合效果的直观评估，进而验证FRET双杂交分析结果的可靠性。
 
 结果可视化模块的界面组成如图 \ref{fig:Fretha结果可视化模块界面} 所示，主要包含以下三个功能区域：
@@ -622,8 +616,7 @@ FRET双杂交分析的输出结果包含双杂交计算的参数结果与拟合�
 拟合曲线是基于拟合参数计算得到的理论数据点连接而成的平滑曲线，实验数据则以离散点形式展示，用户可以直观检查拟合计算的效果和误差大小。
 可视化界面基于QChart组件作图绘制，根据一批数据（FretDataRecord）的数据范围分布，自动优化坐标轴刻度范围，以提升数据可视化的清晰度。
 
-在 L-FRET 视图模式下，软件集成了数据预处理 BIN 功能，允许用户通过设定 BIN 的上下限及间隔参数，对数据合并预处理的参数进行灵活调节，然后点击“更新”按钮即可更新结果，在L-FRET计算效果不理想时可以用来优化数据处理结果。L-FRET视图界面在图 \ref{fig:Fretha结果可视化模块界面} 中展示。
-
+在 L-FRET 视图模式下，软件集成了数据预处理 BIN 功能，允许用户通过合并供体 - 受体浓度在相同区间的数据进行预处理数据\upcite{供体-受体浓度比}。如图 \ref{fig:Fretha结果可视化模块界面}，通过设置界面中数据合并预处理的参数，然后点击“更新”按钮即可应用数据预处理，在L-FRET拟合效果不理想时可以用来优化数据处理结果。
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.9\linewidth]{../figures/2/2_DC-FRET结果界面.png}
@@ -658,10 +651,11 @@ DC-FRET视图的界面如图 \ref{fig:fretha_dc_fret} 所示。
 \fi
 
 \section{本章小结}
-
-\ifshowtext
-本章介绍了FRET双杂交分析数据处理软件（Fretha）的设计和开发。
-Fretha采用分层架构设计，被分为表示层、业务层、数据访问层和数据层，从设计上尽可能地进行解耦，减少了冗余设计。
-基于FRET双杂交分析数据处理的需求，Fretha在功能逻辑上划分为成像参数设置模块、数据校验模块、FRET图像处理模块、数据管理模块和结果可视化模块，然后通过分层架构完成了每个功能模块的开发。
-得益于分层架构设计和功能模块化设计，Fretha实现了各种复杂数据处理功能，是一款拥有用户友好界面、简单易用、处理高效的科研数据处理软件。
-\fi
+本章系统阐述了 FRET 双杂交分析数据处理软件 Fretha 的设计框架与实现方法。
+通过采用分层架构，Fretha采用了表现层、业务层、数据访问层和数据层的四层架构体系（图 \ref {fig:fretha_arch}），从而实现了软件的解耦设计。
+基于 FRETScope 显微成像系统的多模态数据特征，数据层采用 FretImage-FretDataPiece-FretRecord 三级关联模型（图 \ref {fig:fretha_data_relations}），实现了从原始图像到分析结果的全流程数据管理。
+按照FRET双杂交数据处理步骤流程，将软件的功能划分为成像参数设置、数据检验、FRET图像处理、数据管理和结果可视化五个功能模块。
+基于OpenCV和Dlib等开源计算库，本章构建了包含 FRET 定量计算器、图像处理器和双杂交求解器的后台接口，实现了 E-FRET、 $3^3$-FRET、DC-FRET、L-FRET等多模态FRET算法。
+在 L-FRET 分析中，采用基于 BFGS 算法的非线性优化策略（代码 \ref {code:two_hybrid_solver}），完成 Langmuir 模型的参数拟合。
+基于分层架构设计和功能模块化设计，本章实现了每个功能模块，支持了FRET双杂交分析的复杂数据处理功能，
+最终开发实现了一款拥有用户友好界面、简单易用、处理高效的FRET双杂交分析专业数据处理软件。

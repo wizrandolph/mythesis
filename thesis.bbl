@@ -60,6 +60,24 @@ Fluorescence resonance energy transfer (FRET) microscopy imaging of live cell pr
 The Journal of cell biology.
 2003, 160~(5):  629.
 
+\bibitem{ben-johny2016}
+Ben-Johny~M, Yue~D T D~N, Yue~D T D~N.
+Detecting stoichiometry of macromolecular complexes in live cells using {FRET}~[J].
+Nature Communications.
+2016, 7~(1):  13709--13709.
+
+\bibitem{yang2020stoichiometry}
+Yang~F, Qu~W, Du~M, et~al.
+Stoichiometry and regulation network of Bcl-2 family complexes quantified by live-cell FRET assay~[J].
+Cellular and Molecular Life Sciences.
+2020, 77:  2387--2406.
+
+\bibitem{yang2022cytosolic}
+Yang~Y, Yu~Z, Geng~J, et~al.
+Cytosolic peptides encoding CaV1 C-termini downregulate the calcium channel activity-neuritogenesis coupling~[J].
+Communications biology.
+2022, 5~(1):  484.
+
 \bibitem{cornea2009fret}
 Cornea~R~L, Nitu~F, Gruber~S, et~al.
 FRET-based mapping of calmodulin bound to the RyR1 Ca2+ release channel~[J].
@@ -114,29 +132,16 @@ The recent development of fluorescent probes for the detection of NADH and NADPH
 Spectrochimica Acta Part A: Molecular and Biomolecular Spectroscopy.
 2021, 245:  118919.
 
+\bibitem{双杂交药筛}
+华南师范大学.
+一种基于FRET双杂交分析的活细胞药物筛选方法及系统: ~[P].
+2024-09-03.
+
 \bibitem{bozza2014use}
 Bozza~W~P, Di~X, Takeda~K, et~al.
 The use of a stably expressed FRET biosensor for determining the potency of cancer drugs~[J].
 PLoS One.
 2014, 9~(9):  e107010.
-
-\bibitem{ben-johny2016}
-Ben-Johny~M, Yue~D T D~N, Yue~D T D~N.
-Detecting stoichiometry of macromolecular complexes in live cells using {FRET}~[J].
-Nature Communications.
-2016, 7~(1):  13709--13709.
-
-\bibitem{yang2020interaction}
-Yang~F, Du~M, Wang~X, et~al.
-Interaction between Bax and Bcl-XL proteins confirmed by partial acceptor photobleaching-based FRET imaging~[J].
-Journal of Innovative Optical Health Sciences.
-2020, 13~(03):  2050011.
-
-\bibitem{yang2022cytosolic}
-Yang~Y, Yu~Z, Geng~J, et~al.
-Cytosolic peptides encoding CaV1 C-termini downregulate the calcium channel activity-neuritogenesis coupling~[J].
-Communications biology.
-2022, 5~(1):  484.
 
 \bibitem{awais2004A}
 Awais~M, Sato~M, Sasaki~K, et~al.
@@ -216,17 +221,17 @@ Pretrained Deep Neural Network Kin-SiM for Single-Molecule FRET Trace Idealizati
 The Journal of Physical Chemistry B.
 2025.
 
-\bibitem{ge2020}
-Ge~L, Liu~F, Luo~J.
-Highly-efficient quantitative fluorescence resonance energy transfer measurements based on deep learning~[J].
-Journal of Innovative Optical Health Sciences.
-2020, 13~(06):  2050021.
-
 \bibitem{ronneberger2015u}
 Ronneberger~O, Fischer~P, Brox~T.
 U-net: Convolutional networks for biomedical image segmentation~[C].
 In Medical image computing and computer-assisted intervention--MICCAI 2015: 18th international conference, Munich, Germany, October 5-9, 2015, proceedings, part III 18.
 2015:  234--241.
+
+\bibitem{ge2020}
+Ge~L, Liu~F, Luo~J.
+Highly-efficient quantitative fluorescence resonance energy transfer measurements based on deep learning~[J].
+Journal of Innovative Optical Health Sciences.
+2020, 13~(06):  2050021.
 
 \bibitem{thomsen2020deepfret}
 Thomsen~J, Sletfjerding~M~B, Jensen~S~B, et~al.
@@ -240,11 +245,29 @@ Protocol for deriving proximity, affinity, and stoichiometry of protein interact
 STAR Protocols.
 2023, 4~(3):  102459.
 
+\bibitem{berg2019ilastik}
+Berg~S, Kutra~D, Kroeger~T, et~al.
+Ilastik: interactive machine learning for (bio) image analysis~[J].
+Nature methods.
+2019, 16~(12):  1226--1232.
+
 \bibitem{kromp2020annotated}
 Kromp~F, Bozsaky~E, Rifatbegovic~F, et~al.
 An annotated fluorescence image dataset for training nuclear segmentation methods~[J].
 Scientific Data.
 2020, 7~(1):  262.
+
+\bibitem{9120226}
+Langer~M, He~Z, Rahayu~W, et~al.
+Distributed Training of Deep Learning Models: A Taxonomic Perspective~[J].
+IEEE Transactions on Parallel and Distributed Systems.
+2020, 31~(12):  2802--2818.
+
+\bibitem{huang2018gpipe}
+Huang~Y, Cheng~Y, Bapna~A, et~al.
+GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism~[C].
+In Advances in Neural Information Processing Systems.
+2018.
 
 \bibitem{zhang2021survey}
 Zhang~Y, Ti{\v{n}}o~P, Leonardis~A, et~al.
@@ -274,6 +297,23 @@ Bradski~G, Kaehler~A.
 Learning OpenCV: Computer vision with the OpenCV library~[M].
 " O'Reilly Media, Inc.", 2008.
 
+\bibitem{供体-受体浓度比}
+华南师范大学.
+一种基于供体-受体浓度比预处理FRET双杂交检测数据的方法: ~[P].
+2020-06-05.
+
+\bibitem{gurcan2022evolution}
+Gurcan~F, Dalveren~G G~M, Cagiltay~N~E, et~al.
+Evolution of software testing strategies and trends: Semantic content analysis of software research corpus of the last 40 years~[J].
+IEEE Access.
+2022, 10:  106093--106109.
+
+\bibitem{wang2019software}
+Wang~R, Artho~C, Kristensen$^1$~L~M, et~al.
+Software testing~[C].
+In Integrated Formal Methods: 15th International Conference, IFM 2019, Bergen, Norway, December 2--6, 2019, Proceedings.
+2019:  474.
+
 \bibitem{koushik2006cerulean}
 Koushik~S~V, Chen~H, Thaler~C, et~al.
 Cerulean, Venus, and VenusY67C FRET reference standards~[J].
@@ -286,6 +326,48 @@ Quantitative multiphoton spectral imaging and its use for measuring resonance en
 Biophysical journal.
 2005, 89~(4):  2736--2749.
 
+\bibitem{sun2022automated}
+Sun~H, Zhang~C, Yuan~Y, et~al.
+Automated ExEm-spFRET Microscope~[J].
+Microscopy and Microanalysis.
+2022, 28~(2):  330--337.
+
+\bibitem{feldmann2023protocol}
+Feldmann~C, Sch{\"a}nzler~M, Ben-Johny~M, et~al.
+Protocol for deriving proximity, affinity, and stoichiometry of protein interactions using image-based quantitative two-hybrid FRET~[J].
+STAR protocols.
+2023, 4~(3):  102459.
+
+\bibitem{kirillov2023segment}
+Kirillov~A, Mintun~E, Ravi~N, et~al.
+Segment anything~[C].
+In Proceedings of the IEEE/CVF International Conference on Computer Vision.
+2023:  4015--4026.
+
+\bibitem{cheng2023sammed2d}
+Cheng~J, Ye~J, Deng~Z, et~al.
+Sam-med2d~[J].
+arXiv preprint arXiv:2308.16184.
+2023.
+
+\bibitem{zhang2024segment}
+Zhang~Y, Shen~Z, Jiao~R.
+Segment anything model for medical image segmentation: Current applications and future directions~[J].
+Computers in Biology and Medicine.
+2024:  108238.
+
+\bibitem{wang2020discovery}
+Wang~L, Doherty~G~A, Judd~A~S, et~al.
+Discovery of A-1331852, a first-in-class, potent, and orally-bioavailable BCL-XL inhibitor~[J].
+ACS medicinal chemistry letters.
+2020, 11~(10):  1829--1836.
+
+\bibitem{kuusanmaki2023erythroid}
+Kuusanm{\"a}ki~H, Dufva~O, V{\"a}h{\"a}-Koskela~M, et~al.
+Erythroid/megakaryocytic differentiation confers BCL-XL dependency and venetoclax resistance in acute myeloid leukemia~[J].
+Blood.
+2023, 141~(13):  1610--1625.
+
 \bibitem{warren2019bcl}
 Warren~C~F, Wong-Brown~M~W, Bowden~N~A.
 BCL-2 family isoforms in apoptosis and cancer~[J].
@@ -297,12 +379,6 @@ Sun~B, Chen~H, Wang~X, et~al.
 Regorafenib induces Bim-mediated intrinsic apoptosis by blocking AKT-mediated FOXO3a nuclear export~[J].
 Cell Death Discovery.
 2023, 9~(1): ~37.
-
-\bibitem{sun2022automated}
-Sun~H, Zhang~C, Yuan~Y, et~al.
-Automated ExEm-spFRET Microscope~[J].
-Microscopy and Microanalysis.
-2022, 28~(2):  330--337.
 
 \bibitem{jagadeeswari2022integral}
 Jagadeeswari~M, Manikandababu~C, Aiswarya~M.
@@ -327,11 +403,5 @@ Sun~H, Zhang~C, Ma~Y, et~al.
 Controlling and online measurement of automatic dual-channel E-FRET microscope~[J].
 Biomedical signal processing and control.
 2019, 53~(Aug.):  101585.1--101585.9.
-
-\bibitem{wang2020discovery}
-Wang~L, Doherty~G~A, Judd~A~S, et~al.
-Discovery of A-1331852, a first-in-class, potent, and orally-bioavailable BCL-XL inhibitor~[J].
-ACS medicinal chemistry letters.
-2020, 11~(10):  1829--1836.
 
 \end{thebibliography}
