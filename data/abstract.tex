@@ -2,19 +2,22 @@
 福斯特共振能量转移（Förster Resonance Energy Transfer, FRET）技术被广泛用于探究活细胞中生物大分子的动态相互作用过程，在生命科学基础问题研究、疾病的发生发展机制探索和药物研发等方面具有广阔的应用前景。
 FRET双杂交分析是目前唯一可以在活细胞内进行生物大分子“滴定实验”的技术，能够定量获得供受体结合的化学计量比和相对亲和力。
 
-FRET双杂交分析的数据处理过程繁琐费时，使用门槛较高且难以满足高通量检测的要求。
-数据处理过程需要借助Zeiss ZEN、HCImage、ImageJ、Excel和MATLAB等多个专业软件进行处理，数据需要在不同软件间进行导入和导出。
-数据处理过程包括专家标注感兴趣区域（Region of Interest, ROI）、背景扣除、异常数据过滤、FRET效率计算、双杂交拟合计算等过程，共28个步骤，单次实验过程需要3.5至7小时。
+FRET双杂交分析的数据处理过程繁琐费时，使用门槛较高且难以满足高通量检测的要求，主要存在三个瓶颈问题。
+一是依赖多个软件，数据孤岛导致数据处理效率低下。
+数据处理需要使用Zeiss Zen、HCImage、ImageJ、Excel和MATLAB等多个专业软件，数据的导入和导出容易出错且难以追溯分析。
+二是数据处理过程繁琐复杂耗时长，使用门槛高。
+整个数据分析包括专家标注感兴趣区域（Region of Interest, ROI）、背景扣除、异常数据过滤、FRET效率计算、双杂交拟合计算等，共28个步骤，单次实验需要3.5至7小时。
+三是数据处理的准确性强依赖于人工标注ROI，需要丰富的经验。
 FRET图像处理过程依赖人工手动标注ROI，无法满足高通量等大规模数据场景的应用要求。
-为了解决现有FRET双杂交分析数据处理流程繁琐、人工操作依赖性强等问题，亟待设计一款专门研发的数据处理软件，开发对应的FRET图像处理算法，以实现FRET双杂交分析数据处理的规范化和自动化。
+为了解决现有FRET双杂交分析数据处理存在的数据孤岛、流程繁琐和强人工依赖等问题，亟待设计一款专门研发的数据处理软件，并开发自动化的FRET图像处理算法，以实现FRET双杂交分析数据处理的规范化、简易化和自动化。
 
 针对以上问题，本文设计并开发了一款FRET双杂交分析数据处理软件 Fretha，支持从原始图像到化学计量比结果的规范化数据处理，并首次提出了基于明度和均匀度的自动ROI选取算法（Luminance-Uniformity-based ROI Selection, LURS），实现了数据处理过程的自动化。
 本文的主要工作和创新点如下：
 
-（1）首次设计并开发了FRET双杂交分析数据处理软件Fretha。
-该软件采用分层架构（表现层、业务层、数据访问层和数据层）构建，封装了FRET计算器、图像分析库和双杂交求解器，实现了E-FRET（Emission-FRET）、$3^3$-FRET（Three-cube-FRET）、FRET双杂交拟合等多模态分析算法。
+（1）首次设计并开发了FRET双杂交分析数据处理软件Fretha，实现了从原始图像到化学计量比结果的规范化高效处理。
+该软件采用分层架构（表现层、业务层、数据访问层和数据层）构建，封装了FRET计算器、图像分析库和双杂交求解器，实现了4种FRET计算算法：E-FRET（Emission-FRET）、$3^3$-FRET（Three-cube-FRET）、朗缪尔拟合双杂交和线性拟合双杂交算法。
 基于Qt 5.15.2、OpenCV和Dlib，实现了成像参数设置、数据校验、FRET图像处理、数据管理、结果可视化等功能模块。
-Fretha的设计体现了针对FRET双杂交分析数据处理的专业性，实现了从原始图像到化学计量比结果的规范化高效处理。
+Fretha替代了5款专业软件，降低了FRET双杂交分析技术的使用难度，数据在软件内部传输，增强了可靠性。
 
 （2）验证并测试了Fretha的准确性、可靠性和功能。
 应用Fretha软件对标准质粒C4Y/C10Y/C40Y/C80Y进行手动$3^3$-FRET分析和E-FRET分析，测量得到的$E_{A}$值分别为$0.291\pm0.020$、$0.243\pm0.031$、$0.159\pm0.018$和$0.118\pm0.019$，$E_{D}$值分别为$0.307\pm0.040$、$0.230\pm0.022$、$0.155\pm0.011$和$0.117\pm0.012$，与文献值的相对误差分别为3.9\%、2.2\%。
@@ -22,8 +25,8 @@ Fretha的设计体现了针对FRET双杂交分析数据处理的专业性，实�
 模块测试表明，Fretha支持成像参数更新、异常数据隔离、FRET图像处理、一键式数据结算和结果可视化等功能运行正常，模块运行符合设计预期。
 Fretha在48小时连续运行和高频操作下没有内存泄露等异常情况，说明其可靠性满足大数据量持续数据处理要求。
 
-（3）首次提出了基于明度和均匀度的自动ROI选取算法LURS，实现了自动FRET双杂交分析。
-Fretha显著规范了FRET双杂交分析的数据处理流程，提升了数据处理效率，但是仍然依赖人工标注ROI。
+（3）首次提出了基于明度和均匀度的自动ROI选取算法LURS，实现了自动化的FRET双杂交分析。
+Fretha的开发显著规范了FRET双杂交分析的数据处理流程，提升了数据处理效率，但是仍然依赖人工标注ROI。
 LURS算法通过多通道自适应阈值分割、变异系数均匀性评估和连通区域分析，能够识别荧光图像中高信噪比且低变异性的高质量荧光信号。
 在标准质粒验证实验中，LURS方法测量的$E_{A}$、$E_{D}$和$R_C$值与文献报道值平均相对误差分别为5.1\%、2.9\%和3.3\%。
 结合LURS和DC-FRET方法，自动分析测得Cerulean和Venus在C32V中的结合计量比为1.063，在CVC中则为1.900，与文献值误差不超过6.3\%。
@@ -31,7 +34,7 @@ LURS算法通过多通道自适应阈值分割、变异系数均匀性评估和�
 对比SAM-Med2D和ilastik的自动分析方法，LURS的计算误差最小，具有更好的鲁棒性。
 LURS算法处理1.4GB数据集的速度为6.6 ms / ROI，峰值内存占用为800 MB，且在性能上优于ilastik（35.2 ms / ROI，1.8 GB）和SAM-Med2D（50.7 ms / ROI，14 GB），更适用于高通量药物筛选等大数据量场景。
 
-Fretha 的推出，简化了FRET双杂交分析数据处理的过程的同时提高了标准化自动化的水平，推动了该技术在生物大分子相互作用研究的广泛应用。
+总之，Fretha软件及LURS算法简化并规范了FRET双杂交分析数据处理的过程，同时提高了自动化的水平，降低了FRET双杂交分析技术的使用门槛，有望被广泛应用于生物大分子相互作用的研究。
 \end{cabstract}
 \vspace{3pt}
 \ckeywords{ FRET；FRET定量分析；荧光图像；FRET双杂交分析；自动数据处理 }
@@ -40,15 +43,18 @@ Fretha 的推出，简化了FRET双杂交分析数据处理的过程的同时提
 Förster resonance energy transfer (FRET) technology is widely used to explore the dynamic interactions of biomacromolecules in living cells, and has broad application prospects in basic research in life sciences, exploration of the mechanisms of disease occurrence and development, and drug development.
 FRET two-hybrid assay is currently the only technology that can perform biomacromolecule "titration experiments" in living cells, which can quantitatively obtain the stoichiometry and relative affinity of donor-acceptor binding.
 
-The data processing process of FRET two-hybrid assay is cumbersome and time-consuming, with a high threshold for use and difficult to meet the requirements of high-throughput detection.
-The data processing process requires the use of multiple professional software such as Zeiss ZEN, HCImage, ImageJ, Excel and MATLAB for processing, and the data needs to be imported and exported between different software.
+The data processing process of FRET two-hybrid assay is cumbersome and time-consuming, with a high threshold for use and difficult to meet the requirements of high-throughput detection, mainly due to three bottlenecks.
+First, it relies on multiple software, and data islands lead to low data processing efficiency.
+The data processing process requires the use of multiple professional software such as Zeiss Zen, HCImage, ImageJ, Excel and MATLAB for processing, and the data needs to be imported and exported between different software, which is prone to errors and difficult to trace.
+Second, the data processing process is cumbersome and complex, and the use threshold is high.
 The data processing process includes expert annotation of regions of interest (ROI), background subtraction, outlier data filtering, FRET efficiency calculation, two-hybrid fitting calculation, etc., with a total of 28 steps, and the single experiment process takes 3.5 to 7 hours.
+Third, the accuracy of data processing relies heavily on manual annotation of ROIs, which requires rich experience.
 The FRET image processing process relies on manual annotation of ROIs, which cannot meet the application requirements of high-throughput and large-scale data scenarios.
 To solve the problems of cumbersome data processing process and strong dependence on manual operation in the existing FRET two-hybrid assay, it is urgent to design a specially developed data processing software and develop corresponding FRET image processing algorithms to achieve the standardization and automation of FRET two-hybrid assay data processing.
 
 To address the above problems, this thesis designs and develops a FRET two-hybrid assay data processing software Fretha, which supports standardized data processing from raw images to stoichiometry results, tests the measurement accuracy and functions of Fretha, and proposes for the first time an automatic ROI selection algorithm based on luminance and uniformity (Luminance-Uniformity-based ROI Selection, LURS) to achieve the automation of data processing.
-
 The main work and innovations of this thesis are as follows:
+
 (1) The FRET two-hybrid assay data processing software Fretha is designed and developed for the first time.
 This software is constructed using a layered architecture (presentation layer, business layer, data access layer and data layer), encapsulating the FRET calculator, image analysis library and two-hybrid solver, and implementing multimodal analysis algorithms such as E-FRET (Emission-FRET), $3^3$-FRET (Three-cube-FRET) and FRET two-hybrid fitting.
 Based on Qt 5.15.2, OpenCV and Dlib, it implements functional modules such as imaging parameter setting, data verification, FRET image processing, data management, and result visualization.

@@ -133,7 +133,7 @@ Spectrochimica Acta Part A: Molecular and Biomolecular Spectroscopy.
 2021, 245:  118919.
 
 \bibitem{双杂交药筛}
-华南师范大学.
+陈同生\~�, 曹庚强\.
 一种基于FRET双杂交分析的活细胞药物筛选方法及系统: ~[P].
 2024-09-03.
 
@@ -221,17 +221,17 @@ Pretrained Deep Neural Network Kin-SiM for Single-Molecule FRET Trace Idealizati
 The Journal of Physical Chemistry B.
 2025.
 
-\bibitem{ronneberger2015u}
-Ronneberger~O, Fischer~P, Brox~T.
-U-net: Convolutional networks for biomedical image segmentation~[C].
-In Medical image computing and computer-assisted intervention--MICCAI 2015: 18th international conference, Munich, Germany, October 5-9, 2015, proceedings, part III 18.
-2015:  234--241.
-
 \bibitem{ge2020}
 Ge~L, Liu~F, Luo~J.
 Highly-efficient quantitative fluorescence resonance energy transfer measurements based on deep learning~[J].
 Journal of Innovative Optical Health Sciences.
 2020, 13~(06):  2050021.
+
+\bibitem{ronneberger2015u}
+Ronneberger~O, Fischer~P, Brox~T.
+U-net: Convolutional networks for biomedical image segmentation~[C].
+In Medical image computing and computer-assisted intervention--MICCAI 2015: 18th international conference, Munich, Germany, October 5-9, 2015, proceedings, part III 18.
+2015:  234--241.
 
 \bibitem{thomsen2020deepfret}
 Thomsen~J, Sletfjerding~M~B, Jensen~S~B, et~al.
@@ -298,7 +298,7 @@ Learning OpenCV: Computer vision with the OpenCV library~[M].
 " O'Reilly Media, Inc.", 2008.
 
 \bibitem{供体-受体浓度比}
-华南师范大学.
+陈同生\~�.
 一种基于供体-受体浓度比预处理FRET双杂交检测数据的方法: ~[P].
 2020-06-05.
 

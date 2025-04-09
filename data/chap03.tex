@@ -1,7 +1,7 @@
 \chapter{Fretha的验证和测试}
 
 \section{引言}
-软件测试在保障软件可靠性、安全性及合规性方面发挥核心作用，通过早期缺陷检测显著降低长期成本 \upcite{gurcan2022evolution, wang2019software}。
+在完成Fretha的设计和开发后，需要进行系统的软件测试来评估软件精度、验证软件功能、保障软件可靠性，从而显著降低长期成本 \upcite{gurcan2022evolution, wang2019software}。
 本章通过应用Fretha进行手动数据处理，首先对标准质粒进行E-FRET定量分析和$3^3$-FRET定量分析，验证Fretha计算FRET效率的精度。
 接着，使用Fretha手动测量标准质粒C32V和CVC质粒中Cerulean与Venus的化学计量比，验证Fretha的手动分析FRET双杂交分析的准确性。
 然后，本章针对软件的各个功能模块进行了单独测试，包括成像参数设置模块、数据检验模块、FRET图像处理模块、数据管理模块、结果可视化模块等，从而系统完成了功能上的测试验证。
@@ -18,7 +18,6 @@ Turbofect\texttrademark{}转染试剂购自美国赛默飞世尔科技公司。�
 
 \subsection{FRET成像系统}
 \label{sec:成像条件}
-\ifshowtext
 本研究中，所有实验数据均使用自主研发的多模态FRET成像系统FRETScope获取 \upcite{sun2022automated}。
 标准CFP - YFP质粒选用了20倍的0.45NA物镜（Olympus，日本）和6\%光照强度。
 Cerulean - Venus 模型质粒实验选用了20倍的0.45NA物镜（Olympus，日本）和50\%光照强度。
@@ -46,11 +45,10 @@ Cerulean - Venus 模型质粒实验选用了20倍的0.45NA物镜（Olympus，日
     \end{tabular}
     \label{tab:lurs_imaging_params}
 \end{table}
-\fi
 
 \subsection{使用Fretha手动处理数据}
 \label{sec:Fretha手动处理数据}
-使用Fretha手动处理数据的步骤如下：
+使用Fretha进行手动处理数据的标准步骤如下：
 \begin{enumerate}
   \item 打开Fretha软件，点击“FRET参数”按钮，按照表 \ref{tab:lurs_imaging_params} 中的参数设置成像参数；
   \item 返回开始界面，点击“浏览”按钮，选择数据文件夹，点击“开始”按钮，进入数据处理界面；
@@ -59,7 +57,7 @@ Cerulean - Venus 模型质粒实验选用了20倍的0.45NA物镜（Olympus，日
   \item 点击“开始计算”，进入结果展示页界面，点击“保存结果”按钮，保存数据处理结果。
 \end{enumerate}
 
-\section{结果}
+\section{结果和讨论}
 
 \subsection{E-FRET和\texorpdfstring{$3^3$}{3^3}-FRET验证实验}
 \label{sec:E-FRET和3^3-FRET处理结果}
@@ -101,7 +99,7 @@ C10Y、C40Y和C80Y的FRET效率和浓度比测量结果如表 \ref{tab:Fretha手
 为了模拟FRET双杂交实验，本节使用Fretha手动测量了活的MCF-7细胞中存在自由供体（Cerulean, C）和自由受体（Venus, V）时固定质粒C32V和CVC的$E_{A,max}$、$E_{D,max}$和$n_D/n_A$值。图 \ref{fig:Fretha手动双杂交} 展示了共表达 C32V / CVC 且含有游离的 C（C32V + C，CVC + C）（上半部分）或游离的 V（C32V + V, CVC + V）（下半部分）的活 MCF7 细胞的三张荧光图像（DD、AA 和 DA）（左侧），使用Fretha手动标注的ROI（中间），以及DC-FRET和L-FRET的结果图（右侧）。
 \begin{figure}
   \centering
-  \includegraphics[width=1\linewidth]{../figures/3/Fretha手动双杂交数据处理.png}
+  \includegraphics[width=1\linewidth]{../figures/3/验证-手动双杂交结果.drawio.png}
   \caption{Fretha手动处理的C32V和CVC的FRET双杂交分析结果}
   \label{fig:Fretha手动双杂交}
 \end{figure}
@@ -144,11 +142,11 @@ L-FRET测量得到C32V的$E_{A,max}$为0.347，$E_{D,max}$为0.344，$n_D/n_A$�
 成像参数设置是软件的核心功能之一，直接影响到数据处理结果的准确性。
 本测试旨在验证软件成像参数设置功能的正确性和灵活性，确保软件能够及时准确响应参数的更新设置。
 
-测试时，通过界面操作更新参数，分别用表 \ref{tab:lurs_imaging_params} CV成像参数和CY参数处理单转CV体系标准质粒C32V和CY体系标准质粒C4Y样本的FRET图像数据，进行E-FRET分析计算结果$E_D$和$R_C$。将参数和数据匹配的实验组记为正面组，将参数不匹配数据的组别记为反面组，测试结果如表 \ref{表：测试参数更新} 所示。
+测试时，通过界面操作更新参数，分别用表 \ref{tab:lurs_imaging_params} CV成像参数和CY参数处理单转标准质粒C32V和C4Y样本，进行E-FRET分析计算结果$E_D$和$R_C$。、将参数和数据匹配的实验组记为正面组，将参数不匹配数据的组别记为反面组，测试结果如表 \ref{表：测试参数更新} 所示。
 
 \begin{table}[htbp]
   \centering
-  \caption{更改参数C4Y和C32V质粒E-FRET测量结果}
+  \caption{切换参数测量C4Y和C32V质粒E-FRET测量结果}
   \begin{tabular}{ccccc}
   \toprule[1.5pt]
   实验组 & 参数 & 样本 & $E_D$ & $R_C$ \\
@@ -252,7 +250,7 @@ FRET图像处理模块能够帮助用户进行FRET双杂交分析数据处理，
 
 \begin{figure*}[!hbt]
   \centering
-  \includegraphics[width=0.9\linewidth]{../figures/4/4_视图类型.png}
+  \includegraphics[width=0.9\linewidth]{../figures/3/测试-视图切换.drawio.png}
   \caption{Fretha图像处理视图切换测试结果}
   \label{fig:视图测试}
 \end{figure*}
@@ -343,7 +341,7 @@ ROI状态栏上的数据更新发生在ROI被绘制更新以及视野切换时�
     导出数据 & 导出Fretha圈点数据（CSV） & 成功导出 & \ding{51} \\
     \multirow{2}{*}{添加数据} & 添加新数据 & 成功添加 & \ding{51} \\
      & 快捷键“A” & 成功添加 & \ding{51} \\
-    \multirow{2}{*}{删除数据} & 删除数据 & 成功删除 & \ding{51} \\
+    \multirow{2}{*}{删除数据} & 删除数据 & 成功删除 & \ding{51} \\ 
      & 快捷键“D” & 成功删除 & \ding{51} \\
     开始计算 & 开始计算数据 & 成功跳转，计算准确 & \ding{51} \\
 
@@ -358,7 +356,7 @@ ROI状态栏上的数据更新发生在ROI被绘制更新以及视野切换时�
 本节对上述功能进行测试时，重点关注两种视图的显示、参数的更新和结果的保存功能。
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=1\linewidth]{../figures/4/结果可视化测试-视图.png}
+  \includegraphics[width=1\linewidth]{../figures/3/测试-结果可视化.drawio.png}
   \caption[Fretha L-FRET视图测试结果]{Fretha L-FRET视图和DC-FRET视图。图a为标准L-FRET视图；图b为应用BIN数据分箱后的L-FRET视图；图c为设置线性拟合的$R_C$数据范围为$(0,0.5)$，均值拟合的$R_C$范围为$(2,10)$时的DC-FRET视图；图d设置线性拟合的$1/R_C$数据范围为$(0,1)$，均值拟合的$1/R_C$范围为$(1,10)$。}
   \label{fig:L-FRET视图测试}
 \end{figure}
@@ -368,13 +366,6 @@ L-FRET显示出良好的拟合效果，散点与趋势线符合预期。
 测试所用的BIN参数为对$R_C$在$(0,5)$之间的数据按照0.01的步长进行分组并计算平均值，结果显示BIN参数更新后的L-FRET视图散点数明显减少，且趋势线有所变化。
 测试DC-FRET视图中调整线性拟合的数据范围参数设置功能时，首先设置线性拟合的$R_C$数据范围为$(0,0.5)$，均值拟合的$R_C$范围为$(2,10)$，然后设置线性拟合的$1/R_C$数据范围为$(0,1)$，均值拟合的$1/R_C$范围为$(1,10)$，观察图表中的趋势线和散点图更新。
 测试结果如图 \ref{fig:L-FRET视图测试} 中图C和图d所示，当扩大拟合数据的范围后，可以观察到趋势线的更新，斜率拟合段和均值拟合段均延伸至$R_C$为1的位置。
-% \begin{figure}[htbp]
-%   \centering
-%   \includegraphics[width=0.9\linewidth]{../figures/4/4_DC-FRET参数测试.png}
-%   \caption[Fretha DC-FRET视图测试结果]{DC-FRET视图测试结果。图a为设置线性拟合的$R_C$数据范围为$(0,0.5)$，均值拟合的$R_C$范围为$(2,10)$时Fretha生成的趋势线和散点图；
-%   图b则设置线性拟合的$1/R_C$数据范围为$(0,1)$，均值拟合的$1/R_C$范围为$(1,10)$。}
-%   \label{fig:DC-FRET视图测试}
-% \end{figure}
 
 测试结果可视化的结果保存功能，检查目标目录下生成的文件，发现存在两个CSV文件和四张散点趋势线图，符合表 \ref{tab:fretha_result_list} 设计，软件能够正确生成结果文件，且图片和表格文件的可以正常打开。
 
@@ -390,7 +381,7 @@ L-FRET显示出良好的拟合效果，散点与趋势线符合预期。
 
 \begin{figure}[hbtp]
   \centering
-  \includegraphics[width=0.6\linewidth]{../figures/4/4_48小时内存占用变化.png}
+  \includegraphics[width=0.6\linewidth]{../figures/3/测试-48小时内存波动.drawio.png}
   \caption{Fretha软件48小时运行内存占用监测}
   \label{fig:48小时内存变化}
 \end{figure}
@@ -405,7 +396,7 @@ L-FRET显示出良好的拟合效果，散点与趋势线符合预期。
   \label{tab:稳定性测试}
   \begin{tabularx}{\linewidth}{lXX}
   \toprule[1.5pt]
-  {测试类型}         & {测试方法}                                                                 & {测试结果}                                                                 \\
+  {测试类型} & {测试方法} & {测试结果} \\
   \midrule 
   \multirow{3}{*}{压力测试} 
     & \multirow{3}{\linewidth}{连续处理 10 个包含 50 个视野的大型数据，监测软件是否出现崩溃或内存泄漏。} 
@@ -414,7 +405,7 @@ L-FRET显示出良好的拟合效果，散点与趋势线符合预期。
     & - 内存峰值占用：1.1 GB（稳定无泄漏） \\
     &                                                                                
     & - 操作成功率：100\% \\
-  \midrule % 测试类型分隔线
+  % \midrule % 测试类型分隔线
   \multirow{4}{*}{长时间运行测试} 
     & \multirow{4}{\linewidth}{保持软件连续运行 48 小时，每8小时执行数据导入$\rightarrow$数据计算$\rightarrow$结果保存$\rightarrow$数据清除，记录 CPU 和内存占用情况。} 
     & - CPU 使用率：22 - 25\%（波动＜3\%） \\
@@ -422,7 +413,7 @@ L-FRET显示出良好的拟合效果，散点与趋势线符合预期。
     & - 内存占用：550 - 900 MB（无持续增长） \\
     &                                                                                
     & - 数据导出成功率：100\% \\
-  \midrule % 测试类型分隔线
+  % \midrule % 测试类型分隔线
   \multirow{3}{*}{异常操作测试} 
     & \multirow{3}{\linewidth}{快速重复进行参数切换、数据导入导出、ROI 编辑等操作，模拟用户高频使用场景，观察软件的响应稳定性。} 
     & - 每秒操作次数：15-20 次/秒 \\

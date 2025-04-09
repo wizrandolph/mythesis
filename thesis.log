@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.10)  6 APR 2025 16:35
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.10)  9 APR 2025 12:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -9,9 +9,6 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (./scnuthesis.cls
 Document Class: scnuthesis 
-
-Package scnuthesis Warning: Unknown Option 'title' on input line 53.
-
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
@@ -729,7 +726,50 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip95
-) (/usr/local/texlive/2025/texmf-dist/tex/generic/mathabx/mathabx.sty
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2025/02/26 v1.3c Adjusting TeX boxes (trim, clip, ...)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks51
+\XKV@tempa@toks=\toks52
+)
+\XKV@depth=\count350
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2025/02/21 v1.2a Trim and clip general TeX material
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
+\collectedbox=\box74
+)
+\tc@llx=\dimen313
+\tc@lly=\dimen314
+\tc@urx=\dimen315
+\tc@ury=\dimen316
+Package trimclip Info: Using driver 'tc-xetex.def'.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/adjustbox/tc-xetex.def
+File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
+))
+\adjbox@Width=\dimen317
+\adjbox@Height=\dimen318
+\adjbox@Depth=\dimen319
+\adjbox@Totalheight=\dimen320
+\adjbox@pwidth=\dimen321
+\adjbox@pheight=\dimen322
+\adjbox@pdepth=\dimen323
+\adjbox@ptotalheight=\dimen324
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count351
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box75
+\sift@deathcycles=\count352
+\@vwid@loff=\dimen325
+\@vwid@roff=\dimen326
+)) (/usr/local/texlive/2025/texmf-dist/tex/generic/mathabx/mathabx.sty
 Package: mathabx 2003/07/29 v0.0 Non-standard LaTeX package mathabx
 \symmatha=\mathgroup13
 \symmathb=\mathgroup14
@@ -1000,11 +1040,11 @@ LaTeX Font Info:    Redeclaring math symbol \boxdot on input line 688.
 LaTeX Font Info:    Redeclaring math symbol \boxleft on input line 694.
 LaTeX Font Info:    Redeclaring math symbol \boxright on input line 695.
 LaTeX Font Info:    Redeclaring math symbol \boxslash on input line 702.
-\mayacnter=\count350
-\mayacnta=\count351
-\mayacntb=\count352
-\mayacntc=\count353
-\mayawidth=\dimen313
+\mayacnter=\count353
+\mayacnta=\count354
+\mayacntb=\count355
+\mayacntc=\count356
+\mayawidth=\dimen327
 LaTeX Font Info:    Redeclaring math symbol \intop on input line 753.
 LaTeX Font Info:    Redeclaring math symbol \iintop on input line 754.
 LaTeX Font Info:    Redeclaring math symbol \iiintop on input line 757.
@@ -1108,147 +1148,148 @@ Package fontspec Info:
 (fontspec)             <->"[fonts/simsun.ttc]/OT:script=hani;language=dflt;mapping=tex-text;"
 
 \thu@linespace=\skip96
-\c@currproofctr=\count354
-\c@endproofctr=\count355
-\c@proof=\count356
-\c@currassumptionctr=\count357
-\c@endassumptionctr=\count358
-\c@assumption=\count359
-\c@currdefinitionctr=\count360
-\c@enddefinitionctr=\count361
-\c@definition=\count362
-\c@currlemmactr=\count363
-\c@endlemmactr=\count364
-\c@lemma=\count365
-\c@currtheoremctr=\count366
-\c@endtheoremctr=\count367
-\c@theorem=\count368
-\c@curraxiomctr=\count369
-\c@endaxiomctr=\count370
-\c@axiom=\count371
-\c@currcorollaryctr=\count372
-\c@endcorollaryctr=\count373
-\c@corollary=\count374
-\c@currconjecturectr=\count375
-\c@endconjecturectr=\count376
-\c@conjecture=\count377
-\c@currpropositionctr=\count378
-\c@endpropositionctr=\count379
-\c@proposition=\count380
-\c@currexercisectr=\count381
-\c@endexercisectr=\count382
-\c@exercise=\count383
-\c@currexamplectr=\count384
-\c@endexamplectr=\count385
-\c@example=\count386
-\c@currproblemctr=\count387
-\c@endproblemctr=\count388
-\c@problem=\count389
-\c@currremarkctr=\count390
-\c@endremarkctr=\count391
-\c@remark=\count392
+\c@currproofctr=\count357
+\c@endproofctr=\count358
+\c@proof=\count359
+\c@currassumptionctr=\count360
+\c@endassumptionctr=\count361
+\c@assumption=\count362
+\c@currdefinitionctr=\count363
+\c@enddefinitionctr=\count364
+\c@definition=\count365
+\c@currlemmactr=\count366
+\c@endlemmactr=\count367
+\c@lemma=\count368
+\c@currtheoremctr=\count369
+\c@endtheoremctr=\count370
+\c@theorem=\count371
+\c@curraxiomctr=\count372
+\c@endaxiomctr=\count373
+\c@axiom=\count374
+\c@currcorollaryctr=\count375
+\c@endcorollaryctr=\count376
+\c@corollary=\count377
+\c@currconjecturectr=\count378
+\c@endconjecturectr=\count379
+\c@conjecture=\count380
+\c@currpropositionctr=\count381
+\c@endpropositionctr=\count382
+\c@proposition=\count383
+\c@currexercisectr=\count384
+\c@endexercisectr=\count385
+\c@exercise=\count386
+\c@currexamplectr=\count387
+\c@endexamplectr=\count388
+\c@example=\count389
+\c@currproblemctr=\count390
+\c@endproblemctr=\count391
+\c@problem=\count392
+\c@currremarkctr=\count393
+\c@endremarkctr=\count394
+\c@remark=\count395
+\myheight=\skip97
  (/usr/local/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
-\labelindent=\skip97
-\enit@outerparindent=\dimen314
-\enit@toks=\toks51
-\enit@inbox=\box74
-\enit@count@id=\count393
-\enitdp@description=\count394
+\labelindent=\skip98
+\enit@outerparindent=\dimen328
+\enit@toks=\toks53
+\enit@inbox=\box76
+\enit@count@id=\count396
+\enitdp@description=\count397
 )) (./myscnu.sty
 Package: myscnu 
  (/usr/local/texlive/2025/texmf-dist/tex/latex/cases/cases.sty
 Package: cases 2020/03/29 ver 3.2
-\numc@numwid=\dimen315
+\numc@numwid=\dimen329
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count395
-\lst@gtempboxa=\box75
-\lst@token=\toks52
-\lst@length=\count396
-\lst@currlwidth=\dimen316
-\lst@column=\count397
-\lst@pos=\count398
-\lst@lostspace=\dimen317
-\lst@width=\dimen318
-\lst@newlines=\count399
-\lst@lineno=\count400
-\lst@maxwidth=\dimen319
+\lst@mode=\count398
+\lst@gtempboxa=\box77
+\lst@token=\toks54
+\lst@length=\count399
+\lst@currlwidth=\dimen330
+\lst@column=\count400
+\lst@pos=\count401
+\lst@lostspace=\dimen331
+\lst@width=\dimen332
+\lst@newlines=\count402
+\lst@lineno=\count403
+\lst@maxwidth=\dimen333
  (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstpatch.sty
 File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
-\c@lstnumber=\count401
-\lst@skipnumbers=\count402
-\lst@framebox=\box76
+\c@lstnumber=\count404
+\lst@skipnumbers=\count405
+\lst@framebox=\box78
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2024/09/23 1.10c listings configuration
 ))
 Package: listings 2024/09/23 1.10c (Carsten Heinz)
  (/usr/local/texlive/2025/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
 Package: xeCJK-listings 2022/08/05 v3.9.1 xeCJK patch file for listings
-\l__xeCJK_listings_max_char_int=\count403
-\l__xeCJK_listings_flag_int=\count404
+\l__xeCJK_listings_max_char_int=\count406
+\l__xeCJK_listings_flag_int=\count407
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
-\FV@CodeLineNo=\count405
+\FV@CodeLineNo=\count408
 \FV@InFile=\read2
-\FV@TabBox=\box77
-\c@FancyVerbLine=\count406
-\FV@StepNumber=\count407
+\FV@TabBox=\box79
+\c@FancyVerbLine=\count409
+\FV@StepNumber=\count410
 \FV@OutFile=\write3
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/algorithms/algorithm.sty
 Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
-\@float@every@algorithm=\toks53
-\c@algorithm=\count408
+\@float@every@algorithm=\toks55
+\c@algorithm=\count411
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/algorithms/algorithmic.sty
 Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-\c@ALC@unique=\count409
-\c@ALC@line=\count410
-\c@ALC@rem=\count411
-\c@ALC@depth=\count412
-\ALC@tlm=\skip98
-\algorithmicindent=\skip99
+\c@ALC@unique=\count412
+\c@ALC@line=\count413
+\c@ALC@rem=\count414
+\c@ALC@depth=\count415
+\ALC@tlm=\skip99
+\algorithmicindent=\skip100
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/cjk/texinput/CJKnumb.sty
 Package: CJKnumb 2021/10/16 4.8.5
-\CJK@q=\count413
-\CJK@r=\count414
+\CJK@q=\count416
+\CJK@r=\count417
 ) (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 52.
-LaTeX Font Info:    Trying to load font information for OML+txmi on input line 52.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 20.
+LaTeX Font Info:    Trying to load font information for OML+txmi on input line 20.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 52.
-LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 52.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 20.
+LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 20.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 52.
-LaTeX Font Info:    Trying to load font information for OMX+txex on input line 52.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 20.
+LaTeX Font Info:    Trying to load font information for OMX+txex on input line 20.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1294,14 +1335,14 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Command `\dddot' is already robust on input line 52.
-LaTeX Info: Command `\ddddot' is already robust on input line 52.
-Package hyperref Info: Link coloring OFF on input line 52.
+LaTeX Info: Command `\dddot' is already robust on input line 20.
+LaTeX Info: Command `\ddddot' is already robust on input line 20.
+Package hyperref Info: Link coloring OFF on input line 20.
  (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
 \openout4 = `thesis.out'.
 
-\c@lstlisting=\count415
+\c@lstlisting=\count418
  (./data/info.tex)
 
 Package fontspec Info: 
@@ -1321,45 +1362,54 @@ Package fontspec Info:
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
 (fontspec)             <->"[fonts/simsun.ttc]/OT:script=hani;language=dflt;embolden=4;slant=0.167;mapping=tex-text;"
 
-LaTeX Font Info:    Calculating math sizes for size <14.05249> on input line 58.
-LaTeX Font Info:    Trying to load font information for OT1+txr on input line 58.
+LaTeX Font Info:    Calculating math sizes for size <14.05249> on input line 26.
+LaTeX Font Info:    Trying to load font information for OT1+txr on input line 26.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsya on input line 58.
+LaTeX Font Info:    Trying to load font information for U+txsya on input line 26.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyb on input line 58.
+LaTeX Font Info:    Trying to load font information for U+txsyb on input line 26.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 58.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 26.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 58.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 26.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 58.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 26.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for U+txmia on input line 58.
+LaTeX Font Info:    Trying to load font information for U+txmia on input line 26.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyc on input line 58.
+LaTeX Font Info:    Trying to load font information for U+txsyc on input line 26.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txexa on input line 58.
+LaTeX Font Info:    Trying to load font information for U+txexa on input line 26.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
 File: figures/title.pdf Graphic file (type pdf)
 <use figures/title.pdf>
+
+
+[1
+
+]
+
+[1
+
+] (./data/abstract.tex
 
 Package fontspec Info: 
 (fontspec)             Font family 'simhei.ttf(0)' created for font
@@ -1378,11 +1428,6 @@ Package fontspec Info:
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
 (fontspec)             <->"[fonts/simhei.ttf]/OT:script=hani;language=dflt;embolden=4;slant=0.167;mapping=tex-text;"
 
-
-
-[1
-
-] (./data/abstract.tex
 LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 1.
 
 
@@ -1409,52 +1454,152 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--1
 
 
 
-[1
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+
+ [1
 
 
 
 ]
 
-[2]
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 38--38
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+
+ [2]
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+
+ [3]
+Underfull \hbox (badness 10000) in paragraph at lines 41--41
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--38
+Underfull \hbox (badness 10000) in paragraph at lines 41--41
 
  []
 
 
-Overfull \hbox (4.61967pt too wide) in paragraph at lines 43--48
+Overfull \hbox (4.61967pt too wide) in paragraph at lines 46--54
 []\TU/times.ttf(0)/m/n/12.045 The data processing process of FRET two-hybrid assay is cumbersome and time-consuming,
  []
 
 
 
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
 [4
 
 ]
 
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
 [5]
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
 
 [6])
 
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
 [7] (./thesis.toc
 
-[8
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.40672pt too high) has occurred while \output is active []
+
+ [8
 
 ]
 
-[9])
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.40672pt too high) has occurred while \output is active []
+
+ [9])
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
 
 
-[10] (./data/chap01.tex
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.40672pt too high) has occurred while \output is active []
+
+ [10] (./thesis.lot)
+\tf@lot=\write6
+\openout6 = `thesis.lot'.
+
+
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.61256pt too high) has occurred while \output is active []
+
+ [11
+
+] (./thesis.lof)
+\tf@lof=\write7
+\openout7 = `thesis.lof'.
+
+
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.53023pt too high) has occurred while \output is active []
+
+ [12
+
+] (./data/chap01.tex
 File: figures/../figures/1/1_FRET过程示意图.png Graphic file (type bmp)
 <figures/../figures/1/1_FRET过程示意图.png>
 
@@ -1582,8 +1727,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [12]
-File: figures/../figures/2/2_FRETScope2示意图.jpg Graphic file (type bmp)
-<figures/../figures/2/2_FRETScope2示意图.jpg>
+File: figures/../figures/2/FRETScope示意图.jpg Graphic file (type bmp)
+<figures/../figures/2/FRETScope示意图.jpg>
+File: figures/../figures/2/双杂交数据处理流程.drawio.png Graphic file (type bmp)
+<figures/../figures/2/双杂交数据处理流程.drawio.png>
 
 
 
@@ -1598,9 +1745,6 @@ Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
 
 ]
-File: figures/../figures/2/2_FRET双杂交分析数据处理流程.png Graphic file (type bmp)
-<figures/../figures/2/2_FRET双杂交分析数据处理流程.png>
-
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1621,16 +1765,16 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [15]
-File: figures/../figures/2/2_开始页界面.png Graphic file (type bmp)
-<figures/../figures/2/2_开始页界面.png>
-File: figures/../figures/2/2_参数设置界面.png Graphic file (type bmp)
-<figures/../figures/2/2_参数设置界面.png>
-File: figures/../figures/2/2_模块界面.png Graphic file (type bmp)
-<figures/../figures/2/2_模块界面.png>
-File: figures/../figures/2/2_结果可视化.png Graphic file (type bmp)
-<figures/../figures/2/2_结果可视化.png>
-File: figures/../figures/2/2_Fretha架构.png Graphic file (type bmp)
-<figures/../figures/2/2_Fretha架构.png>
+File: figures/../figures/2/Fretha界面-开始界面.drawio.png Graphic file (type bmp)
+<figures/../figures/2/Fretha界面-开始界面.drawio.png>
+File: figures/../figures/2/Fretha界面-参数设置.drawio.png Graphic file (type bmp)
+<figures/../figures/2/Fretha界面-参数设置.drawio.png>
+File: figures/../figures/2/Fretha界面-数据处理.drawio.png Graphic file (type bmp)
+<figures/../figures/2/Fretha界面-数据处理.drawio.png>
+File: figures/../figures/2/Fretha界面-结果展示.drawio.png Graphic file (type bmp)
+<figures/../figures/2/Fretha界面-结果展示.drawio.png>
+File: figures/../figures/2/Fretha总体架构图.drawio.png Graphic file (type bmp)
+<figures/../figures/2/Fretha总体架构图.drawio.png>
 
 
 
@@ -1662,8 +1806,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [18]
-File: figures/../figures/2/2_Fretha数据层对应关系.png Graphic file (type bmp)
-<figures/../figures/2/2_Fretha数据层对应关系.png>
+File: figures/../figures/2/Fretha数据模型.drawio.png Graphic file (type bmp)
+<figures/../figures/2/Fretha数据模型.drawio.png>
 
 
 
@@ -1708,22 +1852,22 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [22]
-LaTeX Font Info:    Calculating math sizes for size <10.53937> on input line 204.
+LaTeX Font Info:    Calculating math sizes for size <10.53937> on input line 191.
 
 
 LaTeX Font Warning: Font shape `U/matha/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 204.
+(Font)              size <10.95> substituted on input line 191.
 
 
 LaTeX Font Warning: Font shape `U/mathb/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 204.
+(Font)              size <10.95> substituted on input line 191.
 
 
 LaTeX Font Warning: Font shape `U/mathx/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 204.
+(Font)              size <10.95> substituted on input line 191.
 
 
-Overfull \hbox (35.99998pt too wide) in alignment at lines 204--286
+Overfull \hbox (35.99998pt too wide) in alignment at lines 191--273
 [][][] 
  []
 
@@ -1754,7 +1898,7 @@ File: lstlang1.sty 2024/09/23 1.10c listings language file
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 323.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 310.
 
 Package fontspec Info: 
 (fontspec)             Font family 'simkai.ttf(0)' created for font
@@ -1789,12 +1933,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [26]
-Underfull \hbox (badness 10000) in alignment at lines 391--406
+Underfull \hbox (badness 10000) in alignment at lines 376--391
 [][][][] 
  []
 
-File: figures/../figures/2/2_成像参数设置模块业务流程.png Graphic file (type bmp)
-<figures/../figures/2/2_成像参数设置模块业务流程.png>
+File: figures/../figures/2/Fretha业务-参数设置.drawio.png Graphic file (type bmp)
+<figures/../figures/2/Fretha业务-参数设置.drawio.png>
 
 
 
@@ -1816,12 +1960,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [28]
-File: figures/../figures/2/2_FRETScopeII数据格式.drawio.png Graphic file (type bmp)
-<figures/../figures/2/2_FRETScopeII数据格式.drawio.png>
-File: figures/../figures/2/2_数据完备性检验业务.drawio.png Graphic file (type bmp)
-<figures/../figures/2/2_数据完备性检验业务.drawio.png>
-File: figures/../figures/2/2_图像处理模块界面.png Graphic file (type bmp)
-<figures/../figures/2/2_图像处理模块界面.png>
+File: figures/../figures/2/FRETScope数据格式.drawio.png Graphic file (type bmp)
+<figures/../figures/2/FRETScope数据格式.drawio.png>
+File: figures/../figures/2/Fretha业务-数据检验.drawio.png Graphic file (type bmp)
+<figures/../figures/2/Fretha业务-数据检验.drawio.png>
+File: figures/../figures/2/Fretha图像处理界面.drawio.png Graphic file (type bmp)
+<figures/../figures/2/Fretha图像处理界面.drawio.png>
 
 
 
@@ -1883,8 +2027,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [34]
-File: figures/../figures/2/2_DC-FRET结果界面.png Graphic file (type bmp)
-<figures/../figures/2/2_DC-FRET结果界面.png>
+File: figures/../figures/2/DC-FRET结果界面.drawio.png Graphic file (type bmp)
+<figures/../figures/2/DC-FRET结果界面.drawio.png>
 
 
 
@@ -1941,10 +2085,10 @@ Overfull \vbox (0.65373pt too high) has occurred while \output is active []
  [39]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 64.
+(hyperref)                removing `superscript' on input line 62.
 
-File: figures/../figures/3/Fretha手动双杂交数据处理.png Graphic file (type bmp)
-<figures/../figures/3/Fretha手动双杂交数据处理.png>
+File: figures/../figures/3/验证-手动双杂交结果.drawio.png Graphic file (type bmp)
+<figures/../figures/3/验证-手动双杂交结果.drawio.png>
 
 
 
@@ -1966,17 +2110,17 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [41]
-Overfull \hbox (0.92778pt too wide) in paragraph at lines 138--138
+Overfull \hbox (0.92778pt too wide) in paragraph at lines 136--136
  []|$\OML/txmi/m/it/10.53937 E[]$| 
  []
 
 
-Overfull \hbox (0.92778pt too wide) in paragraph at lines 138--138
+Overfull \hbox (0.92778pt too wide) in paragraph at lines 136--136
  []|$\OML/txmi/m/it/10.53937 E[]$| 
  []
 
 
-Overfull \hbox (0.92778pt too wide) in paragraph at lines 138--138
+Overfull \hbox (0.92778pt too wide) in paragraph at lines 136--136
  []|$\OML/txmi/m/it/10.53937 E[]$| 
  []
 
@@ -2001,8 +2145,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [43]
-File: figures/../figures/4/4_视图类型.png Graphic file (type bmp)
-<figures/../figures/4/4_视图类型.png>
+File: figures/../figures/3/测试-视图切换.drawio.png Graphic file (type bmp)
+<figures/../figures/3/测试-视图切换.drawio.png>
 
 
 
@@ -2034,8 +2178,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [46]
-File: figures/../figures/4/结果可视化测试-视图.png Graphic file (type bmp)
-<figures/../figures/4/结果可视化测试-视图.png>
+File: figures/../figures/3/测试-结果可视化.drawio.png Graphic file (type bmp)
+<figures/../figures/3/测试-结果可视化.drawio.png>
 
 
 
@@ -2057,8 +2201,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [48]
-File: figures/../figures/4/4_48小时内存占用变化.png Graphic file (type bmp)
-<figures/../figures/4/4_48小时内存占用变化.png>
+File: figures/../figures/3/测试-48小时内存波动.drawio.png Graphic file (type bmp)
+<figures/../figures/3/测试-48小时内存波动.drawio.png>
 ) (./data/chap04.tex
 
 
@@ -2123,8 +2267,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [54]
-File: figures/../figures/3/3_LURS流程图.png Graphic file (type bmp)
-<figures/../figures/3/3_LURS流程图.png>
+File: figures/../figures/4/LURS流程图.drawio.png Graphic file (type bmp)
+<figures/../figures/4/LURS流程图.drawio.png>
 
 
 
@@ -2136,8 +2280,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [55]
-File: figures/../figures/2/2_自动ROI圈点模块业务流程.png Graphic file (type bmp)
-<figures/../figures/2/2_自动ROI圈点模块业务流程.png>
+File: figures/../figures/4/自动ROI圈点在Fretha的流程.drawio.png Graphic file (type bmp)
+<figures/../figures/4/自动ROI圈点在Fretha的流程.drawio.png>
 
 
 
@@ -2151,7 +2295,7 @@ Overfull \vbox (0.65373pt too high) has occurred while \output is active []
  [56]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 168.
+(hyperref)                removing `superscript' on input line 165.
 
 
 
@@ -2164,8 +2308,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [57]
-File: figures/../figures/3/LURS模型质粒双杂交.png Graphic file (type bmp)
-<figures/../figures/3/LURS模型质粒双杂交.png>
+File: figures/../figures/4/LURS结果-模型质粒.drawio.png Graphic file (type bmp)
+<figures/../figures/4/LURS结果-模型质粒.drawio.png>
 
 
 
@@ -2177,17 +2321,17 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [58]
-Overfull \hbox (0.92778pt too wide) in paragraph at lines 239--239
+Overfull \hbox (0.92778pt too wide) in paragraph at lines 236--236
  []|$\OML/txmi/m/it/10.53937 E[]$| 
  []
 
 
-Overfull \hbox (0.92778pt too wide) in paragraph at lines 239--239
+Overfull \hbox (0.92778pt too wide) in paragraph at lines 236--236
  []|$\OML/txmi/m/it/10.53937 E[]$| 
  []
 
 
-Overfull \hbox (0.92778pt too wide) in paragraph at lines 239--239
+Overfull \hbox (0.92778pt too wide) in paragraph at lines 236--236
  []|$\OML/txmi/m/it/10.53937 E[]$| 
  []
 
@@ -2285,9 +2429,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+Overfull \vbox (0.61256pt too high) has occurred while \output is active []
 
  [67
+
 
 
 ]
@@ -2298,9 +2443,14 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+Overfull \vbox (0.61256pt too high) has occurred while \output is active []
 
  [68]
+Invalid UTF-8 byte or sequence at line 136 replaced by U+FFFD.
+
+Missing character: There is no � (U+FFFD) in font [fonts/simsun.ttc]/OT:script=hani;language=dflt;mapping=tex-text;!
+Missing character: There is no ̇ (U+0307) in font [fonts/times.ttf]/OT:language=dflt;mapping=tex-text;!
+
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2308,7 +2458,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+Overfull \vbox (0.61256pt too high) has occurred while \output is active []
 
  [69]
 
@@ -2318,7 +2468,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+Overfull \vbox (0.61256pt too high) has occurred while \output is active []
 
  [70]
 
@@ -2328,9 +2478,47 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+Overfull \vbox (0.61256pt too high) has occurred while \output is active []
 
  [71]
+Invalid UTF-8 byte or sequence at line 301 replaced by U+FFFD.
+
+Missing character: There is no � (U+FFFD) in font [fonts/simsun.ttc]/OT:script=hani;language=dflt;mapping=tex-text;!
+
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.61256pt too high) has occurred while \output is active []
+
+ [72]
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.61256pt too high) has occurred while \output is active []
+
+ [73])
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.61256pt too high) has occurred while \output is active []
+
+ [74] (./data/resume.tex)
+\tf@thm=\write8
+\openout8 = `thesis.thm'.
+
+
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2340,32 +2528,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [72])
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
-
- [73] (./data/inno.tex)
-\tf@thm=\write6
-\openout6 = `thesis.thm'.
-
-
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
-
- [74
-
+ [75
 
 
 ] (./thesis.aux)
@@ -2379,15 +2542,15 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.43146pt have occurred.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: EB9A8E791257D9F176570249AD472B67;8644.
+(rerunfilecheck)             Checksum: D99363BFA0B3291E7D634E53A8194E87;8731.
  ) 
 Here is how much of TeX's memory you used:
- 24047 strings out of 475796
- 485448 string characters out of 5773188
- 1229098 words of memory out of 5000000
- 46486 multiletter control sequences out of 15000+600000
- 632041 words of font info for 253 fonts, out of 8000000 for 9000
+ 25213 strings out of 475796
+ 509327 string characters out of 5773188
+ 1250447 words of memory out of 5000000
+ 47610 multiletter control sequences out of 15000+600000
+ 632057 words of font info for 255 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 89i,20n,107p,901b,1835s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,20n,107p,901b,1890s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on thesis.xdv (85 pages, 1380840 bytes).
+Output written on thesis.xdv (89 pages, 1583136 bytes).

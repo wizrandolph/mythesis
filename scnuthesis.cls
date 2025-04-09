@@ -83,6 +83,7 @@
 \RequirePackage{indentfirst}
 \RequirePackage[numbers,sort&compress,square]{natbib}
 \RequirePackage[CJKbookmarks=true,pdfborder=0 0 1]{hyperref}
+\RequirePackage{adjustbox}
 \renewcommand{\UrlFont}{\rmfamily} % wzq
 \RequirePackage{mathabx}
 \defaultfontfeatures{Mapping=tex-text}
@@ -180,18 +181,19 @@
 \def\scnuthesis{\textsc{SCNU}\textsc{Thesis}}
 \newcommand{\pozhehao}{\kern0.3ex\rule[0.8ex]{2em}{0.1ex}\kern0.3ex}
 \newcommand{\chapterlabel}{}
-\renewcommand\contentsname{\hei 目\hspace{1em}录}
-\renewcommand\listfigurename{\hei 图\hspace{1em}目\hspace{1em}录}
+\renewcommand\contentsname{目\hspace{1em}录}
+\renewcommand\listfigurename{图\hspace{1em}目\hspace{1em}录}
 % \newpage
 % \thispagestyle{plain}
 % \mbox{}
-\renewcommand\listtablename{\hei 表\hspace{1em}目\hspace{1em}录}
+\renewcommand\listtablename{表\hspace{1em}目\hspace{1em}录}
 % \newpage
 % \thispagestyle{plain}
 % \mbox{}
 \newcommand\denotationname{\hei 符号列表}
 \newcommand\ackname{致\hspace{1em}谢}
-\newcommand\resumename{作者攻读学位期间发表的学术论文目录}
+\newcommand\resumename{攻读硕士学位期间取得的研究成果}
+\newcommand\innoname{本文创新性说明}
 \newcommand\listequationname{公式索引}
 \newcommand\equationname{公式}
 \renewcommand\bibname{参考文献}
@@ -249,23 +251,23 @@
 }
 
 \newpagestyle{frontpage}{
-  % \sethead{}{\raisebox{.65\baselineskip}
-  % {
-  %   \songti \wuhao
-  %   \ifischapter % 标题作为页眉
-  %     \ifistwoside
-  %     {
-  %       \ifodd \value{page} % 奇数页
-  %       {\chaptertitle}
-  %       \else % 偶数页
-  %       {\@displaytitle}\fi
-  %     }
-  %     \else
-  %     {\chaptertitle}\fi
-  %     \else %标题不作为页眉
-  %     {\@displaytitle}\fi
-  % }}{}
-  % \headrule%
+  \sethead{}{\raisebox{.65\baselineskip}
+  {
+    \songti \wuhao
+    \ifischapter % 标题作为页眉
+      \ifistwoside
+      {
+        \ifodd \value{page} % 奇数页
+        {\songti \wuhao \chaptertitle}
+        \else % 偶数页
+        {\songti \wuhao \chaptertitle}\fi
+      }
+      \else
+      {\songti \wuhao \chaptertitle}\fi
+      \else %标题不作为页眉
+      {\songti \wuhao \chaptertitle}\fi
+  }}{}
+  \headrule%
   \setfoot{}{{\songti \wuhao \thepage}}{}%
 }
 
@@ -282,22 +284,23 @@
           {\@displaytitle}\fi
         }
         \else
-        {\title}\fi
-        \else %标题不作为页眉
-        {
-          \ifodd \value{page} % 奇数页
-          {\@displaytitle}
-          \else % 偶数页
-          {华南师范大学硕士学位论文}
-          \fi % 2024年新格式要求
-        }\fi
+        {\title}
+        \fi
+      \else % 标题不作为页眉
+      {
+        \ifodd \value{page} % 奇数页
+        {\@displaytitle}
+        \else % 偶数页
+        {华南师范大学硕士学位论文}
+        \fi % 2024年新格式要求
+      }\fi
     }
   }{}
   \headrule
   \setheadrule{1bp}
-  \setfoot{}{{\songti \wuhao 第~\thepage~页}}{}%
-  % \footrule%
-  % \setfootrule{1bp}
+  \setfoot{}{{\songti \wuhao \thepage}}{}%
+% \footrule%
+% \setfootrule{1bp}
 }
 
 \newpagestyle{appendixpage}{
@@ -332,18 +335,19 @@
       \ifistwoside
       {
         \ifodd \value{page} % 奇数页
-        {\chapterlabel}
+          {\chaptertitle}
         \else % 偶数页
-        {\@displaytitle}\fi
+          {\chaptertitle}
+        \fi
       }
       \else
-      {\chapterlabel}\fi
+      {\chaptertitle}\fi
       \else %标题不作为页眉
-      {\@displaytitle}\fi
+      {\chaptertitle}\fi
   }
 }{}
 \headrule%
-\setfoot{}{{\songti \wuhao 第~\thepage~页}}{}%
+\setfoot{}{{\songti \wuhao \thepage}}{}%
 % \footrule%
 % \setfootrule{1bp}
 }
@@ -405,15 +409,17 @@
     \begin{center}{\sanhao \hei \@displaytitle}\end{center}%
   \end{spacing}
   \xiaosi \vspace{1.4pt}%
-  \ifisanon{}\else{
+  \ifisanon {
+    \hideInfo
+  }\fi
   \begin{center}%
-    \begin{tabular}[c]{ll}%
-      专业名称： & \@subject \\%
-      申请者：& \@author \\%
-      导师： & \@supervisor \\%
+    \begin{tabular}[c]{lc}%
+      {专业名称：} & \@subject \\%
+      {申\kern0.5em请\kern0.5em人：}& \@author \\%
+      {导\kern2em师：} & \@supervisor \\%
     \end{tabular}%
   \end{center}%
-  }\fi
+
   ~\\%
   ~\\%
   ~\\%
@@ -432,15 +438,15 @@
     \begin{center}{\sanhao \textsf{\@entitle}}\end{center}%
   \end{spacing}
   \xiaosi \vspace{1.4pt}
-  \ifisanon{}\else{
+
   \begin{center}%
-    \begin{tabular}[c]{ll}%
+    \begin{tabular}[c]{lc}%
       Major： & \@ensubject \\%
-      Name：& \@enauthor \\%
+      Candidate：& \@enauthor \\%
       Supervisor： & \@ensupervisor \\%
     \end{tabular}%
   \end{center}%
-  }\fi
+
   ~\\%
   ~\\%
   ~\\%
@@ -524,24 +530,25 @@
 % \setlength{\parskip}{0bp \@plus 0.5bp \@minus 0.5bp} % 原本
 \setlength{\parskip}{0bp} % 或其他固定长度，如 6pt、1em 等
 \newcommand*{\ziju}[1]{\renewcommand{\CJKglue}{\hskip #1}}
+
 \renewenvironment{thebibliography}[1]{%
-
-  \thispagestyle{emptypage}
+  \pagestyle{emptypage}
   \chapter*{\bibname}%
-
-  \addcontentsline{toc}{chapter}{\bibname}
-
+  \chaptermark{\bibname}
+  \addcontentsline{toc}{chapter}{\normalfont \bibname}
   \list{\@biblabel{\@arabic\c@enumiv}}%
+  % \renewcommand{\chapterlabel}{\bibname}
   {\renewcommand{\makelabel}[1]{##1\hfill}
     \settowidth\labelwidth{1.1cm}
     \setlength{\labelsep}{0.4em}
     \setlength{\itemindent}{0pt}
     \setlength{\leftmargin}{\labelwidth+\labelsep}
     \setlength{\itemsep}{0pt} % wzq 新增 设置条目间距为0
-    \addtolength{\itemsep}{-0.7em} % wzq 新增 让条目之间更接近
+    % \addtolength{\itemsep}{-0.5em} % wzq 新增 让条目之间更接近
     \usecounter{enumiv}%
     \let\p@enumiv\@empty
     \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+    % \renewcommand{\chapterlabel}{\bibname}
   \sloppy\frenchspacing
   \clubpenalty4000%
   \@clubpenalty \clubpenalty
@@ -569,12 +576,7 @@
 \DeclareCaptionLabelFormat{codeformat}{代码 #2}
 \DeclareCaptionLabelSeparator{thu}{\hspace{1em}}
 \DeclareCaptionFont{thu}{\xiaosi[1.25]\heiti}
-% wzq 新增 
-% \captionsetup{
-%   font={thu,stretch=1.5}, % 设置行距为1.5倍
-%   labelfont=thu,          % 保持原有的字体样式
-%   labelsep=thu            % 保持原有的分隔符样式
-% }
+
 \captionsetup{labelformat=thu,labelsep=thu,font={thu,stretch=1.5}}
 \captionsetup[lstlisting]{labelformat=codeformat, aboveskip=6bp}
 \captionsetup[table]{position=top,belowskip={12bp-\intextsep},aboveskip=6bp}
@@ -617,19 +619,23 @@
 \newenvironment{resume}{%
   \thispagestyle{emptypage}
   \chapter*{\resumename}
+  \chaptermark{\resumename}
   \addcontentsline{toc}{chapter}{\resumename}
-  \ifisanon\color{white}\else\relax\fi%
+  % \ifisanon\color{white}\else\relax\fi%
   \xiaosi
   \@mainmatterfalse
   \@afterheading
 }
-{\par\vspace{2em}\par}% wzq 新增 论文创新性说明
-\newcommand\innoname{本文创新性说明}
+{\par\vspace{2em}\par}
+
+% wzq 新增 论文创新性说明
+% \newcommand\innoname{本文创新性说明}
 \newenvironment{inno}{%
   \thispagestyle{emptypage}
   \chapter*{\innoname}
+  \chaptermark{\innoname}
   \addcontentsline{toc}{chapter}{\normalfont\innoname}
-  \ifisanon\color{white}\else\relax\fi%
+  % \ifisanon\color{white}\else\relax\fi%
   \xiaosi
   \@mainmatterfalse
   \@afterheading
@@ -690,16 +696,21 @@
 \def\author#1{\def\@author{#1}} % 中文作者名
 \def\enauthor#1{\def\@enauthor{#1}} % 英文作者名
 \def\zhdate#1{\def\@zhdate{#1}} % 中文日期
+\def\endate#1{\def\@endate{#1}} % 英文日期
 \def\subject#1{\def\@subject{#1}} % 中文学科
 \def\ensubject#1{\def\@ensubject{#1}} % 英文学科
 \def\researchfield#1{\def\@researchfield{#1}} % 中文研究方向
+\def\enresearchfield#1{\def\@enresearchfield{#1}} % 英文研究方向
 \def\supervisor#1{\def\@supervisor{#1}} % 导师
 \def\ensupervisor#1{\def\@ensupervisor{#1}} % 导师英文名
 \def\secondsupervisor#1{\def\@secondsupervisor{#1}} % 第二导师
-\def\secondensupervisor#1{\def\@secondensupervisor{#1}} % 第二导师英文名
+\def\ensecondsupervisor#1{\def\@secondensupervisor{#1}} % 第二导师英文名
 \def\protitle#1{\def\@protitle{#1}} % 导师的职称
+\def\enprotitle#1{\def\@enprotitle{#1}} % 导师的职称英文名
 \def\secondprotitle#1{\def\@secondprotitle{#1}} % 第二导师的职称
+\def\ensecondprotitle#1{\def\@ensecondprotitle{#1}} % 第二导师的职称英文名
 \def\school#1{\def\@school{#1}} % 学院
+\def\enschool#1{\def\@enschool{#1}} % 学院英文名
 
 \def\optionpaperclass#1{\def\@optionpaperclass{#1}} % paperclass
 \def\optionpaperclassen#1{\def\@optionpaperclassen{#1}} % paperclass english
@@ -714,19 +725,46 @@
   \optionas{Supervisor}
 \fi
 
-% 封面
+% wzq 新增 用来实现多行下划线
+\newlength\myheight
+\newcommand\Mysavedprevdepth{}%
+\newcommand\UnderlineCentered[3]{%
+    \begin{adjustbox}{minipage=[t]{\dimexpr#1\relax},gstore totalheight=\myheight,margin=0pt}%
+      \centering\leavevmode{#3}\par\xdef\Mysavedprevdepth{\the\prevdepth}%
+    \end{adjustbox}%
+    \hspace*{-\dimexpr#1\relax}%
+    \begin{adjustbox}{minipage=[t][\myheight]{\dimexpr#1\relax},margin=0pt}%
+      \vphantom{Eg}\lower\dimexpr#2\relax\hbox to\hsize{\leaders\hrule\hfill\kern0pt}\par
+      \kern-\dimexpr#2\relax
+      \xleaders\vbox to\baselineskip {\vfill\hbox{\lower\dimexpr#2\relax\hbox to\hsize{\leaders\hrule\hfill\kern0pt}}\kern-\dimexpr#2\relax}\vfill
+      \kern\Mysavedprevdepth
+    \end{adjustbox}%
+}%
+
+\newcommand\hideInfo{
+  \classification{}  % 分类号
+  \udc{}             % UDC号
+  \confidentiality{}  % 密级
+  \serialno{}
+  \supervisor{}
+  \protitle{}
+  \author{}
+  \school{}
+  \enauthor{}%
+  \ensupervisor{}%
+  \enprotitle{}%
+  \enschool{}%
+}
+
+% wzq 中文封面 支持下划线及换行
 \def\maketitle{%
   \renewcommand{\baselinestretch}{1.3}%
   \def\entry##1##2##3{%
     \multicolumn{##1}{l}{\underline{\hbox to ##2{\hfil##3\hfil}}}
-    }
+  }
   \null
   \ifisanon%
-  \author{}%
-  \enauthor{}%
-  \supervisor{}%
-  \ensupervisor{}%
-  \protitle{}%
+  \hideInfo
   \else\relax\fi%
   \pagenumbering{alph}% not display, for print only
   \thispagestyle{empty}%
@@ -752,42 +790,83 @@
   {\songti \bfseries \xiaoer \ziju{0.5em} （\kern0.5em\@mastertype 学位\kern0.5em）\\}
   \fi
   \vspace{1.5cm} %插入空白
-  \uline{\heiti \erhao \@title}\\
+  \UnderlineCentered{\textwidth}{2mm}{\textbf{\erhao\@title}}\\
   \ifistwoprof
     \vspace{1cm}
   \else
     \vspace{45bp}
   \fi
- {\songti \sihao
-    \begin{tabular}{lp{5cm}c}
-
-      \raisebox{-3.7ex}[0pt]{学\kern0.5em位\kern0.5em申\kern0.5em请\kern0.5em人：} &
-        {\hfil\raisebox{-3.7ex}[0pt]{\@author}\hfil{}} & \\[3.2ex]
-        \cline{2-2}
-      \raisebox{-3.7ex}[0pt]{学\kern1em科\kern1em专\kern1em业：} &
-        {\hfil\raisebox{-3.7ex}[0pt]{\@subject}\hfil{}} & \\[3.2ex]
-        \cline{2-2}
-      \raisebox{-3.7ex}[0pt]{论\kern0.2em文\kern0.2em研\kern0.2em究\kern0.2em方\kern0.2em向：} &
-        {\hfil\raisebox{-3.7ex}[0pt]{\@researchfield}\hfil{}} & \\[3.2ex]
-        \cline{2-2}
-      \raisebox{-3.7ex}[0pt]{所\kern1em在\kern1em学\kern1em院：} &
-        {\hfil\raisebox{-3.7ex}[0pt]{\@school}\hfil{}} & \\[3.2ex]
-        \cline{2-2}
-
-      \raisebox{-3.7ex}[0pt]{导师姓名及职称：} &
-      {\hfil\raisebox{-3.7ex}[0pt]{\ifisprivate *隐去* \else \@supervisor~\@protitle~ \fi}\hfil{}} & \\[3.2ex]
-      \cline{2-2}
-      \ifistwoprof
-      \raisebox{-3.7ex}[0pt]{} &
-      {\hfil\raisebox{-3.7ex}[0pt]{\ifisprivate *隐去* \else \@secondsupervisor~\@secondprotitle~ \fi}\hfil{}} & \\[3.2ex]
-      \cline{2-2}
-      \fi
-
+  \renewcommand\arraystretch{1.3}
+  {\songti \sihao
+    \begin{tabular}{lp{6cm}}
+      {学\kern0.5em位\kern0.5em申\kern0.5em请\kern0.5em人：}           & \UnderlineCentered{6cm}{2mm}{\@author} \\
+      % \vspace{1mm} 
+      {学\kern1em科\kern1em专\kern1em业：}               & \UnderlineCentered{6cm}{2mm}{\@subject} \\
+      % \vspace{2mm} 
+      {论\kern0.2em文\kern0.2em研\kern0.2em究\kern0.2em方\kern0.2em向：}  & \UnderlineCentered{6cm}{2mm}{\@researchfield} \\
+      % \vspace{2mm}
+      {所\kern1em在\kern1em学\kern1em院：}   & \UnderlineCentered{6cm}{2mm}{\@school} \\
+      % \vspace{2mm}
+      {导师姓名及职称：}          & \UnderlineCentered{6cm}{2mm}{\@supervisor~\@protitle} \\
     \end{tabular}
   }\\
-  \vspace{1.5cm}
-  {\@zhdate}
+  \ifisanon
+    \vspace{3.0cm}
+  \else
+    \ifistwoprof
+      \vspace{1.5cm}
+    \else
+      \vspace{3cm}
+    \fi
+  \fi
+  \sanhao \@zhdate
   \vspace{1cm}
+  \end{center}%
+  \vspace{1mm}
+  \cleardoublepage%
+}
+
+% wzq 新增 英文封面
+\def\enmaketitle{%
+  \renewcommand{\baselinestretch}{1.3}%
+  \null
+  \ifisanon%
+  \enauthor{}%
+  \ensupervisor{}%
+  \enprotitle{}%
+  \enschool{}%
+  \else\relax\fi%
+  \pagenumbering{alph}% not display, for print only
+  \thispagestyle{empty}%
+  \begin{center}
+  \erhao \textbf{{South China Normal University}}\\
+  \vspace{1.5cm} % 插入空白
+  \xiaoer \textbf{A Dissertation Submitted for the Degree of Master}\\
+  \vspace{3cm}
+  \UnderlineCentered{\textwidth}{2mm}{\textbf{\erhao\@entitle}}\\
+  \vspace{1.5cm}
+  \renewcommand\arraystretch{1.5}
+  \renewcommand{\baselinestretch}{1.5}
+  {\songti \sihao
+    \begin{tabular}{lp{6cm}}
+      \textbf{\sanhao Candidate:}           & \UnderlineCentered{6cm}{2mm}{\@enauthor} \\[-5.5mm]
+      \textbf{\sanhao Major:}               & \UnderlineCentered{6cm}{2mm}{\@ensubject} \\[-1.5mm]
+      \textbf{\sanhao Research direction:}  & \UnderlineCentered{6cm}{2mm}{\@enresearchfield} \\[-1.5mm]
+      \textbf{\sanhao Department/School:}   & \UnderlineCentered{6cm}{2mm}{\@enschool} \\[-5.5mm]
+      \textbf{\sanhao Supervisor:}          & \UnderlineCentered{6cm}{2mm}{\@ensupervisor~\@enprotitle} \\
+    \end{tabular}
+  }\\
+  \ifisanon
+    \vspace{3.0cm}
+  \else
+    \ifistwoprof
+      \vspace{1.5cm}
+    \else
+      \vspace{3cm}
+    \fi
+  \fi
+  \sanhao \textbf{\@endate}
+  \erhao \vspace{1cm}
   \end{center}%
   \vspace{1mm}
   \cleardoublepage%

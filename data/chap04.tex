@@ -1,8 +1,6 @@
 \chapter{基于LURS的自动FRET双杂交分析}
 
 \section{引言}
-
-\ifshowtext
 Fretha的推出有效的解决了数据处理过程复杂耗时的问题，降低了数据处理的门槛。
 但是应用Fretha进行数据处理仍然依赖人工标注ROI，当面对大规模的数据时，无法满足高通量等大规模数据场景的应用要求。
 
@@ -15,7 +13,6 @@ Fretha的推出有效的解决了数据处理过程复杂耗时的问题，降�
 通过 C4Y、C10Y、C40Y 和 C80Y 标准质粒和 C32V 和 CVC 双杂交模型质粒的验证实验，验证了LURS算法在FRET效率和化学计量比的计算精度。
 本章还应用LURS方法分析选择性抑制剂A1331852处理的活细胞中Bcl-xL和Bak相互作用的化学计量比，成功检测了两者结合化学计量比的下降，且在高通量场景下LURS分析处理的结果优于深度学习的方法和工具，表现出良好的准确性和鲁棒性\upcite{wang2020discovery,kuusanmaki2023erythroid}。
 通过对比LURS、SAM-Med2D、ilastik算法的性能，探讨了LURS在高通量检测和即时在线计算的应用潜力。
-\fi
 
 \section{材料与方法}
 \subsection{细胞培养与转染}
@@ -103,7 +100,7 @@ LURS算法包含以下步骤：
 \begin{align}
     T_U(x, y)=\frac{1}{w \times w} \sum_{i=x-\frac{w-1}{2}}^{x+\frac{w-1}{2}} \sum_{j=y-\frac{w-1}{2}}^{y+\frac{w-1}{2}} {I}_{CV}(i, j)+b_U,
     \label{eq8} \\
-    {Mask}_U(x,y)=\begin{cases}1,&I(x,y) < T_U(x, y)\\ 0,&I(x, y) \ge T_U(x, y)\end{cases},
+    {Mask}_U(x,y)=\begin{cases}1,&I_{CV}(x,y) < T_U(x, y)\\ 0,&I_{CV}(x, y) \ge T_U(x, y)\end{cases},
     \label{eq9}
 \end{align}
 其中$b_U$通过公式 \ref{eq:bg} 对$I_{CV}(x,y)$计算得到。
@@ -129,7 +126,7 @@ LURS算法包含以下步骤：
 LURS算法流程如图 \ref{fig1} 所示：
 \begin{figure*}[!htbp]
 \centering
-\includegraphics[width=1\linewidth]{../figures/3/3_LURS流程图.png}
+\includegraphics[width=1\linewidth]{../figures/4/LURS流程图.drawio.png}
 \caption{LURS算法流程图}\label{fig1}
 \end{figure*}
 
@@ -144,7 +141,7 @@ LURS算法流程如图 \ref{fig1} 所示：
 在实现自动圈点功能的流程转移中，发生在架构不同层之间的转移占更多数，而层内的流程转移相对较少，分层架构设计使得每个层内实现较好的封装，因此在实现复杂业务功能时，只专注于层和层之间的数据和流程切换即可。
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=1\linewidth]{../figures/2/2_自动ROI圈点模块业务流程.png}
+    \includegraphics[width=1\linewidth]{../figures/4/自动ROI圈点在Fretha的流程.drawio.png}
     \caption{Fretha自动圈点功能流程}
     \label{fig:fret_auto_roi_flow}
 \end{figure}
@@ -202,7 +199,7 @@ $E_A$、$E_D$和$R_C$的平均相对误差分别为 5.1\%、2.9\% 和 3.3\%。
 图 \ref{fig:results_model_plasmids} 展示了共表达 C32V / CVC 且含有游离的 C（C32V + C，CVC + C）（上半部分）或游离的 V（C32V + V，CVC + V）（下半部分）的活 MCF7 细胞的三张荧光图像（DD、AA 和 DA）（左侧），使用Fretha手动标注的ROI（中间），以及DC-FRET和L-FRET的结果图（右侧）。
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=1\linewidth]{../figures/3/LURS模型质粒双杂交.png}
+    \includegraphics[width=1\linewidth]{../figures/4/LURS结果-模型质粒.drawio.png}
     \caption[模型质粒验证实验结果]{在存在游离供体或受体的情况下，分别通过DC-FRET和L-FRET方法对MCF7活细胞中标准质粒（C32V和CVC）的$E_{A, max}$、$E_{D, max}$和$n_D/n_A$进行自动FRET双杂交分析测量结果。}
     \label{fig:results_model_plasmids}
 \end{figure}
@@ -255,12 +252,9 @@ FRET定量计算、FRET双杂交计算均通过Fretha内部的相同算法进行
 \begin{figure*}[!htb]
   \centering
   \includegraphics[width=1\linewidth]{../figures/4/4_方法对比.png}
-  \caption[活细胞中 Bcl-xL-Bak 化学计量比的自动分析方法对比]{活细胞中 Bcl-xL-Bak 化学计量比的自动分析方法对比。手动、ilastik、SAM-Med2D及本方法计算的，A1331852处理前（a，b）和处理后（c，d）Bcl-xL-CFP与Bak-YFP结合的最大$3^3$-FRET（黑色）和E - FRET（红色）效率以及化学计量比（黄色）。}\label{fig3}
+  \caption[活细胞中 Bcl-xL-Bak 化学计量比的自动分析方法对比]{活细胞中 Bcl-xL-Bak 化学计量比的自动分析方法对比。手动、ilastik、SAM-Med2D及本方法计算的，A1331852处理前（a，b）和处理后（c，d）Bcl-xL-CFP与Bak-YFP结合的最大$3^3$-FRET（黑色）和E-FRET（红色）效率以及化学计量比（黄色）。}\label{fig3}
 \end{figure*}
 
-% 其次，本方法在$E_{A,max}$、$E_{A,max}$和$n_D/n_A$等参数测量中表现出优于SAM-Med2D和ilastik的整体准确性（表 \ref{tab:comparison}）。
-% 对照组中，本方法测得$E_{A,{max}}$为$0.27\pm0.03$、$E_{D,{max}}$为$0.15\pm0.03$。尽管SAM-Med2D测得$E_{A,{max}}$（$0.29\pm0.04$）更接近手动测量结果（$0.34\pm0.04$），但本方法在$E_{D,{max}}$（$0.15\pm0.03$，手动测量结果为$0.17\pm0.03$）和$n_D/n_A$（$1.87\pm0.22$）上偏差最小（手动测量$2.01\pm0.14$），而SAM-Med2D（$1.79\pm0.33$）和ilastik（$1.74\pm0.19$）的化学计量比偏离更显著。
-% 在A1331852处理组中，本方法的所有参数均最贴近手动结果，测得$E_{A,{max}}$为$0.11\pm0.02$、$E_{D,{max}}$为$0.10\pm0.03$（手动$0.15\pm0.02$、$0.13\pm0.04$），显著优于SAM-Med2D（$0.09\pm0.02$）和ilastik（$0.05\pm0.01$）。特别值得注意的是，本方法的化学计量比$n_D/n_A=1.12\pm0.33$与手动结果（$1.12\pm0.30$）完全一致，而SAM-Med2D（$1.02\pm0.30$）和ilastik（$1.03\pm0.48$）表现出更大离散性。这些结果突显了本方法在扰动条件下定量FRET效率与化学计量比的稳健性。
 其次，本方法在$E_{A,max}$、$E_{D,max}$和$n_D/n_A$等参数的测量中表现出相较于SAM-Med2D和ilastik更高的整体准确性（见表 \ref{tab:comparison}）。
 在对照组中，本方法测得的$E_{A,max}$为$0.27\pm0.03$，$E_{D,max}$为$0.15\pm0.03$。
 尽管SAM-Med2D测得的$E_{A,max}$（$0.29\pm0.04$）更接近手动测量结果（$0.34\pm0.04$），但本方法在$E_{D,max}$（$0.15\pm0.03$，手动测量结果为$0.17\pm0.03$）和$n_D/n_A$（$1.87\pm0.22$）上的偏差最小（手动测量结果为$2.01\pm0.14$），而SAM-Med2D（$1.79\pm0.33$）和ilastik（$1.74\pm0.19$）的化学计量比偏离更为显著。
@@ -323,7 +317,7 @@ FRET定量计算、FRET双杂交计算均通过Fretha内部的相同算法进行
 
 内存利用率方面，LURS运行时仅占用约800 MB内存，分别为ilastik（约1.8 GB）的43.4\%和SAM-Med2D（约14 GB）的5.6\%。
 这意味着在普通内存容量的计算机上，LURS和Fretha即可进行自动化图像处理和FRET双杂交分析。
-此外，LURS完全依赖CPU资源，无需专用GPU加速，无需额外的硬件投入即可方便集成到实时显微镜成像系统中。  
+此外，LURS完全依赖CPU资源，无需专用GPU加速或其他额外硬件投入即可方便集成到实时显微镜成像系统中。  
 
 \section{本章小结}
 本章提出了一种基于亮度均匀性的自动 ROI 选择算法 (LURS)，以解决传统 FRET 双杂交分析技术中ROI标注依赖人工的问题，实现了自动的FRET双杂交分析。
