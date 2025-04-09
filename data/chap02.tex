@@ -13,23 +13,44 @@
 
 \section{需求分析和总体设计}
 
-\subsection{需求分析}
-FRETScope是本课题组自研的适用于$3^3$-FRET、E-FRET、Pb-FRET（Photobleaching-FRET）等多种定量FRET分析方法的FRET多模态显微成像系统。
+\subsection{硬件系统和数据特点}
+
+FRETScope是本课题组自研的适用于$3^3$-FRET、E-FRET、Pb-FRET（Photobleaching-FRET）等多种定量FRET分析方法的FRET多模态显微成像系统，如图 \ref{fig:fretscope2硬件示意图} 所示。
+该成像系统能够通过切换滤光片体系来兼容多种FRET成像体系，且基于电动载物台和电动转盘而拥有很高的稳定性和精确度。
 该系统具备高分辨率成像、多通道同步采集等先进特性，能够获取高质量的 FRET 三通道图像数据。
+
+FRETScope的数据结构由上层到下层依次为：
+（1）批数据根目录：存放所有视野子目录和数据文件；
+（2）视野子目录：存放一个视野的三通道图片和参数文件；
+（3）图片数据和参数文件。
+如图 \ref{fig:fretscope_data_struct} 所示。
 \begin{figure}[hbtp]
   \centering
-  \includegraphics[width=0.9\linewidth]{../figures/2/FRETScope示意图.jpg}
+  \includegraphics[width=0.78\linewidth]{../figures/2/FRETScope示意图.jpg}
   \caption{FRETScope硬件外观示意图}
   \label{fig:fretscope2硬件示意图}
 \end{figure}
-
-使用FRETScope对制备好的样本进行图像采集得到若干视野的FRET三通道图像后，通过FRET双杂交分析方法定量计算细胞中的生物大分子结合作用的FRET饱和效率、化学计量比、相对亲和力等信息。FRET双杂交分析的数据处理需要如下步骤：首先需要对FRET数据进行数据完整性校验，确保每个视野下存在完整的三通道图像和文件完整可读，然后对每个视野进行荧光信号提取，通过在图像上绘制ROI并计算其灰度均值作为FRET分析计算重要的荧光信号；根据E-FRET和$3^3$-FRET方法将上述荧光信号代入对应的计算公式 \ref{eq:ed}、\ref{eq:rc} 和 \ref{eq:ea} 求取$E_A$、$E_D$、$R_C$等FRET数据；对这些数据进一步依据物理含义或者数据分析进行异常值去除等数据预处理；最后是通过优化算法拟合Langmiur模型或者线性模型计算相关的参数。具体流程如图 \ref{fig:tha_data_process} 所示。
-\begin{figure}[hbtp]
-    \centering
-    \includegraphics[width=0.4\linewidth]{../figures/2/双杂交数据处理流程.drawio.png}
-    \caption{FRET双杂交分析数据处理流程}
-    \label{fig:tha_data_process}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[height=0.55\linewidth]{../figures/2/FRETScope数据格式.drawio.png}
+  \caption{FRETScope数据文件结构}
+  \label{fig:fretscope_data_struct}
 \end{figure}
+
+\subsection{FRET双杂交分析数据处理流程}
+\begin{figure}[hbtp]
+  \centering
+  \includegraphics[width=0.4\linewidth]{../figures/2/双杂交数据处理流程.drawio.png}
+  \caption{FRET双杂交分析数据处理流程}
+  \label{fig:tha_data_process}
+\end{figure}
+使用FRETScope对制备好的样本进行图像采集得到若干视野的FRET三通道图像后，通过FRET双杂交分析方法定量计算细胞中的生物大分子结合作用的FRET饱和效率、化学计量比、相对亲和力等信息。
+FRET双杂交分析的数据处理需要如下步骤：
+首先需要对FRET数据进行数据完整性校验，确保每个视野下存在完整的三通道图像和文件完整可读，然后对每个视野进行荧光信号提取，通过在图像上绘制ROI并计算其灰度均值作为FRET分析计算重要的荧光信号；
+根据E-FRET和$3^3$-FRET方法将上述荧光信号代入对应的计算公式 \ref{eq:ed}、\ref{eq:rc} 和 \ref{eq:ea} 求取$E_A$、$E_D$、$R_C$等FRET数据；
+对这些数据进一步依据物理含义或者数据分析进行异常值去除等数据预处理；
+最后是通过优化算法拟合Langmiur模型或者线性模型计算相关的参数。
+具体流程如图 \ref{fig:tha_data_process} 所示。
 
 \subsection{模块划分和界面设计}
 结合 FRET 双杂交分析的数据处理流程与功能逻辑，Fretha 软件主要划分为以下核心模块：
@@ -135,7 +156,8 @@ Qt 5.15.2是Qt官方发布的长期支持（Long Term Support, LTS）版本，�
 
 OpenCV（Open source computer vision library）是一个跨平台开源计算机视觉库。
 它轻量级且高效，C++版本由一系列C函数和C++类构成，同时提供了Python、MATLAB等语言的接口。
-OpenCV 提供了大量的计算机视觉算法和图像处理工具，广泛应用于图像和视频的处理、分析以及机器学习领域，主要提供的功能库包括：
+OpenCV 提供了大量的计算机视觉算法和图像处理工具，广泛应用于图像和视频的处理、分析以及机器学习领域\upcite{singh2022face, adusumalli2021face}。
+主要提供的功能库包括：
 （1）图像处理：提供了经典的图像滤波、边缘检测、颜色空间转换、形态学操作、特征提取等算法;
 （2）视频分析： 视频捕捉、运动分析、物体检测与追踪等；
 （3）机器学习与人工智能： OpenCV 正在不断完善对深度学习和人工智能技术的支持，如人脸识别、目标检测、图像分类等方法。
@@ -393,7 +415,7 @@ Fretha中包括的所有成像参数如表 \ref{tab:fretha_param_list} 所示。
 \begin{figure}[hbtp]
   \centering
   \includegraphics[height=\linewidth]{../figures/2/Fretha业务-参数设置.drawio.png}
-  \caption{参数设置模块业务流程}
+  \caption{Fretha 参数设置模块业务流程}
   \label{fig:fretha_param_module_flow}
 \end{figure}
 参数设置的主要业务流程如图 \ref{fig:fretha_param_module_flow} 所示，遵循如下原则：（1）所有参数一同更新，避免因参数不匹配导致的数据处理错误；（2）每个参数需要在其有意义的范围内，避免无意义的值。
@@ -412,20 +434,7 @@ FRET双杂交分析需要处理一批FRET图像文件，因此需要对输入数
 该模块的作用有以下两个方面：一方面通过模式识别FRET合法数据，避免了异常输入导致的运行错误；
 另一方面，在这一模块会将FRET批数据的视野子文件夹进行解析和类型识别，为后续数据处理提供对子文件夹的不同操作。
 
-Fretha的数据识别检验模块匹配识别FRETScope的数据格式，从而保证数据处理能够正常开始。
-如图 \ref{fig:fretscope_data_struct} 所示，FRETScope的数据结构由上层到下层依次为：
-（1）批数据根目录：存放所有视野子目录和数据文件；
-（2）视野子目录：存放一个视野的三通道图片和参数文件；
-（3）图片数据和参数文件。
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[height=0.55\linewidth]{../figures/2/FRETScope数据格式.drawio.png}
-    \caption{FRETScope数据文件结构}
-    \label{fig:fretscope_data_struct}
-\end{figure}
-
-数据检验业务的流程如图 \ref{fig:fretha_data_check_flow} 所示。
+基于图 \ref{fig:fretscope_data_struct} 所示数据结构，数据检验业务的流程如图 \ref{fig:fretha_data_check_flow} 所示。
 其中，检查子文件夹类型是通过图 \ref{fig:fretscope_data_struct} 进行匹配的，当且仅当子文件夹中同时存在“DA.tif”、“DD.tif”和“AA.tif”图片文件时，当前子文件夹会被识别为FRET视野，并在视野表格模型中记录。
 其他情况的子文件夹会被记作“Unknown”文件夹，在后续FRET图像处理或者自动处理中被跳过。
 这种检查还会对图像数据是否可读进行检查。
@@ -542,40 +551,39 @@ FretGraphicsView 通过自定义鼠标释放事件的信号，实现了与数据
     \end{tabular}
 \end{table}
 
-为保证数据符合实际物理意义，避免中间变量的异常值对后续计算产生影响，数据管理模块提供了数据筛选功能。
+为保证数据符合实际物理意义，避免中间数据的异常值对后续计算产生影响，数据管理模块提供了数据筛选功能。
 点击“筛选数据”，数据管理模块会对数据根据物理定义和统计学准则进行筛选，剔除异常数据。
-具体数据筛选流程实施如下：
-\begin{enumerate}
-  \item 对$I_{DD}$、$I_{DA}$、$I_{AA}$基于物理约束的初步数据清洗：
-    针对各数值型变量 \( x_i \)，依据其预设的物理合理区间 \( [L_i, U_i] \) 执行有效性校验。构建如下二元判别函数：
-    \begin{equation}
-      \delta(x_i) = 
-      \begin{cases} 
-        1, & x_i \notin [L_i, U_i]  \\
-        0, & x_i \in [L_i, U_i]
-      \end{cases} ,
-    \end{equation}
-    当 \( \delta(x_i) = 1 \) 时，判定该数据点为物理意义上的异常值并予以剔除。
-  \item 对中间变量$E_D$、$E_A$、$R_C$统计离群点检测：
-    对经初步清洗后的数据子集 \( E_D \)、\( E_A \)和$R_C$，分别计算变量的样本均值 \( \mu \) 和样本标准差 \( \sigma \)，计算公式如下：
-    \begin{equation}
-      \mu = \frac{1}{n}\sum_{i=1}^n x_i, \quad \sigma = \sqrt{\frac{1}{n - 1}\sum_{i=1}^n (x_i - \mu)^2}.
-    \end{equation}
-    采用3σ准则设定离群阈值，即构建判别区间 \( [\mu - 3\sigma, \mu + 3\sigma] \)。超出该区间的观测值均判定为统计离群点并剔除。
-\end{enumerate}
+具体数据筛选流程实施主要包括两个方面：
+
+第一是对$I_{DD}$、$I_{DA}$、$I_{AA}$基于物理约束的初步数据清洗：
+针对各数值型变量 \( x_i \)，依据其预设的物理合理区间 \( [L_i, U_i] \) 执行有效性校验。构建如下二元判别函数：
+\begin{equation}
+  \delta(x_i) = 
+  \begin{cases} 
+    1, & x_i \notin [L_i, U_i]  \\
+    0, & x_i \in [L_i, U_i]
+  \end{cases} ,
+\end{equation}
+当 \( \delta(x_i) = 1 \) 时，判定该数据点为物理意义上的异常值并予以剔除。
+
+第二是对中间计算的FRET计算结果$E_D$、$E_A$、$R_C$统计离群点检测：
+对经初步清洗后的数据子集 \( E_D \)、\( E_A \)和$R_C$，分别计算变量的样本均值 \( \mu \) 和样本标准差 \( \sigma \)，计算公式如下：
+\begin{equation}
+  \mu = \frac{1}{n}\sum_{i=1}^n x_i, \quad \sigma = \sqrt{\frac{1}{n - 1}\sum_{i=1}^n (x_i - \mu)^2}.
+\end{equation}
+采用3σ准则设定离群阈值，即构建判别区间 \( [\mu - 3\sigma, \mu + 3\sigma] \)。超出该区间的观测值均判定为统计离群点并剔除。
+
 
 数据导出用于保存数据处理时的ROI信息。
 在完成FRET图像处理和ROI绘制选取后，需要保存ROI的结果，以便后续分析或者修改编辑。
 在数据管理模块点击“导出数据”按钮，Fretha将会导出数据区记录的所有数据，每一条数据都会按照FretDataPiece定义进行逐列导出，文件格式为CSV文件。
 数据导入功能则可以读取Fretha导出的CSV文件，然后解析其中的数据按照FretDataPiece的格式。
 
-点击“添加数据”按钮或者使用快捷键“A”，可以添加当前状态栏中的数据到数据表格中；
+数据管理区的操作为：点击“添加数据”按钮或者使用快捷键“A”，可以添加当前状态栏中的数据到数据表格中；
 点击“删除数据”按钮或者使用快捷键“D”，可以删除数据表格中选中的数据；
 点击“清空数据”按钮或者使用快捷键“C”，可以清空数据表格中的所有数据；
 点击“开始计算”按钮，软件将调用FretTwoHybridSolver等算法对数据表格中的数据进行FRET双杂交分析求解计算，并将结果显示在结果可视化模块中，然后切换软件界面到结果可视化模块。
-
-在数据表格中点击某一条数据，软件会根据这条数据的位置和形状信息，在图像显示上显示该条数据对应的ROI位置，以方便检查数据处理中标注ROI的错误。
-实现这一功能，主要基于Qt提供的信号与槽机制。
+此外，基于Qt提供的信号与槽机制，还支持了数据的反向追溯功能，即在数据表格中点击某一条数据，软件会根据这条数据的位置和形状信息，在图像显示上显示该条数据对应的ROI位置，以方便检查数据处理中标注错误的ROI。
 将数据中的数据模型被点击的事件信号与 FretGraphicsView 控件中的回调槽函数绑定后，FretGraphicView 模型可以接收到来自所选数据的信息，按照所选数据项中ROI的$x$、$y$、$w$和$h$绘制ROI到FretGraphicsView控件上，并将FretGraphicsView的视角中心移动到所选数据的ROI中心，以便用户更加直观地查看数据的位置和形状。
 
 \subsection{结果可视化模块}
@@ -624,15 +632,15 @@ DC-FRET视图的界面如图 \ref{fig:fretha_dc_fret} 所示。
       \bottomrule[1.5pt]
     \end{tabular}
 \end{table}
-其中，实验数据与拟合参数的原始数值将以 CSV 文件格式进行保存，该文件包含可直接用于其他科研绘图软件的数据记录，从而支持用户在不同可视化工具中进行后续的图形优化与再处理。
+其中，实验数据与拟合参数的原始数值将以 CSV 文件格式进行保存，该文件包含可直接用于其他科研绘图软件的数据记录，从而支持用户在不同的可视化工具中进行科研绘图与再处理。
 这一功能设计保障了实验结果的完整留存，为科研工作者提供了灵活的数据导出与再分析解决方案。
 
 \section{本章小结}
-本章系统阐述了 FRET 双杂交分析数据处理软件 Fretha 的设计框架与实现方法。
-通过采用分层架构，Fretha采用了表现层、业务层、数据访问层和数据层的四层架构体系（图 \ref {fig:fretha_arch}），从而实现了软件的解耦设计。
-基于 FRETScope 显微成像系统的多模态数据特征，数据层采用 FretImage-FretDataPiece-FretRecord 三级关联模型（图 \ref {fig:fretha_data_relations}），实现了从原始图像到分析结果的全流程数据管理。
-按照FRET双杂交数据处理步骤流程，将软件的功能划分为成像参数设置、数据检验、FRET图像处理、数据管理和结果可视化五个功能模块。
+本章系统阐述了 FRET 双杂交分析数据处理软件 Fretha 的设计和实现。
+首先，本章分析了FRETScope成像系统的数据特点和FRET双杂交分析数据处理流程。
+基于上述需求分析，Fretha在模块上划分成了成像参数设置、数据检验、FRET图像处理、数据管理和结果可视化五个主要功能模块。
+其次，Fretha采用了表现层、业务层、数据访问层和数据层的四层架构体系，从而实现了软件的解耦设计。
 基于OpenCV和Dlib等开源计算库，本章构建了包含 FRET 定量计算器、图像处理器和双杂交求解器的后台接口，实现了 E-FRET、 $3^3$-FRET、DC-FRET、L-FRET等多模态FRET算法。
-在 L-FRET 分析中，采用基于 BFGS 算法的非线性优化策略（代码 \ref {code:two_hybrid_solver}），完成 Langmuir 模型的参数拟合。
-基于分层架构设计和功能模块化设计，数据可以在软件内部进行传输，从而简化了FRET双杂交分析的数据处理。
-Fretha是一款拥有用户友好界面的专业数据处理软件，有效提高了FRET双杂交分析的简易化和规范化程度。
+最后，本文基于Qt框架和C++编程语言完成了各个模块的界面实现和业务编写，实现了Fretha软件的开发实现。
+基于Fretha的分层架构设计，软件各个模块之间的耦合度较低，数据在Fretha内部实现了统一管理和传输。
+Fretha是一款拥有用户友好界面的专业数据处理软件，实现了从原始数据到化学计量比结果的标准化数据流程，有效提高了FRET双杂交分析技术的简单化、规范化程度。

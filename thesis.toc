@@ -14,13 +14,14 @@
 \contentsline {chapter}{\numberline {2}Fretha的设计和开发}{13}{chapter.2}%
 \contentsline {section}{\numberline {2.1}引言}{13}{section.2.1}%
 \contentsline {section}{\numberline {2.2}需求分析和总体设计}{13}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}需求分析}{13}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}模块划分和界面设计}{14}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}软件总体框架}{17}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}开发技术选型}{20}{subsection.2.2.4}%
-\contentsline {section}{\numberline {2.3}FRET算法和后台接口}{21}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}FRET定量计算器}{21}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}FRET图像处理器}{22}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.2.1}硬件系统和数据特点}{13}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}FRET双杂交分析数据处理流程}{15}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}模块划分和界面设计}{16}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}软件总体框架}{19}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}开发技术选型}{21}{subsection.2.2.5}%
+\contentsline {section}{\numberline {2.3}FRET算法和后台接口}{22}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}FRET定量计算器}{22}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}FRET图像处理器}{23}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}FRET双杂交求解器}{24}{subsection.2.3.3}%
 \contentsline {section}{\numberline {2.4}功能模块的实现}{27}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}成像参数设置模块}{27}{subsection.2.4.1}%
@@ -45,7 +46,7 @@
 \contentsline {subsection}{\numberline {3.4.4}数据管理模块测试}{46}{subsection.3.4.4}%
 \contentsline {subsection}{\numberline {3.4.5}结果可视化模块测试}{47}{subsection.3.4.5}%
 \contentsline {section}{\numberline {3.5}Fretha可靠性测试}{48}{section.3.5}%
-\contentsline {section}{\numberline {3.6}本章小结}{49}{section.3.6}%
+\contentsline {section}{\numberline {3.6}本章小结}{50}{section.3.6}%
 \contentsline {chapter}{\numberline {4}基于LURS的自动FRET双杂交分析}{51}{chapter.4}%
 \contentsline {section}{\numberline {4.1}引言}{51}{section.4.1}%
 \contentsline {section}{\numberline {4.2}材料与方法}{51}{section.4.2}%
@@ -65,5 +66,5 @@
 \ttl@change@i {\@ne }{chapter}{0pt}{\vspace {0.25\baselineskip } \heiti \xiaosi [1.25]}{附录\,\thecontentslabel \quad }{}{\hspace {.5em}\titlerule *{.}\contentspage }\relax 
 \ttl@change@v {chapter}{}{}{}\relax 
 \contentsline {chapter}{\normalfont 参考文献}{67}{chapter*.51}%
-\contentsline {chapter}{攻读硕士学位期间取得的研究成果}{75}{chapter*.52}%
+\contentsline {chapter}{\normalfont 本文创新性说明}{75}{chapter*.52}%
 \contentsfinish 

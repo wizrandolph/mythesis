@@ -1117,25 +1117,24 @@ FUNCTION {format.reference.date} {
 
 % patent的题名项: 专利题名: 专利国别, 专利号~[文献类型标志]
 FUNCTION {format.patent.title} { 
-  title empty$			% 专利提名
+  title empty$
     { "" }
     { new.block
       title bbl.colon * 
-      nationality empty$		% 专利国别, 专利号
-	{ % 专利国别为必备项
-	  "The nationality in " cite$ * " is missing." * warning$
-	}
-	{ number empty$
-	    { % 专利号为必选项
-	      "The number in " cite$ * " is missing." * warning$
-	    }
-	    { % 产生``专利国别, 专利号''
-	      nationality * bbl.comma * number *
-	    }
-	  if$
-	}
+      nationality empty$
+        { number empty$
+            { "The number in " cite$ * " is missing." * warning$
+            }
+            { number * }
+          if$
+        }
+        { number empty$
+            { "The number in " cite$ * " is missing." * warning$
+            }
+            { nationality * bbl.comma * number * }
+          if$
+        }
       if$
-      % 文献类型标志
       bib.type.designator *
     }
   if$

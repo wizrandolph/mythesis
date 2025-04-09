@@ -9,7 +9,6 @@ Database file #1: ref/refs.bib
 -- http://code.google.com/p/buptthesis/
 -- See the "userguide.pdf" manual for usage information.
 Warning--there's a publisher but no address in lakowicz2006principles
-Warning--The nationality in 双杂交药筛 is missing.
 Warning--empty pages in clark2023single
 Warning--empty pages in zhang2025pretrained
 Warning--The editor in ronneberger2015u is missing.
@@ -19,7 +18,10 @@ Warning--empty editor in huang2018gpipe
 Warning--empty pages in huang2018gpipe
 Warning--there's a publisher but no address in 陆文周2015Qt5
 Warning--there's a publisher but no address in bradski2008learning
-Warning--The nationality in 供体-受体浓度比 is missing.
+Warning--The editor in singh2022face is missing.
+Warning--empty editor in singh2022face
+Warning--The editor in adusumalli2021face is missing.
+Warning--empty editor in adusumalli2021face
 Warning--The editor in wang2019software is missing.
 Warning--empty editor in wang2019software
 Warning--The editor in kirillov2023segment is missing.
@@ -32,45 +34,45 @@ Warning--The editor in gedraite2011investigation is missing.
 Warning--empty editor in gedraite2011investigation
 
 Done.
-You've used 68 entries,
-            4554 wiz_defined-function locations,
-            1411 strings with 23831 characters,
-and the built_in function-call counts, 46447 in all, are:
-= -- 5381
-> -- 764
-< -- 62
-+ -- 464
-- -- 232
-* -- 3587
-:= -- 5049
-add.period$ -- 267
-call.type$ -- 68
+You've used 70 entries,
+            4565 wiz_defined-function locations,
+            1422 strings with 24288 characters,
+and the built_in function-call counts, 48167 in all, are:
+= -- 5573
+> -- 787
+< -- 64
++ -- 478
+- -- 245
+* -- 3727
+:= -- 5241
+add.period$ -- 275
+call.type$ -- 70
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 90
-duplicate$ -- 3141
-empty$ -- 4836
-format.name$ -- 232
-if$ -- 11474
+cite$ -- 94
+duplicate$ -- 3273
+empty$ -- 5017
+format.name$ -- 239
+if$ -- 11883
 int.to.chr$ -- 0
-int.to.str$ -- 68
+int.to.str$ -- 70
 missing$ -- 0
-newline$ -- 407
-num.names$ -- 68
-pop$ -- 306
+newline$ -- 419
+num.names$ -- 70
+pop$ -- 318
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1553
+skip$ -- 1591
 stack$ -- 0
-substring$ -- 5397
-swap$ -- 999
-text.length$ -- 62
+substring$ -- 5637
+swap$ -- 1035
+text.length$ -- 70
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 815
-warning$ -- 22
-while$ -- 425
-width$ -- 70
-write$ -- 600
-(There were 22 warnings)
+type$ -- 829
+warning$ -- 24
+while$ -- 440
+width$ -- 72
+write$ -- 618
+(There were 24 warnings)

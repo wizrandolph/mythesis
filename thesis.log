@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.10)  9 APR 2025 12:59
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.10)  10 APR 2025 00:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1583,7 +1583,14 @@ Overfull \vbox (0.61256pt too high) has occurred while \output is active []
 
  [11
 
-] (./thesis.lof)
+] (./thesis.lof
+
+LaTeX Warning: Reference `' on page XII undefined on input line 1.
+
+
+LaTeX Warning: Reference `' on page XII undefined on input line 1.
+
+)
 \tf@lof=\write7
 \openout7 = `thesis.lof'.
 
@@ -1602,6 +1609,13 @@ Overfull \vbox (0.53023pt too high) has occurred while \output is active []
 ] (./data/chap01.tex
 File: figures/../figures/1/1_FRET过程示意图.png Graphic file (type bmp)
 <figures/../figures/1/1_FRET过程示意图.png>
+
+
+LaTeX Warning: Reference `' on page 1 undefined on input line 15.
+
+
+LaTeX Warning: Reference `' on page 1 undefined on input line 15.
+
 
 
 
@@ -1729,8 +1743,8 @@ Overfull \vbox (0.65373pt too high) has occurred while \output is active []
  [12]
 File: figures/../figures/2/FRETScope示意图.jpg Graphic file (type bmp)
 <figures/../figures/2/FRETScope示意图.jpg>
-File: figures/../figures/2/双杂交数据处理流程.drawio.png Graphic file (type bmp)
-<figures/../figures/2/双杂交数据处理流程.drawio.png>
+File: figures/../figures/2/FRETScope数据格式.drawio.png Graphic file (type bmp)
+<figures/../figures/2/FRETScope数据格式.drawio.png>
 
 
 
@@ -1745,6 +1759,9 @@ Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
 
 ]
+File: figures/../figures/2/双杂交数据处理流程.drawio.png Graphic file (type bmp)
+<figures/../figures/2/双杂交数据处理流程.drawio.png>
+
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1765,6 +1782,16 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [15]
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+
+ [16]
 File: figures/../figures/2/Fretha界面-开始界面.drawio.png Graphic file (type bmp)
 <figures/../figures/2/Fretha界面-开始界面.drawio.png>
 File: figures/../figures/2/Fretha界面-参数设置.drawio.png Graphic file (type bmp)
@@ -1773,6 +1800,17 @@ File: figures/../figures/2/Fretha界面-数据处理.drawio.png Graphic file (ty
 <figures/../figures/2/Fretha界面-数据处理.drawio.png>
 File: figures/../figures/2/Fretha界面-结果展示.drawio.png Graphic file (type bmp)
 <figures/../figures/2/Fretha界面-结果展示.drawio.png>
+
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+
+ [17]
 File: figures/../figures/2/Fretha总体架构图.drawio.png Graphic file (type bmp)
 <figures/../figures/2/Fretha总体架构图.drawio.png>
 
@@ -1785,27 +1823,17 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [16]
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
-
- [17]
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
-
  [18]
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+
+ [19]
 File: figures/../figures/2/Fretha数据模型.drawio.png Graphic file (type bmp)
 <figures/../figures/2/Fretha数据模型.drawio.png>
 
@@ -1818,7 +1846,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [19]
+ [20]
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1828,7 +1856,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [20]
+ [21]
 File: figures/../figures/2/FRET计算器计算步骤.drawio.png Graphic file (type bmp)
 <figures/../figures/2/FRET计算器计算步骤.drawio.png>
 
@@ -1841,33 +1869,23 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [21]
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
-
  [22]
-LaTeX Font Info:    Calculating math sizes for size <10.53937> on input line 191.
+LaTeX Font Info:    Calculating math sizes for size <10.53937> on input line 213.
 
 
 LaTeX Font Warning: Font shape `U/matha/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 191.
+(Font)              size <10.95> substituted on input line 213.
 
 
 LaTeX Font Warning: Font shape `U/mathb/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 191.
+(Font)              size <10.95> substituted on input line 213.
 
 
 LaTeX Font Warning: Font shape `U/mathx/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 191.
+(Font)              size <10.95> substituted on input line 213.
 
 
-Overfull \hbox (35.99998pt too wide) in alignment at lines 191--273
+Overfull \hbox (35.99998pt too wide) in alignment at lines 213--295
 [][][] 
  []
 
@@ -1898,7 +1916,17 @@ File: lstlang1.sty 2024/09/23 1.10c listings language file
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 310.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+
+ [25]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 332.
 
 Package fontspec Info: 
 (fontspec)             Font family 'simkai.ttf(0)' created for font
@@ -1920,11 +1948,6 @@ Package fontspec Info:
 
 
 
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
-
- [25]
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 []
  []
@@ -1933,7 +1956,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [26]
-Underfull \hbox (badness 10000) in alignment at lines 376--391
+Underfull \hbox (badness 10000) in alignment at lines 398--413
 [][][][] 
  []
 
@@ -1960,12 +1983,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [28]
-File: figures/../figures/2/FRETScope数据格式.drawio.png Graphic file (type bmp)
-<figures/../figures/2/FRETScope数据格式.drawio.png>
 File: figures/../figures/2/Fretha业务-数据检验.drawio.png Graphic file (type bmp)
 <figures/../figures/2/Fretha业务-数据检验.drawio.png>
-File: figures/../figures/2/Fretha图像处理界面.drawio.png Graphic file (type bmp)
-<figures/../figures/2/Fretha图像处理界面.drawio.png>
 
 
 
@@ -1977,6 +1996,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [29]
+File: figures/../figures/2/Fretha图像处理界面.drawio.png Graphic file (type bmp)
+<figures/../figures/2/Fretha图像处理界面.drawio.png>
+
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2110,17 +2132,17 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [41]
-Overfull \hbox (0.92778pt too wide) in paragraph at lines 136--136
+Overfull \hbox (0.92778pt too wide) in paragraph at lines 135--135
  []|$\OML/txmi/m/it/10.53937 E[]$| 
  []
 
 
-Overfull \hbox (0.92778pt too wide) in paragraph at lines 136--136
+Overfull \hbox (0.92778pt too wide) in paragraph at lines 135--135
  []|$\OML/txmi/m/it/10.53937 E[]$| 
  []
 
 
-Overfull \hbox (0.92778pt too wide) in paragraph at lines 136--136
+Overfull \hbox (0.92778pt too wide) in paragraph at lines 135--135
  []|$\OML/txmi/m/it/10.53937 E[]$| 
  []
 
@@ -2203,7 +2225,7 @@ Overfull \vbox (0.65373pt too high) has occurred while \output is active []
  [48]
 File: figures/../figures/3/测试-48小时内存波动.drawio.png Graphic file (type bmp)
 <figures/../figures/3/测试-48小时内存波动.drawio.png>
-) (./data/chap04.tex
+
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2213,7 +2235,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [49]
+ [49]) (./data/chap04.tex
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2335,6 +2357,8 @@ Overfull \hbox (0.92778pt too wide) in paragraph at lines 236--236
  []|$\OML/txmi/m/it/10.53937 E[]$| 
  []
 
+File: figures/../figures/4/4_方法对比.png Graphic file (type bmp)
+<figures/../figures/4/4_方法对比.png>
 
 
 
@@ -2346,9 +2370,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [59]
-File: figures/../figures/4/4_方法对比.png Graphic file (type bmp)
-<figures/../figures/4/4_方法对比.png>
-
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2446,11 +2467,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.61256pt too high) has occurred while \output is active []
 
  [68]
-Invalid UTF-8 byte or sequence at line 136 replaced by U+FFFD.
-
-Missing character: There is no � (U+FFFD) in font [fonts/simsun.ttc]/OT:script=hani;language=dflt;mapping=tex-text;!
-Missing character: There is no ̇ (U+0307) in font [fonts/times.ttf]/OT:language=dflt;mapping=tex-text;!
-
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2481,10 +2497,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.61256pt too high) has occurred while \output is active []
 
  [71]
-Invalid UTF-8 byte or sequence at line 301 replaced by U+FFFD.
-
-Missing character: There is no � (U+FFFD) in font [fonts/simsun.ttc]/OT:script=hani;language=dflt;mapping=tex-text;!
-
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2514,7 +2526,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.61256pt too high) has occurred while \output is active []
 
- [74] (./data/resume.tex)
+ [74] (./data/inno.tex)
 \tf@thm=\write8
 \openout8 = `thesis.thm'.
 
@@ -2541,16 +2553,19 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.43146pt have occurred.
 
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: D99363BFA0B3291E7D634E53A8194E87;8731.
+(rerunfilecheck)             Checksum: 23F9426F81E228A8FBC1E7E9A6E402E9;8877.
  ) 
 Here is how much of TeX's memory you used:
- 25213 strings out of 475796
- 509327 string characters out of 5773188
- 1250447 words of memory out of 5000000
- 47610 multiletter control sequences out of 15000+600000
+ 25254 strings out of 475796
+ 511767 string characters out of 5773188
+ 1273944 words of memory out of 5000000
+ 47651 multiletter control sequences out of 15000+600000
  632057 words of font info for 255 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 89i,20n,107p,901b,1890s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,20n,107p,901b,1296s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on thesis.xdv (89 pages, 1583136 bytes).
+Output written on thesis.xdv (89 pages, 1595992 bytes).

@@ -60,6 +60,18 @@ Fluorescence resonance energy transfer (FRET) microscopy imaging of live cell pr
 The Journal of cell biology.
 2003, 160~(5):  629.
 
+\bibitem{erickson2001preassociation}
+Erickson~M~G, Alseikhan~B~A, Peterson~B~Z, et~al.
+Preassociation of calmodulin with voltage-gated Ca2+ channels revealed by FRET in single living cells~[J].
+Neuron.
+2001, 31~(6):  973--985.
+
+\bibitem{zal2004photobleaching}
+Zal~T, Gascoigne~N~R.
+Photobleaching-corrected FRET efficiency imaging of live cells~[J].
+Biophysical journal.
+2004, 86~(6):  3923--3939.
+
 \bibitem{ben-johny2016}
 Ben-Johny~M, Yue~D T D~N, Yue~D T D~N.
 Detecting stoichiometry of macromolecular complexes in live cells using {FRET}~[J].
@@ -133,9 +145,9 @@ Spectrochimica Acta Part A: Molecular and Biomolecular Spectroscopy.
 2021, 245:  118919.
 
 \bibitem{双杂交药筛}
-陈同生\~�, 曹庚强\.
-一种基于FRET双杂交分析的活细胞药物筛选方法及系统: ~[P].
-2024-09-03.
+陈同生，曹庚强，孙贝妮等．
+一种基于FRET双杂交分析的活细胞药物筛选方法及系统：CN118583832A~[P]．
+2024-09-03．
 
 \bibitem{bozza2014use}
 Bozza~W~P, Di~X, Takeda~K, et~al.
@@ -160,12 +172,6 @@ Liu~B, Mavrova~S~N, van~den Berg~J, et~al.
 Influence of fluorescent protein maturation on FRET measurements in living cells~[J].
 ACS sensors.
 2018, 3~(9):  1735--1742.
-
-\bibitem{erickson2001preassociation}
-Erickson~M~G, Alseikhan~B~A, Peterson~B~Z, et~al.
-Preassociation of calmodulin with voltage-gated Ca2+ channels revealed by FRET in single living cells~[J].
-Neuron.
-2001, 31~(6):  973--985.
 
 \bibitem{chen2006measurement}
 Chen~H, Puhl~H~L, Koushik~S~V, et~al.
@@ -297,10 +303,22 @@ Bradski~G, Kaehler~A.
 Learning OpenCV: Computer vision with the OpenCV library~[M].
 " O'Reilly Media, Inc.", 2008.
 
+\bibitem{singh2022face}
+Singh~G, Gupta~I, Singh~J, et~al.
+Face recognition using open source computer vision library (OpenCV) with Python~[C].
+In 2022 10th International Conference on Reliability, Infocom Technologies and Optimization (Trends and Future Directions)(ICRITO).
+2022:  1--6.
+
+\bibitem{adusumalli2021face}
+Adusumalli~H, Kalyani~D, Sri~R~K, et~al.
+Face mask detection using opencv~[C].
+In 2021 Third International Conference on Intelligent Communication Technologies and Virtual Mobile Networks (ICICV).
+2021:  1304--1309.
+
 \bibitem{供体-受体浓度比}
-陈同生\~�.
-一种基于供体-受体浓度比预处理FRET双杂交检测数据的方法: ~[P].
-2020-06-05.
+陈同生，麦子昊．
+一种基于供体-受体浓度比预处理FRET双杂交检测数据的方法：CN201810250537~[P]．
+2020-06-05．
 
 \bibitem{gurcan2022evolution}
 Gurcan~F, Dalveren~G G~M, Cagiltay~N~E, et~al.
@@ -325,12 +343,6 @@ Thaler~C, Koushik~S~V, Blank~P~S, et~al.
 Quantitative multiphoton spectral imaging and its use for measuring resonance energy transfer~[J].
 Biophysical journal.
 2005, 89~(4):  2736--2749.
-
-\bibitem{sun2022automated}
-Sun~H, Zhang~C, Yuan~Y, et~al.
-Automated ExEm-spFRET Microscope~[J].
-Microscopy and Microanalysis.
-2022, 28~(2):  330--337.
 
 \bibitem{feldmann2023protocol}
 Feldmann~C, Sch{\"a}nzler~M, Ben-Johny~M, et~al.

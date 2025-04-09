@@ -620,7 +620,7 @@
   \thispagestyle{emptypage}
   \chapter*{\resumename}
   \chaptermark{\resumename}
-  \addcontentsline{toc}{chapter}{\resumename}
+  \addcontentsline{toc}{chapter}{\normalfont\resumename}
   % \ifisanon\color{white}\else\relax\fi%
   \xiaosi
   \@mainmatterfalse
@@ -685,6 +685,8 @@
   \egroup%
   \iftagsleft@ \@xp\lendsplit@ \else \@xp\rendsplit@ \fi%
 }
+\def\privatetext#1{\def\@privatetext{#1}} % 私密文本
+\def\enprivatetext#1{\def\@enprivatetext{#1}} % 私密文本英文
 \def\classification#1{\def\@classification{#1}} % 中图分类号
 \def\serialno#1{\def\@serialno{#1}} % 学号
 \def\udc#1{\def\@udc{#1}} % udc号
@@ -756,6 +758,21 @@
   \enschool{}%
 }
 
+\newcommand\privateInfo{
+  \classification{\@privatetext}  % 分类号
+  \udc{\@privatetext}             % UDC号
+  \confidentiality{\@privatetext}  % 密级
+  \serialno{\@privatetext}
+  \supervisor{\@privatetext}
+  \protitle{\@privatetext}
+  \author{\@privatetext}
+  \school{\@privatetext}
+  \enauthor{\@enprivatetext}%
+  \ensupervisor{\@enprivatetext}%
+  \enprotitle{\@enprivatetext}%
+  \enschool{\@enprivatetext}%
+}
+
 % wzq 中文封面 支持下划线及换行
 \def\maketitle{%
   \renewcommand{\baselinestretch}{1.3}%
@@ -763,9 +780,8 @@
     \multicolumn{##1}{l}{\underline{\hbox to ##2{\hfil##3\hfil}}}
   }
   \null
-  \ifisanon%
-  \hideInfo
-  \else\relax\fi%
+  \ifisprivate\privateInfo\else\relax\fi
+  \ifisanon\hideInfo\else\relax\fi
   \pagenumbering{alph}% not display, for print only
   \thispagestyle{empty}%
   \begin{center}\leavevmode % 表格环境

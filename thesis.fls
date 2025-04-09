@@ -440,6 +440,8 @@ INPUT ./data/chap02.tex
 INPUT data/chap02.tex
 INPUT ./figures/../figures/2/FRETScope示意图.jpg
 INPUT ./figures/../figures/2/FRETScope示意图.jpg
+INPUT ./figures/../figures/2/FRETScope数据格式.drawio.png
+INPUT ./figures/../figures/2/FRETScope数据格式.drawio.png
 INPUT ./figures/../figures/2/双杂交数据处理流程.drawio.png
 INPUT ./figures/../figures/2/双杂交数据处理流程.drawio.png
 INPUT ./figures/../figures/2/Fretha界面-开始界面.drawio.png
@@ -512,8 +514,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
 INPUT ./figures/../figures/2/Fretha业务-参数设置.drawio.png
 INPUT ./figures/../figures/2/Fretha业务-参数设置.drawio.png
-INPUT ./figures/../figures/2/FRETScope数据格式.drawio.png
-INPUT ./figures/../figures/2/FRETScope数据格式.drawio.png
 INPUT ./figures/../figures/2/Fretha业务-数据检验.drawio.png
 INPUT ./figures/../figures/2/Fretha业务-数据检验.drawio.png
 INPUT ./figures/../figures/2/Fretha图像处理界面.drawio.png
@@ -555,11 +555,11 @@ INPUT data/chap05.tex
 INPUT ./thesis.bbl
 INPUT ./thesis.bbl
 INPUT thesis.bbl
-INPUT ./data/resume.tex
-INPUT ./data/resume.tex
-INPUT ./data/resume.tex
-INPUT ./data/resume.tex
-INPUT data/resume.tex
+INPUT ./data/inno.tex
+INPUT ./data/inno.tex
+INPUT ./data/inno.tex
+INPUT ./data/inno.tex
+INPUT data/inno.tex
 OUTPUT thesis.thm
 INPUT thesis.aux
 INPUT ./thesis.out
