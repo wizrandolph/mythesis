@@ -70,7 +70,7 @@ Fretha手动处理的标准质粒C4Y的FRET效率$E_A$为$0.291\pm0.020$，$E_D$
 C10Y、C40Y和C80Y的FRET效率和浓度比测量结果如表 \ref{tab:Fretha手动E-FRET结果} 所示，均与文献值一致。四种质粒$E_A$、$E_D$和$R_C$测量值相对文献值的相对误差平均为3.9\%、2.2\%和0.8\%，说明Fretha手动数据处理的精度较高。
 \begin{table*}[hbtp]
   \centering
-  \caption{手动定量$3^3$-FRET和E-FRET分析标准质粒结果}
+  \caption{Fretha手动计算标准质粒$3^3$-FRET和E-FRET结果}
   \begin{tabularx}{\linewidth}{
     >{\centering\arraybackslash}p{1cm}
     >{\centering\arraybackslash}X
@@ -100,7 +100,7 @@ C10Y、C40Y和C80Y的FRET效率和浓度比测量结果如表 \ref{tab:Fretha手
 \begin{figure}
   \centering
   \includegraphics[width=1\linewidth]{../figures/3/验证-手动双杂交结果.drawio.png}
-  \caption{Fretha手动处理的C32V和CVC的FRET双杂交分析结果}
+  \caption[Fretha手动处理的C32V和CVC的FRET双杂交分析结果]{使用Fretha手动进行FRET双杂交分析，在存在游离供体或受体的情况下，分别通过DC-FRET和L-FRET方法对MCF7活细胞中标准质粒（C32V和CVC）的$E_{A, max}$、$E_{D, max}$和$n_D/n_A$测量结果。}
   \label{fig:Fretha手动双杂交}
 \end{figure}
 
@@ -114,7 +114,7 @@ L-FRET测量得到C32V的$E_{A,max}$为0.347，$E_{D,max}$为0.344，$n_D/n_A$�
 使用Fretha进行DC-FRET和L-FRET的测量结果均与文献值一致，说明Fretha手动数据处理在准确度上满足预期。
 \begin{table*}[htbp]
   \centering
-  \caption{手动处理C32V、CVC的FRET双杂交分析结果}
+  \caption{Fretha手动计算C32V、CVC的FRET双杂交分析结果}
   \begin{tabularx}{\linewidth}{
     >{\centering\arraybackslash}X
     >{\centering\arraybackslash}p{2.2cm}
@@ -141,7 +141,7 @@ L-FRET测量得到C32V的$E_{A,max}$为0.347，$E_{D,max}$为0.344，$n_D/n_A$�
 成像参数设置是软件的核心功能之一，直接影响到数据处理结果的准确性。
 本测试旨在验证软件成像参数设置功能的正确性和灵活性，确保软件能够及时准确响应参数的更新设置。
 
-测试时，通过界面操作更新参数，分别用表 \ref{tab:lurs_imaging_params} CV成像参数和CY参数处理单转标准质粒C32V和C4Y样本，进行E-FRET分析计算结果$E_D$和$R_C$。、将参数和数据匹配的实验组记为正面组，将参数不匹配数据的组别记为反面组，测试结果如表 \ref{表：测试参数更新} 所示。
+测试时，通过界面操作更新参数，分别用表 \ref{tab:lurs_imaging_params} CV质粒成像参数和CY质粒成像参数处理单转标准质粒C32V和C4Y样本，进行E-FRET分析计算结果$E_D$和$R_C$。将参数和数据匹配的实验组记为正面组，将参数不匹配数据的组别记为反面组，测试结果如表 \ref{表：测试参数更新} 所示。
 
 \begin{table}[htbp]
   \centering
@@ -355,7 +355,7 @@ ROI状态栏上的数据更新发生在ROI被绘制更新以及视野切换时�
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=1\linewidth]{../figures/3/测试-结果可视化.drawio.png}
-  \caption[Fretha L-FRET视图测试结果]{Fretha L-FRET视图和DC-FRET视图。图a为标准L-FRET视图；图b为应用BIN数据分箱后的L-FRET视图；图c为设置线性拟合的$R_C$数据范围为$(0,0.5)$，均值拟合的$R_C$范围为$(2,10)$时的DC-FRET视图；图d设置线性拟合的$1/R_C$数据范围为$(0,1)$，均值拟合的$1/R_C$范围为$(1,10)$。}
+  \caption[Fretha L-FRET和DC-FRET视图测试结果]{Fretha L-FRET视图和DC-FRET视图。图a为标准L-FRET视图；图b为应用BIN数据分箱后的L-FRET视图；图c为设置线性拟合的$R_C$数据范围为$(0,0.5)$，均值拟合的$R_C$范围为$(2,10)$时的DC-FRET视图；图d设置线性拟合的$1/R_C$数据范围为$(0,1)$，均值拟合的$1/R_C$范围为$(1,10)$。}
   \label{fig:L-FRET视图测试}
 \end{figure}
 

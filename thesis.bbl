@@ -15,13 +15,13 @@ Springer, 2006.
 \bibitem{yung1973relationship}
 Yung-Chi~C, Prusoff~W~H.
 Relationship between the inhibition constant (KI) and the concentration of inhibitor which causes 50 per cent inhibition (I50) of an enzymatic reaction~[J].
-Biochemical pharmacology.
+Biochemical Pharmacology.
 1973, 22~(23):  3099--3108.
 
 \bibitem{yekta1995dipole}
 Yekta~A, Duhamel~J, Winnik~M~A.
 Dipole-dipole electronic energy transfer. Fluorescence decay functions for arbitrary distributions of donors and acceptors: systems with planar geometry~[J].
-Chemical physics letters.
+Chemical Physics Letters.
 1995, 235~(1-2):  119--125.
 
 \bibitem{2020Single}
@@ -33,19 +33,19 @@ Biosensors.
 \bibitem{wu2018translocation}
 Wu~B, Zhang~H, Sun~R, et~al.
 Translocation kinetics and structural dynamics of ribosomes are modulated by the conformational plasticity of downstream pseudoknots~[J].
-Nucleic acids research.
+Nucleic Acids Research.
 2018, 46~(18):  9736--9748.
 
 \bibitem{shrestha2015understanding}
 Shrestha~D, Jenei~A, Nagy~P, et~al.
 Understanding FRET as a research tool for cellular studies~[J].
-International journal of molecular sciences.
+International Journal of Molecular Sciences.
 2015, 16~(4):  6718--6756.
 
 \bibitem{chudakov2010fluorescent}
 Chudakov~D~M, Matz~M~V, Lukyanov~S, et~al.
 Fluorescent proteins and their applications in imaging living cells and tissues~[J].
-Physiological reviews.
+Physiological Reviews.
 2010, 90~(3):  1103--1163.
 
 \bibitem{shimomura2009discovery}
@@ -57,7 +57,7 @@ Angewandte Chemie International Edition.
 \bibitem{sekar2003fluorescence}
 Sekar~R~B, Periasamy~A.
 Fluorescence resonance energy transfer (FRET) microscopy imaging of live cell protein localizations~[J].
-The Journal of cell biology.
+The Journal of Cell Biology.
 2003, 160~(5):  629.
 
 \bibitem{erickson2001preassociation}
@@ -69,7 +69,7 @@ Neuron.
 \bibitem{zal2004photobleaching}
 Zal~T, Gascoigne~N~R.
 Photobleaching-corrected FRET efficiency imaging of live cells~[J].
-Biophysical journal.
+Biophysical Journal.
 2004, 86~(6):  3923--3939.
 
 \bibitem{ben-johny2016}
@@ -87,7 +87,7 @@ Cellular and Molecular Life Sciences.
 \bibitem{yang2022cytosolic}
 Yang~Y, Yu~Z, Geng~J, et~al.
 Cytosolic peptides encoding CaV1 C-termini downregulate the calcium channel activity-neuritogenesis coupling~[J].
-Communications biology.
+Communications Biology.
 2022, 5~(1):  484.
 
 \bibitem{cornea2009fret}
@@ -135,7 +135,7 @@ Advanced Science.
 \bibitem{song2011development}
 Song~Y, Madahar~V, Liao~J.
 Development of FRET assay into quantitative and high-throughput screening technology platforms for protein--protein interactions~[J].
-Annals of biomedical engineering.
+Annals of Biomedical Engineering.
 2011, 39:  1224--1234.
 
 \bibitem{sun2021recent}
@@ -170,19 +170,19 @@ Current Opinion in Chemical Biology.
 \bibitem{liu2018influence}
 Liu~B, Mavrova~S~N, van~den Berg~J, et~al.
 Influence of fluorescent protein maturation on FRET measurements in living cells~[J].
-ACS sensors.
+ACS Sensors.
 2018, 3~(9):  1735--1742.
 
 \bibitem{chen2006measurement}
 Chen~H, Puhl~H~L, Koushik~S~V, et~al.
 Measurement of FRET efficiency and ratio of donor to acceptor concentration in living cells~[J].
-Biophysical journal.
+Biophysical Journal.
 2006, 91~(5):  L39--L41.
 
 \bibitem{zhao2020quantitative}
 Zhao~H, Li~W, Chu~W, et~al.
 Quantitative Analysis of Protein Self-Association by Sedimentation Velocity~[J].
-Current protocols in protein science.
+Current Protocols in Protein Science.
 2020, 101~(1):  e109.
 
 \bibitem{clark2023single}
@@ -236,7 +236,7 @@ Journal of Innovative Optical Health Sciences.
 \bibitem{ronneberger2015u}
 Ronneberger~O, Fischer~P, Brox~T.
 U-net: Convolutional networks for biomedical image segmentation~[C].
-In Medical image computing and computer-assisted intervention--MICCAI 2015: 18th international conference, Munich, Germany, October 5-9, 2015, proceedings, part III 18.
+In Medical Image Computing and Computer-assisted Intervention--MICCAI 2015: 18th international conference, Munich, Germany, October 5-9, 2015, proceedings, part III 18.
 2015:  234--241.
 
 \bibitem{thomsen2020deepfret}
@@ -254,7 +254,7 @@ STAR Protocols.
 \bibitem{berg2019ilastik}
 Berg~S, Kutra~D, Kroeger~T, et~al.
 Ilastik: interactive machine learning for (bio) image analysis~[J].
-Nature methods.
+Nature Methods.
 2019, 16~(12):  1226--1232.
 
 \bibitem{kromp2020annotated}
@@ -335,7 +335,7 @@ In Integrated Formal Methods: 15th International Conference, IFM 2019, Bergen, N
 \bibitem{koushik2006cerulean}
 Koushik~S~V, Chen~H, Thaler~C, et~al.
 Cerulean, Venus, and VenusY67C FRET reference standards~[J].
-Biophysical journal.
+Biophysical Journal.
 2006, 91~(12):  L99--L101.
 
 \bibitem{thaler2005quantitative}
@@ -347,7 +347,7 @@ Biophysical journal.
 \bibitem{feldmann2023protocol}
 Feldmann~C, Sch{\"a}nzler~M, Ben-Johny~M, et~al.
 Protocol for deriving proximity, affinity, and stoichiometry of protein interactions using image-based quantitative two-hybrid FRET~[J].
-STAR protocols.
+STAR Protocols.
 2023, 4~(3):  102459.
 
 \bibitem{kirillov2023segment}
@@ -371,7 +371,7 @@ Computers in Biology and Medicine.
 \bibitem{wang2020discovery}
 Wang~L, Doherty~G~A, Judd~A~S, et~al.
 Discovery of A-1331852, a first-in-class, potent, and orally-bioavailable BCL-XL inhibitor~[J].
-ACS medicinal chemistry letters.
+ACS Medicinal Chemistry Letters.
 2020, 11~(10):  1829--1836.
 
 \bibitem{kuusanmaki2023erythroid}
@@ -383,7 +383,7 @@ Blood.
 \bibitem{warren2019bcl}
 Warren~C~F, Wong-Brown~M~W, Bowden~N~A.
 BCL-2 family isoforms in apoptosis and cancer~[J].
-Cell death \& disease.
+Cell Death \& Disease.
 2019, 10~(3):  177.
 
 \bibitem{sun2023regorafenib}
@@ -413,7 +413,7 @@ In Proceedings ELMAR-2011.
 \bibitem{sun2019}
 Sun~H, Zhang~C, Ma~Y, et~al.
 Controlling and online measurement of automatic dual-channel E-FRET microscope~[J].
-Biomedical signal processing and control.
+Biomedical Signal Processing and Control.
 2019, 53~(Aug.):  101585.1--101585.9.
 
 \end{thebibliography}

@@ -43,10 +43,10 @@
 \contentsline {subsection}{\numberline {3.4.1}成像参数设置模块测试}{42}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}数据检验模块测试}{43}{subsection.3.4.2}%
 \contentsline {subsection}{\numberline {3.4.3}FRET图像处理模块测试}{44}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4}数据管理模块测试}{46}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.4}数据管理模块测试}{45}{subsection.3.4.4}%
 \contentsline {subsection}{\numberline {3.4.5}结果可视化模块测试}{47}{subsection.3.4.5}%
 \contentsline {section}{\numberline {3.5}Fretha可靠性测试}{48}{section.3.5}%
-\contentsline {section}{\numberline {3.6}本章小结}{50}{section.3.6}%
+\contentsline {section}{\numberline {3.6}本章小结}{49}{section.3.6}%
 \contentsline {chapter}{\numberline {4}基于LURS的自动FRET双杂交分析}{51}{chapter.4}%
 \contentsline {section}{\numberline {4.1}引言}{51}{section.4.1}%
 \contentsline {section}{\numberline {4.2}材料与方法}{51}{section.4.2}%

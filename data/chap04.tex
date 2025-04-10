@@ -167,7 +167,7 @@ LURS算法流程如图 \ref{fig1} 所示：
 测量的结果列于表 \ref{tab:results_standard_plasmids} 中。
 \begin{table*}[hbtp]
     \centering
-    \caption{ 对标准质粒进行$3^3$-FRET和E-FRET测量的结果}
+    \caption{ LURS自动计算标准质粒的$3^3$-FRET和E-FRET结果}
     \begin{tabularx}{\linewidth}{
     >{\centering\arraybackslash}p{1cm}
     >{\centering\arraybackslash}X
@@ -195,12 +195,12 @@ $E_A$、$E_D$和$R_C$的平均相对误差分别为 5.1\%、2.9\% 和 3.3\%。
 所有质粒的$E_A$、$E_D$和$R_C$值都与已报道的值接近，这表明 LURS 算法能够成功提取出正确且有效的ROI，为FRET双杂交分析提供了从供体和受体角度的准确FRET效率等数据。
 
 \subsection{FRET双杂交验证实验}
-本节的测量方法和质粒详情与第 \ref{sec:模型质粒FRET双杂交验证实验} 节相同。
+本节的数据和质粒详情与第 \ref{sec:模型质粒FRET双杂交验证实验} 节相同，使用LURS算法自动选取ROI进行实验数据计算。
 图 \ref{fig:results_model_plasmids} 展示了共表达 C32V / CVC 且含有游离的 C（C32V + C，CVC + C）（上半部分）或游离的 V（C32V + V，CVC + V）（下半部分）的活 MCF7 细胞的三张荧光图像（DD、AA 和 DA）（左侧），使用Fretha手动标注的ROI（中间），以及DC-FRET和L-FRET的结果图（右侧）。
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\linewidth]{../figures/4/LURS结果-模型质粒.drawio.png}
-    \caption[模型质粒验证实验结果]{在存在游离供体或受体的情况下，分别通过DC-FRET和L-FRET方法对MCF7活细胞中标准质粒（C32V和CVC）的$E_{A, max}$、$E_{D, max}$和$n_D/n_A$进行自动FRET双杂交分析测量结果。}
+    \caption[LURS自动处理的C32V和CVC的FRET双杂交分析结果]{使用LURS算法自动进行FRET双杂交分析，在存在游离供体或受体的情况下，分别通过DC-FRET和L-FRET方法对MCF7活细胞中标准质粒（C32V和CVC）的$E_{A, max}$、$E_{D, max}$和$n_D/n_A$测量结果。}
     \label{fig:results_model_plasmids}
 \end{figure}
 
@@ -214,7 +214,7 @@ LURS结合DC-FRET，测量得到 C32V 质粒中的$E_{A,max}$为 0.322，$E_{D,m
 
 \begin{table*}[htbp]
     \centering
-    \caption{模型质粒的FRET双杂交分析结果}
+    \caption{LURS自动计算C32V、CVC的FRET双杂交分析结果}
     \begin{tabularx}{\linewidth}{
       >{\centering\arraybackslash}X
       >{\centering\arraybackslash}p{2.2cm}
