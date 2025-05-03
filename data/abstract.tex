@@ -32,7 +32,7 @@ LURS算法通过多通道自适应阈值分割、变异系数均匀性评估和�
 结合LURS和DC-FRET方法，自动分析测得Cerulean和Venus在C32V中的结合计量比为1.063，在CVC中则为1.900，与文献值误差不超过6.3\%。
 应用LURS算法检测活MCF-7细胞中Bcl-xL-Bak相互作用的化学计量比，发现加药A1331852处理后，Bcl-xL-Bak之间结合的化学计量比由1.87降为1.12，与手动分析结果一致，处理速度比手动数据处理快85.7\%。
 对比SAM-Med2D和ilastik的自动分析方法，LURS的计算误差最小，具有更好的鲁棒性。
-LURS算法处理1.4GB数据集的速度为6.6 ms / ROI，峰值内存占用为800 MB，且在性能上优于ilastik（35.2 ms / ROI，1.8 GB）和SAM-Med2D（50.7 ms / ROI，14 GB），更适用于高通量药物筛选等大数据量场景。
+LURS算法处理1.4GB数据集的速度为6.6 ms / ROI，峰值内存占用为800 MB，且在性能上优于ilastik（35.2 ms / ROI，1.8 GB）、Unet++（21.6 ms / ROI，8.1GB）SAM-Med2D（50.7 ms / ROI，14 GB），更适用于高通量药物筛选等大数据量场景。
 
 总之，Fretha软件及LURS算法简化并规范了FRET双杂交分析数据处理的过程，同时提高了自动化的水平，降低了FRET双杂交分析技术的使用门槛，有望被广泛应用于生物大分子相互作用的研究。
 \end{cabstract}
@@ -73,7 +73,7 @@ In the standard plasmid verification experiment, the $E_{A}$, $E_{D}$ and $R_C$ 
 Combining LURS and DC-FRET methods, the stoichiometry of Cerulean and Venus in C32V was automatically analyzed to be 1.063, while in CVC it was 1.900, with an error of no more than 6.3\% compared to the literature value.
 The chemical stoichiometry of Bcl-xL-Bak interaction in live MCF-7 cells was detected using LURS algorithm, and it was found that the chemical stoichiometry of Bcl-xL-Bak binding decreased from 1.87 to 1.12 after treatment with A1331852, which was consistent with the manual analysis results, and the processing speed was 85.7\% faster than manual data processing.
 Compared with the automatic analysis methods of SAM-Med2D and ilastik, LURS has the smallest calculation error and better robustness.
-The LURS algorithm processes a 1.4 GB dataset at a speed of 6.6 ms / ROI, with a peak memory usage of 800 MB, and outperforms ilastik (35.2 ms / ROI, 1.8 GB) and SAM-Med2D (50.7 ms / ROI, 14 GB) in performance, making it more suitable for large data volume scenarios such as high-throughput drug screening.
+The LURS algorithm processes a 1.4 GB dataset at a speed of 6.6 ms / ROI, with a peak memory usage of 800 MB, and outperforms ilastik (35.2 ms / ROI, 1.8 GB), Unet++(21.6ms / ROI, 8.1GB) and SAM-Med2D (50.7 ms / ROI, 14 GB) in performance, making it more suitable for large data volume scenarios such as high-throughput drug screening.
 
 In summary, Fretha software and LURS algorithm simplify and standardize the data processing process of FRET two-hybrid assay, while improving the level of automation and reducing the threshold for use of FRET two-hybrid assay technology, which is expected to be widely used in the study of biomacromolecular interactions.
 \end{eabstract}

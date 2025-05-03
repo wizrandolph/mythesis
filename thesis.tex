@@ -12,7 +12,7 @@
 %5. title选项用于生成封面，默认是空白的。
 
 
-\documentclass[anon,master,twoprof,private]{scnuthesis}
+\documentclass[master,twoprof,twoside]{scnuthesis}
 \usepackage{myscnu}
 \usepackage{xeCJK}  % 中文支持
 \usepackage{CJKnumb} 
@@ -34,11 +34,11 @@
 % \newpage
 % \thispagestyle{plain}
 % \mbox{}
-\listoftables           % 如果要生成表目录
+% \listoftables           % 如果要生成表目录
 % % \newpage
 % % \thispagestyle{plain}
 % % \mbox{}
-\listoffigures          % 如果要生成图目录
+% \listoffigures          % 如果要生成图目录
 % \newpage
 % \thispagestyle{plain}
 % \mbox{}
@@ -71,18 +71,20 @@
 % \input{data/appendix02}
 
 % 致谢
-% \cleardoublepage
-% \renewcommand{\chapterlabel}{\ackname} % 设置参考文献的页眉
-% \input{data/ack}
+\cleardoublepage
+\renewcommand{\chapterlabel}{\ackname} % 设置参考文献的页眉
+\input{data/ack}
 % \newpage
 % \thispagestyle{plain}
 % \mbox{}
 
 % 作者攻读学位期间发表的学术论文目录
 \cleardoublepage
-% \input{data/resume}
+\input{data/resume}
 % \renewcommand{\chapterlabel}{\innoname} % 设置创新性说明页眉
-\input{data/inno}
+% \input{data/inno}
+
+\input{data/statement}
 
 \end{document}
 %%

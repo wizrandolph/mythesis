@@ -416,4 +416,10 @@ Controlling and online measurement of automatic dual-channel E-FRET microscope~[
 Biomedical Signal Processing and Control.
 2019, 53~(Aug.):  101585.1--101585.9.
 
+\bibitem{zhou2018unet++}
+Zhou~Z, Rahman~Siddiquee~M~M, Tajbakhsh~N, et~al.
+Unet++: A nested u-net architecture for medical image segmentation~[C].
+In Deep learning in medical image analysis and multimodal learning for clinical decision support: 4th international workshop, DLMIA 2018, and 8th international workshop, ML-CDS 2018, held in conjunction with MICCAI 2018, Granada, Spain, September 20, 2018, proceedings 4.
+2018:  3--11.
+
 \end{thebibliography}

@@ -94,17 +94,6 @@
 \setsansfont[ExternalLocation=fonts/, BoldFont={arialbd.ttf},ItalicFont={ariali.ttf}]{arial.ttf}
 \setmonofont[ExternalLocation=fonts/, BoldFont={courbd.ttf},ItalicFont={couri.ttf}]{cour.ttf}
 
-% 原模版
-% \setCJKfamilyfont{song}[ExternalLocation=fonts/]{AdobeSong.otf}
-% \setCJKfamilyfont{hei}[ExternalLocation=fonts/]{AdobeHei.otf}
-% \setCJKfamilyfont{fs}[ExternalLocation=fonts/]{AdobeFangsong.otf}
-% \setCJKfamilyfont{kai}[ExternalLocation=fonts/]{AdobeKai.otf}
-% \setCJKfamilyfont{li}[ExternalLocation=fonts/]{AdobeKai.otf}
-% \setCJKfamilyfont{you}[ExternalLocation=fonts/]{AdobeKai.otf}
-% \setCJKmainfont[ExternalLocation=fonts/, BoldFont={AdobeHei.otf},ItalicFont={AdobeKai.otf}]{AdobeSong.otf}
-% \setCJKsansfont[ExternalLocation=fonts/]{AdobeHei.otf}
-% \setCJKmonofont[ExternalLocation=fonts/]{AdobeKai.otf}
-
 % 替换本地字体为windows字体集方法
 \setCJKfamilyfont{song}[ExternalLocation=fonts/]{simsun.ttc}
 \setCJKfamilyfont{hei}[ExternalLocation=fonts/]{simhei.ttf}
@@ -251,23 +240,23 @@
 }
 
 \newpagestyle{frontpage}{
-  \sethead{}{\raisebox{.65\baselineskip}
-  {
-    \songti \wuhao
-    \ifischapter % 标题作为页眉
-      \ifistwoside
-      {
-        \ifodd \value{page} % 奇数页
-        {\songti \wuhao \chaptertitle}
-        \else % 偶数页
-        {\songti \wuhao \chaptertitle}\fi
-      }
-      \else
-      {\songti \wuhao \chaptertitle}\fi
-      \else %标题不作为页眉
-      {\songti \wuhao \chaptertitle}\fi
-  }}{}
-  \headrule%
+  % \sethead{}{\raisebox{.65\baselineskip}
+  % {
+  %   \songti \wuhao
+  %   \ifischapter % 标题作为页眉
+  %     \ifistwoside
+  %     {
+  %       \ifodd \value{page} % 奇数页
+  %       {\songti \wuhao \chaptertitle}
+  %       \else % 偶数页
+  %       {\songti \wuhao \chaptertitle}\fi
+  %     }
+  %     \else
+  %     {\songti \wuhao \chaptertitle}\fi
+  %     \else %标题不作为页眉
+  %     {\songti \wuhao \chaptertitle}\fi
+  % }}{}
+  % \headrule%
   \setfoot{}{{\songti \wuhao \thepage}}{}%
 }
 
@@ -328,25 +317,25 @@
 }
 
 \newpagestyle{emptypage}{
-\sethead{}{\raisebox{.65\baselineskip}
-  {
-    \songti \wuhao
-    \ifischapter % 标题作为页眉
-      \ifistwoside
-      {
-        \ifodd \value{page} % 奇数页
-          {\chaptertitle}
-        \else % 偶数页
-          {\chaptertitle}
-        \fi
-      }
-      \else
-      {\chaptertitle}\fi
-      \else %标题不作为页眉
-      {\chaptertitle}\fi
-  }
-}{}
-\headrule%
+% \sethead{}{\raisebox{.65\baselineskip}
+%   {
+%     \songti \wuhao
+%     \ifischapter % 标题作为页眉
+%       \ifistwoside
+%       {
+%         \ifodd \value{page} % 奇数页
+%           {\chaptertitle}
+%         \else % 偶数页
+%           {\chaptertitle}
+%         \fi
+%       }
+%       \else
+%       {\chaptertitle}\fi
+%       \else %标题不作为页眉
+%       {\chaptertitle}\fi
+%   }
+% }{}
+% \headrule%
 \setfoot{}{{\songti \wuhao \thepage}}{}%
 % \footrule%
 % \setfootrule{1bp}
@@ -406,24 +395,24 @@
   % \addcontentsline{toc}{chapter}{\cabstractname}%
   ~
   \begin{spacing}{2.0}
-    \begin{center}{\sanhao \hei \@displaytitle}\end{center}%
+    \begin{center}{\sanhao \hei 摘~要}\end{center}%
   \end{spacing}
   \xiaosi \vspace{1.4pt}%
   \ifisanon {
     \hideInfo
   }\fi
-  \begin{center}%
-    \begin{tabular}[c]{lc}%
-      {专业名称：} & \@subject \\%
-      {申\kern0.5em请\kern0.5em人：}& \@author \\%
-      {导\kern2em师：} & \@supervisor \\%
-    \end{tabular}%
-  \end{center}%
+  % \begin{center}%
+  %   \begin{tabular}[c]{lc}%
+  %     {专业名称：} & \@subject \\%
+  %     {申\kern0.5em请\kern0.5em人：}& \@author \\%
+  %     {导\kern2em师：} & \@supervisor \\%
+  %   \end{tabular}%
+  % \end{center}%
 
-  ~\\%
-  ~\\%
-  ~\\%
-  {\heiti\xiaosan \cabstractname} %
+  %
+  % ~\\%
+  % ~\\%
+  % {\heiti\xiaosan \cabstractname} %
 
   % \@afterheading
 }
@@ -435,22 +424,22 @@
   % \addcontentsline{toc}{chapter}{\eabstractname}%
   ~
   \begin{spacing}{2.0}
-    \begin{center}{\sanhao \textsf{\@entitle}}\end{center}%
+    \begin{center}{\sanhao \textbf{ABSTRACT}}\end{center}%
   \end{spacing}
   \xiaosi \vspace{1.4pt}
 
-  \begin{center}%
-    \begin{tabular}[c]{lc}%
-      Major： & \@ensubject \\%
-      Candidate：& \@enauthor \\%
-      Supervisor： & \@ensupervisor \\%
-    \end{tabular}%
-  \end{center}%
+  % \begin{center}%
+  %   \begin{tabular}[c]{lc}%
+  %     Major： & \@ensubject \\%
+  %     Candidate：& \@enauthor \\%
+  %     Supervisor： & \@ensupervisor \\%
+  %   \end{tabular}%
+  % \end{center}%
 
-  ~\\%
-  ~\\%
-  ~\\%
-  {\sihao \textsf \eabstractname} %
+  % ~\\%
+  % ~\\%
+  % ~\\%
+  % {\sihao \textsf \eabstractname} %
 
   % \@afterheading
 }
@@ -609,7 +598,7 @@
 \newenvironment{ack}{%
   \thispagestyle{emptypage}
   \chapter*{\ackname}%
-  \addcontentsline{toc}{chapter}{\ackname}%
+  \addcontentsline{toc}{chapter}{\normalfont\ackname}%
   \ifisanon\color{white}\else\relax\fi%
   \xiaosi%
   \@mainmatterfalse
@@ -628,6 +617,20 @@
 }
 {\par\vspace{2em}\par}
 
+% wzq 新增 原创性说明
+\newcommand\statementname{华南师范大学学位论文原创性声明}
+\newenvironment{statement}{%
+  \thispagestyle{emptypage}
+  \chapter*{\statementname}
+  \chaptermark{\statementname}
+  \addcontentsline{toc}{chapter}{\normalfont\statementname}
+  % \ifisanon\color{white}\else\relax\fi%
+  \xiaosi
+  \@mainmatterfalse
+  \@afterheading
+} % wzq 结束新增
+{\par\vspace{2em}\par}
+
 % wzq 新增 论文创新性说明
 % \newcommand\innoname{本文创新性说明}
 \newenvironment{inno}{%
@@ -641,6 +644,7 @@
   \@afterheading
 } % wzq 结束新增
 {\par\vspace{2em}\par}
+
 \renewtheoremstyle{nonumberplain}%
 {\item[\hspace*{2em} \theorem@headerfont ##1\ \theorem@separator]}%
 {\item[\hspace*{2em} \theorem@headerfont ##1\ (##3)\theorem@separator]}
@@ -744,10 +748,10 @@
 }%
 
 \newcommand\hideInfo{
-  \classification{}  % 分类号
-  \udc{}             % UDC号
-  \confidentiality{}  % 密级
-  \serialno{}
+  \classification{}       % 分类号
+  \udc{}                  % UDC号
+  \confidentiality{}      % 密级
+  % \serialno{2022023414}   % 学号
   \supervisor{}
   \protitle{}
   \author{}
@@ -759,10 +763,10 @@
 }
 
 \newcommand\privateInfo{
-  \classification{\@privatetext}  % 分类号
-  \udc{\@privatetext}             % UDC号
-  \confidentiality{\@privatetext}  % 密级
-  \serialno{\@privatetext}
+  \classification{\@privatetext}    % 分类号
+  \udc{\@privatetext}               % UDC号
+  \confidentiality{\@privatetext}   % 密级
+  % \serialno{\@privatetext}
   \supervisor{\@privatetext}
   \protitle{\@privatetext}
   \author{\@privatetext}
@@ -790,7 +794,7 @@
     \begin{tabular}{llcll}
       分类号：  & \entry{1}{3.2cm}{\@classification}      \hspace*{4.8cm}   %
       密级： & \entry{1}{3.2cm}{\@confidentiality} \\[5mm]
-      UDC & \entry{1}{3.2cm}{\@udc}     \hspace*{4.8cm}%
+      UDC： & \entry{1}{3.2cm}{\@udc}     \hspace*{4.8cm}%
       学号：  & \entry{1}{3.2cm}{\@serialno}
     \end{tabular}
   }
@@ -824,6 +828,7 @@
       {所\kern1em在\kern1em学\kern1em院：}   & \UnderlineCentered{6cm}{2mm}{\@school} \\
       % \vspace{2mm}
       {导师姓名及职称：}          & \UnderlineCentered{6cm}{2mm}{\@supervisor~\@protitle} \\
+      & \UnderlineCentered{6cm}{2mm}{\@secondsupervisor~\@secondprotitle} \\
     \end{tabular}
   }\\
   \ifisanon
@@ -868,8 +873,9 @@
       \textbf{\sanhao Candidate:}           & \UnderlineCentered{6cm}{2mm}{\@enauthor} \\[-5.5mm]
       \textbf{\sanhao Major:}               & \UnderlineCentered{6cm}{2mm}{\@ensubject} \\[-1.5mm]
       \textbf{\sanhao Research direction:}  & \UnderlineCentered{6cm}{2mm}{\@enresearchfield} \\[-1.5mm]
-      \textbf{\sanhao Department/School:}   & \UnderlineCentered{6cm}{2mm}{\@enschool} \\[-5.5mm]
-      \textbf{\sanhao Supervisor:}          & \UnderlineCentered{6cm}{2mm}{\@ensupervisor~\@enprotitle} \\
+      \textbf{\sanhao Department/School:}   & \UnderlineCentered{6cm}{2mm}{\@enschool} \\[-1.5mm]
+      \textbf{\sanhao Supervisor:}          & \UnderlineCentered{6cm}{2mm}{\@enprotitle~\@ensupervisor} \\[-5.5mm]
+      & \UnderlineCentered{6cm}{2mm}{\@ensecondprotitle~\@secondensupervisor} \\
     \end{tabular}
   }\\
   \ifisanon

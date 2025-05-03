@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.10)  10 APR 2025 10:33
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.10)  3 MAY 2025 17:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1407,7 +1407,15 @@ File: figures/title.pdf Graphic file (type pdf)
 
 ]
 
+[2
+
+]
+
 [1
+
+]
+
+[2
 
 ] (./data/abstract.tex
 
@@ -1428,176 +1436,64 @@ Package fontspec Info:
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
 (fontspec)             <->"[fonts/simhei.ttf]/OT:script=hani;language=dflt;embolden=4;slant=0.167;mapping=tex-text;"
 
-LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 1.
+LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 18.
 
 
 LaTeX Font Warning: Font shape `U/matha/m/n' in size <8.43146> not available
-(Font)              size <8> substituted on input line 1.
+(Font)              size <8> substituted on input line 18.
 
 
 LaTeX Font Warning: Font shape `U/mathb/m/n' in size <8.43146> not available
-(Font)              size <8> substituted on input line 1.
+(Font)              size <8> substituted on input line 18.
 
 
 LaTeX Font Warning: Font shape `U/mathx/m/n' in size <8.43146> not available
-(Font)              size <8> substituted on input line 1.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1--1
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1--1
-
- []
+(Font)              size <8> substituted on input line 18.
 
 
 
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
-
- [1
+[1
 
 
 
 ]
 
+[2]
 
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
+[3]
 
+[4
 
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
-
- [2]
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
-
- [3]
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
-
- []
-
-
+]
 Overfull \hbox (4.61967pt too wide) in paragraph at lines 46--54
 []\TU/times.ttf(0)/m/n/12.045 The data processing process of FRET two-hybrid assay is cumbersome and time-consuming,
  []
 
 
 
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[4
+[5
 
 ]
 
+[6]
 
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
+[7])
 
-[5]
+[8] (./thesis.toc
 
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[6])
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-[7] (./thesis.toc
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.40672pt too high) has occurred while \output is active []
-
- [8
+[9
 
 ]
 
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.40672pt too high) has occurred while \output is active []
-
- [9])
+[10])
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
 
 
+[11]
 
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.40672pt too high) has occurred while \output is active []
-
- [10] (./thesis.lot)
-\tf@lot=\write6
-\openout6 = `thesis.lot'.
-
-
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.61256pt too high) has occurred while \output is active []
-
- [11
-
-] (./thesis.lof)
-\tf@lof=\write7
-\openout7 = `thesis.lof'.
-
-
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.53023pt too high) has occurred while \output is active []
-
- [12
+[12
 
 ] (./data/chap01.tex
 File: figures/../figures/1/1_FRET过程示意图.png Graphic file (type bmp)
@@ -2069,6 +1965,10 @@ Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [37]
 
+[38
+
+]
+
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 []
@@ -2077,7 +1977,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [38
+ [39
 
 
 ]
@@ -2090,7 +1990,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [39]
+ [40]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `superscript' on input line 62.
@@ -2107,32 +2007,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [40]
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
-
  [41]
-Overfull \hbox (0.92778pt too wide) in paragraph at lines 135--135
- []|$\OML/txmi/m/it/10.53937 E[]$| 
- []
-
-
-Overfull \hbox (0.92778pt too wide) in paragraph at lines 135--135
- []|$\OML/txmi/m/it/10.53937 E[]$| 
- []
-
-
-Overfull \hbox (0.92778pt too wide) in paragraph at lines 135--135
- []|$\OML/txmi/m/it/10.53937 E[]$| 
- []
-
-
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2143,6 +2018,21 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [42]
+Overfull \hbox (0.92778pt too wide) in paragraph at lines 135--135
+ []|$\OML/txmi/m/it/10.53937 E[]$| 
+ []
+
+
+Overfull \hbox (0.92778pt too wide) in paragraph at lines 135--135
+ []|$\OML/txmi/m/it/10.53937 E[]$| 
+ []
+
+
+Overfull \hbox (0.92778pt too wide) in paragraph at lines 135--135
+ []|$\OML/txmi/m/it/10.53937 E[]$| 
+ []
+
+
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2153,9 +2043,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [43]
-File: figures/../figures/3/测试-视图切换.drawio.png Graphic file (type bmp)
-<figures/../figures/3/测试-视图切换.drawio.png>
-
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2166,6 +2053,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [44]
+File: figures/../figures/3/测试-视图切换.drawio.png Graphic file (type bmp)
+<figures/../figures/3/测试-视图切换.drawio.png>
+
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2186,6 +2076,16 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [46]
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+
+ [47]
 File: figures/../figures/3/测试-结果可视化.drawio.png Graphic file (type bmp)
 <figures/../figures/3/测试-结果可视化.drawio.png>
 
@@ -2198,20 +2098,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [47]
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
-
  [48]
-File: figures/../figures/3/测试-48小时内存波动.drawio.png Graphic file (type bmp)
-<figures/../figures/3/测试-48小时内存波动.drawio.png>
-) (./data/chap04.tex
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2222,6 +2109,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
  [49]
+File: figures/../figures/3/测试-48小时内存波动.drawio.png Graphic file (type bmp)
+<figures/../figures/3/测试-48小时内存波动.drawio.png>
+) (./data/chap04.tex
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2241,7 +2131,21 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [51
+ [51]
+
+[52
+
+]
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+
+ [53
 
 
 ]
@@ -2254,27 +2158,27 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [52]
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
-
- [53]
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
-
  [54]
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+
+ [55]
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+
+ [56]
 File: figures/../figures/4/LURS流程图.drawio.png Graphic file (type bmp)
 <figures/../figures/4/LURS流程图.drawio.png>
 
@@ -2287,7 +2191,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [55]
+ [57]
 File: figures/../figures/4/自动ROI圈点在Fretha的流程.drawio.png Graphic file (type bmp)
 <figures/../figures/4/自动ROI圈点在Fretha的流程.drawio.png>
 
@@ -2300,7 +2204,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [56]
+ [58]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `superscript' on input line 165.
@@ -2315,7 +2219,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [57]
+ [59]
 File: figures/../figures/4/LURS结果-模型质粒.drawio.png Graphic file (type bmp)
 <figures/../figures/4/LURS结果-模型质粒.drawio.png>
 
@@ -2328,45 +2232,22 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [58]
-Overfull \hbox (0.92778pt too wide) in paragraph at lines 236--236
- []|$\OML/txmi/m/it/10.53937 E[]$| 
- []
-
-
-Overfull \hbox (0.92778pt too wide) in paragraph at lines 236--236
- []|$\OML/txmi/m/it/10.53937 E[]$| 
- []
-
-
-Overfull \hbox (0.92778pt too wide) in paragraph at lines 236--236
- []|$\OML/txmi/m/it/10.53937 E[]$| 
- []
-
-
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
-
- [59]
-File: figures/../figures/4/4_方法对比.png Graphic file (type bmp)
-<figures/../figures/4/4_方法对比.png>
-
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
-
  [60]
+Overfull \hbox (0.92778pt too wide) in paragraph at lines 236--236
+ []|$\OML/txmi/m/it/10.53937 E[]$| 
+ []
+
+
+Overfull \hbox (0.92778pt too wide) in paragraph at lines 236--236
+ []|$\OML/txmi/m/it/10.53937 E[]$| 
+ []
+
+
+Overfull \hbox (0.92778pt too wide) in paragraph at lines 236--236
+ []|$\OML/txmi/m/it/10.53937 E[]$| 
+ []
+
+
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2376,7 +2257,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [61]) (./data/chap05.tex
+ [61]
+File: figures/../figures/4/方法对比.drawio.png Graphic file (type bmp)
+<figures/../figures/4/方法对比.drawio.png>
+
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2406,8 +2290,19 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [64
+ [64]) (./data/chap05.tex
 
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+
+ [65]
+
+[66
 
 ]
 
@@ -2418,106 +2313,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
-
- [65])
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.65373pt too high) has occurred while \output is active []
-
- [66] (./thesis.bbl
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.61256pt too high) has occurred while \output is active []
 
  [67
 
 
-
 ]
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.61256pt too high) has occurred while \output is active []
-
- [68]
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.61256pt too high) has occurred while \output is active []
-
- [69]
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.61256pt too high) has occurred while \output is active []
-
- [70]
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.61256pt too high) has occurred while \output is active []
-
- [71]
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.61256pt too high) has occurred while \output is active []
-
- [72]
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.61256pt too high) has occurred while \output is active []
-
- [73])
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-[]
- []
-
-
-Overfull \vbox (0.61256pt too high) has occurred while \output is active []
-
- [74] (./data/inno.tex)
-\tf@thm=\write8
-\openout8 = `thesis.thm'.
-
-
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2527,8 +2327,75 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [75
+ [68])
 
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+
+Overfull \vbox (0.65373pt too high) has occurred while \output is active []
+
+ [69]
+
+[70
+
+] (./thesis.bbl
+
+[71
+
+
+
+]
+
+[72]
+
+[73]
+
+[74]
+
+[75]
+
+[76]
+
+[77])
+
+[78] (./data/ack.tex)
+
+[79
+
+
+]
+
+[80
+
+] (./data/resume.tex
+Overfull \hbox (1.8502pt too wide) in paragraph at lines 20--20
+ []|[]| 
+ []
+
+
+Overfull \hbox (1.8502pt too wide) in paragraph at lines 20--20
+ []|[]| 
+ []
+
+) (./data/statement.tex
+
+[81
+
+
+]
+
+[82
+
+])
+\tf@thm=\write6
+\openout6 = `thesis.thm'.
+
+
+
+[83
 
 ] (./thesis.aux)
  ***********
@@ -2541,15 +2408,15 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.43146pt have occurred.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 23F9426F81E228A8FBC1E7E9A6E402E9;8877.
+(rerunfilecheck)             Checksum: E212177ECBC6F01354BBD56EC348CC21;9177.
  ) 
 Here is how much of TeX's memory you used:
- 25242 strings out of 475796
- 511005 string characters out of 5773188
- 1273957 words of memory out of 5000000
- 47640 multiletter control sequences out of 15000+600000
+ 25246 strings out of 475796
+ 511067 string characters out of 5773188
+ 1273734 words of memory out of 5000000
+ 47646 multiletter control sequences out of 15000+600000
  632049 words of font info for 254 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  89i,20n,107p,901b,1296s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on thesis.xdv (89 pages, 1592068 bytes).
+Output written on thesis.xdv (99 pages, 1459312 bytes).
