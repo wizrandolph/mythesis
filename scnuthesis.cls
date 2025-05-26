@@ -409,7 +409,7 @@
   %   \end{tabular}%
   % \end{center}%
 
-  %
+  
   % ~\\%
   % ~\\%
   % {\heiti\xiaosan \cabstractname} %
@@ -598,6 +598,7 @@
 \newenvironment{ack}{%
   \thispagestyle{emptypage}
   \chapter*{\ackname}%
+  \chaptermark{\ackname}
   \addcontentsline{toc}{chapter}{\normalfont\ackname}%
   \ifisanon\color{white}\else\relax\fi%
   \xiaosi%

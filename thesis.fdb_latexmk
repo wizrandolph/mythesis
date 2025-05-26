@@ -1,19 +1,19 @@
 # Fdb version 4
-["bibtex thesis"] 1746260576.02233 "thesis.aux" "thesis.bbl" "thesis" 1746264629.33028 0
+["bibtex thesis"] 1746497885.8251 "thesis.aux" "thesis.bbl" "thesis" 1748260534.37025 0
   "./bstutf8.bst" 1744187131.69032 54963 56dbaefa4749325a6ad265ae55f27043 ""
-  "./ref/refs.bib" 1746093369.46575 36959 aa73b614819cc4d3f3c29f43649fe85c ""
-  "thesis.aux" 1746264596.9018 31461 64519f7723703dd1d73b9d2b53b2a5dd "xelatex"
+  "./ref/refs.bib" 1746497885.50327 37010 ad430974b6352cb6b1414a84eed2216c ""
+  "thesis.aux" 1748260500.95049 31461 053ea1bb7b61bd7e1a2b662d2455282b "xelatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["xdvipdfmx"] 1746264597.23361 "thesis.xdv" "thesis.pdf" "thesis" 1746264629.33279 0
-  "thesis.xdv" 1746264596.9018 1459312 e5fdd887925403702e4238657313625e "xelatex"
+["xdvipdfmx"] 1748260501.28687 "thesis.xdv" "thesis.pdf" "thesis" 1748260534.37244 0
+  "thesis.xdv" 1748260500.95049 1458956 1bb79c1778a29a5cb4002dfb106886de "xelatex"
   (generated)
   "thesis.pdf"
   (rewritten before read)
-["xelatex"] 1746264594.60978 "/home/elowiz/scnu-thesis/mythesis/thesis.tex" "thesis.xdv" "thesis" 1746264629.33038 0
-  "/home/elowiz/scnu-thesis/mythesis/thesis.tex" 1746180056.01366 2183 6ca6ee25d07600a5b7a6d36f07a77112 ""
+["xelatex"] 1748260498.7085 "/home/elowiz/scnu-thesis/mythesis/thesis.tex" "thesis.xdv" "thesis" 1748260534.37035 0
+  "/home/elowiz/scnu-thesis/mythesis/thesis.tex" 1746285279.18868 2255 4f6720f1b8c19ce62314dddd6efd1765 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -191,10 +191,10 @@
   "data/chap01.tex" 1744251875.44203 26958 066842eed3ebca9776365333f455d808 ""
   "data/chap02.tex" 1746251410.77359 45374 96987138bc66a9b72a88a51d93385741 ""
   "data/chap03.tex" 1744252358.93189 27662 04afc00dc9dcab37af291a5d267546a4 ""
-  "data/chap04.tex" 1746264110.09186 26756 9835dde66c64b6e9d6b63fd225a787d8 ""
+  "data/chap04.tex" 1746281494.08918 26683 45a6121f5fb812fea9e8d70c071fa140 ""
   "data/chap05.tex" 1746157243.51675 7039 aef993c119ae6b2dd82a7e99509825a4 ""
-  "data/info.tex" 1746264594.3118 1126 2db80919954f3a21ae3b15e135f6901f ""
-  "data/resume.tex" 1746261708.42219 2036 e098de6bf36ca70c07ef149df8c0f71f ""
+  "data/info.tex" 1748260474.7205 1120 9c55679845f4918a0c0b45020953a55b ""
+  "data/resume.tex" 1746497889.52327 2036 e098de6bf36ca70c07ef149df8c0f71f ""
   "data/statement.tex" 1746260426.41236 1997 d6865cf1326e6cd34869f18ffff88843 ""
   "figures/../figures/1/1_FRET过程示意图.png" 1741491304 104578 cea563bed5f718eef0ed980c7a3acf1e ""
   "figures/../figures/2/DC-FRET结果界面.drawio.png" 1744005671.08462 1887565 a9da9a0a36c50c98f05ff5da59b1ab76 ""
@@ -221,12 +221,12 @@
   "figures/../figures/4/自动ROI圈点在Fretha的流程.drawio.png" 1744028918.02924 361843 c7d017ef72b83a2e2e61083458ef3b73 ""
   "figures/title.pdf" 1741491304 7767 7927ba34a3a8a22ed983dd276f8cfeba ""
   "myscnu.sty" 1744043615.95024 1242 f111fd23532011d09453c85e39e91fa4 ""
-  "scnuthesis.cls" 1746252855.0334 29980 bf7b5b7170dd121b4369e7699f15feae ""
-  "thesis.aux" 1746264596.9018 31461 64519f7723703dd1d73b9d2b53b2a5dd "xelatex"
-  "thesis.bbl" 1746260576.15235 15207 8c87525e60beeb213cacb4db5dc65e56 "bibtex thesis"
-  "thesis.out" 1746264596.9018 9177 e212177ecbc6f01354bbd56ec348cc21 "xelatex"
-  "thesis.tex" 1746180056.01366 2183 6ca6ee25d07600a5b7a6d36f07a77112 ""
-  "thesis.toc" 1746264596.9018 6547 dc20b55d816b99aa46492826bb1ddd98 "xelatex"
+  "scnuthesis.cls" 1746285504.65865 30004 626cc461d703a4c449a1c6ca06a50fab ""
+  "thesis.aux" 1748260500.95049 31461 053ea1bb7b61bd7e1a2b662d2455282b "xelatex"
+  "thesis.bbl" 1746497885.94327 15229 1549cc452f649896b8e1c7aafa4486ca "bibtex thesis"
+  "thesis.out" 1748260500.95049 9177 e212177ecbc6f01354bbd56ec348cc21 "xelatex"
+  "thesis.tex" 1746285279.18868 2255 4f6720f1b8c19ce62314dddd6efd1765 ""
+  "thesis.toc" 1748260500.95049 6547 98edffe23e7be99f3a21dd859f2f6739 "xelatex"
   (generated)
   "thesis.aux"
   "thesis.log"

@@ -58,7 +58,7 @@
 \contentsline {subsection}{\numberline {4.3.1}E-FRET和$3^3$-FRET验证实验}{59}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}FRET双杂交验证实验}{60}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}活细胞中 Bcl-xL-Bak 化学计量比的自动分析}{61}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}自动分析算法性能对比}{64}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.4}自动分析算法性能对比}{63}{subsection.4.3.4}%
 \contentsline {section}{\numberline {4.4}本章小结}{65}{section.4.4}%
 \contentsline {chapter}{\numberline {5}总结与展望}{67}{chapter.5}%
 \contentsline {section}{\numberline {5.1}本文的主要内容和总结}{67}{section.5.1}%

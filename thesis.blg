@@ -10,7 +10,6 @@ Database file #1: ref/refs.bib
 -- See the "userguide.pdf" manual for usage information.
 Warning--there's a publisher but no address in lakowicz2006principles
 Warning--empty pages in clark2023single
-Warning--empty pages in zhang2025pretrained
 Warning--The editor in ronneberger2015u is missing.
 Warning--empty editor in ronneberger2015u
 Warning--The editor in huang2018gpipe is missing.
@@ -38,43 +37,43 @@ Warning--empty editor in zhou2018unet++
 Done.
 You've used 71 entries,
             4565 wiz_defined-function locations,
-            1426 strings with 24710 characters,
-and the built_in function-call counts, 48973 in all, are:
-= -- 5661
+            1428 strings with 24722 characters,
+and the built_in function-call counts, 49192 in all, are:
+= -- 5691
 > -- 800
-< -- 65
+< -- 66
 + -- 486
 - -- 249
-* -- 3800
-:= -- 5336
+* -- 3814
+:= -- 5355
 add.period$ -- 279
 call.type$ -- 71
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 97
-duplicate$ -- 3333
-empty$ -- 5104
+cite$ -- 96
+duplicate$ -- 3344
+empty$ -- 5122
 format.name$ -- 243
-if$ -- 12073
+if$ -- 12136
 int.to.chr$ -- 0
 int.to.str$ -- 71
 missing$ -- 0
 newline$ -- 425
 num.names$ -- 71
-pop$ -- 324
+pop$ -- 323
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1604
+skip$ -- 1618
 stack$ -- 0
-substring$ -- 5746
-swap$ -- 1046
-text.length$ -- 71
+substring$ -- 5782
+swap$ -- 1058
+text.length$ -- 72
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 836
-warning$ -- 26
-while$ -- 448
+warning$ -- 25
+while$ -- 450
 width$ -- 73
-write$ -- 627
-(There were 26 warnings)
+write$ -- 628
+(There were 25 warnings)

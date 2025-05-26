@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.10)  3 MAY 2025 17:29
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.10)  26 MAY 2025 19:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2280,7 +2280,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [63]
+ [63]) (./data/chap05.tex
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2290,7 +2290,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 Overfull \vbox (0.65373pt too high) has occurred while \output is active []
 
- [64]) (./data/chap05.tex
+ [64]
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2413,10 +2413,10 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 Here is how much of TeX's memory you used:
  25246 strings out of 475796
  511067 string characters out of 5773188
- 1273734 words of memory out of 5000000
+ 1273738 words of memory out of 5000000
  47646 multiletter control sequences out of 15000+600000
  632049 words of font info for 254 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  89i,20n,107p,901b,1296s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on thesis.xdv (99 pages, 1459312 bytes).
+Output written on thesis.xdv (99 pages, 1458956 bytes).
