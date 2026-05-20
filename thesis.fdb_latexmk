@@ -1,19 +1,19 @@
 # Fdb version 4
-["bibtex thesis"] 1746497885.8251 "thesis.aux" "thesis.bbl" "thesis" 1748260534.37025 0
+["bibtex thesis"] 1770128148.62245 "thesis.aux" "thesis.bbl" "thesis" 1770128560.94271 0
   "./bstutf8.bst" 1744187131.69032 54963 56dbaefa4749325a6ad265ae55f27043 ""
   "./ref/refs.bib" 1746497885.50327 37010 ad430974b6352cb6b1414a84eed2216c ""
-  "thesis.aux" 1748260500.95049 31461 053ea1bb7b61bd7e1a2b662d2455282b "xelatex"
+  "thesis.aux" 1770128529.09703 31461 053ea1bb7b61bd7e1a2b662d2455282b "xelatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["xdvipdfmx"] 1748260501.28687 "thesis.xdv" "thesis.pdf" "thesis" 1748260534.37244 0
-  "thesis.xdv" 1748260500.95049 1458956 1bb79c1778a29a5cb4002dfb106886de "xelatex"
+["xdvipdfmx"] 1770128529.43385 "thesis.xdv" "thesis.pdf" "thesis" 1770128560.94477 0
+  "thesis.xdv" 1770128529.09703 1457556 a19e930daee35d6fdc7912e8aab5bde3 "xelatex"
   (generated)
   "thesis.pdf"
   (rewritten before read)
-["xelatex"] 1748260498.7085 "/home/elowiz/scnu-thesis/mythesis/thesis.tex" "thesis.xdv" "thesis" 1748260534.37035 0
-  "/home/elowiz/scnu-thesis/mythesis/thesis.tex" 1746285279.18868 2255 4f6720f1b8c19ce62314dddd6efd1765 ""
+["xelatex"] 1770128526.87245 "/home/elowiz/scnu-thesis/mythesis/thesis.tex" "thesis.xdv" "thesis" 1770128560.9428 0
+  "/home/elowiz/scnu-thesis/mythesis/thesis.tex" 1770128526.61737 2260 f0a814c1a83178ac8d9fee4135804620 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -193,7 +193,7 @@
   "data/chap03.tex" 1744252358.93189 27662 04afc00dc9dcab37af291a5d267546a4 ""
   "data/chap04.tex" 1746281494.08918 26683 45a6121f5fb812fea9e8d70c071fa140 ""
   "data/chap05.tex" 1746157243.51675 7039 aef993c119ae6b2dd82a7e99509825a4 ""
-  "data/info.tex" 1748260474.7205 1120 9c55679845f4918a0c0b45020953a55b ""
+  "data/info.tex" 1748401887.38076 1120 9f2994d5d5af15d77a09ede3838b137f ""
   "data/resume.tex" 1746497889.52327 2036 e098de6bf36ca70c07ef149df8c0f71f ""
   "data/statement.tex" 1746260426.41236 1997 d6865cf1326e6cd34869f18ffff88843 ""
   "figures/../figures/1/1_FRET过程示意图.png" 1741491304 104578 cea563bed5f718eef0ed980c7a3acf1e ""
@@ -221,12 +221,12 @@
   "figures/../figures/4/自动ROI圈点在Fretha的流程.drawio.png" 1744028918.02924 361843 c7d017ef72b83a2e2e61083458ef3b73 ""
   "figures/title.pdf" 1741491304 7767 7927ba34a3a8a22ed983dd276f8cfeba ""
   "myscnu.sty" 1744043615.95024 1242 f111fd23532011d09453c85e39e91fa4 ""
-  "scnuthesis.cls" 1746285504.65865 30004 626cc461d703a4c449a1c6ca06a50fab ""
-  "thesis.aux" 1748260500.95049 31461 053ea1bb7b61bd7e1a2b662d2455282b "xelatex"
-  "thesis.bbl" 1746497885.94327 15229 1549cc452f649896b8e1c7aafa4486ca "bibtex thesis"
-  "thesis.out" 1748260500.95049 9177 e212177ecbc6f01354bbd56ec348cc21 "xelatex"
-  "thesis.tex" 1746285279.18868 2255 4f6720f1b8c19ce62314dddd6efd1765 ""
-  "thesis.toc" 1748260500.95049 6547 98edffe23e7be99f3a21dd859f2f6739 "xelatex"
+  "scnuthesis.cls" 1770128143.3029 30004 626cc461d703a4c449a1c6ca06a50fab ""
+  "thesis.aux" 1770128529.09703 31461 053ea1bb7b61bd7e1a2b662d2455282b "xelatex"
+  "thesis.bbl" 1770128148.7029 15229 1549cc452f649896b8e1c7aafa4486ca "bibtex thesis"
+  "thesis.out" 1770128529.09703 9177 e212177ecbc6f01354bbd56ec348cc21 "xelatex"
+  "thesis.tex" 1770128526.61737 2260 f0a814c1a83178ac8d9fee4135804620 ""
+  "thesis.toc" 1770128529.09703 6547 98edffe23e7be99f3a21dd859f2f6739 "xelatex"
   (generated)
   "thesis.aux"
   "thesis.log"
